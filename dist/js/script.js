@@ -14,7 +14,6 @@ let arrPlatforms = document.querySelectorAll('.logIn__platforms-platforms input'
 
 document.addEventListener('DOMContentLoaded', function () {
 
-
     function logoTest() { // анимицаия лого
         logo.style.transform = 'translateY(0)'
         logo.style.transition = '1s'
@@ -51,6 +50,12 @@ function back(page) {
     page.style.left = '100%'
 }
 
+setTimeout(function () { // анимация появления bg
+    let arrBgAnimate = document.querySelectorAll( '.bg-animate' )
+    for(let bgAnimate of arrBgAnimate)
+    bgAnimate.style.cssText = 'opacity: 1'
+},3000)
+
 let arrShowAll = document.querySelectorAll('#showAll')
 let arrBtnApple = document.querySelectorAll('#btnApple')
 let arrBtnGoogle = document.querySelectorAll('#btnGoogle')
@@ -76,5 +81,11 @@ for (let i = 0; i < arrShowAll.length; i++) {
     }
     showAll.addEventListener('click', showAllTest)
 }
+
+
+
+
+
+
 
 
