@@ -5,6 +5,7 @@ let logInPlatforms = document.querySelector('.logIn__platforms')
 let logInIn = document.querySelector('.logIn__in')
 let resetPass = document.querySelector('.logIn__reset-pass')
 let checkEmail = document.querySelector('.logIn__check-email')
+let logInMenu = document.querySelector('.logIn__menu')
 
 
 
@@ -15,8 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let logo = document.getElementById('logo')
         for(let bgAnimate of arrBgAnimate)
             bgAnimate.style.cssText = 'opacity: 1'
-        logo.style.transform = 'translateY(0)'
-        logo.style.transition = '1s'
+        logInMenu.style.height = '43%'
     }
     setTimeout(logoAnimate, 3000)
 

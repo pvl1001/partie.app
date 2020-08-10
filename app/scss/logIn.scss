@@ -13,12 +13,11 @@
         transition: 1s easy;
     }
 
-    #logo {
-        transition: 1s easy;
-        //margin-top: 157px;
-        transform: translateY(157px);
+    .logIn__menu {
+        transition: 1s ease;
+        height: 0;
+        overflow: hidden;
     }
-
 
     button {
         margin-bottom: 10px;

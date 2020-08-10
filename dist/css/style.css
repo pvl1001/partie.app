@@ -53,13 +53,12 @@
   transition: 1s easy;
 }
 
-.logIn #logo {
-  -webkit-transition: 1s easy;
-  -o-transition: 1s easy;
-  transition: 1s easy;
-  -webkit-transform: translateY(157px);
-  -ms-transform: translateY(157px);
-  transform: translateY(157px);
+.logIn .logIn__menu {
+  -webkit-transition: 1s ease;
+  -o-transition: 1s ease;
+  transition: 1s ease;
+  height: 0;
+  overflow: hidden;
 }
 
 .logIn button {
