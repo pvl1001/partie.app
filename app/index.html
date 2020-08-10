@@ -11,7 +11,7 @@
 </head>
 <body>
 
-@@include('bg-animation.html')
+@@include('_bg-animation.html')
 
 <div class="wrapper">
     <div class="logIn">
@@ -41,10 +41,16 @@
             <button class="btn-in">Log in</button>
             <div class="or"><span>or</span></div>
 
-            @@include('_loginButtons.html')
-
+            <div id="btnContainer" class="btn-container">
+                <button id="btnApple" class="btn-apple">Log in with Apple</button>
+            </div>
+            <div id="showAll" class="show-all">
+                <a href="#">Show all</a>
+            </div>
         </div>
-<!--2-->
+        @@include('_loginButtons.html')
+
+        <!--2-->
         <div class="sign-up center">
             <div class="sign-up__top">
                 Sign up to Partie
@@ -149,14 +155,20 @@
                 <button class="btn-in bg-fiolet">Log in</button>
                 <div class="need-help">Need help? Contact Us</div>
                 <div class="or"><span>or</span></div>
-
-                @@include('_loginButtons.html')
-
+                <div id="btnContainer" class="btn-container">
+                    <button id="btnApple" class="btn-apple">Log in with Apple</button>
+                </div>
+                <div id="showAll" class="show-all">
+                    <a href="#">Show all</a>
+                </div>
             </div>
+            @@include('_loginButtons.html')
+
 <!--Восстановление пароля-->
             <div class="logIn__reset-pass center">
                 <div class="sign-up__top">
-                    Reset Password
+                    <span>Reset Password</span>
+<!--                    <div class="password-reseted">Password reseted</div>-->
                     <svg id="back" onclick="back(resetPass)" class="btn-back" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"/>
                         <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"/>
@@ -197,6 +209,8 @@
     </div>
 
 </div>
+
+
 
 <script src="js/script.min.js"></script>
 </body>

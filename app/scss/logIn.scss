@@ -59,16 +59,6 @@
         background: #17161f url('../img/icon/apple.png') 20px center / auto 19px no-repeat;
     }
 
-    .btn-google {
-        background: #17161f url('../img/icon/google.png') 20px center / auto 19px no-repeat;
-        display: none;
-    }
-
-    .btn-facebook {
-        background: #17161f url('../img/icon/facebook.png') 20px center / auto 19px no-repeat;
-        display: none;
-    }
-
     .show-all {
         text-align: center;
 
@@ -287,6 +277,18 @@
         left: 100%;
         display: flex;
         flex-direction: column;
+
+        .password-reseted {
+            display: inline-block;
+            padding: 10px 15px;
+            background: #14131A;
+            border-radius: 33px;
+            font-size: 13px;
+            font-weight: 400;
+            color: #FFFFFF;
+            mix-blend-mode: normal;
+            margin-top: -10px;
+        }
 
         form {
             flex-grow: 1;

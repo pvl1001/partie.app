@@ -1,7 +1,4 @@
 
-let logo = document.getElementById('logo')
-let btnPlatforms = document.getElementById('btnPlatforms')
-
 let signUpPage = document.querySelector('.sign-up')
 let logInCode = document.querySelector('.logIn__code')
 let logInPlatforms = document.querySelector('.logIn__platforms')
@@ -9,19 +6,24 @@ let logInIn = document.querySelector('.logIn__in')
 let resetPass = document.querySelector('.logIn__reset-pass')
 let checkEmail = document.querySelector('.logIn__check-email')
 
-let arrPlatforms = document.querySelectorAll('.logIn__platforms-platforms input')
 
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    function logoTest() { // анимицаия лого
+    function logoAnimate() { // анимицаия лого
+        let arrBgAnimate = document.querySelectorAll( '.bg-animate' )
+        let logo = document.getElementById('logo')
+        for(let bgAnimate of arrBgAnimate)
+            bgAnimate.style.cssText = 'opacity: 1'
         logo.style.transform = 'translateY(0)'
         logo.style.transition = '1s'
     }
-    setTimeout(logoTest, 3000)
+    setTimeout(logoAnimate, 3000)
 
 
     let arrChecked = [] // появление кнопки platforms continue
+    let arrPlatforms = document.querySelectorAll('.logIn__platforms-platforms input')
+    let btnPlatforms = document.getElementById('btnPlatforms')
     for(let platform of arrPlatforms) {
         platform.addEventListener('change', function () {
             if(platform.checked) {
@@ -50,11 +52,6 @@ function back(page) {
     page.style.left = '100%'
 }
 
-setTimeout(function () { // анимация появления bg
-    let arrBgAnimate = document.querySelectorAll( '.bg-animate' )
-    for(let bgAnimate of arrBgAnimate)
-    bgAnimate.style.cssText = 'opacity: 1'
-},3000)
 
 @@include( '_loginButtons.js' )
 @@include( '_bgAnimation.js' )
