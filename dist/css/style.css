@@ -243,7 +243,6 @@
 
 .logIn .logIn__platforms .logIn__platforms-platforms .card {
   width: calc(50% - 7.5px);
-  border: 1px solid white;
   border-radius: 20px;
   height: 200px;
   margin-bottom: 15px;
@@ -270,8 +269,24 @@
   transition: .5s;
 }
 
-.logIn .logIn__platforms .logIn__platforms-platforms .card input[type=checkbox]:checked + label {
+.logIn .logIn__platforms .logIn__platforms-platforms .card input[type=checkbox]:checked + label[for=pc] {
+  background-color: #6E4AFF;
+}
+
+.logIn .logIn__platforms .logIn__platforms-platforms .card input[type=checkbox]:checked + label[for=ps] {
   background-color: #184292;
+}
+
+.logIn .logIn__platforms .logIn__platforms-platforms .card input[type=checkbox]:checked + label[for=switch] {
+  background-color: #EB4335;
+}
+
+.logIn .logIn__platforms .logIn__platforms-platforms .card input[type=checkbox]:checked + label[for=xbox] {
+  background-color: #077D07;
+}
+
+.logIn .logIn__platforms .logIn__platforms-platforms .card input[type=checkbox]:checked + label[for=mobile] {
+  background-color: #D2C867;
 }
 
 .logIn .logIn__platforms .logIn__platforms-platforms .card label[for=pc] {

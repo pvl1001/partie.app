@@ -190,7 +190,6 @@
 
             .card {
                 width: calc(50% - 7.5px);
-                border: 1px solid white;
                 border-radius: 20px;
                 height: 200px;
                 margin-bottom: 15px;
@@ -212,8 +211,20 @@
                     left: 0;
                     transition: .5s;
                 }
-                input[type=checkbox]:checked + label {
+                input[type=checkbox]:checked + label[for=pc] {
+                    background-color: #6E4AFF;
+                }
+                input[type=checkbox]:checked + label[for=ps] {
                     background-color: #184292;
+                }
+                input[type=checkbox]:checked + label[for=switch] {
+                    background-color: #EB4335;
+                }
+                input[type=checkbox]:checked + label[for=xbox] {
+                    background-color: #077D07;
+                }
+                input[type=checkbox]:checked + label[for=mobile] {
+                    background-color: #D2C867;
                 }
 
                 label[for=pc] {
