@@ -9,19 +9,19 @@ for (let i = 0; i < arrShowAll.length; i++) {
 
     function showAllBtns() { // анимация кнопок на стартовой
         bgBtnContainerShow.style.cssText = 'opacity: 0.6; z-index: 0;'
-        btnSocial.classList.add('animate__fadeInUp')
         btnSocial.classList.remove('animate__fadeOutDownBig')
+        btnSocial.classList.add('animate__fadeInUp')
         btnSocial.style.cssText = 'z-index: 0; display: block;'
     }
 
     function showAllBtnsOff() {
         bgBtnContainerShow.style.cssText = ''
-        btnSocial.classList.remove('animate__fadeInUp')
         btnSocial.classList.add('animate__fadeOutDownBig')
-        btnSocial.style.cssText = 'z-index: 0;'
-        setTimeout(function () {
-            btnSocial.style.cssText = 'display: none;'
-        },300)
+        btnSocial.classList.remove('animate__fadeInUp')
+        // btnSocial.style.cssText = 'z-index: 0;'
+        // setTimeout(function () {
+        //     btnSocial.style.cssText = ''
+        // },3000)
     }
 
     showAll.addEventListener( 'click', showAllBtns )

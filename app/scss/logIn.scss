@@ -6,11 +6,12 @@
     padding-bottom: 67px;
 
     .logo {
-        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         transition: 1s easy;
+        flex-grow: 1;
+        min-height: 200px;
     }
 
     .logIn__menu {
@@ -59,8 +60,8 @@
     }
 
     .show-all {
-        text-align: center;
-
+        display: flex;
+        justify-content: center;
         a {
             color: #EBEBF5;
         }
@@ -347,6 +348,12 @@
         .sign-up__top {
             align-self: flex-start;
         }
+    }
+}
+
+@media (max-height: 550px) {
+    .logIn {
+        height: auto;
     }
 }
 

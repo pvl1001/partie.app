@@ -222,7 +222,7 @@ input[type=password] {
 
 .btn-container-show {
     transition: 1s easy;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     background-color: #000;
@@ -231,6 +231,7 @@ input[type=password] {
     border-radius: 20px 20px 0;
     z-index: -1;
     opacity: 0;
+    display: none;
 
     .btn-apple {
         background: #17161f url('../img/icon/apple.png') 20px center / auto 19px no-repeat;
