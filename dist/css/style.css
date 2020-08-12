@@ -143,6 +143,17 @@
   margin-bottom: 20px;
 }
 
+.logIn .sign-up__forms .input-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.logIn .sign-up__forms .input-group input:not(:first-child) {
+  width: 96px;
+  margin-left: 10px;
+}
+
 .logIn .sign-up__forms .title {
   font-size: 13px;
   margin-bottom: 10px;
@@ -352,6 +363,10 @@
   margin: 20px 0;
 }
 
+.logIn .logIn__in .logIn__menu {
+  min-height: 260px;
+}
+
 .logIn .forgot a {
   font-weight: bold;
   font-size: 14px;
@@ -458,6 +473,7 @@
   -webkit-transition: 3s;
   -o-transition: 3s;
   transition: 3s;
+  z-index: -2;
   -webkit-animation-name: line;
   animation-name: line;
   -webkit-animation-duration: 100s;
@@ -739,6 +755,77 @@
   position: absolute;
 }
 
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  white-space: nowrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 35px 40px 35px 253px;
+}
+
+.header .header__col1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.header .header__col1 ul.header__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.header .header__col1 ul.header__nav li:not(:last-child) {
+  margin-right: 50px;
+}
+
+.header .header__col2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.header .header__col2 .header__logIn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.header .header__col2 .header__logIn a {
+  margin-right: 41px;
+}
+
+.header .header__col2 .header__logIn button {
+  width: 134px;
+  border-radius: 40px;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -804,6 +891,7 @@ button::-moz-focus-inner {
 a,
 a:visited {
   text-decoration: none;
+  color: #EBEBF5;
 }
 
 a:hover {
@@ -832,6 +920,9 @@ body {
   font-family: Mont, sans-serif;
   background-color: #000;
   color: #EBEBF5;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
 }
 
 .wrapper {
@@ -1019,6 +1110,187 @@ input[type=password]::placeholder {
 
 .btn-container-show .btn-facebook {
   background: #17161f url("../img/icon/facebook.png") 20px center/auto 19px no-repeat;
+}
+
+.salutation {
+  font-size: 88px;
+  text-align: center;
+  width: 760px;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.btn-play {
+  background: #6e4aff url("../img/icon/play.png") center/auto 22px no-repeat;
+  border-radius: 50%;
+  width: 78px;
+  height: 78px;
+  margin-top: 40px;
+}
+
+.color-gray {
+  color: #504D60 !important;
+}
+
+.modal {
+  top: 0 !important;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 80%;
+  width: 464px;
+  margin: auto;
+  border-radius: 20px;
+  opacity: 1 !important;
+}
+
+.modal .sign-up__tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 40px;
+}
+
+.modal .sign-up__tab .sign-up__tab_sign-up {
+  margin-right: 15px;
+}
+
+.modal .sign-up__tab .close {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+.header__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 100px;
+  position: fixed;
+  z-index: 10;
+  padding: 37px 40px;
+}
+
+.header__logo .header__logo-text {
+  margin-left: 16px;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .logIn .logo svg,
+  .logIn .logIn__menu,
+  .logIn .sign-up__top {
+    display: none;
+  }
+
+  .logIn .sign-up,
+  .logIn .logIn__in {
+    left: 0;
+    top: -200%;
+    height: 80%;
+    width: 464px;
+    margin: auto;
+    border-radius: 20px;
+    opacity: 0;
+  }
+
+  .logIn .logIn__code {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  .logIn .logIn__platforms {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .logIn .logIn__platforms .logIn__platforms-platforms {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .logIn .logIn__platforms .logIn__platforms-platforms .card {
+    margin: 0 25px 0 0 !important;
+    width: 130px;
+    height: 172px;
+  }
+
+  .logIn .logIn__platforms .logIn__platforms-platforms .card:nth-child(5) {
+    margin: 0 !important;
+  }
+
+  .logIn .logIn__platforms .logIn__platforms-platforms button {
+    position: absolute;
+    bottom: -100px;
+  }
+
+  body {
+    background: #2e2e49 -webkit-gradient(linear, left top, left bottom, color-stop(22.4%, #141423), to(rgba(20, 20, 35, 0)));
+    background: #2e2e49 -o-linear-gradient(top, #141423 22.4%, rgba(20, 20, 35, 0) 100%);
+    background: #2e2e49 linear-gradient(180deg, #141423 22.4%, rgba(20, 20, 35, 0) 100%);
+  }
+
+  .wrapper {
+    padding: 0 40px;
+  }
+
+  .mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .salutation,
+  .sign-up__tab,
+  .header__logo {
+    display: none;
+  }
+
+  .header {
+    display: none;
+  }
 }
 
 @media (max-height: 550px) {

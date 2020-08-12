@@ -6,11 +6,11 @@
     bottom: 0;
     opacity: 0;
     transition: 3s;
+    z-index: -2;
 
     @keyframes line {
-        0% {
-            //top: -200px;
-        }
+        0% {}
+
         100% {
             top: 150%;
         }

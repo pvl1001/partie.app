@@ -1,12 +1,14 @@
-
 let signUpPage = document.querySelector('.sign-up')
 let logInCode = document.querySelector('.logIn__code')
 let logInPlatforms = document.querySelector('.logIn__platforms')
 let logInIn = document.querySelector('.logIn__in')
 let resetPass = document.querySelector('.logIn__reset-pass')
 let checkEmail = document.querySelector('.logIn__check-email')
+let header = document.querySelector('.header')
+let salutation = document.querySelector('.salutation')
+let body = document.querySelector('body')
 let arrlogInMenu = document.querySelectorAll('.logIn__menu')
-
+let arrBgShow = document.querySelectorAll( '#bgShow' )
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -34,23 +36,56 @@ document.addEventListener('DOMContentLoaded', function () {
                 btnPlatforms.style.display = 'block'
                 btnPlatforms.classList.remove('animate__fadeOutDown')
                 btnPlatforms.classList.add('animate__fadeInUp')
-                btnPlatforms.style.zIndex = ''
+                if(window.innerWidth > 767) {
+                    btnPlatforms.style.zIndex = ''
+                    logInPlatforms.style.backgroundColor = 'transparent'
+                }
+
             } else {
                 btnPlatforms.classList.remove('animate__fadeInUp')
                 btnPlatforms.classList.add('animate__fadeOutDown')
-                btnPlatforms.style.zIndex = '-1'
+                if(window.innerWidth > 767) {
+                    btnPlatforms.style.zIndex = '-1'
+                    logInPlatforms.style.backgroundColor = ''
+                }
             }
         })
     }
 
 })
 
-function next(page) {
-    page.style.left = '0'
+function next(open, close) { // кнопка далее
+    open.style.left = '0'
+    setTimeout(function () {
+        close.style.left = '100%'
+    }, 500)
+    for(let bgShow of arrBgShow)
+        bgShow.style.cssText = ''
+    header.style.opacity = '0'
+    salutation.style.display = 'none'
+    body.style.background = '#000'
 }
 
-function back(page) {
+function back(page) { // кнопка назад
     page.style.left = '100%'
+}
+
+function openModal(modal) { // modal
+    modal.classList.add( 'modal' )
+
+    for(let bgShow of arrBgShow) {
+        bgShow.style.cssText = 'opacity: 0.6; z-index: 0;'
+        bgShow.addEventListener( 'click', function () {
+            modal.classList.remove( 'modal' )
+            for(let bgBtnContainerShow of arrBgBtnContainerShow)
+                bgBtnContainerShow.style.cssText = ''
+        })
+    }
+}
+function closeModal(modal) {
+    modal.classList.remove( 'modal' )
+    for(let bgBtnContainerShow of arrBgBtnContainerShow)
+    bgBtnContainerShow.style.cssText = ''
 }
 
 

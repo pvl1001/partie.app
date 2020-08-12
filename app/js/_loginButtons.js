@@ -18,10 +18,6 @@ for (let i = 0; i < arrShowAll.length; i++) {
         bgBtnContainerShow.style.cssText = ''
         btnSocial.classList.add('animate__fadeOutDownBig')
         btnSocial.classList.remove('animate__fadeInUp')
-        // btnSocial.style.cssText = 'z-index: 0;'
-        // setTimeout(function () {
-        //     btnSocial.style.cssText = ''
-        // },3000)
     }
 
     showAll.addEventListener( 'click', showAllBtns )

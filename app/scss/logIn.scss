@@ -93,6 +93,15 @@
             margin-bottom: 20px;
         }
 
+        .input-group {
+            display: flex;
+
+            input:not(:first-child) {
+                width: 96px;
+                margin-left: 10px;
+            }
+        }
+
         .title {
             font-size: 13px;
             margin-bottom: 10px;
@@ -274,6 +283,10 @@
             text-align: center;
             margin: 20px 0;
         }
+
+        .logIn__menu {
+            min-height: 260px;
+        }
     }
 
     .forgot a{
@@ -354,6 +367,67 @@
 @media (max-height: 550px) {
     .logIn {
         height: auto;
+    }
+}
+
+@media (max-width: 767px) { // mobile
+    .salutation,
+    .sign-up__tab,
+    .header__logo {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) { // pc
+    .logIn {
+        .logo svg,
+        .logIn__menu,
+        .sign-up__top, {
+            display: none;
+        }
+
+        .sign-up,
+        .logIn__in {
+            left: 0;
+            top: -200%;
+            height: 80%;
+            width: 464px;
+            margin: auto;
+            border-radius: 20px;
+            opacity: 0;
+        }
+
+        .logIn__code {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logIn__platforms {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0;
+
+            .logIn__platforms-platforms {
+                justify-content: center;
+                position: relative;
+
+                .card {
+                    margin: 0 25px 0 0 !important;
+                    width: 130px;
+                    height: 172px;
+                }
+                .card:nth-child(5) {
+                    margin: 0 !important;
+                }
+
+                button {
+                    position: absolute;
+                    bottom: -100px;
+                }
+            }
+        }
     }
 }
 
