@@ -12,6 +12,8 @@
 @import 'logIn.scss';
 @import 'bg-animation.scss';
 @import 'header';
+@import 'subscription';
+@import 'feed';
 
 
 //обнуление
@@ -64,6 +66,10 @@ textarea {
     font-family: inherit;
 }
 
+textarea {
+    resize: none;
+}
+
 input::-ms-clear {
     display: none;
 }
@@ -101,6 +107,15 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
 
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
 //-------------------------
 
 
@@ -127,6 +142,7 @@ button {
     color: #EBEBF5;
     font-weight: bold;
     transition: .5s easy;
+    cursor: pointer;
 }
 
 input {
@@ -168,6 +184,10 @@ input[type=password] {
 
 .hidden {
     visibility: hidden;
+}
+
+.d-block {
+    display: block !important;
 }
 
 .center {
@@ -214,6 +234,15 @@ input[type=password] {
     font-size: 24px;
 }
 
+.active-tab {
+    color: #EBEBF5 !important;
+}
+
+.disabled {
+    background: #29282F;
+    color: rgba(235,235,245,.3);
+}
+
 .bg-btn-container-show {
     position: absolute;
     top: 0;
@@ -225,14 +254,15 @@ input[type=password] {
     z-index: -1;
 }
 
+
 .btn-container-show {
     transition: 1s easy;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    //position: fixed;
+    //bottom: 0;
+    //left: 0;
     background-color: #000;
     width: 100%;
-    padding: 30px 30px 54px;
+    //padding: 30px 30px 54px;
     border-radius: 20px 20px 0;
     z-index: -1;
     opacity: 0;
@@ -241,6 +271,7 @@ input[type=password] {
     .btn-apple {
         background: #17161f url('../img/icon/apple.png') 20px center / auto 19px no-repeat;
         margin-bottom: 10px;
+        display: none;
     }
 
     .btn-google {
@@ -275,16 +306,165 @@ input[type=password] {
     color: #504D60 !important;
 }
 
-.modal {
-    top: 0 !important;
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+    position: fixed;
+    //z-index: 10;
+    padding: 37px 40px;
+
+    //display: none;
+
+
+    .header__logo-text {
+        margin-left: 16px;
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 700;
+    }
+}
+
+.modal-wrapp {
+    position: fixed;
+    width: 100% !important;
+    height: 100% !important;
+    top: -200%;
     left: 0;
-    right: 0;
-    bottom: 0;
-    height: 80%;
-    width: 464px;
-    margin: auto;
-    border-radius: 20px;
-    opacity: 1 !important;
+    background-color: rgba(0,0,0,.2);
+    text-align: center;
+    transition: .5s;
+
+    &:after {
+        content:'';
+        display: inline-block;
+        vertical-align: middle;
+        width: 1px;
+        height: 100%;
+        background: transparent;
+    }
+}
+
+.modal {
+    text-align: left;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+    background: url('../img/icon/profile.png') center / cover no-repeat;
+    position: relative;
+
+    .avatar__star {
+        height: 16px;
+        width: 16px;
+        border-radius: 6px;
+        position: absolute;
+        top: 0;
+        right: -8px;
+        background: #6E4AFF url('../img/icon/Star.png') 50% calc(50% - 0.9px) / 10px no-repeat;
+    }
+}
+
+.avatar-name {
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 10px;
+
+    span {
+        opacity: 0.3;
+        margin-left: 7px;
+    }
+}
+
+
+.like {
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin-right: 20px;
+
+    label {
+        display: flex;
+        align-items: center;
+
+        path {
+            transition: .2s;
+        }
+    }
+    input[type=checkbox]:checked + label path {
+        fill: #F45365;
+    }
+
+    svg {
+        cursor: pointer;
+        margin-right: 10px;
+    }
+}
+
+.comment {
+    display: flex;
+    align-items: center;
+
+    img {
+        margin-right: 10px;
+        cursor: pointer;
+    }
+}
+
+.share {
+    cursor: pointer;
+}
+
+@media (min-width: 768px) { // PC
+
+    body {
+        background: #2e2e49 linear-gradient(180deg, #141423 22.4%, rgba(20, 20, 35, 0) 100%);
+    }
+    .wrapper {
+        padding: 0 40px;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    .modal-wrapp {
+        position: fixed;
+        width: 100% !important;
+        height: 100% !important;
+        top: -200%;
+        left: 0;
+        background-color: rgba(0,0,0,.2);
+        text-align: center;
+        transition: .5s;
+
+        &:after {
+            content:'';
+            display: inline-block;
+            vertical-align: middle;
+            width: 1px;
+            height: 100%;
+            background: transparent;
+        }
+    }
+
+    .modal {
+        left: 0;
+        width: 464px;
+        margin: auto;
+        border-radius: 20px;
+        display: inline-block;
+        position: relative !important;
+        vertical-align: middle;
+        height: auto;
+        top: auto;
+        opacity: 1;
+    }
 
     .sign-up__tab {
         display: flex;
@@ -305,39 +485,41 @@ input[type=password] {
             cursor: pointer;
         }
     }
+
+    .logIn__menu {
+        display: block;
+    }
+
 }
 
-.header__logo {
-    display: flex;
-    align-items: center;
-    margin-right: 100px;
-    position: fixed;
-    z-index: 10;
-    padding: 37px 40px;
+@media (max-width: 767px) { // mobile
 
-    .header__logo-text {
-        margin-left: 16px;
-        font-size: 15px;
-        line-height: 20px;
-        font-weight: 700;
-    }
-}
-
-
-
-
-
-@media (min-width: 768px) { // PC
-
-    body {
-        background: #2e2e49 linear-gradient(180deg, #141423 22.4%, rgba(20, 20, 35, 0) 100%);
-    }
-    .wrapper {
-        padding: 0 40px;
+    .btn-container-wrapp {
+        position: fixed;
+        width: 100% !important;
+        height: 100% !important;
+        top: 100%;
+        left: 0;
+        background-color: rgba(0,0,0,.2);
+        text-align: center;
     }
 
-    .mobile {
+    .btn-container-show {
+        transition: 1s easy;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: #000;
+        width: 100%;
+        padding: 30px 30px 54px;
+        border-radius: 20px 20px 0;
+        z-index: -1;
+        opacity: 0;
         display: none;
+
+        .btn-apple {
+            display: block;
+        }
     }
 }
 
