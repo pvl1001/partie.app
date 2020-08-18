@@ -14,12 +14,14 @@
         }
 
         #addCreditCard.modal-wrapp {
-            top: -200%;
+            top: 0;
         }
 
         .modal-wrapp {
             background-color: #000;
-            top: -200%;
+            left: 100%;
+            top: 0;
+            transition: .5s ease;
 
             .subscription__modal {
                 padding: 30px 0;
@@ -122,7 +124,7 @@
                 }
             }
 
-            button {
+            button, a.btn {
                 margin-bottom: 20px;
             }
 

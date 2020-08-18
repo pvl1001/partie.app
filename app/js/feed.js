@@ -16,11 +16,12 @@ let peopleBtn = document.querySelector('.feed__people-btn')
 }
 
 
-let textarea = document.querySelector( 'textarea' )
+let textarea = document.querySelector( '#whatNewHead' )
 let feedWhatNewRow = document.querySelector( '.feed__what-new_row' )
 let photo1 = document.querySelector( 'label[for=photo-1]' )
 let feedWhatNewHead = document.querySelector( '.feed__what-new_head' )
 
+if (textarea !== null)
 textarea.addEventListener( 'focus', function () {
     feedWhatNewRow.style.display = 'flex'
     photo1.style.display = 'none'
@@ -31,6 +32,7 @@ textarea.addEventListener( 'focus', function () {
     feedWhatNewHead.style.flexWrap = 'wrap'
 } )
 
+
 function isNewComment() {
     let newComment = document.querySelector('#newComment')
     let newCommentBtn = document.querySelector('#newCommentBtn')
@@ -39,5 +41,75 @@ function isNewComment() {
     } else {
         newCommentBtn.style.visibility = ''
     }
-// alert()
 }
+
+// document.addEventListener('DOMContentLoaded', function () {
+
+    let tabForYou = document.querySelector( '#tabForYou' )
+    let tabGlobal = document.querySelector( '#tabGlobal' )
+    let global = document.querySelector( '.global' )
+    let forYou = document.querySelector( '.for-you' )
+
+    function clickTab(open, close) {
+        open.style.display = 'block'
+        close.style.display = 'none'
+        $( '.slider' ).slick('unslick')
+        $( '.slider' ).slick( {
+            slidesToShow: 10,
+            infinite: true,
+            responsive: [
+                {
+                    breakpoint: 1600,
+                    settings: {
+                        slidesToShow: 7
+                    }
+                },
+                {
+                    breakpoint: 1500,
+                    settings: {
+                        slidesToShow: 6
+                    }
+                },
+                {
+                    breakpoint: 1300,
+                    settings: {
+                        slidesToShow: 5
+                    }
+                },
+                {
+                    breakpoint: 1180,
+                    settings: {
+                        slidesToShow: 4
+                    }
+                }
+            ]
+        } )
+    }
+// })
+
+
+// show comments
+// let comment = document.querySelectorAll('.comments > .comments__comment')
+// let arrcommentsCommentReply = document.querySelectorAll('.comment-reply')
+// if (arrcommentsCommentReply.length !== 1) {
+//     for (let commentsCommentReply of arrcommentsCommentReply) {
+//         commentsCommentReply.style.display = 'none'
+//         arrcommentsCommentReply[0].style.display = ''
+//
+//         let arrCommentsShowMore = document.querySelectorAll('.comments__show-more')
+//         arrCommentsShowMore.forEach( function (commentsShowMore)  {
+//             commentsShowMore.onclick = showComments
+//         })
+//         function showComments() {
+//             this.style.display = 'none'
+//             for (let commentsCommentReply of arrcommentsCommentReply)
+//             commentsCommentReply.style.display = ''
+//         }
+//     }
+// }
+
+
+
+
+
+

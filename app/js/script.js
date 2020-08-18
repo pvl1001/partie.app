@@ -9,13 +9,43 @@ let salutation = document.querySelector('.salutation')
 let body = document.querySelector('body')
 let addCreditCard = document.querySelector('#addCreditCard')
 let subscriptionModal = document.querySelector('#subscriptionModal')
-
-
+let newPost = document.querySelector('#newPost')
+let chooseGame = document.querySelector('#chooseGame')
 let arrlogInMenu = document.querySelectorAll('.logIn__menu')
 let arrModalWrapp = document.querySelectorAll( '.modal-wrapp' )
 
-
 document.addEventListener('DOMContentLoaded', function () {
+
+    $( '.slider' ).slick( {
+        slidesToShow: 10,
+        infinite: true,
+        responsive: [
+            {
+                breakpoint: 1600,
+                settings: {
+                    slidesToShow: 7
+                }
+            },
+            {
+                breakpoint: 1500,
+                settings: {
+                    slidesToShow: 6
+                }
+            },
+            {
+                breakpoint: 1300,
+                settings: {
+                    slidesToShow: 5
+                }
+            },
+            {
+                breakpoint: 1180,
+                settings: {
+                    slidesToShow: 4
+                }
+            }
+        ]
+    } )
 
     function logoAnimate() { // анимицаия лого
         let arrBgAnimate = document.querySelectorAll( '.bg-animate' )
@@ -68,8 +98,16 @@ function next(open, close) { // кнопка далее
     }
 
     if (window.innerWidth > 767) { // pc
-        open.style.top = '0'
-        close.style.top = ''
+        if (open === addCreditCard || open === subscriptionModal) {
+            open.style.left = '0'
+            close.style.left = ''
+            closeModal(checkEmail)
+        } else {
+            openModal(open)
+            closeModal(close)
+        }
+
+
         if (open === logInCode || open === logInPlatforms) open.children[0].style.left = '0'
         setTimeout(function () {
             if (close === logInCode) {
@@ -96,12 +134,19 @@ function next(open, close) { // кнопка далее
     }
 }
 
-function back(page) { // кнопка назад
+function back(close, open) { // кнопка назад
     if (window.innerWidth > 767) { // pc
-        page.style.top = '-200%'
+        if (open === subscriptionModal) {
+            open.style.left = '0'
+            close.style.left = ''
+        } else {
+            closeModal( close )
+            openModal( open )
+        }
     }
     if (window.innerWidth <= 767) { // mobile
-        page.children[0].style.left = '100%'
+        close.children[0].style.left = '100%'
+        open.children[0].style.left = '0'
     }
 }
 
@@ -110,6 +155,7 @@ function openModal(modal) { // modal
 
     if (window.innerWidth > 767) { //pc
         modal.style.top = '0'
+        modal.style.backgroundColor = 'rgba(0,0,0,0.2)'
 
         if (modal === resetPass) {
             logInIn.style.top = ''
@@ -124,17 +170,29 @@ function openModal(modal) { // modal
 }
 
 function closeModal(modal) {
-    modal.style.top = ''
+    modal.style.cssText = ''
+    modal.style.transitionProperty = 'background-color, top'
+    modal.style.transitionDuration = '.4s, .5s'
+    modal.style.transitionDelay = '0s, .2s'
+    setTimeout(function () {
+        modal.style.cssText = ''
+    },300)
 }
 
 for (let modalWrapp of arrModalWrapp) { // close modal target
     modalWrapp.onclick = function (e) {
         if (e.target === modalWrapp) {
-            modalWrapp.style.top = ''
+            modalWrapp.style.cssText = ''
+            modalWrapp.style.transitionProperty = 'background-color, top'
+            modalWrapp.style.transitionDuration = '.4s, .5s'
+            modalWrapp.style.transitionDelay = '0s, .2s'
+            setTimeout(function () {
+                modalWrapp.style.cssText = ''
+            },300)
         }
     }
 }
 
-
+@@include( 'slick.min.js' )
 @@include( '_loginButtons.js' )
 @@include( 'feed.js' )

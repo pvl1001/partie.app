@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @font-face {
   font-family: "Mont";
   font-display: swap;
@@ -822,6 +824,117 @@
   border-radius: 40px;
 }
 
+/* Слайдер */
+
+.slick-slider {
+  min-width: 0;
+}
+
+/* Слайдер запущен */
+
+/* Слайдер с точками */
+
+/* Ограничивающая оболочка */
+
+.slick-list {
+  overflow: hidden;
+}
+
+/* Лента слайдов */
+
+.slick-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* Слайд */
+
+.slick-slide {
+  border-radius: 10px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  text-align: center;
+  overflow: hidden;
+  width: 93px !important;
+  margin-right: 15px;
+  position: relative;
+}
+
+/* Слайд активный (показывается) */
+
+/* Слайд основной */
+
+/* Слайд по центру */
+
+/* Клонированный слайд */
+
+/* Стрелка */
+
+/* Стрелка влево */
+
+.slick-arrow.slick-prev {
+  visibility: hidden !important;
+  position: absolute;
+}
+
+/* Стрелка вправо */
+
+.slick-arrow.slick-next {
+  width: 32px;
+  height: 16px;
+  position: absolute;
+  right: 0;
+  top: calc(50% - 16px);
+  z-index: 2;
+  font-size: 0;
+  background: #14131A url("../img/icon/arrow-down.png") center/12px no-repeat;
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+/* Стрелка не активная */
+
+/* Точки (булиты) */
+
+/* Активная точка */
+
+/* Элемент точки */
+
+.slider {
+  height: 124px;
+  margin-bottom: 21px;
+  position: relative;
+}
+
+.slider img,
+.slider div {
+  height: 100%;
+}
+
+.slider img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.slider:before {
+  content: '';
+  position: absolute;
+  background: -webkit-gradient(linear, right top, left top, color-stop(16.92%, #000000), to(rgba(0, 0, 0, 0)));
+  background: -o-linear-gradient(right, #000000 16.92%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(270deg, #000000 16.92%, rgba(0, 0, 0, 0) 100%);
+  height: 100%;
+  width: 93px;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -932,6 +1045,21 @@ body {
   -webkit-transition: .5s;
   -o-transition: .5s;
   transition: .5s;
+  /* хром, сафари */
+  /* ie 10+ */
+  /* фф (свойство больше не работает, других способов тоже нет)*/
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+}
+
+body {
+  -ms-overflow-style: none;
+}
+
+body {
+  overflow: -moz-scrollbars-none;
 }
 
 .wrapper {
@@ -940,7 +1068,8 @@ body {
   height: 100%;
 }
 
-button {
+button,
+a.btn {
   background-color: #17161F;
   border-radius: 20px;
   width: 100%;
@@ -951,6 +1080,15 @@ button {
   -o-transition: .5s easy;
   transition: .5s easy;
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 input {
@@ -1204,6 +1342,45 @@ input[type=password]::placeholder {
 
 .modal {
   text-align: left;
+  background-color: #000;
+  padding: 20px;
+}
+
+.modal .modal__head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.modal .modal__close {
+  height: 16px;
+  width: 16px;
+  background: url("../img/icon/close.png") center/14px no-repeat;
+  position: absolute;
+  right: 0;
+  top: calc(50% - 8px);
+  cursor: pointer;
+}
+
+textarea {
+  background-color: transparent;
+  color: #F8F6FF;
+  opacity: 0.3;
+  font-size: 17px;
+  height: 25px;
+  margin-right: auto;
 }
 
 .avatar {
@@ -1372,12 +1549,16 @@ input[type=password]::placeholder {
   }
 
   .subscription #addCreditCard.modal-wrapp {
-    top: -200%;
+    top: 0;
   }
 
   .subscription .modal-wrapp {
     background-color: #000;
-    top: -200%;
+    left: 100%;
+    top: 0;
+    -webkit-transition: .5s ease;
+    -o-transition: .5s ease;
+    transition: .5s ease;
   }
 
   .subscription .modal-wrapp .subscription__modal {
@@ -1496,7 +1677,8 @@ input[type=password]::placeholder {
     margin-bottom: 0;
   }
 
-  .subscription .modal-wrapp button {
+  .subscription .modal-wrapp button,
+  .subscription .modal-wrapp a.btn {
     margin-bottom: 20px;
   }
 
@@ -1564,16 +1746,140 @@ input[type=password]::placeholder {
   }
 
   .feed {
-    top: -200%;
-    position: fixed;
     height: 100%;
     width: 100%;
-    left: 0;
     background-color: #000;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     overflow: auto;
+    /* хром, сафари */
+    /* ie 10+ */
+    /* фф (свойство больше не работает, других способов тоже нет)*/
+  }
+
+  .feed::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .feed {
+    -ms-overflow-style: none;
+  }
+
+  .feed {
+    overflow: -moz-scrollbars-none;
+  }
+
+  .feed .new-post.modal button {
+    color: rgba(235, 235, 245, 0.4);
+    margin-bottom: 20px;
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+
+  .feed .new-post.modal textarea {
+    min-height: 80px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .feed .new-post.modal .new-post__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .feed .new-post.modal .new-post__row input#photo2 {
+    display: none;
+  }
+
+  .feed .new-post.modal .new-post__row button {
+    height: 32px;
+    width: 98px;
+    text-align: center;
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  .feed .new-post.modal .new-post__row button.bg-fiolet {
+    color: #F8F6FF;
+  }
+
+  .feed .new-post.modal .new-post__row button:not(.bg-fiolet) {
+    width: 67px;
+    text-align: center;
+  }
+
+  .feed .new-post.modal .new-post__row .feed__what-new_post {
+    margin-left: auto;
+  }
+
+  .feed .new-post.modal .new-post__row label[for=photo2] {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #F8F6FF url("../img/icon/photo.png") center/14px no-repeat;
+    cursor: pointer;
+    margin-right: 8px;
+  }
+
+  .feed .choose-game.modal {
+    max-height: 75%;
+    overflow: auto;
+  }
+
+  .feed .choose-game.modal .choose-game__close {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 17px;
+  }
+
+  .feed .choose-game.modal input {
+    background: #14131a url("../img/icon/search.png") 19px center/20px no-repeat;
+    padding-left: 55px;
+    margin-bottom: 28px;
+  }
+
+  .feed .choose-game.modal .choose-game__game {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  .feed .choose-game.modal .choose-game__game .game-cont {
+    margin-bottom: 20px;
+  }
+
+  .feed .choose-game.modal .choose-game__game .game-cont:nth-child(2n) {
+    margin-left: 15px;
+  }
+
+  .feed .choose-game.modal .choose-game__game .game-cont .game__img {
+    width: 150px;
+    height: 200px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    background: url("../img/pic/slide4.png") center/cover no-repeat;
+  }
+
+  .feed .choose-game.modal .choose-game__game .game-cont .game__name {
+    text-align: center;
+    color: rgba(235, 235, 245, 0.5);
+    font-size: 14px;
+  }
+
+  .feed .global {
+    min-width: 0;
+    display: none;
   }
 
   .feed .feed__people-btn {
@@ -1626,7 +1932,7 @@ input[type=password]::placeholder {
   .feed .feed__col1 .feed__search .feed__search_search {
     width: 171px;
     height: 40px;
-    background: #14131A url("../img/icon/search.png") 13px center no-repeat;
+    background: #14131A url("../img/icon/search.png") 13px center/14px no-repeat;
     border-radius: 16px;
     border: 0;
     padding-left: 40px;
@@ -2091,6 +2397,7 @@ input[type=password]::placeholder {
     display: flex;
     border-radius: 16px;
     padding: 14px;
+    margin: 0 -14px;
   }
 
   .feed.post .feed__comments .comments__comment .avatar {
@@ -2123,7 +2430,9 @@ input[type=password]::placeholder {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    margin-bottom: 10px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
 
   .feed.post .feed__comments .comments__comment .comments__comment_text .comments__comment_reply .reply {
@@ -2156,8 +2465,7 @@ input[type=password]::placeholder {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
-    margin: 0 -14px;
-    margin-bottom: 18px;
+    margin: 10px -14px;
   }
 
   .feed.post .feed__comments .comments__comment .comments__comment_text .comment-reply:hover {
@@ -2181,6 +2489,52 @@ input[type=password]::placeholder {
     text-align: center;
     color: #EBEBF5;
     background-color: rgba(235, 235, 245, 0.3);
+    margin-left: 15px;
+  }
+
+  .single-post {
+    height: 200px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    background: #392A7C;
+    position: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .single-post:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("../img/pic/checkemail.png") 0% 17%/316px no-repeat;
+    -webkit-transform: rotatey(180deg);
+    -ms-transform: rotatey(180deg);
+    transform: rotatey(180deg);
+  }
+
+  .single-post .single-post__text {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: -0.408px;
+    margin-bottom: 20px;
+  }
+
+  .single-post button {
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+    color: #111113;
+    background-color: #D2C867;
+    width: 81px;
+    height: 32px;
   }
 
   body {
@@ -2203,11 +2557,18 @@ input[type=password]::placeholder {
     height: 100% !important;
     top: -200%;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0);
     text-align: center;
-    -webkit-transition: .5s;
-    -o-transition: .5s;
-    transition: .5s;
+    z-index: 10;
+    -webkit-transition-property: background-color, top;
+    -o-transition-property: background-color, top;
+    transition-property: background-color, top;
+    -webkit-transition-duration: .4s, .5s;
+    -o-transition-duration: .4s, .5s;
+    transition-duration: .4s, .5s;
+    -webkit-transition-delay: .45s, 0s;
+    -o-transition-delay: .45s, 0s;
+    transition-delay: .45s, 0s;
   }
 
   .modal-wrapp:after {

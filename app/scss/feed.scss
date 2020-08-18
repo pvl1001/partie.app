@@ -1,13 +1,127 @@
 @media (min-width: 768px) { // PC
     .feed {
-        top: -200%;
-        position: fixed;
         height: 100%;
         width: 100%;
-        left: 0;
         background-color: #000;
         display: flex;
         overflow: auto;
+
+        /* хром, сафари */
+        &::-webkit-scrollbar { width: 0; }
+
+        /* ie 10+ */
+        & { -ms-overflow-style: none; }
+
+        /* фф (свойство больше не работает, других способов тоже нет)*/
+        & { overflow: -moz-scrollbars-none; }
+
+        .new-post.modal {
+            button {
+                color: rgba(235,235,245,.4);
+                margin-bottom: 20px;
+                font-size: 17px;
+                line-height: 22px;
+                font-weight: 400;
+            }
+
+            textarea {
+                min-height: 80px;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .new-post__row {
+                display: flex;
+
+                input#photo2 {
+                    display: none;
+                }
+
+                button {
+                    height: 32px;
+                    width: 98px;
+                    text-align: center;
+                    margin-bottom: 0;
+                    font-weight: bold;
+                    font-size: 13px;
+                }
+
+                button.bg-fiolet {
+                    color: #F8F6FF;
+                }
+
+                button:not(.bg-fiolet) {
+                    width: 67px;
+                    text-align: center;
+                }
+
+                .feed__what-new_post {
+                    margin-left: auto;
+                }
+
+                label[for=photo2] {
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    background: #F8F6FF url('../img/icon/photo.png') center / 14px no-repeat;
+                    cursor: pointer;
+                    margin-right: 8px;
+                }
+            }
+
+
+        }
+
+        .choose-game.modal {
+            max-height: 75%;
+            overflow: auto;
+
+            .choose-game__close {
+                position: absolute;
+                right: 0;
+                cursor: pointer;
+                font-size: 13px;
+                line-height: 17px;
+            }
+
+            input {
+                background: #14131a url('../img/icon/search.png') 19px center / 20px no-repeat;
+                padding-left: 55px;
+                margin-bottom: 28px;
+            }
+
+            .choose-game__game {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                .game-cont {
+                    margin-bottom: 20px;
+
+                    &:nth-child(2n) {
+                        margin-left: 15px;
+                    }
+
+                    .game__img {
+                        width: 150px;
+                        height: 200px;
+                        border-radius: 16px;
+                        margin-bottom: 20px;
+                        background: url('../img/pic/slide4.png') center / cover no-repeat;
+                    }
+                    .game__name {
+                        text-align: center;
+                        color: rgba(235, 235, 245, 0.5);
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        .global {
+            min-width: 0;
+            display: none;
+        }
 
         .feed__people-btn {
             width: 19px;
@@ -48,7 +162,7 @@
                 .feed__search_search {
                     width: 171px;
                     height: 40px;
-                    background: #14131A url('../img/icon/search.png') 13px center no-repeat;
+                    background: #14131A url('../img/icon/search.png') 13px center / 14px no-repeat;
                     border-radius: 16px;
                     border: 0;
                     padding-left: 40px;
@@ -445,6 +559,7 @@
                 display: flex;
                 border-radius: 16px;
                 padding: 14px;
+                margin: 0 -14px;
 
                 .avatar {
                     margin-right: 15px;
@@ -470,7 +585,7 @@
                     .comments__comment_reply {
                         display: flex;
                         justify-content: space-between;
-                        margin-bottom: 10px;
+                        align-items: center;
 
                         .reply {
                             font-weight: bold;
@@ -499,8 +614,7 @@
                     .comment-reply {
                         display: flex;
                         transition: .3s;
-                        margin: 0 -14px;
-                        margin-bottom: 18px;
+                        margin: 10px -14px;
 
                         &:hover {
                             background-color: rgba(50, 47, 66, 0.4);
@@ -523,11 +637,51 @@
                         text-align: center;
                         color: #EBEBF5;
                         background-color: rgba(235,235,245,.3);
+                        margin-left: 15px;
                     }
                 }
             }
         }
 
 
+    }
+
+    .single-post {
+        height: 200px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        background: #392A7C;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('../img/pic/checkemail.png') 0% 17%/316px no-repeat;
+            transform: rotatey(180deg);
+        }
+
+        .single-post__text {
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 120%;
+            letter-spacing: -0.408px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            font-weight: bold;
+            font-size: 13px;
+            text-align: center;
+            color: #111113;
+            background-color: #D2C867;
+            width: 81px;
+            height: 32px;
+        }
     }
 }
