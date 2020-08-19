@@ -15,6 +15,7 @@
 @import 'subscription';
 @import 'feed';
 @import 'slider';
+@import 'profile';
 
 
 //обнуление
@@ -126,13 +127,9 @@ body {
     color: #EBEBF5;
     transition: .5s;
 
-    /* хром, сафари */
+    // scrollbar off
     &::-webkit-scrollbar { width: 0; }
-
-    /* ie 10+ */
     & { -ms-overflow-style: none; }
-
-    /* фф (свойство больше не работает, других способов тоже нет)*/
     & { overflow: -moz-scrollbars-none; }
 }
 
@@ -192,7 +189,11 @@ input[type=password] {
 }
 
 .bg-fiolet {
-    background-color: #6E4AFF;
+    background-color: #6E4AFF !important;
+}
+
+.bg-orange {
+    background-color: #D86035 !important;
 }
 
 .hidden {
@@ -363,6 +364,10 @@ input[type=password] {
     text-align: left;
     background-color: #000;
     padding: 20px;
+    // scrollbar off
+    &::-webkit-scrollbar { width: 0; }
+    & { -ms-overflow-style: none; }
+    & { overflow: -moz-scrollbars-none; }
 
     .modal__head {
         display: flex;

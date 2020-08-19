@@ -34,6 +34,7 @@ textarea.addEventListener( 'focus', function () {
 
 
 function isNewComment() {
+    let newCommentPeople = document.querySelector('.comments__new-comment_people')
     let newComment = document.querySelector('#newComment')
     let newCommentBtn = document.querySelector('#newCommentBtn')
     if (newComment.value.length) {
@@ -41,14 +42,16 @@ function isNewComment() {
     } else {
         newCommentBtn.style.visibility = ''
     }
+    if(newComment.value === '@') {
+        newCommentPeople.style.display = 'flex'
+    } else {
+        newCommentPeople.style.display = ''
+    }
 }
 
-// document.addEventListener('DOMContentLoaded', function () {
 
-    let tabForYou = document.querySelector( '#tabForYou' )
-    let tabGlobal = document.querySelector( '#tabGlobal' )
-    let global = document.querySelector( '.global' )
-    let forYou = document.querySelector( '.for-you' )
+let global = document.querySelector( '.global' )
+let forYou = document.querySelector( '.for-you' )
 
     function clickTab(open, close) {
         open.style.display = 'block'

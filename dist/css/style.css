@@ -824,6 +824,10 @@
   border-radius: 40px;
 }
 
+.mb10 {
+  margin-bottom: 10px;
+}
+
 /* Слайдер */
 
 .slick-slider {
@@ -933,6 +937,149 @@
   top: 0;
   right: 0;
   z-index: 1;
+}
+
+#profileProgress .info_avatar__progress {
+  background: rgba(50, 47, 66, 0.4);
+  border-radius: 20px;
+  position: relative;
+  height: 64px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: 58px;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+#profileProgress .info_avatar__progress:before {
+  content: '';
+  width: 23%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #6E4AFF;
+}
+
+#profileProgress .info_avatar__progress svg {
+  position: absolute;
+  width: 18px;
+  left: 20px;
+  top: calc(50% - 9px);
+  opacity: .3;
+}
+
+#profileProgress .info_avatar__progress .info_avatar__progress_text {
+  font-weight: bold;
+  padding-top: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+#profileProgress .info_avatar__progress .info_avatar__progress_text div {
+  font-weight: 400;
+}
+
+#profileProgress .info_avatar__progress-bar {
+  width: 100%;
+}
+
+#profileProgress .info_avatar__progress-bar .progress-bar__text {
+  color: rgba(235, 235, 245, 0.5);
+  line-height: 150%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#profileProgress .info_avatar__progress-bar .progress-bar__text div {
+  font-weight: bold;
+  color: #EBEBF5;
+}
+
+#profileProgress .info_avatar__progress-bar .progress-bar__progress {
+  width: 100%;
+  height: 10px;
+  background: rgba(50, 47, 66, 0.4);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+#profileProgress .info_avatar__progress-bar .progress-bar__progress:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 14%;
+  background-color: #6E4AFF;
+}
+
+#profileProgress .info_avatar__progress-bar .progress-bar__progress:last-child {
+  margin-bottom: 40px;
+}
+
+#profileProgress .info_avatar__about {
+  text-align: center;
+  margin: 0 auto 15px;
+  font-weight: 700;
+}
+
+#profileProgress .info_avatar__about span {
+  cursor: pointer;
+}
+
+#applyPartner .modal__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#applyPartner .modal__content img {
+  margin-bottom: 20px;
+}
+
+#applyPartner .modal__content .partner__great {
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 150%;
+  margin-bottom: 10px;
+}
+
+#applyPartner .modal__content .partner__text {
+  line-height: 150%;
+  text-align: center;
+  color: rgba(235, 235, 245, 0.5);
+  margin-bottom: 40px;
+}
+
+#applyPartner .modal__content button {
+  margin-bottom: 25px;
+}
+
+#applyPartner .modal__content .partner__about {
+  font-weight: bold;
+  margin-bottom: 35px;
 }
 
 * {
@@ -1045,9 +1192,6 @@ body {
   -webkit-transition: .5s;
   -o-transition: .5s;
   transition: .5s;
-  /* хром, сафари */
-  /* ie 10+ */
-  /* фф (свойство больше не работает, других способов тоже нет)*/
 }
 
 body::-webkit-scrollbar {
@@ -1167,7 +1311,11 @@ input[type=password]::placeholder {
 }
 
 .bg-fiolet {
-  background-color: #6E4AFF;
+  background-color: #6E4AFF !important;
+}
+
+.bg-orange {
+  background-color: #D86035 !important;
 }
 
 .hidden {
@@ -1344,6 +1492,18 @@ input[type=password]::placeholder {
   text-align: left;
   background-color: #000;
   padding: 20px;
+}
+
+.modal::-webkit-scrollbar {
+  width: 0;
+}
+
+.modal {
+  -ms-overflow-style: none;
+}
+
+.modal {
+  overflow: -moz-scrollbars-none;
 }
 
 .modal .modal__head {
@@ -2331,12 +2491,44 @@ textarea {
   }
 
   .feed.post .feed__header_menu {
-    width: 14px;
-    border-bottom: 5px dotted;
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
+    width: 32px;
+    height: 32px;
+    background: url("../img/icon/dott.png") center/cover no-repeat;
     cursor: pointer;
+    border-radius: 8px;
+    position: relative;
+  }
+
+  .feed.post .feed__header_menu .header__menu_menu {
+    position: absolute;
+    top: calc(100% + 16px);
+    background: #14131A;
+    border-radius: 20px;
+    width: 280px;
+    padding: 30px;
+    font-weight: 700;
+    z-index: 1;
+    display: none;
+  }
+
+  .feed.post .feed__header_menu .header__menu_menu li {
+    margin-bottom: 20px;
+    cursor: auto;
+    position: relative;
+  }
+
+  .feed.post .feed__header_menu .header__menu_menu li:last-child {
+    margin-bottom: 0;
+  }
+
+  .feed.post .feed__header_menu .header__menu_menu li a {
+    padding-left: 36px;
+  }
+
+  .feed.post .feed__header_menu .header__menu_menu li img {
+    position: absolute;
+    left: 0;
+    top: calc(50% - 9px);
   }
 
   .feed.post .feed__comments a {
@@ -2366,6 +2558,7 @@ textarea {
     display: -ms-flexbox;
     display: flex;
     margin-bottom: 30px;
+    position: relative;
   }
 
   .feed.post .feed__comments .comments__new-comment input {
@@ -2389,6 +2582,65 @@ textarea {
     height: auto;
     width: 67px;
     text-align: center;
+  }
+
+  .feed.post .feed__comments .comments__new-comment .comments__new-comment_people {
+    position: absolute;
+    bottom: calc(100% + 17px);
+    z-index: 1;
+    background-color: #14131A;
+    border-radius: 20px;
+    display: none;
+    padding: 15px 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .feed.post .feed__comments .comments__new-comment .comments__new-comment_people .people__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 20px;
+  }
+
+  .feed.post .feed__comments .comments__new-comment .comments__new-comment_people .people__row:last-child {
+    margin-bottom: 0;
+  }
+
+  .feed.post .feed__comments .comments__new-comment .comments__new-comment_people .people__row:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .feed.post .feed__comments .comments__new-comment .comments__new-comment_people .people__row .user {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .feed.post .feed__comments .comments__new-comment .comments__new-comment_people .people__row .avatar {
+    margin-right: 15px;
+  }
+
+  .feed.post .feed__comments .comments__new-comment .comments__new-comment_people .people__row .user__name {
+    font-weight: 700;
+  }
+
+  .feed.post .feed__comments .comments__new-comment .comments__new-comment_people .people__row .people__creater {
+    color: rgba(235, 235, 245, 0.4);
+    margin-left: 68px;
   }
 
   .feed.post .feed__comments .comments__comment {
@@ -2479,6 +2731,12 @@ textarea {
     min-width: 24px;
   }
 
+  .feed.post .feed__comments .comments__comment .comments__comment_text .comment-reply .comment-reply__to {
+    color: rgba(248, 246, 255, 0.3);
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
   .feed.post .feed__comments .comments__comment .comments__comment_text .comments__show-more {
     font-weight: bold;
     font-size: 13px;
@@ -2490,6 +2748,23 @@ textarea {
     color: #EBEBF5;
     background-color: rgba(235, 235, 245, 0.3);
     margin-left: 15px;
+  }
+
+  .feed.post .feed__comments .comments__comment .comments__comment_text .comments__reply {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: -5px;
+    display: none;
+  }
+
+  .feed.post .feed__comments .comments__comment .comments__comment_text .comments__reply .avatar {
+    margin-right: 0;
+  }
+
+  .feed.post .feed__comments .comments__comment .comments__comment_text .comments__reply input {
+    border: 0;
   }
 
   .single-post {
@@ -2535,6 +2810,278 @@ textarea {
     background-color: #D2C867;
     width: 81px;
     height: 32px;
+  }
+
+  #profile .feed__header_params {
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 22px;
+  }
+
+  #profile .feed__header {
+    position: relative;
+  }
+
+  #profile .burger {
+    display: block;
+    width: 20px;
+    position: absolute;
+    top: calc(50% - 8px);
+    right: 0;
+    padding: 7px 0;
+    cursor: pointer;
+  }
+
+  #profile .burger span,
+  #profile .burger span:after,
+  #profile .burger span:before {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #F8F6FF;
+  }
+
+  #profile .burger span:before {
+    content: '';
+    position: absolute;
+    top: 0;
+  }
+
+  #profile .burger span:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+  }
+
+  #profile .profile__info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  #profile .profile__info .avatar {
+    width: 140px;
+    height: 140px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-right: 0;
+    margin-bottom: 32px;
+  }
+
+  #profile .profile__info .avatar .avatar__level {
+    background: #6E4AFF;
+    border-radius: 8px;
+    padding: 3px 5px;
+    margin-bottom: -13px;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 17px;
+  }
+
+  #profile .profile__info .info_avatar__name {
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  #profile .profile__info .info_avatar__counters {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  #profile .profile__info .info_avatar__counters .info_avatar__counters_follow:not(:last-child) {
+    margin-right: 26px;
+  }
+
+  #profile .profile__info .info_avatar__counters .counter__number {
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 150%;
+  }
+
+  #profile .profile__info .info_avatar__counters .counter__name {
+    font-size: 13px;
+    line-height: 150%;
+    color: rgba(235, 235, 245, 0.5);
+  }
+
+  #profile .profile__info .info_avatar__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  #profile .profile__info .info_avatar__row .gamertags {
+    color: #504D60;
+    opacity: 0.9;
+    cursor: pointer;
+  }
+
+  #profile .profile__info .info_avatar__row .show-all {
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  #profile .profile__info .info_avatar__twich {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgba(20, 19, 26, 0.8);
+    margin-bottom: 20px;
+  }
+
+  #profile .profile__info .info_avatar__twich .info_avatar__twich_text {
+    color: rgba(235, 235, 245, 0.5);
+    line-height: 150%;
+    margin-bottom: 15px;
+  }
+
+  #profile .profile__info .info_avatar__twich .info_avatar__twich_link {
+    font-weight: bold;
+    line-height: 150%;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  #profile .profile__info .info_avatar__twich .info_avatar__twich_link img {
+    margin-right: 15px;
+  }
+
+  #profile .profile__info .info_avatar__progress {
+    background: rgba(50, 47, 66, 0.4);
+    border-radius: 20px;
+    position: relative;
+    margin-bottom: 20px;
+    height: 64px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-left: 58px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  #profile .profile__info .info_avatar__progress:before {
+    content: '';
+    width: 23%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #6E4AFF;
+  }
+
+  #profile .profile__info .info_avatar__progress svg {
+    position: absolute;
+    width: 18px;
+    left: 20px;
+    top: calc(50% - 9px);
+    opacity: .3;
+  }
+
+  #profile .profile__info .info_avatar__progress .info_avatar__progress_text {
+    font-weight: bold;
+    padding-top: 4px;
+    position: relative;
+    z-index: 1;
+  }
+
+  #profile .profile__info .info_avatar__progress .info_avatar__progress_text div {
+    font-weight: 400;
+  }
+
+  #profile .profile__info button {
+    height: 64px;
+    margin-bottom: 10px;
+  }
+
+  #profile .profile__info button:last-child {
+    margin-bottom: 0;
+  }
+
+  #profile .profile__info button.epic {
+    background: rgba(20, 19, 26, 0.8) url("../img/icon/epic.png") 29px 50%/20px no-repeat;
+  }
+
+  #profile .profile__info button.origin {
+    background: url("../img/icon/origin.png") 29px 50%/18px no-repeat;
+  }
+
+  #profile .profile__tabs .tab {
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  #profile .profile__tabs .tablinks {
+    cursor: pointer;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #504D60;
+    margin-right: 20px;
+  }
+
+  #profile .profile__tabs .tablinks:last-child {
+    margin-right: 0;
+  }
+
+  #profile .profile__tabs .tablinks.active {
+    color: #EBEBF5;
+  }
+
+  #profile .profile__tabs .tablinks.active svg path {
+    fill: #6E4AFF;
+  }
+
+  #profile .profile__tabs svg {
+    margin-right: 9px;
+  }
+
+  #profile .profile__tabs .tabcontent {
+    display: none;
   }
 
   body {

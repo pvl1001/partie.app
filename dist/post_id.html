@@ -71,7 +71,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/profile.html">
                             <div class="feed__profile">
                                 <div class="avatar">
                                     <img src="img/icon/profile.png" height="32" width="32"/>
@@ -91,7 +91,27 @@
                 <div class="feed__header_tabs">
                     Post
                 </div>
-                <div class="feed__header_menu"></div>
+                <div class="feed__header_menu">
+                    <div class="header__menu_menu">
+                        <ul>
+                            <li><a href="#">
+                                <img src="img/icon/mute-r.png" width="16"/>
+                                Mute</a></li>
+                            <li><a href="#">
+                                <img src="img/icon/report-r.png" width="16"/>
+                                Report</a></li>
+                            <li><a href="#">
+                                <img src="img/icon/folow-f.png" width="16"/>
+                                Follow gboy6827</a></li>
+                            <li><a href="#">
+                                <img src="img/icon/copy-f.png" width="16"/>
+                                Copy link</a></li>
+                            <li><a href="#">
+                                <img src="img/icon/share-f.png" width="16"/>
+                                Share</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="feed__post">
                 <div class="feed__post_head user">
@@ -141,16 +161,43 @@
                         <div class="avatar"></div>
                         <input onkeyup="isNewComment()" id="newComment" type="text" placeholder="Add comment...">
                         <button id="newCommentBtn">Add</button>
+                        <div class="comments__new-comment_people people">
+                            <div class="people__row">
+                                <div class="user">
+                                    <div class="avatar"></div>
+                                    <div class="user__name">waaaattson</div>
+                                </div>
+                            </div>
+                            <div class="people__row">
+                                <div class="user">
+                                    <div class="avatar"></div>
+                                    <div class="user__name">MirinaAkhaviik</div>
+                                </div>
+                            </div>
+                            <div class="people__row">
+                                <div class="user">
+                                    <div class="avatar"></div>
+                                    <div class="user__name">Mandalorian5917</div>
+                                </div>
+                            </div>
+                            <div class="people__row">
+                                <div class="user">
+                                    <div class="avatar"></div>
+                                    <div class="user__name">gboy6827</div>
+                                </div>
+                                <div class="people__creater">Post Creator</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="comments__comment">
                         <div class="avatar"></div>
                         <div class="comments__comment_text">
-                            <div class="avatar-name">Psychoman <span>now</span></div>
+                            <div class="avatar-name">Psychoman <span>1m</span></div>
                             <div class="comment-text">Sounds kinda simpish tho my man. So looks like PSN simp-o-meter is
                                 going off to your posts cause 9/10 girls on here are looking to bag few simps daily.
                                 <a href="#">#justfax</a>
                             </div>
-                            <div class="comments__comment_reply">
+                            <div class="comments__comment_reply mb10">
                                 <div class="reply">Reply</div>
                                 <div class="like">
                                     <input id="like1" type="checkbox">
@@ -162,11 +209,16 @@
                                     </label>
                                 </div>
                             </div>
+                            <div class="comments__reply">
+                                <div class="avatar"></div>
+                                <input type="text" autofocus>
+                            </div>
 
                             <div class="comments__comment comment-reply">
                                 <div class="avatar"></div>
                                 <div class="comment-reply__text">
-                                    <div class="avatar-name">Psychoman <span>1m</span></div>
+                                    <div class="comment-reply__to">to Psychoman</div>
+                                    <div class="avatar-name">KillershyGuy<span>now</span></div>
                                     <div class="comment-text">Sounds kinda simpish tho my man. So looks like PSN
                                         simp-o-meter is
                                         going off to your posts cause 9/10 girls on here are looking to bag few simps daily.
@@ -187,8 +239,13 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
+                            <div class="comments__reply">
+                                <div class="avatar"></div>
+                                <input type="text" autofocus>
+                            </div>
+
+
                             <button class="comments__show-more">Show 2 more reply</button>
 
                         </div>
@@ -238,6 +295,8 @@
             </div>
         </div>
     </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="js/script.min.js"></script>
 </body>
 </html>

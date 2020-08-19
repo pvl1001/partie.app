@@ -504,10 +504,42 @@
         }
 
         .feed__header_menu {
-            width: 14px;
-            border-bottom: 5px dotted;
-            transform: scale(1.2);
+            width: 32px;
+            height: 32px;
+            background: url('../img/icon/dott.png') center / cover no-repeat;
             cursor: pointer;
+            border-radius: 8px;
+            position: relative;
+
+            .header__menu_menu {
+                position: absolute;
+                top: calc(100% + 16px);
+                background: #14131A;
+                border-radius: 20px;
+                width: 280px;
+                padding: 30px;
+                font-weight: 700;
+                z-index: 1;
+                display: none;
+
+                li {
+                    margin-bottom: 20px;
+                    cursor: auto;
+                    position: relative;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    a {
+                        padding-left: 36px;
+                    }
+                    img {
+                        position: absolute;
+                        left: 0;
+                        top: calc(50% - 9px);
+                    }
+                }
+            }
         }
 
         .feed__comments {
@@ -533,6 +565,7 @@
             .comments__new-comment {
                 display: flex;
                 margin-bottom: 30px;
+                position: relative;
 
                 input {
                     height: auto;
@@ -552,6 +585,48 @@
                     height: auto;
                     width: 67px;
                     text-align: center;
+                }
+
+                .comments__new-comment_people {
+                    position: absolute;
+                    bottom: calc(100% + 17px);
+                    z-index: 1;
+                    background-color: #14131A;
+                    border-radius: 20px;
+                    display: none;
+                    padding: 15px 0;
+                    flex-direction: column;
+
+                    .people__row {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 10px;
+                        padding: 0 20px;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+
+                        &:hover {
+                            background: rgba(255,255,255,.02);
+                        }
+                        .user {
+                            display: flex;
+                            align-items: center;
+                            cursor: pointer;
+                        }
+                        .avatar {
+                            margin-right: 15px;
+                        }
+                        .user__name {
+                            font-weight: 700;
+                        }
+                        .people__creater {
+                            color: rgba(235,235,245,.4);
+                            margin-left: 68px;
+                        }
+                    }
                 }
             }
 
@@ -626,6 +701,12 @@
                             height: 24px;
                             min-width: 24px;
                         }
+
+                        .comment-reply__to {
+                            color: rgba(248,246,255,.3);
+                            font-size: 11px;
+                            margin-bottom: 4px;
+                        }
                     }
                     .comments__show-more {
                         font-weight: bold;
@@ -638,6 +719,21 @@
                         color: #EBEBF5;
                         background-color: rgba(235,235,245,.3);
                         margin-left: 15px;
+                    }
+
+                    .comments__reply {
+                        align-items: center;
+                        margin-bottom: 20px;
+                        margin-top: -5px;
+                        display: none;
+
+                        .avatar {
+                            margin-right: 0;
+                        }
+
+                        input {
+                            border: 0;
+                        }
                     }
                 }
             }
@@ -684,4 +780,8 @@
             height: 32px;
         }
     }
+}
+
+.mb10 {
+    margin-bottom: 10px;
 }
