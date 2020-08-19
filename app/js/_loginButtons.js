@@ -1,26 +1,44 @@
 let arrShowAll = document.querySelectorAll('#showAll')
-let arrBgBtnContainerShow = document.querySelectorAll('.bg-btn-container-show')
 let arrBtnSocial = document.querySelectorAll('#btnSocial')
+let arrBtnContainerWrapp = document.querySelectorAll('.btn-container-wrapp')
+
 
 for (let i = 0; i < arrShowAll.length; i++) {
     let showAll = arrShowAll[i]
-    let bgBtnContainerShow = arrBgBtnContainerShow[i]
+    let btnContainerWrapp = arrBtnContainerWrapp[i]
     let btnSocial = arrBtnSocial[i]
 
     function showAllBtns() { // анимация кнопок на стартовой
-        bgBtnContainerShow.style.cssText = 'opacity: 0.6; z-index: 0;'
-        btnSocial.classList.remove('animate__fadeOutDownBig')
-        btnSocial.classList.add('animate__fadeInUp')
-        btnSocial.style.cssText = 'z-index: 0; display: block;'
+        if (window.innerWidth <= 767) { // mobile
+            btnContainerWrapp.style.top = '0'
+            btnSocial.classList.remove( 'animate__fadeOutDownBig' )
+            btnSocial.classList.add( 'animate__fadeInUp' )
+            btnSocial.style.cssText = 'z-index: 0; display: block;'
+        }
+        else { // pc
+            for(let i = 0; i < arrShowAll.length; i++){
+                let showAll = arrShowAll[i]
+                for(let logInMenu of arrlogInMenu) logInMenu.style.height = 'auto'
+                showAll.style.display = 'none'
+                btnContainerWrapp.style.top = '0'
+                btnSocial.classList.remove( 'animate__fadeOutDownBig' )
+                btnSocial.classList.add( 'animate__fadeInUp' )
+                btnSocial.style.cssText = 'z-index: 0; display: block;'
+            }
+        }
     }
 
     function showAllBtnsOff() {
-        bgBtnContainerShow.style.cssText = ''
+        btnContainerWrapp.style.top = ''
         btnSocial.classList.add('animate__fadeOutDownBig')
         btnSocial.classList.remove('animate__fadeInUp')
     }
 
-    showAll.addEventListener( 'click', showAllBtns )
-    bgBtnContainerShow.addEventListener( 'click', showAllBtnsOff )
+    btnContainerWrapp.addEventListener( 'click', function(e) {
+        if (e.target === btnContainerWrapp) {
+            showAllBtnsOff()
+        }
+    })
+
 }
 
