@@ -204,6 +204,19 @@ input[type=password] {
     display: block !important;
 }
 
+.star {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background: #6E4AFF url('../img/icon/Star.png') 50% calc(50% - 1px)/ 10px no-repeat;
+}
+
+.token-disabled {
+    filter: grayscale(1);
+    opacity: .3;
+    cursor: auto !important;
+}
+
 .center {
     position: fixed;
     top: 0;
