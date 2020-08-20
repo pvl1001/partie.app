@@ -16,6 +16,7 @@
 @import 'feed';
 @import 'slider';
 @import 'profile';
+@import 'partie';
 
 
 //обнуление
@@ -209,6 +210,13 @@ input[type=password] {
     height: 20px;
     border-radius: 6px;
     background: #6E4AFF url('../img/icon/Star.png') 50% calc(50% - 1px)/ 10px no-repeat;
+}
+
+.d-flex {
+    display: flex;
+}
+.align-items-center {
+    align-items: center;
 }
 
 .token-disabled {
@@ -412,14 +420,6 @@ textarea {
     font-size: 17px;
     height: 25px;
     margin-right: auto;
-
-    //&:focus {
-    //    margin-top: 12px;
-    //}
-    //
-    //+ div {
-    //    margin-right: 20px;
-    //}
 }
 
 .avatar {
@@ -491,6 +491,45 @@ textarea {
 .share {
     cursor: pointer;
 }
+
+.popover {
+    padding: 20px;
+    position: fixed;
+    background: #14131A;
+    border: 1px solid #1E1D24;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    width: 254px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s opacity;
+    &:before {
+        content: '';
+        width: 16px;
+        height: 16px;
+        background-color: #14131A;
+        border: 1px solid #14131A;
+        transform: rotate(45deg);
+        position: absolute;
+        bottom: -8px;
+        left: calc(50% - 8px);
+    }
+    .popover__name {
+        font-weight: bold;
+        font-size: 17px;
+        line-height: 150%;
+        margin-bottom: 10px;
+    }
+    .popover__description {
+        line-height: 150%;
+        color: #EBEBF5;
+        opacity: 0.5;
+    }
+}
+
 
 @media (min-width: 768px) { // PC
 

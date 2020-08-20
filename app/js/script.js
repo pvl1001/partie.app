@@ -266,3 +266,4 @@ for (let i = 0; i < reply.length; i++) {
 @@include( '_loginButtons.js' )
 @@include( 'feed.js' )
 @@include( 'profile.js' )
+@@include( 'partie.js' )

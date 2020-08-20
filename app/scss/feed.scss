@@ -1,10 +1,10 @@
 @media (min-width: 768px) { // PC
     .feed {
-        height: 100%;
+        //height: 100%;
         width: 100%;
         background-color: #000;
         display: flex;
-        overflow: auto;
+        //overflow: auto;
 
         /* хром, сафари */
         &::-webkit-scrollbar { width: 0; }
