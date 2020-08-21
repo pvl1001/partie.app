@@ -17,6 +17,7 @@
 @import 'slider';
 @import 'profile';
 @import 'partie';
+@import 'profiles';
 
 
 //обнуление
@@ -430,6 +431,17 @@ textarea {
     background: url('../img/icon/profile.png') center / cover no-repeat;
     position: relative;
 
+    .status-online {
+        width: 16px;
+        height: 16px;
+        background-color: #43CE62;
+        border-radius: 50%;
+        border: 3px solid #000;
+        position: absolute;
+        bottom: 0;
+        right: -3px;
+    }
+
     .avatar__star {
         height: 16px;
         width: 16px;
@@ -603,6 +615,61 @@ textarea {
     .logIn__menu {
         display: block;
     }
+
+    .feed__header_menu {
+        width: 32px;
+        height: 32px;
+        background: url('../img/icon/dott.png') center / cover no-repeat;
+        cursor: pointer;
+        border-radius: 8px;
+        position: relative;
+        transition: .3s ease;
+
+        .header__menu_menu {
+            position: absolute;
+            top: calc(100% + 16px);
+            background: #14131A;
+            border-radius: 20px;
+            width: 280px;
+            font-weight: 700;
+            z-index: 10;
+            opacity: 0;
+            visibility: hidden;
+            transition: .3s ease;
+
+            .close-place {
+                position: fixed;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                z-index: -1;
+            }
+
+            ul {
+                padding: 30px;
+            }
+
+            li {
+                margin-bottom: 20px;
+                cursor: auto;
+                position: relative;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                a {
+                    padding-left: 36px;
+                }
+                img {
+                    position: absolute;
+                    left: 0;
+                    top: calc(50% - 9px);
+                }
+            }
+        }
+    }
+
 
 }
 

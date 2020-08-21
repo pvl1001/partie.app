@@ -15,6 +15,7 @@ let profileProgress = document.querySelector('#profileProgress')
 let levelProgress = document.querySelector('#levelProgress')
 let applyPartner = document.querySelector('#applyPartner')
 let editProfile = document.querySelector('#editProfile')
+let arrHeaderMenuMenu = document.querySelectorAll('.header__menu_menu')
 let arrlogInMenu = document.querySelectorAll('.logIn__menu')
 let arrModalWrapp = document.querySelectorAll( '.modal-wrapp' )
 let arrFeedHeaderMenu = document.querySelectorAll( '.feed__header_menu' )
@@ -201,27 +202,32 @@ for (let modalWrapp of arrModalWrapp) { // close modal target
 for (let feedHeaderMenu of arrFeedHeaderMenu) {
     feedHeaderMenu.addEventListener( 'click', function () {
         this.style.backgroundColor = '#19181F'
-        this.children[0].style.display = 'block'
-    } )
-    window.addEventListener( 'click', function (e) {
-        if (e.target !== feedHeaderMenu) {
-            feedHeaderMenu.style.backgroundColor = ''
-            feedHeaderMenu.children[0].style.display = ''
-        }
+        this.children[0].style.visibility = 'visible'
+        this.children[0].style.opacity = '1'
     } )
 }
-
-// open reply comment
-let reply = document.querySelectorAll('.reply')
-let commentReply = document.querySelectorAll('.comments__reply')
-for (let i = 0; i < reply.length; i++) {
-    let el = reply[i]
-    let el2 = commentReply[i]
-    console.log(el, el2)
-    el.addEventListener('click', function () {
-        el2.style.display = 'flex'
+let arrHeaderMenu = document.querySelectorAll('.header__menu_menu')
+for(let headerMenu of  arrHeaderMenu) {
+    window.addEventListener('click', function (e) {
+        if(e.target === headerMenu.children[0]) {
+            headerMenu.style.cssText = ''
+            headerMenu.parentNode.style.cssText = ''
+        }
     })
 }
+
+
+// open reply comment
+// let reply = document.querySelectorAll('.reply')
+// let commentReply = document.querySelectorAll('.comments__reply')
+// for (let i = 0; i < reply.length; i++) {
+//     let el = reply[i]
+//     let el2 = commentReply[i]
+//     console.log(el, el2)
+//     el.addEventListener('click', function () {
+//         el2.style.display = 'flex'
+//     })
+// }
 
 // function reply(el) {
 //     let reply = el.parentNode.parentElement.parentElement.parentElement.children[4]
@@ -490,13 +496,86 @@ function openTabModal(evt, Tab) {
     }
 }
 
-let defaultOpen = document.getElementById("defaultOpen")
-if(defaultOpen !== null) {
-    defaultOpen.click()
+function openFoll(evt, cityName) {
+
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.querySelectorAll(".followers .tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.querySelectorAll(".followers .tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
+
+let defaultOpen = document.getElementById("defaultOpen")
+if(defaultOpen !== null) defaultOpen.click()
+
 
 let defaultOpen2 = document.getElementById("defaultOpen2")
 if(defaultOpen2 !== null) defaultOpen2.click()
+
+
+let showPs = false
+function showBtnPs() {
+    showPs = !showPs
+    let btn = document.querySelector( '.ps' )
+    let show = document.querySelector( '.show-all' )
+    if (showPs) {
+        btn.style.height = '64px'
+        show.innerHTML = 'Hide'
+        show.style.opacity = '.4'
+    } else {
+        btn.style.height = ''
+        show.innerHTML = 'Show all'
+        show.style.opacity = ''
+    }
+}
+
+let arrBtnFollowers = document.querySelectorAll('.followers__btn')
+let onBtnFollowers = []
+for(let i = 0; i < arrBtnFollowers.length; i++) {
+    let btnFollowers = arrBtnFollowers[i]
+    btnFollowers.addEventListener('click', function () {
+        onBtnFollowers[i] = !onBtnFollowers[i]
+        if(onBtnFollowers[i]) {
+            arrBtnFollowers[i].style.backgroundColor = '#100F15'
+            arrBtnFollowers[i].innerHTML = 'Following'
+        } else {
+            arrBtnFollowers[i].style.backgroundColor = ''
+            arrBtnFollowers[i].innerHTML = 'Follow'
+        }
+    })
+}
+
+let  followersTab = document.querySelector('#followersTab')
+let  followingTab = document.querySelector('#followingTab')
+let followers = document.querySelector('.followers')
+let profile = document.querySelector('.profile-col2')
+function followPage(x) {
+    body.style.background = '#000'
+    body.style.transition = '0s'
+    profile.style.display = 'none'
+    followers.style.display = 'block'
+    x.click()
+}
+
+function backProfile() {
+    profile.style.display = ''
+    followers.style.cssText = ''
+    body.style.cssText = ''
+}
+
 
 
 
@@ -505,10 +584,9 @@ if(defaultOpen2 !== null) defaultOpen2.click()
 
 
 let headerScroll = document.querySelector('.feed__header.scroll')
-
+if(headerScroll !== null)
 window.addEventListener('scroll', () => {
     let scrollTop = window.scrollY;
-    console.log(scrollTop);
 
     if(scrollTop >= 300){
         headerScroll.style.top = '0'

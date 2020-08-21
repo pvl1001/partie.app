@@ -83,8 +83,13 @@
                 text-align: center;
                 margin-bottom: 40px;
 
-                .info_avatar__counters_follow:not(:last-child) {
+                .info_avatar__counters_follow {
                     margin-right: 26px;
+                    cursor: pointer;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
                 }
                 .counter__number {
                     font-weight: bold;

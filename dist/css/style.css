@@ -1903,6 +1903,17 @@ textarea {
   position: relative;
 }
 
+.avatar .status-online {
+  width: 16px;
+  height: 16px;
+  background-color: #43CE62;
+  border-radius: 50%;
+  border: 3px solid #000;
+  position: absolute;
+  bottom: 0;
+  right: -3px;
+}
+
 .avatar .avatar__star {
   height: 16px;
   width: 16px;
@@ -2891,47 +2902,6 @@ textarea {
     font-weight: 700;
   }
 
-  .feed.post .feed__header_menu {
-    width: 32px;
-    height: 32px;
-    background: url("../img/icon/dott.png") center/cover no-repeat;
-    cursor: pointer;
-    border-radius: 8px;
-    position: relative;
-  }
-
-  .feed.post .feed__header_menu .header__menu_menu {
-    position: absolute;
-    top: calc(100% + 16px);
-    background: #14131A;
-    border-radius: 20px;
-    width: 280px;
-    padding: 30px;
-    font-weight: 700;
-    z-index: 1;
-    display: none;
-  }
-
-  .feed.post .feed__header_menu .header__menu_menu li {
-    margin-bottom: 20px;
-    cursor: auto;
-    position: relative;
-  }
-
-  .feed.post .feed__header_menu .header__menu_menu li:last-child {
-    margin-bottom: 0;
-  }
-
-  .feed.post .feed__header_menu .header__menu_menu li a {
-    padding-left: 36px;
-  }
-
-  .feed.post .feed__header_menu .header__menu_menu li img {
-    position: absolute;
-    left: 0;
-    top: calc(50% - 9px);
-  }
-
   .feed.post .feed__comments a {
     color: #7452FF;
   }
@@ -3317,8 +3287,13 @@ textarea {
     margin-bottom: 40px;
   }
 
-  #profile .profile__info .info_avatar__counters .info_avatar__counters_follow:not(:last-child) {
+  #profile .profile__info .info_avatar__counters .info_avatar__counters_follow {
     margin-right: 26px;
+    cursor: pointer;
+  }
+
+  #profile .profile__info .info_avatar__counters .info_avatar__counters_follow:last-child {
+    margin-right: 0;
   }
 
   #profile .profile__info .info_avatar__counters .counter__number {
@@ -3802,6 +3777,181 @@ textarea {
     background: url("../img/icon/arrow-down-w.png") 100% 55%/8px no-repeat;
   }
 
+  #profile.profiles .profile__info .avatar {
+    background: url("../img/pic/ava1.png") center/cover no-repeat;
+  }
+
+  #profile.profiles .profile__info .info_avatar__counters {
+    margin-bottom: 20px;
+  }
+
+  #profile.profiles .profile__info .btns-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  #profile.profiles .profile__info .btns-row .btn-follow {
+    width: 174px;
+    height: 52px;
+  }
+
+  #profile.profiles .profile__info .btns-row .btn-chat {
+    height: 52px;
+    width: 52px;
+    background: #F8F6FF url("../img/icon/chat.png") center/20px no-repeat;
+    margin-left: 8px;
+  }
+
+  #profile.profiles .profile__info .private {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    padding: 40px 133px;
+    background: #100F15;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  #profile.profiles .profile__info .private .btn_lock {
+    width: 50px;
+    height: 50px;
+    background: #131219 url("../img/icon/lock.png") center/15px no-repeat;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  #profile.profiles .profile__info .private .private__title {
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 150%;
+    margin-bottom: 5px;
+  }
+
+  #profile.profiles .profile__info .private .private__description {
+    line-height: 150%;
+    opacity: 0.5;
+    text-align: center;
+  }
+
+  #profile.profiles .profile__info .ps {
+    height: 0;
+    overflow: hidden;
+    background: #3069E8 url("../img/icon/ps.png") 26px 50%/23px no-repeat;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+  }
+
+  #profile.profiles .followers {
+    display: none;
+  }
+
+  #profile.profiles .followers .feed__header {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  #profile.profiles .followers .feed__header a {
+    position: absolute;
+    left: 0;
+  }
+
+  #profile.profiles .followers .feed__header .tab {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  #profile.profiles .followers .feed__header .tab .tablinks {
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: -0.408px;
+    color: #504D60;
+    margin-right: 16px;
+    cursor: pointer;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+  }
+
+  #profile.profiles .followers .feed__header .tab .tablinks:last-child {
+    margin-right: 0;
+  }
+
+  #profile.profiles .followers .feed__header .tab div.active {
+    color: #EBEBF5;
+  }
+
+  #profile.profiles .followers input {
+    padding-left: 50px;
+    background: #19181F url("../img/icon/search.png") 19px 50%/16px no-repeat;
+    margin-bottom: 28px;
+  }
+
+  #profile.profiles .followers .followers-content .followers__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  #profile.profiles .followers .followers-content .followers__row:last-child {
+    margin-bottom: 0;
+  }
+
+  #profile.profiles .followers .followers-content .followers__row .followers__user {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  #profile.profiles .followers .followers-content .followers__row .followers__user .avatar {
+    width: 50px;
+    height: 50px;
+    margin-right: 16px;
+  }
+
+  #profile.profiles .followers .followers-content .followers__row .followers__user .followers__user_name {
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  #profile.profiles .followers .followers-content .followers__row .followers__user .followers__user_level {
+    opacity: 0.5;
+  }
+
+  #profile.profiles .followers .followers-content .followers__row button {
+    width: 79px;
+    height: 32px;
+    text-align: center;
+    background-color: #6E4AFF;
+  }
+
   body {
     background: #2e2e49 -webkit-gradient(linear, left top, left bottom, color-stop(22.4%, #141423), to(rgba(20, 20, 35, 0)));
     background: #2e2e49 -o-linear-gradient(top, #141423 22.4%, rgba(20, 20, 35, 0) 100%);
@@ -3886,6 +4036,66 @@ textarea {
 
   .logIn__menu {
     display: block;
+  }
+
+  .feed__header_menu {
+    width: 32px;
+    height: 32px;
+    background: url("../img/icon/dott.png") center/cover no-repeat;
+    cursor: pointer;
+    border-radius: 8px;
+    position: relative;
+    -webkit-transition: .3s ease;
+    -o-transition: .3s ease;
+    transition: .3s ease;
+  }
+
+  .feed__header_menu .header__menu_menu {
+    position: absolute;
+    top: calc(100% + 16px);
+    background: #14131A;
+    border-radius: 20px;
+    width: 280px;
+    font-weight: 700;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: .3s ease;
+    -o-transition: .3s ease;
+    transition: .3s ease;
+  }
+
+  .feed__header_menu .header__menu_menu .close-place {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  .feed__header_menu .header__menu_menu ul {
+    padding: 30px;
+  }
+
+  .feed__header_menu .header__menu_menu li {
+    margin-bottom: 20px;
+    cursor: auto;
+    position: relative;
+  }
+
+  .feed__header_menu .header__menu_menu li:last-child {
+    margin-bottom: 0;
+  }
+
+  .feed__header_menu .header__menu_menu li a {
+    padding-left: 36px;
+  }
+
+  .feed__header_menu .header__menu_menu li img {
+    position: absolute;
+    left: 0;
+    top: calc(50% - 9px);
   }
 }
 

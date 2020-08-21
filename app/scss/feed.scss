@@ -138,11 +138,9 @@
             width: 336px;
             min-width: 336px;
         }
-
         .feed__col2 {
             flex-grow: 1;
         }
-
         .feed__col1 {
             padding-left: 16px;
 
@@ -181,12 +179,10 @@
                         width: 40px;
                         margin-right: 10px;
                     }
-
                     .feed__profile {
                         display: flex;
                         justify-content: center;
                     }
-
                     a {
                         color: #504D60;
                         display: flex;
@@ -502,46 +498,6 @@
             font-size: 17px;
             font-weight: 700;
         }
-
-        .feed__header_menu {
-            width: 32px;
-            height: 32px;
-            background: url('../img/icon/dott.png') center / cover no-repeat;
-            cursor: pointer;
-            border-radius: 8px;
-            position: relative;
-
-            .header__menu_menu {
-                position: absolute;
-                top: calc(100% + 16px);
-                background: #14131A;
-                border-radius: 20px;
-                width: 280px;
-                padding: 30px;
-                font-weight: 700;
-                z-index: 1;
-                display: none;
-
-                li {
-                    margin-bottom: 20px;
-                    cursor: auto;
-                    position: relative;
-
-                    &:last-child {
-                        margin-bottom: 0;
-                    }
-                    a {
-                        padding-left: 36px;
-                    }
-                    img {
-                        position: absolute;
-                        left: 0;
-                        top: calc(50% - 9px);
-                    }
-                }
-            }
-        }
-
         .feed__comments {
 
             a {
