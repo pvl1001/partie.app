@@ -12,6 +12,10 @@ let subscriptionModal = document.querySelector('#subscriptionModal')
 let newPost = document.querySelector('#newPost')
 let chooseGame = document.querySelector('#chooseGame')
 let profileProgress = document.querySelector('#profileProgress')
+let levelProgress = document.querySelector('#levelProgress')
+let applyPartner = document.querySelector('#applyPartner')
+let editProfile = document.querySelector('#editProfile')
+let arrHeaderMenuMenu = document.querySelectorAll('.header__menu_menu')
 let arrlogInMenu = document.querySelectorAll('.logIn__menu')
 let arrModalWrapp = document.querySelectorAll( '.modal-wrapp' )
 let arrFeedHeaderMenu = document.querySelectorAll( '.feed__header_menu' )
@@ -198,27 +202,32 @@ for (let modalWrapp of arrModalWrapp) { // close modal target
 for (let feedHeaderMenu of arrFeedHeaderMenu) {
     feedHeaderMenu.addEventListener( 'click', function () {
         this.style.backgroundColor = '#19181F'
-        this.children[0].style.display = 'block'
-    } )
-    window.addEventListener( 'click', function (e) {
-        if (e.target !== feedHeaderMenu) {
-            feedHeaderMenu.style.backgroundColor = ''
-            feedHeaderMenu.children[0].style.display = ''
-        }
+        this.children[0].style.visibility = 'visible'
+        this.children[0].style.opacity = '1'
     } )
 }
-
-// open reply comment
-let reply = document.querySelectorAll('.reply')
-let commentReply = document.querySelectorAll('.comments__reply')
-for (let i = 0; i < reply.length; i++) {
-    let el = reply[i]
-    let el2 = commentReply[i]
-    console.log(el, el2)
-    el.addEventListener('click', function () {
-        el2.style.display = 'flex'
+let arrHeaderMenu = document.querySelectorAll('.header__menu_menu')
+for(let headerMenu of  arrHeaderMenu) {
+    window.addEventListener('click', function (e) {
+        if(e.target === headerMenu.children[0]) {
+            headerMenu.style.cssText = ''
+            headerMenu.parentNode.style.cssText = ''
+        }
     })
 }
+
+
+// open reply comment
+// let reply = document.querySelectorAll('.reply')
+// let commentReply = document.querySelectorAll('.comments__reply')
+// for (let i = 0; i < reply.length; i++) {
+//     let el = reply[i]
+//     let el2 = commentReply[i]
+//     console.log(el, el2)
+//     el.addEventListener('click', function () {
+//         el2.style.display = 'flex'
+//     })
+// }
 
 // function reply(el) {
 //     let reply = el.parentNode.parentElement.parentElement.parentElement.children[4]
@@ -263,3 +272,4 @@ for (let i = 0; i < reply.length; i++) {
 @@include( '_loginButtons.js' )
 @@include( 'feed.js' )
 @@include( 'profile.js' )
+@@include( 'partie.js' )

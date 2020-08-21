@@ -16,6 +16,8 @@
 @import 'feed';
 @import 'slider';
 @import 'profile';
+@import 'partie';
+@import 'profiles';
 
 
 //обнуление
@@ -202,6 +204,26 @@ input[type=password] {
 
 .d-block {
     display: block !important;
+}
+
+.star {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background: #6E4AFF url('../img/icon/Star.png') 50% calc(50% - 1px)/ 10px no-repeat;
+}
+
+.d-flex {
+    display: flex;
+}
+.align-items-center {
+    align-items: center;
+}
+
+.token-disabled {
+    filter: grayscale(1);
+    opacity: .3;
+    cursor: auto !important;
 }
 
 .center {
@@ -399,14 +421,6 @@ textarea {
     font-size: 17px;
     height: 25px;
     margin-right: auto;
-
-    //&:focus {
-    //    margin-top: 12px;
-    //}
-    //
-    //+ div {
-    //    margin-right: 20px;
-    //}
 }
 
 .avatar {
@@ -416,6 +430,17 @@ textarea {
     border-radius: 50%;
     background: url('../img/icon/profile.png') center / cover no-repeat;
     position: relative;
+
+    .status-online {
+        width: 16px;
+        height: 16px;
+        background-color: #43CE62;
+        border-radius: 50%;
+        border: 3px solid #000;
+        position: absolute;
+        bottom: 0;
+        right: -3px;
+    }
 
     .avatar__star {
         height: 16px;
@@ -478,6 +503,45 @@ textarea {
 .share {
     cursor: pointer;
 }
+
+.popover {
+    padding: 20px;
+    position: fixed;
+    background: #14131A;
+    border: 1px solid #1E1D24;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    width: 254px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s opacity;
+    &:before {
+        content: '';
+        width: 16px;
+        height: 16px;
+        background-color: #14131A;
+        border: 1px solid #14131A;
+        transform: rotate(45deg);
+        position: absolute;
+        bottom: -8px;
+        left: calc(50% - 8px);
+    }
+    .popover__name {
+        font-weight: bold;
+        font-size: 17px;
+        line-height: 150%;
+        margin-bottom: 10px;
+    }
+    .popover__description {
+        line-height: 150%;
+        color: #EBEBF5;
+        opacity: 0.5;
+    }
+}
+
 
 @media (min-width: 768px) { // PC
 
@@ -551,6 +615,61 @@ textarea {
     .logIn__menu {
         display: block;
     }
+
+    .feed__header_menu {
+        width: 32px;
+        height: 32px;
+        background: url('../img/icon/dott.png') center / cover no-repeat;
+        cursor: pointer;
+        border-radius: 8px;
+        position: relative;
+        transition: .3s ease;
+
+        .header__menu_menu {
+            position: absolute;
+            top: calc(100% + 16px);
+            background: #14131A;
+            border-radius: 20px;
+            width: 280px;
+            font-weight: 700;
+            z-index: 10;
+            opacity: 0;
+            visibility: hidden;
+            transition: .3s ease;
+
+            .close-place {
+                position: fixed;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                z-index: -1;
+            }
+
+            ul {
+                padding: 30px;
+            }
+
+            li {
+                margin-bottom: 20px;
+                cursor: auto;
+                position: relative;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                a {
+                    padding-left: 36px;
+                }
+                img {
+                    position: absolute;
+                    left: 0;
+                    top: calc(50% - 9px);
+                }
+            }
+        }
+    }
+
 
 }
 
