@@ -18,6 +18,15 @@
 @import 'profile';
 @import 'partie';
 @import 'profiles';
+@import 'creat_parties';
+
+.links {
+    position: fixed;
+    top: 150px;
+    li {
+        margin-bottom: 20px;
+    }
+}
 
 
 //обнуление
@@ -540,6 +549,10 @@ textarea {
         color: #EBEBF5;
         opacity: 0.5;
     }
+}
+
+#back {
+    cursor: pointer;
 }
 
 

@@ -15,6 +15,13 @@ let profileProgress = document.querySelector('#profileProgress')
 let levelProgress = document.querySelector('#levelProgress')
 let applyPartner = document.querySelector('#applyPartner')
 let editProfile = document.querySelector('#editProfile')
+let hostPartie = document.querySelector('#hostPartie')
+let hostPlatform = document.querySelector('#hostPlatform')
+let gametrag = document.querySelector('#gametrag')
+let gametragPlatform = document.querySelector('#gametragPlatform')
+let addGametrag = document.querySelector('#addGametrag')
+let hostLiveShow = document.querySelector('#hostLiveShow')
+let additionalSettings = document.querySelector('#additionalSettings')
 let arrHeaderMenuMenu = document.querySelectorAll('.header__menu_menu')
 let arrlogInMenu = document.querySelectorAll('.logIn__menu')
 let arrModalWrapp = document.querySelectorAll( '.modal-wrapp' )
@@ -23,8 +30,15 @@ let arrFeedHeaderMenu = document.querySelectorAll( '.feed__header_menu' )
 document.addEventListener('DOMContentLoaded', function () {
 
     $( '.slider' ).slick( {
+        autoplay: true,
+        autoplaySpeed: 4000,
+        delay: 5000,
+        speed: 700,
+
         slidesToShow: 10,
+        slidesToScroll: 5,
         infinite: true,
+        swipeToSlide: true,
         responsive: [
             {
                 breakpoint: 1600,
@@ -156,7 +170,6 @@ function back(close, open) { // кнопка назад
     }
 }
 
-
 function openModal(modal) { // modal
 
     if (window.innerWidth > 767) { //pc
@@ -215,6 +228,31 @@ for(let headerMenu of  arrHeaderMenu) {
         }
     })
 }
+
+
+let shortcuts = document.querySelector('.shortcuts')
+if(shortcuts !== null) {
+    let onShortcuts
+    let btnUp = document.querySelector('.btn-up')
+    let bgClick = document.querySelector('.bg-click')
+    let heightShortcuts = shortcuts.offsetHeight
+    shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
+
+    function shortcutsUp() {
+        onShortcuts = !onShortcuts
+        if(onShortcuts) {
+            shortcuts.style.bottom = '5px'
+            btnUp.style.transform = 'rotateX(190deg)'
+            bgClick.style.opacity = '1'
+            bgClick.style.zIndex = '1'
+        } else {
+            shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
+            btnUp.style.transform = ''
+            bgClick.style.cssText = ''
+        }
+    }
+}
+
 
 
 // open reply comment

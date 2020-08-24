@@ -10,6 +10,8 @@
     <title>Partie</title>
 </head>
 <body>
+@@include('_modals.html')
+
 <div id="partie" class="feed">
     <img class="feed__people-btn" onclick="hiddenPeople()" src="img/icon/people-btn.png"/>
     <div id="newPost" class="modal-wrapp">
@@ -143,7 +145,7 @@
                 <a href="#" class="active-tab">For You</a>
                 <a href="#" onclick="clickTab(global, forYou)" id="global">Browse</a>
             </div>
-            <div onclick="openModal(newPost)" class="feed__header_post">+ Partie</div>
+            <div onclick="openModal(hostPartie)" class="feed__header_post">+ Partie</div>
         </div>
         <a href="/post_id.html" class="feed__post">
             <div class="feed__post_head user">

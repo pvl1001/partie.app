@@ -10,6 +10,8 @@
     <title>Partie</title>
 </head>
 <body>
+@@include('_modals.html')
+
 <div id="partie__id" class="feed">
     <img class="feed__people-btn" onclick="hiddenPeople()" src="img/icon/people-btn.png"/>
     <div id="newPost" class="modal-wrapp">
@@ -148,7 +150,7 @@
                 <div class="feed__header_tabs">
                     Apex Legends
                 </div>
-                <div onclick="openModal(newPost)" class="feed__header_post">+ Partie</div>
+                <div onclick="openModal(hostPartie)" class="feed__header_post">+ Partie</div>
             </div>
 
             <!--post-->
