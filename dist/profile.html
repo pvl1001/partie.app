@@ -581,8 +581,7 @@
             </div>
         </div>
     </div>
-
-    <div id="hostLiveShow" class="modal-wrapp">
+    <div id="hostLiveShow" class="hostLiveShow modal-wrapp">
         <div class="modal center">
             <div class="modal__head">
                 <svg id="back" onclick="back(hostLiveShow, gametrag)" class="btn-back" width="24" height="24"
@@ -698,6 +697,390 @@
 
                 <input id="public" name="selectGame" type="radio">
                 <label for="public" class="selectGame__btn">Public</label>
+            </div>
+        </div>
+    </div>
+
+<!--Active partie-->
+    <div id="inviteFriends" class="modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                <div onclick="closeModal(newPost)" class="modal__close"></div>
+                Invite friends
+                <button class="bg-fiolet">Invite</button>
+            </div>
+
+            <div class="modal__content">
+                <input type="text" placeholder="Search">
+                <div class="users-check">
+                    <div class="user-check bg-fiolet">gboy6827</div>
+                    <div class="user-check bg-yellow">gboy6827</div>
+                </div>
+                <div class="suggested">
+                    <div class="suggested__titile">Suggested</div>
+                    <div class="suggested__box">
+                        <input id="user1" name="suggested" type="checkbox">
+                        <label for="user1">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="user1"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="user2" name="suggested" type="checkbox">
+                        <label for="user2">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="user2"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="user3" name="suggested" type="checkbox">
+                        <label for="user3">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="user3"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="user4" name="suggested" type="checkbox">
+                        <label for="user4">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="user4"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="user5" name="suggested" type="checkbox">
+                        <label for="user5">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="user5"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="user6" name="suggested" type="checkbox">
+                        <label for="user6">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="user6"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="user7" name="suggested" type="checkbox">
+                        <label for="user7">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="user7"></label>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="removeUser" class="removeUser modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                <div onclick="closeModal(removeUser)" class="modal__close"></div>
+                Remove user
+            </div>
+
+            <div class="modal__content">
+                <div class="removeUser__title">
+                    Reason for removal
+                </div>
+
+                <input id="Spam" name="removeUser" type="radio">
+                <label for="Spam">Spam</label>
+
+                <input id="Behavior" name="removeUser" type="radio">
+                <label for="Behavior">Behavior</label>
+
+                <input id="Inactivity" name="removeUser" type="radio">
+                <label for="Inactivity">Inactivity</label>
+
+                <input id="Other" name="removeUser" type="radio">
+                <label for="Other">Other</label>
+
+                <input type="text" placeholder="Add a discription">
+                <button>Remove User</button>
+            </div>
+        </div>
+    </div>
+    <div id="titleModal" class="titleModal modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                <div onclick="next(editPartie, titleModal)" class="btn-edit">Edit</div>
+                <div onclick="closeModal(titleModal)" class="modal__close"></div>
+                <div class="modal__head-title">From Bronze to Predators
+                    <div>3 active</div>
+                </div>
+            </div>
+
+            <div class="modal__content">
+                <div class="titleModal__btns">
+                    <div class="btn-container">
+                        <div class="big-round-btn share"></div>
+                        <div class="big-round-text">Share</div>
+                    </div>
+                    <div class="btn-container">
+                        <div class="big-round-btn invite"></div>
+                        <div class="big-round-text">Invite</div>
+                    </div>
+                    <div onclick="openMore()" class="btn-container">
+                        <div class="big-round-btn more">
+<!--                            <div class="more__win">-->
+<!--                                <div>-->
+<!--                                    <div class="more__win_row start">Start Partie</div>-->
+<!--                                </div>-->
+<!--                                <div>-->
+<!--                                    <div class="more__win_row end">End Partie</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                            <div class="more__win dev">
+                                <div>
+                                    <div class="more__win_row mute">Mute</div>
+                                </div>
+                                <div>
+                                    <div onclick="next(partieReport, titleModal)" class="more__win_row report">Report</div>
+                                </div>
+                            </div>
+                            <div class="close-place"></div>
+                        </div>
+                        <div class="big-round-text">More</div>
+                    </div>
+                </div>
+                <div class="titleModal__text">
+                    <div class="titleModal__text_text">
+                        You hate to play with people who never played the game before?
+                    </div>
+                    <div class="titleModal__text_btns">
+                        <div class="round-btn xbox"></div>
+                        <div class="round-btn mic"></div>
+                        <div class="ranked-btn">Ranked</div>
+                    </div>
+                </div>
+                <div class="titleModal__active">
+                    <div class="user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="user__name">GameLiveShow</div>
+                            <div class="user__level">54 level</div>
+                        </div>
+                        <div class="user__creator">Creator</div>
+                    </div>
+                    <div class="user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="user__name">GameLiveShow</div>
+                            <div class="user__level">54 level</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="editPartie" class="hostLiveShow modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                Edit partie
+                <div onclick="closeModal(editPartie)" class="modal__close"></div>
+            </div>
+
+            <div class="modal__content">
+                <div class="platform__title">Partie name</div>
+                <input type="text" placeholder="Add name">
+                <input type="text" placeholder="Add description">
+
+                <div class="hostLiveShow__img">
+                    <img src="img/pic/Image (2).png"/>
+                    <div class="delete-img"></div>
+                </div>
+
+                <div class="hostLiveShow__btns">
+                    <div class="d-flex">
+                        <input id="hostLiveShowPhoto" type="file">
+                        <label for="hostLiveShowPhoto"></label>
+                        <button class="btn-public">Public partie</button>
+                        <div class="epic btn-round">
+                            <div class="btn-round__hover">GameLiveShow</div>
+                        </div>
+                        <div class="pc btn-round"></div>
+                        <div class="mic btn-round"></div>
+                        <div class="other btn-round">
+                            <div class="other__counter">2</div>
+                        </div>
+                    </div>
+                    <button onclick="next(titleModalStart, editPartie)" class="btn-create">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="titleModalStart" class="titleModal modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                <div onclick="next(editPartie, titleModalStart)" class="btn-edit">Edit</div>
+                <div onclick="closeModal(titleModalStart)" class="modal__close"></div>
+                <div class="modal__head-title">From Bronze to Predators
+                    <div>3 active</div>
+                </div>
+            </div>
+
+            <div class="modal__content">
+                <div class="titleModal__btns">
+                    <div onclick="clickStart()" class="btn-container">
+                        <div class="big-round-btn start"></div>
+                        <div class="big-round-text">Start</div>
+                    </div>
+                    <div class="btn-container">
+                        <div class="big-round-btn invite"></div>
+                        <div class="big-round-text">Invite</div>
+                    </div>
+                    <div class="btn-container">
+                        <div class="big-round-btn share"></div>
+                        <div class="big-round-text">Share</div>
+                    </div>
+                </div>
+                <div class="titleModal__text">
+                    <div class="titleModal__text_text">
+                        You hate to play with people who never played the game before?
+                    </div>
+                    <div class="titleModal__text_btns">
+                        <div class="round-btn xbox"></div>
+                        <div class="round-btn mic"></div>
+                        <div class="ranked-btn">Ranked</div>
+                    </div>
+                </div>
+                <div class="titleModal__active">
+                    <div class="user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="user__name">GameLiveShow</div>
+                            <div class="user__level">54 level</div>
+                        </div>
+                        <div class="user__creator">Creator</div>
+                    </div>
+                    <div class="user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="user__name">GameLiveShow</div>
+                            <div class="user__level">54 level</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="partieReport" class="removeUser modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                <div onclick="closeModal(partieReport)" class="modal__close"></div>
+                Partie Report
+            </div>
+
+            <div class="modal__content">
+                <div class="removeUser__title">
+                    Reason for report
+                </div>
+
+                <input id="reportSpam" name="partieReport" type="radio">
+                <label for="reportSpam">Spam</label>
+
+                <input id="reportBehavior" name="partieReport" type="radio">
+                <label for="reportBehavior">Behavior</label>
+
+                <input id="reportInactivity" name="partieReport" type="radio">
+                <label for="reportInactivity">Inactivity</label>
+
+                <input id="reportOther" name="partieReport" type="radio">
+                <label for="reportOther">Other</label>
+
+                <input type="text" placeholder="Add a discription">
+                <button onclick="reportSubmitted()" disabled class="disabled">Send report</button>
+            </div>
+        </div>
+    </div>
+    <div id="ratingPartie" class="ratingPartie modal-wrapp">
+        <div class="modal center">
+            <div class="modal__content">
+                <div class="avatar"></div>
+                <div class="rating__title">Rate Partie</div>
+<!--                <div class="rating__stars">-->
+<!--                    <input id="star1" name="stars" type="checkbox">-->
+<!--                    <label for="star1">-->
+<!--                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                            <path d="M8.54384 1.01636C8.72053 0.622675 9.27947 0.622674 9.45616 1.01636L11.657 5.91989C11.7297 6.08189 11.8828 6.19317 12.0594 6.21226L17.403 6.79007C17.832 6.83646 18.0047 7.36804 17.6849 7.65774L13.7015 11.2661C13.5699 11.3853 13.5114 11.5654 13.5478 11.7392L14.6495 16.9998C14.7379 17.4221 14.2858 17.7507 13.9114 17.536L9.2487 14.8626C9.09466 14.7743 8.90534 14.7743 8.7513 14.8626L4.08859 17.536C3.71424 17.7507 3.26205 17.4221 3.35051 16.9998L4.45225 11.7392C4.48865 11.5654 4.43014 11.3853 4.29854 11.2661L0.315091 7.65774C-0.00472718 7.36804 0.167993 6.83646 0.597014 6.79007L5.94063 6.21226C6.11717 6.19317 6.27033 6.08189 6.34304 5.91989L8.54384 1.01636Z"-->
+<!--                                  fill="#322F42"/>-->
+<!--                        </svg>-->
+<!--                    </label>-->
+
+<!--                    <input id="star2" name="stars" type="checkbox">-->
+<!--                    <label for="star2">-->
+<!--                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                            <path d="M8.54384 1.01636C8.72053 0.622675 9.27947 0.622674 9.45616 1.01636L11.657 5.91989C11.7297 6.08189 11.8828 6.19317 12.0594 6.21226L17.403 6.79007C17.832 6.83646 18.0047 7.36804 17.6849 7.65774L13.7015 11.2661C13.5699 11.3853 13.5114 11.5654 13.5478 11.7392L14.6495 16.9998C14.7379 17.4221 14.2858 17.7507 13.9114 17.536L9.2487 14.8626C9.09466 14.7743 8.90534 14.7743 8.7513 14.8626L4.08859 17.536C3.71424 17.7507 3.26205 17.4221 3.35051 16.9998L4.45225 11.7392C4.48865 11.5654 4.43014 11.3853 4.29854 11.2661L0.315091 7.65774C-0.00472718 7.36804 0.167993 6.83646 0.597014 6.79007L5.94063 6.21226C6.11717 6.19317 6.27033 6.08189 6.34304 5.91989L8.54384 1.01636Z"-->
+<!--                                  fill="#322F42"/>-->
+<!--                        </svg>-->
+<!--                    </label>-->
+
+<!--                    <input id="star3" name="stars" type="checkbox">-->
+<!--                    <label for="star3">-->
+<!--                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                            <path d="M8.54384 1.01636C8.72053 0.622675 9.27947 0.622674 9.45616 1.01636L11.657 5.91989C11.7297 6.08189 11.8828 6.19317 12.0594 6.21226L17.403 6.79007C17.832 6.83646 18.0047 7.36804 17.6849 7.65774L13.7015 11.2661C13.5699 11.3853 13.5114 11.5654 13.5478 11.7392L14.6495 16.9998C14.7379 17.4221 14.2858 17.7507 13.9114 17.536L9.2487 14.8626C9.09466 14.7743 8.90534 14.7743 8.7513 14.8626L4.08859 17.536C3.71424 17.7507 3.26205 17.4221 3.35051 16.9998L4.45225 11.7392C4.48865 11.5654 4.43014 11.3853 4.29854 11.2661L0.315091 7.65774C-0.00472718 7.36804 0.167993 6.83646 0.597014 6.79007L5.94063 6.21226C6.11717 6.19317 6.27033 6.08189 6.34304 5.91989L8.54384 1.01636Z"-->
+<!--                                  fill="#322F42"/>-->
+<!--                        </svg>-->
+<!--                    </label>-->
+
+<!--                    <input id="star4" name="stars" type="checkbox">-->
+<!--                    <label for="star4">-->
+<!--                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                            <path d="M8.54384 1.01636C8.72053 0.622675 9.27947 0.622674 9.45616 1.01636L11.657 5.91989C11.7297 6.08189 11.8828 6.19317 12.0594 6.21226L17.403 6.79007C17.832 6.83646 18.0047 7.36804 17.6849 7.65774L13.7015 11.2661C13.5699 11.3853 13.5114 11.5654 13.5478 11.7392L14.6495 16.9998C14.7379 17.4221 14.2858 17.7507 13.9114 17.536L9.2487 14.8626C9.09466 14.7743 8.90534 14.7743 8.7513 14.8626L4.08859 17.536C3.71424 17.7507 3.26205 17.4221 3.35051 16.9998L4.45225 11.7392C4.48865 11.5654 4.43014 11.3853 4.29854 11.2661L0.315091 7.65774C-0.00472718 7.36804 0.167993 6.83646 0.597014 6.79007L5.94063 6.21226C6.11717 6.19317 6.27033 6.08189 6.34304 5.91989L8.54384 1.01636Z"-->
+<!--                                  fill="#322F42"/>-->
+<!--                        </svg>-->
+<!--                    </label>-->
+
+<!--                    <input id="star5" name="stars" type="checkbox">-->
+<!--                    <label for="star5">-->
+<!--                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                            <path d="M8.54384 1.01636C8.72053 0.622675 9.27947 0.622674 9.45616 1.01636L11.657 5.91989C11.7297 6.08189 11.8828 6.19317 12.0594 6.21226L17.403 6.79007C17.832 6.83646 18.0047 7.36804 17.6849 7.65774L13.7015 11.2661C13.5699 11.3853 13.5114 11.5654 13.5478 11.7392L14.6495 16.9998C14.7379 17.4221 14.2858 17.7507 13.9114 17.536L9.2487 14.8626C9.09466 14.7743 8.90534 14.7743 8.7513 14.8626L4.08859 17.536C3.71424 17.7507 3.26205 17.4221 3.35051 16.9998L4.45225 11.7392C4.48865 11.5654 4.43014 11.3853 4.29854 11.2661L0.315091 7.65774C-0.00472718 7.36804 0.167993 6.83646 0.597014 6.79007L5.94063 6.21226C6.11717 6.19317 6.27033 6.08189 6.34304 5.91989L8.54384 1.01636Z"-->
+<!--                                  fill="#322F42"/>-->
+<!--                        </svg>-->
+<!--                    </label>-->
+<!--                </div>-->
+
+
+                <div class="rating">
+                    <div class="rating-item active" data-rate="1"></div>
+                    <div class="rating-item" data-rate="2"></div>
+                    <div class="rating-item" data-rate="3"></div>
+                    <div class="rating-item" data-rate="4"></div>
+                    <div class="rating-item" data-rate="5"></div>
+                </div>
+                <button>Skip</button>
             </div>
         </div>
     </div>

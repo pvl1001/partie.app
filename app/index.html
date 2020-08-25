@@ -30,7 +30,7 @@
 
         <div class="header__col2">
             <div class="header__logIn">
-                <a href="#">Log In</a>
+                <a class="header__logIn_login" onclick="openModal(logInIn)">Log In</a>
                 <button onclick="openModal(signUpPage)" class="bg-fiolet">Sign Up</button>
             </div>
         </div>
@@ -199,7 +199,7 @@
                         <input id="mobile" name="platforms" type="checkbox">
                         <label for="mobile"></label>
                     </div>
-                    <button id="btnPlatforms" onclick="next(logInIn, logInPlatforms)"
+                    <button id="btnPlatforms" onclick="next()"
                             class="bg-fiolet animate__animated">Continue
                     </button>
                 </form>
@@ -210,10 +210,10 @@
             <div class="logIn__in center modal">
                 <div class="sign-up__tab">
                     <div class="sign-up__tab_sign-up">
-                        <a href="#">Sign up</a>
+                        <a href="#" class="color-gray">Sign up</a>
                     </div>
                     <div class="sign-up__tab_log-in">
-                        <a href="#" class="color-gray">Log in</a>
+                        <a href="#" >Log in</a>
                     </div>
                     <div onclick="closeModal(logInIn)" class="close">
                         <img src="img/icon/close.png" height="16"/>
@@ -245,7 +245,7 @@
                 </form>
 
                 <div class="logIn__menu d-block">
-                    <button class="btn-in bg-fiolet">Log in</button>
+                    <a href="/feed.html"  class="btn btn-in bg-fiolet">Log in</a>
                     <div class="need-help">Need help? Contact Us</div>
                     <div class="or"><span>or</span></div>
                     <div id="btnContainer" class="btn-container">

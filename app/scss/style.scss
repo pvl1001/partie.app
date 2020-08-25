@@ -207,6 +207,11 @@ input[type=password] {
     background-color: #D86035 !important;
 }
 
+.bg-yellow {
+    background-color: #D2C867;
+    color: #000;
+}
+
 .hidden {
     visibility: hidden;
 }
@@ -252,6 +257,10 @@ input[type=password] {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.btn-origin {
+    background: #D86035 url('../img/icon/origin.png') 29px 50% / 17.7px no-repeat;
 }
 
 .hint {
@@ -650,14 +659,6 @@ textarea {
             visibility: hidden;
             transition: .3s ease;
 
-            .close-place {
-                position: fixed;
-                top: 0;
-                right: 0;
-                left: 0;
-                bottom: 0;
-                z-index: -1;
-            }
 
             ul {
                 padding: 30px;
@@ -683,6 +684,34 @@ textarea {
         }
     }
 
+    .close-place {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+
+    .user {
+        display: flex;
+        align-items: center;
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        .user__name {
+            font-weight: bold;
+            margin-bottom: 6px;
+            cursor: pointer;
+        }
+        .user__level {
+            opacity: 0.5;
+        }
+    }
 
 }
 
