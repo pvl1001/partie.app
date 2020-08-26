@@ -29,6 +29,10 @@ let partieReport = document.querySelector('#partieReport')
 let ratingPartie = document.querySelector('#ratingPartie')
 let titleModalStart = document.querySelector('#titleModalStart')
 let inviteFriends = document.querySelector('#inviteFriends')
+let newChat = document.querySelector('#newChat')
+let chatHead = document.querySelector('#chatHead')
+let editChat = document.querySelector('#editChat')
+let leaveChat = document.querySelector('#leaveChat')
 let arrHeaderMenuMenu = document.querySelectorAll('.header__menu_menu')
 let arrlogInMenu = document.querySelectorAll('.logIn__menu')
 let arrModalWrapp = document.querySelectorAll( '.modal-wrapp' )
@@ -416,7 +420,8 @@ function openActivePartie() {
     forYou.style.display = 'none'
     newActivePartie.style.display = 'flex'
 }
-    function clickTab(open, close) {
+
+function clickTab(open, close) {
         open.style.display = 'block'
         close.style.display = 'none'
         $( '.slider' ).slick('unslick')
@@ -454,6 +459,14 @@ function openActivePartie() {
         } )
 
     }
+
+function openChat() {
+    let newChatPage = document.querySelector( '.new-active-partie.chat' )
+    let chatPage = document.querySelector( '.chats' )
+    closeModal(newChat)
+    chatPage.style.display = 'none'
+    newChatPage.style.display = 'flex'
+}
 // })
 
 
@@ -664,16 +677,28 @@ for(let i = 0; i < arrUser.length; i++){
 }
 
 function openMore() {
-    let moreWin = document.querySelector( '.more__win' )
-    let closePlaceMore = document.querySelector( '.big-round-btn.more .close-place' )
-    moreWin.style.visibility = 'visible'
-    moreWin.style.opacity = '1'
-    closePlaceMore.style.display = 'block'
-    closePlaceMore.addEventListener( 'click', function (e) {
-        moreWin.style.cssText = ''
-        closePlaceMore.style.display = ''
-        e.stopPropagation()
-    } )
+    let arrMoreWin = document.querySelectorAll( '.more__win' )
+    let arrClosePlaceMore = document.querySelectorAll( '.big-round-btn.more .close-place' )
+    for (let i = 0; i < arrMoreWin.length; i++) {
+        let moreWin = arrMoreWin[i]
+        let closePlaceMore = arrClosePlaceMore[i]
+        moreWin.style.visibility = 'visible'
+        moreWin.style.opacity = '1'
+        closePlaceMore.style.display = 'block'
+
+        let test = moreWin.querySelectorAll('.more__win_row ')
+        for(let el of test)
+        el.addEventListener('click', function (e) {
+            moreWin.style.cssText = ''
+            closePlaceMore.style.display = ''
+            e.stopPropagation()
+        })
+        closePlaceMore.addEventListener( 'click', function (e) {
+            moreWin.style.cssText = ''
+            closePlaceMore.style.display = ''
+            e.stopPropagation()
+        } )
+    }
 }
 
 

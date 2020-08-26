@@ -290,10 +290,10 @@
         .active-partie__counter {
             background: #F45365;
             border-radius: 20px;
-            height: 24px;
-            line-height: 24px;
+            //height: 24px;
+            //line-height: 24px;
             text-align: center;
-            padding: 0 10px;
+            padding: 4px 10px 6px;
         }
     }
 
@@ -624,7 +624,7 @@
 }
 
 //modals
-#inviteFriends {
+.inviteFriends {
     //top: 0;
 
     .modal__head {
@@ -694,6 +694,7 @@
             }
 
             .user {
+                display: block;
                 .user__name {
                     font-weight: bold;
                     margin-bottom: 6px;

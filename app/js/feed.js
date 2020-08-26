@@ -59,7 +59,8 @@ function openActivePartie() {
     forYou.style.display = 'none'
     newActivePartie.style.display = 'flex'
 }
-    function clickTab(open, close) {
+
+function clickTab(open, close) {
         open.style.display = 'block'
         close.style.display = 'none'
         $( '.slider' ).slick('unslick')
@@ -97,6 +98,14 @@ function openActivePartie() {
         } )
 
     }
+
+function openChat() {
+    let newChatPage = document.querySelector( '.new-active-partie.chat' )
+    let chatPage = document.querySelector( '.chats' )
+    closeModal(newChat)
+    chatPage.style.display = 'none'
+    newChatPage.style.display = 'flex'
+}
 // })
 
 

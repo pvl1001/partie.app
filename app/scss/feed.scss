@@ -7,17 +7,23 @@
         //overflow: auto;
 
         /* хром, сафари */
-        &::-webkit-scrollbar { width: 0; }
+        &::-webkit-scrollbar {
+            width: 0;
+        }
 
         /* ie 10+ */
-        & { -ms-overflow-style: none; }
+        & {
+            -ms-overflow-style: none;
+        }
 
         /* фф (свойство больше не работает, других способов тоже нет)*/
-        & { overflow: -moz-scrollbars-none; }
+        & {
+            overflow: -moz-scrollbars-none;
+        }
 
         .new-post.modal {
             button {
-                color: rgba(235,235,245,.4);
+                color: rgba(235, 235, 245, .4);
                 margin-bottom: 20px;
                 font-size: 17px;
                 line-height: 22px;
@@ -109,6 +115,7 @@
                         margin-bottom: 20px;
                         background: url('../img/pic/slide4.png') center / cover no-repeat;
                     }
+
                     .game__name {
                         text-align: center;
                         color: rgba(235, 235, 245, 0.5);
@@ -138,9 +145,11 @@
             width: 336px;
             min-width: 336px;
         }
+
         .feed__col2 {
             flex-grow: 1;
         }
+
         .feed__col1 {
             padding-left: 16px;
 
@@ -157,6 +166,7 @@
                     background: #6E4AFF url('../img/icon/fiolet-logo.png') 0 0 / cover no-repeat;
                     margin-right: 10px;
                 }
+
                 .feed__search_search {
                     width: 171px;
                     height: 40px;
@@ -179,10 +189,12 @@
                         width: 40px;
                         margin-right: 10px;
                     }
+
                     .feed__profile {
                         display: flex;
                         justify-content: center;
                     }
+
                     a {
                         color: #504D60;
                         display: flex;
@@ -291,6 +303,7 @@
                         height: auto;
                         padding: 8px 12px;
                     }
+
                     .feed__what-new_post {
                         margin-left: auto;
                     }
@@ -339,11 +352,13 @@
                         .avatar {
                             margin-right: 15px;
                         }
+
                         .user__name {
                             div:nth-child(1) {
                                 font-weight: bold;
                                 margin-bottom: 6px;
                             }
+
                             div:nth-child(2) {
                                 line-height: 16px;
                                 color: #EBEBF5;
@@ -384,6 +399,7 @@
                 input[type=checkbox] {
                     display: none;
                 }
+
                 label {
                     display: flex;
 
@@ -391,6 +407,7 @@
                         transition: .2s;
                     }
                 }
+
                 input[type=checkbox]:checked + label path {
                     fill: #F45365;
                 }
@@ -428,7 +445,7 @@
                 font-weight: 700;
                 cursor: pointer;
 
-                .feed__friends_invite  {
+                .feed__friends_invite {
                     display: flex;
                     align-items: center;
                     margin-bottom: 15px;
@@ -494,10 +511,12 @@
         .feed__post {
             background: #000;
         }
+
         .feed__header_tabs {
             font-size: 17px;
             font-weight: 700;
         }
+
         .feed__comments {
 
             a {
@@ -530,6 +549,7 @@
                     border: 0;
                     padding-left: 15px;
                 }
+
                 button {
                     visibility: hidden;
                     background-color: #D2C867;
@@ -565,21 +585,25 @@
                         }
 
                         &:hover {
-                            background: rgba(255,255,255,.02);
+                            background: rgba(255, 255, 255, .02);
                         }
+
                         .user {
                             display: flex;
                             align-items: center;
                             cursor: pointer;
                         }
+
                         .avatar {
                             margin-right: 15px;
                         }
+
                         .user__name {
                             font-weight: 700;
                         }
+
                         .people__creater {
-                            color: rgba(235,235,245,.4);
+                            color: rgba(235, 235, 245, .4);
                             margin-left: 68px;
                         }
                     }
@@ -603,16 +627,19 @@
                         font-size: 13px;
                         line-height: 16px;
                         margin-bottom: 10px;
+
                         span {
                             opacity: 0.3;
                             margin-left: 7px;
                         }
                     }
+
                     .comment-text {
                         font-size: 14px;
                         line-height: 150%;
                         margin-bottom: 10px;
                     }
+
                     .comments__comment_reply {
                         display: flex;
                         justify-content: space-between;
@@ -659,11 +686,12 @@
                         }
 
                         .comment-reply__to {
-                            color: rgba(248,246,255,.3);
+                            color: rgba(248, 246, 255, .3);
                             font-size: 11px;
                             margin-bottom: 4px;
                         }
                     }
+
                     .comments__show-more {
                         font-weight: bold;
                         font-size: 13px;
@@ -673,7 +701,7 @@
                         height: 32px;
                         text-align: center;
                         color: #EBEBF5;
-                        background-color: rgba(235,235,245,.3);
+                        background-color: rgba(235, 235, 245, .3);
                         margin-left: 15px;
                     }
 

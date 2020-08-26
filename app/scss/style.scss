@@ -19,6 +19,7 @@
 @import 'partie';
 @import 'profiles';
 @import 'creat_parties';
+@import 'chats';
 
 .links {
     position: fixed;
@@ -706,13 +707,15 @@ textarea {
             height: 50px;
             margin-right: 15px;
             cursor: pointer;
+            min-width: 50px;
         }
         .user__name {
             font-weight: bold;
             margin-bottom: 6px;
             cursor: pointer;
         }
-        .user__level {
+        .user__level,
+        .user__message {
             opacity: 0.5;
         }
     }
