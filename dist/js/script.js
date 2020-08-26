@@ -28,6 +28,7 @@ let editPartie = document.querySelector('#editPartie')
 let partieReport = document.querySelector('#partieReport')
 let ratingPartie = document.querySelector('#ratingPartie')
 let titleModalStart = document.querySelector('#titleModalStart')
+let inviteFriends = document.querySelector('#inviteFriends')
 let arrHeaderMenuMenu = document.querySelectorAll('.header__menu_menu')
 let arrlogInMenu = document.querySelectorAll('.logIn__menu')
 let arrModalWrapp = document.querySelectorAll( '.modal-wrapp' )
@@ -36,13 +37,8 @@ let arrFeedHeaderMenu = document.querySelectorAll( '.feed__header_menu' )
 document.addEventListener('DOMContentLoaded', function () {
 
     $( '.slider' ).slick( {
-        autoplay: true,
-        autoplaySpeed: 4000,
-        delay: 5000,
-        speed: 700,
-
         slidesToShow: 10,
-        slidesToScroll: 5,
+        slidesToScroll: 1,
         infinite: true,
         swipeToSlide: true,
         responsive: [
@@ -413,14 +409,22 @@ function isNewComment() {
 
 let global = document.querySelector( '.global' )
 let forYou = document.querySelector( '.for-you' )
+let newActivePartie = document.querySelector( '.new-active-partie' )
 
+function openActivePartie() {
+    global.style.display = 'none'
+    forYou.style.display = 'none'
+    newActivePartie.style.display = 'flex'
+}
     function clickTab(open, close) {
         open.style.display = 'block'
         close.style.display = 'none'
         $( '.slider' ).slick('unslick')
         $( '.slider' ).slick( {
             slidesToShow: 10,
+            slidesToScroll: 1,
             infinite: true,
+            swipeToSlide: true,
             responsive: [
                 {
                     breakpoint: 1600,
@@ -448,6 +452,7 @@ let forYou = document.querySelector( '.for-you' )
                 }
             ]
         } )
+
     }
 // })
 

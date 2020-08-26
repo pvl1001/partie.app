@@ -28,6 +28,7 @@ let editPartie = document.querySelector('#editPartie')
 let partieReport = document.querySelector('#partieReport')
 let ratingPartie = document.querySelector('#ratingPartie')
 let titleModalStart = document.querySelector('#titleModalStart')
+let inviteFriends = document.querySelector('#inviteFriends')
 let arrHeaderMenuMenu = document.querySelectorAll('.header__menu_menu')
 let arrlogInMenu = document.querySelectorAll('.logIn__menu')
 let arrModalWrapp = document.querySelectorAll( '.modal-wrapp' )
@@ -36,13 +37,8 @@ let arrFeedHeaderMenu = document.querySelectorAll( '.feed__header_menu' )
 document.addEventListener('DOMContentLoaded', function () {
 
     $( '.slider' ).slick( {
-        autoplay: true,
-        autoplaySpeed: 4000,
-        delay: 5000,
-        speed: 700,
-
         slidesToShow: 10,
-        slidesToScroll: 5,
+        slidesToScroll: 1,
         infinite: true,
         swipeToSlide: true,
         responsive: [

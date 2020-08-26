@@ -52,14 +52,22 @@ function isNewComment() {
 
 let global = document.querySelector( '.global' )
 let forYou = document.querySelector( '.for-you' )
+let newActivePartie = document.querySelector( '.new-active-partie' )
 
+function openActivePartie() {
+    global.style.display = 'none'
+    forYou.style.display = 'none'
+    newActivePartie.style.display = 'flex'
+}
     function clickTab(open, close) {
         open.style.display = 'block'
         close.style.display = 'none'
         $( '.slider' ).slick('unslick')
         $( '.slider' ).slick( {
             slidesToShow: 10,
+            slidesToScroll: 1,
             infinite: true,
+            swipeToSlide: true,
             responsive: [
                 {
                     breakpoint: 1600,
@@ -87,6 +95,7 @@ let forYou = document.querySelector( '.for-you' )
                 }
             ]
         } )
+
     }
 // })
 

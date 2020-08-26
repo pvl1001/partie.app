@@ -5192,6 +5192,7 @@ textarea {
     -ms-flex-align: center;
     align-items: center;
     padding: 20px 16px;
+    cursor: pointer;
   }
 
   .active-partie .avatar {
@@ -5224,9 +5225,7 @@ textarea {
   }
 
   .feed__col2.new-active-partie {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
