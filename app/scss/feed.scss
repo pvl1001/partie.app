@@ -197,8 +197,21 @@
 
                     a {
                         color: #504D60;
-                        display: flex;
+                        display: inline-flex;
                         align-items: center;
+                        transition: .3s;
+
+                        svg path {
+                            transition: .3s;
+                        }
+
+                        &:hover {
+                            color: #F8F6FF;
+
+                            svg path {
+                                fill: #F8F6FF;
+                            }
+                        }
                     }
 
                     .notifications {
@@ -723,7 +736,6 @@
             }
         }
 
-
     }
 
     .single-post {
@@ -768,4 +780,8 @@
 
 .mb10 {
     margin-bottom: 10px;
+}
+
+.user__cd {
+    font-weight: 400;
 }

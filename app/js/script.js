@@ -33,6 +33,10 @@ let newChat = document.querySelector('#newChat')
 let chatHead = document.querySelector('#chatHead')
 let editChat = document.querySelector('#editChat')
 let leaveChat = document.querySelector('#leaveChat')
+let inviteFriendsSetting = document.querySelector('#inviteFriendsSetting')
+let deleteAccount = document.querySelector('#deleteAccount')
+let changePaymentMethod = document.querySelector('#changePaymentMethod')
+let addCreditCardSetting = document.querySelector('#addCreditCardSetting')
 let arrHeaderMenuMenu = document.querySelectorAll('.header__menu_menu')
 let arrlogInMenu = document.querySelectorAll('.logIn__menu')
 let arrModalWrapp = document.querySelectorAll( '.modal-wrapp' )
@@ -260,6 +264,18 @@ if(shortcuts !== null) {
 }
 
 
+function openBurger() {
+    let windowBurger = document.querySelector('.burger__menu')
+    let closePlace = windowBurger.querySelector('.close-place')
+    windowBurger.style.opacity = '1'
+    windowBurger.style.visibility = 'visible'
+    closePlace.addEventListener('click', function () {
+        windowBurger.style.cssText = ''
+    })
+}
+
+
+
 
 // open reply comment
 // let reply = document.querySelectorAll('.reply')
@@ -317,3 +333,7 @@ if(shortcuts !== null) {
 @@include( 'feed.js' )
 @@include( 'profile.js' )
 @@include( 'partie.js' )
+@@include( 'settings.js' )
+@@include( 'about.js' )
+@@include( 'search.js' )
+@@include( 'notifications.js' )

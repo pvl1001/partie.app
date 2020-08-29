@@ -10,10 +10,9 @@
     <title>Partie</title>
 </head>
 <body>
-@@include('_modals.html')
-
-<div id="partie__id" class="feed">
+<div id="feed" class="feed notifications">
     <img class="feed__people-btn" onclick="hiddenPeople()" src="img/icon/people-btn.png"/>
+
     <div id="newPost" class="modal-wrapp">
         <div class="new-post modal center">
             <div class="modal__head">
@@ -74,10 +73,61 @@
 
         </div>
     </div>
+
     <div class="feed__col1">
         <div class="feed__search">
             <a href="/" class="feed__search_logo"></a>
-            <input class="feed__search_search" type="text" placeholder="Search">
+            <div class="search-win">
+                <input class="feed__search_search" type="text" placeholder="Search">
+                <div class="search-win__box">
+                    <div class="search-win__content">
+                        <div class="recent">Recent</div>
+                        <ul>
+                            <li>
+                                <div class="clock"></div>
+                                Apex
+                                <div class="delete"></div>
+                            </li>
+                            <li>
+                                <div class="clock"></div>
+                                Apx
+                                <div class="delete"></div>
+                            </li>
+                            <li>
+                                <div class="clock"></div>
+                                Ape
+                                <div class="delete"></div>
+                            </li>
+                            <li>
+                                <div class="clock"></div>
+                                Ax
+                                <div class="delete"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="search-win__content search-win__content-search">
+                        <ul>
+                            <li>
+                                <div class="search-icon"></div>
+                                Apex
+                            </li>
+                            <li>
+                                <div class="search-icon"></div>
+                                Apx
+                            </li>
+                            <li>
+                                <div class="search-icon"></div>
+                                Ape
+                            </li>
+                            <li>
+                                <div class="search-icon"></div>
+                                Ax
+                            </li>
+                        </ul>
+                        <a href="/search.html">Show gg results</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="feed__nav">
             <ul>
@@ -91,11 +141,11 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/partie.html" class="active-tab">
+                    <a href="/partie.html">
                         <svg width="16" height="21" viewBox="0 0 16 21" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.8499 8.3887V12.3823C15.8499 12.3823 15.843 12.7838 15.4485 12.7838H10.8389V16.369C10.8389 16.369 10.8389 16.7705 10.4374 16.7705H5.82779V20.3558C5.82779 20.5772 5.64092 20.7572 5.42635 20.7572H0.40836C0.186877 20.7572 0.00692074 20.5703 0.00692074 20.3558V16.3621C0.00692074 16.3621 0.0207637 15.9607 0.40836 15.9607H5.01799V12.7838H0.40836C0.40836 12.7838 0.048449 12.7976 0.00692074 12.3823V8.3887C0.00692074 8.3887 0.00692093 7.98727 0.40836 7.98727C0.8098 7.98727 5.01799 7.98727 5.01799 7.98727V4.78959H0.394518C0.00692117 4.78959 0 4.39507 0 4.39507V0.40144C0 0.0069216 0.40144 0 0.40144 0H5.41251C5.80703 0 5.81395 0.40144 5.81395 0.40144V3.98671H10.4236C10.4236 3.98671 10.825 4.0144 10.825 4.38815V7.97342H15.4347C15.4416 7.98726 15.8499 7.99419 15.8499 8.3887ZM10.0221 11.974V8.79706H5.81395V11.974H10.0221Z"
-                                  fill="#EBEBF5"/>
+                                  fill="#322F42"/>
                         </svg>
                         Partie
                     </a>
@@ -112,11 +162,11 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/notifications.html">
+                    <a href="/notifications.html"  class="active-tab">
                         <div class="notifications">
                             <svg width="17" height="22" viewBox="0 0 17 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M15.4099 14.7083L16.8628 17.13C16.9406 17.2603 16.9432 17.4245 16.8678 17.5566C16.7925 17.6886 16.6521 17.7706 16.4997 17.7706H0.422497C0.270186 17.7706 0.130568 17.6885 0.0552457 17.5557C-0.0200768 17.4228 -0.0183713 17.2604 0.0603227 17.1292L1.51319 14.7075C2.18335 13.5896 2.53791 12.3102 2.53791 11.0071V8.88578C2.53791 6.20765 4.32503 3.94246 6.76874 3.2122V1.69333C6.76874 0.759993 7.52776 0.000976562 8.4611 0.000976562C9.39444 0.000976562 10.1535 0.759993 10.1535 1.69333V3.2122C12.5972 3.94246 14.3843 6.20765 14.3843 8.88578V11.0071C14.3843 12.3102 14.7389 13.5905 15.4099 14.7083Z" fill="#322F42"/>
-                                <path d="M8.46108 21.291C7.28408 21.291 6.27375 20.5954 5.79651 19.5986H11.1257C10.6484 20.5954 9.63808 21.291 8.46108 21.291Z" fill="#322F42"/>
+                                <path d="M15.4099 14.7083L16.8628 17.13C16.9406 17.2603 16.9432 17.4245 16.8678 17.5566C16.7925 17.6886 16.6521 17.7706 16.4997 17.7706H0.422497C0.270186 17.7706 0.130568 17.6885 0.0552457 17.5557C-0.0200768 17.4228 -0.0183713 17.2604 0.0603227 17.1292L1.51319 14.7075C2.18335 13.5896 2.53791 12.3102 2.53791 11.0071V8.88578C2.53791 6.20765 4.32503 3.94246 6.76874 3.2122V1.69333C6.76874 0.759993 7.52776 0.000976562 8.4611 0.000976562C9.39444 0.000976562 10.1535 0.759993 10.1535 1.69333V3.2122C12.5972 3.94246 14.3843 6.20765 14.3843 8.88578V11.0071C14.3843 12.3102 14.7389 13.5905 15.4099 14.7083Z" fill="#EBEBF5"/>
+                                <path d="M8.46108 21.291C7.28408 21.291 6.27375 20.5954 5.79651 19.5986H11.1257C10.6484 20.5954 9.63808 21.291 8.46108 21.291Z" fill="#EBEBF5"/>
                             </svg>
                             <div class="notifications-counter">99+</div>
                         </div>
@@ -137,134 +187,116 @@
         </div>
     </div>
     <div class="feed__col2">
-        <div>
-            <div class="feed__header">
-                <a href="/partie.html" class="feed__header_params">
-                    <img src="img/icon/arrow_back.png" height="24">
-                </a>
+        <div class="feed__header">
+            Notifications
+        </div>
+
+<!--        <div class="followers__no-results">-->
+<!--            <div class="invite-people">-->
+<!--                <div class="invite-people__img">-->
+<!--                    <img src="img/pic/invite.png"/>-->
+<!--                </div>-->
+<!--                <div class="invite-people__title">-->
+<!--                    You don't have any <br> notifications-->
+<!--                </div>-->
+<!--                <div class="invite-people__description">-->
+<!--                    You're all caught up!-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <div class="notifications__content">
+            <div onclick="openSettings(followRequests)" class="requests">
+                <div class="requests__counter-wrapper">
+                    <div class="requests__counter">24</div>
+                    <div class="requests__text">Follow requests</div>
+                </div>
+               <div class="requests__arrow"></div>
             </div>
-            <div class="feed__header scroll">
-                <a href="/partie.html" class="feed__header_params">
-                    <img src="img/icon/arrow_back.png" height="24">
-                </a>
-                <div class="feed__header_tabs">
-                    Apex Legends
+            <div class="notifications__row">
+                <div class="avatar"></div>
+                <div>
+                    <span class="user__name">wtfmoses</span>
+                    <span class="user__text">sent a follow request.</span>
+                    <span class="user__time">now</span>
                 </div>
-                <div onclick="openModal(hostPartie)" class="feed__header_post">+ Partie</div>
+                <button class="notifications__btn">Accept</button>
             </div>
-
-            <!--post-->
-            <div class="creat-partie">
-                <div class="creat-partie__img">
-                    <img src="img/pic/slide2.png"/>
+            <div class="notifications__row">
+                <div class="avatar"></div>
+                <div>
+                    <span class="user__name"Igboy6827</span>
+                    <span class="user__text"> accepted follow request.</span>
+                    <span class="user__time">1m</span>
                 </div>
-                <div class="creat-partie__name">Apex Legends</div>
-                <button class="bg-fiolet">Create Partie</button>
-                <div class="creat-partie__radio">
-                    <div class="filter__btn">Filter</div>
-
-                    <input name="filter" id="radioPC" type="radio">
-                    <label for="radioPC">PC</label>
-
-                    <input name="filter" id="radioPS" type="radio">
-                    <label for="radioPS">Playstation</label>
-
-                    <input name="filter" id="radioXbox" type="radio">
-                    <label for="radioXbox">Xbox</label>
-
-                    <input name="filter" id="radioPredators" type="radio">
-                    <label for="radioPredators">Predators</label>
-
-                    <input name="filter" id="radioSwitch" type="radio">
-                    <label for="radioSwitch">Switch</label>
-
-                    <div class="more__btn">More</div>
-
+            </div>
+            <div class="notifications__row">
+                <div class="avatar"></div>
+                <div>
+                    <span class="user__name">Igboy6827</span>
+                    <span class="user__text"> is hosting a partie.</span>
+                    <span class="user__time">1m</span>
                 </div>
+                <button class="notifications__btn bg-fiolet">Join</button>
+            </div>
+            <div class="notifications__row">
+                <div class="avatar"></div>
+                <div>
+                    <span class="user__name">Igboy6827</span>
+                    <span class="user__text"> accepted follow request.</span>
+                    <span class="user__time">1m</span>
+                </div>
+            </div>
+            <div class="notifications__row">
+                <div class="avatar"></div>
+                <div>
+                    <span class="user__name">wtfmoses</span>
+                    <span class="user__text">sent a follow request.</span>
+                    <span class="user__time">now</span>
+                </div>
+                <button class="notifications__btn">Accept</button>
             </div>
         </div>
-        <a href="/post_id.html" class="feed__post">
-            <div class="feed__post_head user">
-                <div class="user__content">
-                    <div class="avatar">
-                        <div class="avatar__star"></div>
-                    </div>
-                    <div class="user__name">
-                        <div>HungryDima</div>
-                        <div class="user__cd">CD: Warzone <span>1h</span></div>
-                    </div>
-                </div>
-                <div class="feed__post_btn"></div>
-            </div>
-            <div class="feed__post_text">
-                I want to play MW with others on the platform but hardly anyone here is online. It's such a pain in
-                the butt ;(
-            </div>
-            <div class="feed__post_img">
-                <img src="img/pic/Rectangle 78.png" width="100%"/>
-            </div>
-            <div class="feed__post_footer">
-                <div class="footer-social">
-                    <div class="like">
-                        <input id="like" type="checkbox">
-                        <label for="like">
-                            <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17.4927 1.56581C16.5092 0.556101 15.1596 0 13.6923 0C12.5956 0 11.5912 0.328199 10.7069 0.975406C10.2607 1.3021 9.85645 1.70178 9.5 2.16828C9.14369 1.70192 8.73926 1.3021 8.29293 0.975406C7.40883 0.328199 6.40441 0 5.30766 0C3.84039 0 2.49068 0.556101 1.50713 1.56581C0.535332 2.56372 0 3.92701 0 5.40473C0 6.92567 0.598824 8.31791 1.88446 9.7863C3.03456 11.0998 4.68752 12.4332 6.6017 13.9772C7.25532 14.5044 7.9962 15.1021 8.7655 15.7388C8.96873 15.9072 9.22951 16 9.5 16C9.77035 16 10.0313 15.9072 10.2342 15.739C11.0035 15.1023 11.7448 14.5043 12.3987 13.9767C14.3126 12.433 15.9656 11.0998 17.1157 9.78616C18.4013 8.31791 19 6.92567 19 5.40459C19 3.92701 18.4647 2.56372 17.4927 1.56581Z"
-                                      fill="#75757A"/>
-                            </svg>
-                            <div class="like__counter">42</div>
-                        </label>
-                    </div>
-                    <div class="comment">
-                        <img src="img/icon/comment.png" width="20"/>
-                        <div class="comment__counter">492</div>
-                    </div>
-                </div>
-                <img class="share" src="img/icon/share.png" height="19"/></div>
-        </a>
-        <a href="/post_id.html" class="feed__post">
-            <div class="feed__post_head user">
-                <div class="user__content">
-                    <div class="avatar">
-                        <div class="avatar__star"></div>
-                    </div>
-                    <div class="user__name">
-                        <div>HungryDima</div>
-                        <div class="user__cd">CD: Warzone <span>1h</span></div>
-                    </div>
-                </div>
-                <div class="feed__post_btn"></div>
-            </div>
-            <div class="feed__post_text">
-                I want to play MW with others on the platform but hardly anyone here is online. It's such a pain in
-                the butt ;(
-            </div>
-            <div class="feed__post_img">
-                <img src="img/pic/Rectangle 78.png" width="100%"/>
-            </div>
-            <div class="feed__post_footer">
-                <div class="footer-social">
-                    <div class="like">
-                        <input id="like" type="checkbox">
-                        <label for="like">
-                            <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17.4927 1.56581C16.5092 0.556101 15.1596 0 13.6923 0C12.5956 0 11.5912 0.328199 10.7069 0.975406C10.2607 1.3021 9.85645 1.70178 9.5 2.16828C9.14369 1.70192 8.73926 1.3021 8.29293 0.975406C7.40883 0.328199 6.40441 0 5.30766 0C3.84039 0 2.49068 0.556101 1.50713 1.56581C0.535332 2.56372 0 3.92701 0 5.40473C0 6.92567 0.598824 8.31791 1.88446 9.7863C3.03456 11.0998 4.68752 12.4332 6.6017 13.9772C7.25532 14.5044 7.9962 15.1021 8.7655 15.7388C8.96873 15.9072 9.22951 16 9.5 16C9.77035 16 10.0313 15.9072 10.2342 15.739C11.0035 15.1023 11.7448 14.5043 12.3987 13.9767C14.3126 12.433 15.9656 11.0998 17.1157 9.78616C18.4013 8.31791 19 6.92567 19 5.40459C19 3.92701 18.4647 2.56372 17.4927 1.56581Z"
-                                      fill="#75757A"/>
-                            </svg>
-                            <div class="like__counter">42</div>
-                        </label>
-                    </div>
-                    <div class="comment">
-                        <img src="img/icon/comment.png" width="20"/>
-                        <div class="comment__counter">492</div>
-                    </div>
-                </div>
-                <img class="share" src="img/icon/share.png" height="19"/></div>
-        </a>
 
+        <div class="notifications__content follow-requests">
+            <div class="feed__header">
+                <svg id="back" onclick="backSettings(followRequests)" class="btn-back" width="24" height="24" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                    <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                </svg>
+                Follow requests
+            </div>
+            <div class="notifications__row">
+                <div class="avatar"></div>
+                <div>
+                    <span class="user__name">wtfmoses</span>
+                    <span class="user__text">sent a follow request.</span>
+                    <span class="user__time">now</span>
+                </div>
+                <button class="notifications__btn">Accept</button>
+            </div>
+            <div class="notifications__row">
+                <div class="avatar"></div>
+                <div>
+                    <span class="user__name">wtfmoses</span>
+                    <span class="user__text">sent a follow request.</span>
+                    <span class="user__time">now</span>
+                </div>
+                <button class="notifications__btn bg-fiolet">Join</button>
+            </div>
+            <div class="notifications__row">
+                <div class="avatar"></div>
+                <div>
+                    <span class="user__name">wtfmoses</span>
+                    <span class="user__text">sent a follow request.</span>
+                    <span class="user__time">now</span>
+                </div>
+                <button class="notifications__btn">Accept</button>
+            </div>
+        </div>
     </div>
+
     <div class="feed__col3">
         <div>
             <div class="feed__header">

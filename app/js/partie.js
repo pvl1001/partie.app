@@ -29,29 +29,48 @@ for(let i = 0; i < arrUser.length; i++){
     })
 }
 
-function openMore() {
-    let arrMoreWin = document.querySelectorAll( '.more__win' )
-    let arrClosePlaceMore = document.querySelectorAll( '.big-round-btn.more .close-place' )
-    for (let i = 0; i < arrMoreWin.length; i++) {
-        let moreWin = arrMoreWin[i]
-        let closePlaceMore = arrClosePlaceMore[i]
-        moreWin.style.visibility = 'visible'
-        moreWin.style.opacity = '1'
-        closePlaceMore.style.display = 'block'
+function openMorePartie() {
+    let moreWin = document.querySelector( '.more__win' )
+    let closePlaceMore = document.querySelector( '.big-round-btn.more .close-place' )
 
-        let test = moreWin.querySelectorAll('.more__win_row ')
-        for(let el of test)
-        el.addEventListener('click', function (e) {
-            moreWin.style.cssText = ''
-            closePlaceMore.style.display = ''
-            e.stopPropagation()
-        })
-        closePlaceMore.addEventListener( 'click', function (e) {
+    moreWin.style.visibility = 'visible'
+    moreWin.style.opacity = '1'
+    closePlaceMore.style.display = 'block'
+
+    let test = moreWin.querySelectorAll( '.more__win_row ' )
+    for (let el of test)
+        el.addEventListener( 'click', function (e) {
             moreWin.style.cssText = ''
             closePlaceMore.style.display = ''
             e.stopPropagation()
         } )
-    }
+    closePlaceMore.addEventListener( 'click', function (e) {
+        moreWin.style.cssText = ''
+        closePlaceMore.style.display = ''
+        e.stopPropagation()
+    } )
+}
+
+function openMoreChats() {
+    let moreWin = document.querySelector( '.more__win-chats' )
+    let closePlaceMore = document.querySelector( '.big-round-btn.more .close-place.more__win-chats' )
+
+    moreWin.style.visibility = 'visible'
+    moreWin.style.opacity = '1'
+    closePlaceMore.style.display = 'block'
+
+    let test = moreWin.querySelectorAll( '.more__win_row' )
+    for (let el of test)
+        el.addEventListener( 'click', function (e) {
+            moreWin.style.cssText = ''
+            closePlaceMore.style.display = ''
+            e.stopPropagation()
+        } )
+    closePlaceMore.addEventListener( 'click', function (e) {
+        moreWin.style.cssText = ''
+        closePlaceMore.style.display = ''
+        e.stopPropagation()
+    } )
 }
 
 

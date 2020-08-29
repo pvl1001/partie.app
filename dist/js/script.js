@@ -33,6 +33,10 @@ let newChat = document.querySelector('#newChat')
 let chatHead = document.querySelector('#chatHead')
 let editChat = document.querySelector('#editChat')
 let leaveChat = document.querySelector('#leaveChat')
+let inviteFriendsSetting = document.querySelector('#inviteFriendsSetting')
+let deleteAccount = document.querySelector('#deleteAccount')
+let changePaymentMethod = document.querySelector('#changePaymentMethod')
+let addCreditCardSetting = document.querySelector('#addCreditCardSetting')
 let arrHeaderMenuMenu = document.querySelectorAll('.header__menu_menu')
 let arrlogInMenu = document.querySelectorAll('.logIn__menu')
 let arrModalWrapp = document.querySelectorAll( '.modal-wrapp' )
@@ -258,6 +262,18 @@ if(shortcuts !== null) {
         }
     }
 }
+
+
+function openBurger() {
+    let windowBurger = document.querySelector('.burger__menu')
+    let closePlace = windowBurger.querySelector('.close-place')
+    windowBurger.style.opacity = '1'
+    windowBurger.style.visibility = 'visible'
+    closePlace.addEventListener('click', function () {
+        windowBurger.style.cssText = ''
+    })
+}
+
 
 
 
@@ -676,29 +692,48 @@ for(let i = 0; i < arrUser.length; i++){
     })
 }
 
-function openMore() {
-    let arrMoreWin = document.querySelectorAll( '.more__win' )
-    let arrClosePlaceMore = document.querySelectorAll( '.big-round-btn.more .close-place' )
-    for (let i = 0; i < arrMoreWin.length; i++) {
-        let moreWin = arrMoreWin[i]
-        let closePlaceMore = arrClosePlaceMore[i]
-        moreWin.style.visibility = 'visible'
-        moreWin.style.opacity = '1'
-        closePlaceMore.style.display = 'block'
+function openMorePartie() {
+    let moreWin = document.querySelector( '.more__win' )
+    let closePlaceMore = document.querySelector( '.big-round-btn.more .close-place' )
 
-        let test = moreWin.querySelectorAll('.more__win_row ')
-        for(let el of test)
-        el.addEventListener('click', function (e) {
-            moreWin.style.cssText = ''
-            closePlaceMore.style.display = ''
-            e.stopPropagation()
-        })
-        closePlaceMore.addEventListener( 'click', function (e) {
+    moreWin.style.visibility = 'visible'
+    moreWin.style.opacity = '1'
+    closePlaceMore.style.display = 'block'
+
+    let test = moreWin.querySelectorAll( '.more__win_row ' )
+    for (let el of test)
+        el.addEventListener( 'click', function (e) {
             moreWin.style.cssText = ''
             closePlaceMore.style.display = ''
             e.stopPropagation()
         } )
-    }
+    closePlaceMore.addEventListener( 'click', function (e) {
+        moreWin.style.cssText = ''
+        closePlaceMore.style.display = ''
+        e.stopPropagation()
+    } )
+}
+
+function openMoreChats() {
+    let moreWin = document.querySelector( '.more__win-chats' )
+    let closePlaceMore = document.querySelector( '.big-round-btn.more .close-place.more__win-chats' )
+
+    moreWin.style.visibility = 'visible'
+    moreWin.style.opacity = '1'
+    closePlaceMore.style.display = 'block'
+
+    let test = moreWin.querySelectorAll( '.more__win_row' )
+    for (let el of test)
+        el.addEventListener( 'click', function (e) {
+            moreWin.style.cssText = ''
+            closePlaceMore.style.display = ''
+            e.stopPropagation()
+        } )
+    closePlaceMore.addEventListener( 'click', function (e) {
+        moreWin.style.cssText = ''
+        closePlaceMore.style.display = ''
+        e.stopPropagation()
+    } )
 }
 
 
@@ -821,4 +856,108 @@ function textareaWidth() {
     }
 }
 
+
+function openSetting(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent-setting");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks-setting");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+if(document.getElementById("defaultOpenSetting") !== null)
+document.getElementById("defaultOpenSetting").click();
+
+
+let subscriptionManage = document.querySelector('.settings .subscription__manage')
+let mutedAccountsPage = document.querySelector('.settings .muted-accounts-page')
+let blockedAccountsPage = document.querySelector('.settings .blocked-accounts-page')
+let emailNotificationsPage = document.querySelector('.settings .email-notifications-page')
+function openSettings(blockPage) {
+    blockPage.style.left = '0'
+}
+function backSettings(blockPage) {
+    blockPage.style.left = ''
+}
+let tell = document.querySelector('#Tell')
+
+if(tell !== null) {
+    tell.addEventListener('keyup', function () {
+        let label = document.querySelector('#How label')
+        let btn = document.querySelector('#How button')
+        if(tell.value.length) {
+            label.style.opacity = '.5'
+            label.style.top = '70px'
+            label.style.fontSize = '13px'
+            btn.style.opacity = '1'
+            btn.style.visibility = 'visible'
+        } else {
+            label.style.cssText = ''
+            btn.style.cssText = ''
+        }
+    })
+}
+
+
+let inputSearch = document.querySelector('input.feed__search_search')
+let searchWinBox = document.querySelector('.search-win__box')
+let contentSearch = document.querySelector('.search-win__content.search-win__content-search')
+let content = document.querySelector('.search-win__content')
+
+if (inputSearch !== null) {
+    inputSearch.addEventListener('focus', function () {
+        searchWinBox.style.opacity = '1'
+        searchWinBox.style.visibility = 'visible'
+    })
+
+    inputSearch.addEventListener('blur', function () {
+        searchWinBox.style.cssText = ''
+    })
+
+    inputSearch.addEventListener('keyup', function () {
+        if (inputSearch.value.length) {
+            contentSearch.style.display = 'block'
+            content.style.display = 'none'
+        } else {
+            contentSearch.style.display = ''
+            content.style.display = ''
+        }
+    })
+}
+
+
+function openTabSearch(evt, Tab) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.querySelectorAll(".search .profile__tabs .tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.querySelectorAll(".search .profile__tabs .tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(Tab).style.display = "block";
+    evt.currentTarget.className += " active";
+
+}
+
+let followRequests = document.querySelector('.follow-requests')
+let requestsCounter = document.querySelector('.requests__counter')
+
+if (requestsCounter !== null)
+if(requestsCounter.innerHTML === '0') {
+    requestsCounter.style.backgroundColor = '#14131A'
+}
 

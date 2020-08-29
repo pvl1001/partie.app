@@ -837,7 +837,7 @@
                         <div class="big-round-btn invite"></div>
                         <div class="big-round-text">Invite</div>
                     </div>
-                    <div onclick="openMore()" class="btn-container">
+                    <div onclick="openMorePartie()" class="btn-container">
                         <div class="big-round-btn more">
 <!--                            <div class="more__win">-->
 <!--                                <div>-->
@@ -1272,17 +1272,17 @@
                         <div class="big-round-btn invite"></div>
                         <div class="big-round-text">Invite</div>
                     </div>
-                    <div onclick="openMore()" class="btn-container">
+                    <div onclick="openMoreChats()" class="btn-container">
                         <div class="big-round-btn more">
-                            <div class="more__win dev">
+                            <div class="more__win more__win-chats dev">
                                 <div>
-                                    <div onclick="next()" class="more__win_row report">Report</div>
+                                    <div class="more__win_row report">Report</div>
                                 </div>
                                 <div>
                                     <div onclick="openModal(leaveChat)" class="more__win_row leave">Leave</div>
                                 </div>
                             </div>
-                            <div class="close-place"></div>
+                            <div class="close-place more__win-chats"></div>
                         </div>
                         <div class="big-round-text">More</div>
                     </div>
@@ -1333,7 +1333,7 @@
             </div>
         </div>
     </div>
-    <div id="leaveChat" class="modal-wrapp">
+    <div id="leaveChat" class="leaveChat modal-wrapp">
         <div class="modal center">
             <div class="modal__content">
                 <div class="leaveChat__text">
@@ -1344,6 +1344,132 @@
                     <button onclick="closeModal(leaveChat)">Cancel</button>
                     <a  href="/partie.html" class="btn">Yes</a>
                 </div>
+            </div>
+        </div>
+    </div>
+
+<!--Settings-->
+    <div id="inviteFriendsSetting" class="modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                <div onclick="closeModal(inviteFriendsSetting)" class="modal__close"></div>
+            </div>
+
+            <div class="modal__content">
+                <div class="invite__img"></div>
+                <div class="invite__title">Invite Friends</div>
+                <div class="invite__text">Feeling lonely in here? How about you start inviting some friends?</div>
+                <div class="invite__refactor">Referal link</div>
+                <div class="invite__link">
+                    <a href="https://app.partie.com/referral/bd622d5a">
+                        https://app.partie.com/referral/bd622d5a
+                    </a>
+                </div>
+                <div class="invite__btns">
+                    <button>Copy</button>
+                    <button class="bg-fiolet">Share</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="deleteAccount" class="leaveChat modal-wrapp">
+        <div class="modal center">
+            <div class="modal__content">
+                <div class="leaveChat__text">
+                    Are you sure you want
+                    detete account?
+                </div>
+                <div class="leaveChat__btns">
+                    <button onclick="closeModal(deleteAccount)">Cancel</button>
+                    <a  href="/partie.html" class="btn">Yes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="changePaymentMethod" class="modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                Before you go
+                <div onclick="closeModal(changePaymentMethod)" class="modal__close"></div>
+            </div>
+            <div class="modal__content">
+                <div class="changePaymentMethod__description">
+                    Will you take a few seconds to let us know why you decided to cancel your subscription?
+                </div>
+                <div>
+                    <div class="radio-row">
+                        <input id="method-1" name="PaymentMethod" type="radio">
+                        <label class="checkbox" for="method-1"></label>
+                        <label class="text" for="method-1">I did’t find the parties</label>
+                    </div>
+
+                    <div class="radio-row">
+                        <input id="method-2" name="PaymentMethod" type="radio">
+                        <label class="checkbox" for="method-2"></label>
+                        <label class="text" for="method-2">I can’t create something</label>
+                    </div>
+
+                    <div class="radio-row">
+                        <input id="method-3" name="PaymentMethod" type="radio">
+                        <label class="checkbox" for="method-3"></label>
+                        <label class="text" for="method-3">Reason number 3</label>
+                    </div>
+
+                    <div class="radio-row">
+                        <input id="method-4" name="PaymentMethod" type="radio">
+                        <label class="checkbox" for="method-4"></label>
+                        <label class="text" for="method-4">And few more reasons</label>
+                    </div>
+
+                    <div class="radio-row">
+                        <input id="method-5" name="PaymentMethod" type="radio">
+                        <label class="checkbox" for="method-5"></label>
+                        <label class="text" for="method-5">I did’t find the parties</label>
+                    </div>
+
+                    <div class="radio-row">
+                        <input id="method-6" name="PaymentMethod" type="radio">
+                        <label class="checkbox" for="method-6"></label>
+                        <label class="text" for="method-6">Reason number 3</label>
+                    </div>
+
+                    <div class="radio-row">
+                        <input id="method-7" name="PaymentMethod" type="radio">
+                        <label class="checkbox" for="method-7"></label>
+                        <label class="text" for="method-7">And few more reasons</label>
+                    </div>
+
+                    <div class="radio-row">
+                        <input id="method-8" name="PaymentMethod" type="radio">
+                        <label class="checkbox" for="method-8"></label>
+                        <label class="text" for="method-8">I did’t find the parties</label>
+                    </div>
+
+                </div>
+                <input type="text"placeholder="Add a description">
+                <button class="bg-fiolet">Yes, cancel my subscription</button>
+            </div>
+        </div>
+    </div>
+    <div id="addCreditCardSetting" class="modal-wrapp">
+        <div class="add-credit-card center modal">
+            <div class="modal__head">
+                Add a Credit card
+                <div onclick="closeModal(addCreditCardSetting)" class="modal__close"></div>
+            </div>
+            <div class="add-credit-card__text">
+                Few words about privacy and something like that and Privacy Policy.
+            </div>
+            <input class="card-number" type="number" placeholder="Card number">
+            <input type="text" placeholder="Name on the card">
+            <div class="add-credit-card__input-group">
+                <input type="number" placeholder="Date">
+                <input type="password" placeholder="CVC" maxlength="3">
+            </div>
+            <a href="#" class="btn bg-fiolet">Confirm</a>
+            <div class="subscription__policy">
+                By signing up, your agree to Partie’s <span>Terms and Conditions</span> Terms and Conditions,
+                End-User License Agreement and Privacy Policy.
             </div>
         </div>
     </div>
