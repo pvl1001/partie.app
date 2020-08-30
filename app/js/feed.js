@@ -106,6 +106,13 @@ function openChat() {
     chatPage.style.display = 'none'
     newChatPage.style.display = 'flex'
 }
+
+
+$( '.share__btns' ).slick( {
+    slidesToScroll: 1,
+    slidesToShow: 5,
+    infinite: false
+})
 // })
 
 

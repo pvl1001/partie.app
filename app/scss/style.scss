@@ -660,7 +660,7 @@ textarea {
         left: 0;
         background-color: rgba(0,0,0,0);
         text-align: center;
-        z-index: 10;
+        z-index: 13;
         transition-property: background-color, top;
         transition-duration: .4s, .5s;
         transition-delay: .45s, 0s;
@@ -720,40 +720,40 @@ textarea {
         border-radius: 8px;
         position: relative;
         transition: .3s ease;
+    }
 
-        .header__menu_menu {
-            position: absolute;
-            top: calc(100% + 16px);
-            background: #14131A;
-            border-radius: 20px;
-            width: 280px;
-            font-weight: 700;
-            z-index: 10;
-            opacity: 0;
-            visibility: hidden;
-            transition: .3s ease;
+    .header__menu_menu {
+        position: absolute;
+        top: calc(100% + 16px);
+        background: #14131A;
+        border-radius: 20px;
+        width: 280px;
+        font-weight: 700;
+        z-index: 11;
+        opacity: 0;
+        visibility: hidden;
+        transition: .3s ease;
 
 
-            ul {
-                padding: 30px;
+        ul {
+            padding: 30px;
+        }
+
+        li {
+            margin-bottom: 20px;
+            cursor: auto;
+            position: relative;
+
+            &:last-child {
+                margin-bottom: 0;
             }
-
-            li {
-                margin-bottom: 20px;
-                cursor: auto;
-                position: relative;
-
-                &:last-child {
-                    margin-bottom: 0;
-                }
-                a {
-                    padding-left: 36px;
-                }
-                img {
-                    position: absolute;
-                    left: 0;
-                    top: calc(50% - 9px);
-                }
+            a {
+                padding-left: 36px;
+            }
+            img {
+                position: absolute;
+                left: 0;
+                top: calc(50% - 9px);
             }
         }
     }
@@ -788,10 +788,18 @@ textarea {
             opacity: 0.5;
         }
     }
+    
+    .btn-join {
+        background-color: #6E4AFF;
+    }
 
 }
 
 @media (max-width: 767px) { // mobile
+
+    .links {
+        display: none;
+    }
 
     .btn-container-wrapp {
         position: fixed;

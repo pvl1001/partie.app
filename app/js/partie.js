@@ -102,12 +102,14 @@ for(let input of arrReportInput) {
 
 function reportSubmitted() {
     let reportSubmitted = document.querySelector('.reportSubmitted')
-    closeModal(partieReport)
-    reportSubmitted.style.visibility = 'visible'
-    reportSubmitted.style.opacity = '1'
-    setTimeout(function () {
-        reportSubmitted.style.cssText = ''
-    },5000)
+    if(reportSubmitted !== null) {
+        closeModal(partieReport)
+        reportSubmitted.style.visibility = 'visible'
+        reportSubmitted.style.opacity = '1'
+        setTimeout(function () {
+            reportSubmitted.style.cssText = ''
+        },5000)
+    }
 }
 
 
@@ -192,4 +194,22 @@ function textareaWidth() {
         text.style.width = ''
     }
 }
+
+
+let arrPostFooterBtn = document.querySelectorAll('.partie__post_footer button')
+let onPostFooterBtn = []
+for(let i = 0; i < arrPostFooterBtn.length; i++) {
+    if(arrPostFooterBtn[i] !== null) {
+        arrPostFooterBtn[i].addEventListener('click', function () {
+            onPostFooterBtn[i] = !onPostFooterBtn[i]
+            if(onPostFooterBtn[i]) {
+                arrPostFooterBtn[i].style.backgroundColor = '#F45365'
+                arrPostFooterBtn[i].innerHTML = 'Leave'
+            } else {
+                arrPostFooterBtn[i].style.backgroundColor = ''
+                arrPostFooterBtn[i].innerHTML = 'Join'
+            }
+        })
+    }}
+
 

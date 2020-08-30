@@ -37,6 +37,8 @@ let inviteFriendsSetting = document.querySelector('#inviteFriendsSetting')
 let deleteAccount = document.querySelector('#deleteAccount')
 let changePaymentMethod = document.querySelector('#changePaymentMethod')
 let addCreditCardSetting = document.querySelector('#addCreditCardSetting')
+let share = document.querySelector('#share')
+let logInPlatformsGames = document.querySelector('#logInPlatformsGames')
 let arrHeaderMenuMenu = document.querySelectorAll('.header__menu_menu')
 let arrlogInMenu = document.querySelectorAll('.logIn__menu')
 let arrModalWrapp = document.querySelectorAll( '.modal-wrapp' )
@@ -116,6 +118,40 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
 
+    let arrCheckedGames = [] // появление кнопки platforms continue
+    let arrPlatformsGames = document.querySelectorAll('#logInPlatformsGames .cards input')
+    let btnPlatformsGames = document.getElementById('btnPlatformsGames')
+    for(let platform of arrPlatformsGames) {
+        platform.addEventListener('change', function () {
+            if(platform.checked) {
+                arrCheckedGames.push('')
+            } else {
+                arrCheckedGames.pop()
+            }
+            if(arrCheckedGames.length > 0) {
+                btnPlatformsGames.style.display = 'block'
+                btnPlatformsGames.classList.remove('animate__fadeOutDown')
+                btnPlatformsGames.classList.add('animate__fadeInUp')
+                if(window.innerWidth > 767) {
+                    btnPlatformsGames.style.zIndex = ''
+                    logInPlatforms.children[0].style.backgroundColor = 'transparent'
+                }
+
+                console.log(arrCheckedGames.length)
+
+            } else {
+                btnPlatformsGames.classList.remove('animate__fadeInUp')
+                btnPlatformsGames.classList.add('animate__fadeOutDown')
+                if(window.innerWidth > 767) { //pc
+                    setTimeout(function () {
+                        btnPlatformsGames.style.zIndex = '-1'
+                    },500)
+                    logInPlatforms.children[0].style.backgroundColor = ''
+                }
+            }
+        })
+    }
+
 })
 
 function next(open, close) { // кнопка далее
@@ -138,7 +174,7 @@ function next(open, close) { // кнопка далее
         }
 
 
-        if (open === logInCode || open === logInPlatforms) open.children[0].style.left = '0'
+        if (open === logInCode || open === logInPlatforms || open === logInPlatformsGames || open === checkEmail) open.children[0].style.left = '0'
         setTimeout(function () {
             if (close === logInCode) {
                 close.children[0].style.left = '100%'
@@ -274,6 +310,31 @@ function openBurger() {
     })
 }
 
+
+let feedPostImg = document.querySelector('.post .feed__post_img img')
+if (feedPostImg !== null) {
+    feedPostImg.onclick = openImg
+    let bg = document.querySelector('.img-bg')
+    let bgBtn = document.querySelector('.img-bg .img-bg__close')
+    let img
+    function openImg() {
+        img = this
+        this.style.cssText =
+            'top:0;' +
+            'right:0;' +
+            'bottom:0;' +
+            'left:0;' +
+            'position:fixed;' +
+            'z-index: 12;' +
+            'margin: auto;' +
+            'padding: 0 50px'
+        bg.style.zIndex = '11'
+        bgBtn.onclick = function () {
+            img.style.cssText = ''
+            bg.style.zIndex = ''
+        }
+    }
+}
 
 
 
@@ -483,6 +544,13 @@ function openChat() {
     chatPage.style.display = 'none'
     newChatPage.style.display = 'flex'
 }
+
+
+$( '.share__btns' ).slick( {
+    slidesToScroll: 1,
+    slidesToShow: 5,
+    infinite: false
+})
 // })
 
 
@@ -765,12 +833,14 @@ for(let input of arrReportInput) {
 
 function reportSubmitted() {
     let reportSubmitted = document.querySelector('.reportSubmitted')
-    closeModal(partieReport)
-    reportSubmitted.style.visibility = 'visible'
-    reportSubmitted.style.opacity = '1'
-    setTimeout(function () {
-        reportSubmitted.style.cssText = ''
-    },5000)
+    if(reportSubmitted !== null) {
+        closeModal(partieReport)
+        reportSubmitted.style.visibility = 'visible'
+        reportSubmitted.style.opacity = '1'
+        setTimeout(function () {
+            reportSubmitted.style.cssText = ''
+        },5000)
+    }
 }
 
 
@@ -855,6 +925,24 @@ function textareaWidth() {
         text.style.width = ''
     }
 }
+
+
+let arrPostFooterBtn = document.querySelectorAll('.partie__post_footer button')
+let onPostFooterBtn = []
+for(let i = 0; i < arrPostFooterBtn.length; i++) {
+    if(arrPostFooterBtn[i] !== null) {
+        arrPostFooterBtn[i].addEventListener('click', function () {
+            onPostFooterBtn[i] = !onPostFooterBtn[i]
+            if(onPostFooterBtn[i]) {
+                arrPostFooterBtn[i].style.backgroundColor = '#F45365'
+                arrPostFooterBtn[i].innerHTML = 'Leave'
+            } else {
+                arrPostFooterBtn[i].style.backgroundColor = ''
+                arrPostFooterBtn[i].innerHTML = 'Join'
+            }
+        })
+    }}
+
 
 
 function openSetting(evt, cityName) {

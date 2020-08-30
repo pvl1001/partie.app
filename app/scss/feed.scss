@@ -73,14 +73,62 @@
                     cursor: pointer;
                     margin-right: 8px;
                 }
+
+                button.followers-only-btn {
+                    padding-left: 30px;
+                    background: rgba(20,19,26,.8) url('../img/icon/lock.png') 12px 50% / 9.2px no-repeat;
+                    width: auto;
+                    height: 32px;
+                    padding-right: 12px;
+                    color: #F8F6FF;
+                }
             }
 
+            .empty-select {
+                height: 64px;
+            }
 
+            button.game {
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+                height: 64px;
+                color: rgba(235,235,245,1);
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                    filter: blur(15px);
+                    z-index: 0;
+                    opacity: .5;
+                }
+
+                .game__icon {
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 10px;
+                    position: absolute;
+                    left: 27px;
+                    top: calc(50% - 16px);
+                }
+            }
+
+            button.game.AL:before {
+                background: #19181F url('../img/pic/slide2.png') center / cover no-repeat;
+            }
+
+            button.game.AL .game__icon {
+                background: url('../img/pic/slide2.png') center / cover no-repeat;
+            }
         }
 
         .choose-game.modal {
             //max-height: 75%;
-            overflow: auto;
+            overflow: hidden;
 
             .choose-game__close {
                 position: absolute;
@@ -133,10 +181,10 @@
         .feed__people-btn {
             width: 19px;
             cursor: pointer;
-            position: absolute;
+            position: fixed;
             top: 23px;
             right: 20px;
-            z-index: 10;
+            z-index: 11;
             transition: .5s ease;
         }
 
@@ -144,14 +192,18 @@
         .feed__col3 {
             width: 336px;
             min-width: 336px;
+            position: fixed;
+            z-index: 10;
         }
 
         .feed__col2 {
             flex-grow: 1;
+            margin: 0 336px;
         }
 
         .feed__col1 {
             padding-left: 16px;
+            left: 0;
 
             .feed__search {
                 display: flex;
@@ -349,6 +401,11 @@
                 margin-bottom: 20px;
                 display: block;
 
+                .feed__header_menu {
+                    //opacity: .5;
+                    background: url('../img/icon/dotted-post.png') center / 14px no-repeat;
+                }
+
                 &:last-child {
                     margin-bottom: 0;
                 }
@@ -390,6 +447,7 @@
                         border-top: 4px dotted #54535B;
                         cursor: pointer;
                         margin-top: 4px;
+                        position: relative;
                     }
                 }
 
@@ -400,6 +458,7 @@
                 }
 
                 .feed__post_img {
+                    display: block;
                     margin: 0 -20px 25px;
                 }
 
@@ -433,6 +492,7 @@
         }
 
         .feed__col3 {
+            right: 0;
             padding: 0 20px 0 56px;
             overflow: hidden;
 
@@ -516,6 +576,7 @@
     .feed.post {
         //z-index: 100;
         top: 0;
+        min-height: 100%;
 
         .feed__post_footer {
             margin-bottom: 30px;
@@ -784,4 +845,92 @@
 
 .user__cd {
     font-weight: 400;
+}
+
+.img-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.5);
+    z-index: -1;
+
+    .img-bg__close {
+        position: absolute;
+        right: 40px;
+        top: 40px;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: #fff url('../img/icon/close-b.png') center / 16px no-repeat;
+        cursor: pointer;
+    }
+}
+
+//modals
+#share {
+    //top: 0;
+
+    .share__btns {
+        display: flex;
+        margin-bottom: 21px;
+
+        .btn__box {
+            margin-right: 18.5px;
+            cursor: pointer;
+
+            .btn__logo {
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                margin-bottom: 10px;
+            }
+
+            .btn__name {
+                text-align: center;
+                font-size: 11px;
+                line-height: 130%;
+                opacity: 0.3;
+            }
+
+            .FB {
+                background: url('../img/icon/fb-bg.png') center / contain no-repeat;
+            }
+
+            .TW {
+                background: url('../img/icon/tw-bg.png') center / contain no-repeat;
+            }
+            .BL {
+                background: url('../img/icon/bl-bg.png') center / contain no-repeat;
+            }
+            .RD {
+                background: url('../img/icon/rd-bg.png') center / contain no-repeat;
+            }
+            .TM {
+                background: url('../img/icon/tm-bg.png') center / contain no-repeat;
+            }
+        }
+
+    }
+
+    .share__copy {
+        position: relative;
+
+        input {
+            opacity: 0.3;
+        }
+
+        input:focus {
+            border-color: #2f2f31;
+        }
+
+        label {
+            position: absolute;
+            right: 20px;
+            top: calc(50% - 10px);
+            font-size: 17px;
+            cursor: pointer;
+        }
+    }
 }

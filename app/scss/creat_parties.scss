@@ -327,6 +327,10 @@
         height: auto;
         border-radius: 0;
         margin-bottom: 38px;
+
+        &:focus {
+            border: 0;
+        }
     }
 
     .platform__title {

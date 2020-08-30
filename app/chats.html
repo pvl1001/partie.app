@@ -78,7 +78,57 @@
     <div class="feed__col1">
         <div class="feed__search">
             <a href="/" class="feed__search_logo"></a>
-            <input class="feed__search_search" type="text" placeholder="Search">
+            <div class="search-win">
+                <input class="feed__search_search" type="text" placeholder="Search">
+                <div class="search-win__box">
+                    <div class="search-win__content">
+                        <div class="recent">Recent</div>
+                        <ul>
+                            <li>
+                                <div class="clock"></div>
+                                Apex
+                                <div class="delete"></div>
+                            </li>
+                            <li>
+                                <div class="clock"></div>
+                                Apx
+                                <div class="delete"></div>
+                            </li>
+                            <li>
+                                <div class="clock"></div>
+                                Ape
+                                <div class="delete"></div>
+                            </li>
+                            <li>
+                                <div class="clock"></div>
+                                Ax
+                                <div class="delete"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="search-win__content search-win__content-search">
+                        <ul>
+                            <li>
+                                <div class="search-icon"></div>
+                                Apex
+                            </li>
+                            <li>
+                                <div class="search-icon"></div>
+                                Apx
+                            </li>
+                            <li>
+                                <div class="search-icon"></div>
+                                Ape
+                            </li>
+                            <li>
+                                <div class="search-icon"></div>
+                                Ax
+                            </li>
+                        </ul>
+                        <a href="/search.html">Show gg results</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="feed__nav">
             <ul>
@@ -252,7 +302,7 @@
                         <li><a href="#">
                             <img src="img/icon/mute-r.png" width="16"/>
                             Mute</a></li>
-                        <li><a href="#">
+                        <li><a href="#" onclick="openModal(partieReport)">
                             <img src="img/icon/report-r.png" width="16"/>
                             Report</a></li>
                         <li><a href="#">
@@ -261,7 +311,7 @@
                         <li><a href="#">
                             <img src="img/icon/copy-f.png" width="16"/>
                             Copy link</a></li>
-                        <li><a href="#">
+                        <li><a href="#" onclick="openModal(share)">
                             <img src="img/icon/share-f.png" width="16"/>
                             Share</a></li>
                     </ul>
@@ -443,7 +493,7 @@
                 <div>People</div>
             </div>
             <div class="feed__friends">
-                <div class="feed__friends_invite">
+                <div onclick="openModal(inviteFriendsSetting)" class="feed__friends_invite">
                     <div class="icon-invite"></div>
                     <div class="icon-invite-text">Invite friends</div>
                 </div>

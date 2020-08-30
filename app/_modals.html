@@ -7,11 +7,17 @@
             </div>
             <div class="modal__content">
                 <button onclick="next(chooseGame, newPost)" class="empty-select">Select a Game (Optional)</button>
+                <button class="game AL">
+                    <div class="game__icon"></div>
+                    Apex Legends
+                </button>
+
                 <textarea placeholder="What’s new?"></textarea>
                 <div class="new-post__row">
                     <label for="photo2"></label>
                     <input id="photo2" type="file" class="feed__what-new_photo">
                     <button class="bg-fiolet">Public post</button>
+                    <button class="followers-only-btn">Followers only</button>
                     <button class="feed__what-new_post disabled">Post</button>
                 </div>
             </div>
@@ -134,7 +140,7 @@
                     <div class="progress-bar__progress"></div>
                 </div>
                 <div class="info_avatar__about">
-                    <span onclick="alert()">About Partnership</span>
+                    <span>About Partnership</span>
                 </div>
 
             </div>
@@ -386,6 +392,46 @@
                     Account settings
                 </div>
                 <button class="bg-fiolet">Save</button>
+            </div>
+        </div>
+    </div>
+    <div id="share" class="modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                Share
+                <div onclick="closeModal(share)" class="modal__close"></div>
+            </div>
+            <div class="modal__content">
+                <div class="share__btns">
+                    <div class="btn__box">
+                        <div class="btn__logo FB"></div>
+                        <div class="btn__name">Facebook</div>
+                    </div>
+                    <div class="btn__box">
+                        <div class="btn__logo TW"></div>
+                        <div class="btn__name">Twitter</div>
+                    </div>
+                    <div class="btn__box">
+                        <div class="btn__logo BL"></div>
+                        <div class="btn__name">Blogger</div>
+                    </div>
+                    <div class="btn__box">
+                        <div class="btn__logo RD"></div>
+                        <div class="btn__name">Reddit</div>
+                    </div>
+                    <div class="btn__box">
+                        <div class="btn__logo TM"></div>
+                        <div class="btn__name">Tumblr</div>
+                    </div>
+                    <div class="btn__box">
+                        <div class="btn__logo TM"></div>
+                        <div class="btn__name">Tumblr</div>
+                    </div>
+                </div>
+                <div class="share__copy">
+                    <input id="shareCopy" type="text" readonly value="https://app.partie.com/profile/02bab...">
+                    <label for="shareCopy">copy</label>
+                </div>
             </div>
         </div>
     </div>

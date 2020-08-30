@@ -279,7 +279,7 @@
                                 <div class="comment__counter">492</div>
                             </div>
                         </div>
-                        <img class="share" src="img/icon/share.png" height="19"/></div>
+                        <img onclick="openModal(share)" class="share" src="img/icon/share.png" height="19"/></div>
                 </a>
                 <a href="/post_id.html" class="feed__post">
                     <div class="feed__post_head user">
@@ -319,7 +319,7 @@
                                 <div class="comment__counter">492</div>
                             </div>
                         </div>
-                        <img class="share" src="img/icon/share.png" height="19"/></div>
+                        <img onclick="openModal(share)" class="share" src="img/icon/share.png" height="19"/></div>
                 </a>
             </div>
 
@@ -367,7 +367,7 @@
                         </div>
                         <div class="footer__row2">
                             <div class="d-flex align-items-center">
-                                <button class="bg-fiolet">Join</button>
+                                <button class="btn-join">Join</button>
                                 <div class="users-active">
                                     <div class="avatar-wrapp">
                                         <div class="avatar"></div>
@@ -381,7 +381,7 @@
                                 </div>
                                 <div class="users-active-counter">2 active</div>
                             </div>
-                            <img class="share" src="img/icon/share.png" height="19"></div>
+                            <img onclick="openModal(share)" class="share" src="img/icon/share.png" height="19"></div>
                     </div>
                 </a>
                 <a href="/post_id.html" class="feed__post">
@@ -427,7 +427,7 @@
                         </div>
                         <div class="footer__row2">
                             <div class="d-flex align-items-center">
-                                <button class="bg-fiolet">Join</button>
+                                <button class="btn-join">Join</button>
                                 <div class="users-active">
                                     <div class="avatar-wrapp">
                                         <div class="avatar"></div>
@@ -441,7 +441,7 @@
                                 </div>
                                 <div class="users-active-counter">2 active</div>
                             </div>
-                            <img class="share" src="img/icon/share.png" height="19"></div>
+                            <img onclick="openModal(share)" class="share" src="img/icon/share.png" height="19"></div>
                     </div>
                 </a>
             </div>
@@ -741,7 +741,7 @@
                 <div>People</div>
             </div>
             <div class="feed__friends">
-                <div class="feed__friends_invite">
+                <div onclick="openModal(inviteFriendsSetting)" class="feed__friends_invite">
                     <div class="icon-invite"></div>
                     <div class="icon-invite-text">Invite friends</div>
                 </div>

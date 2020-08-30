@@ -11,6 +11,7 @@
 </head>
 <body>
 @@include('_modals.html')
+<div class="gametrag-copied reportSubmitted">Report Submitted</div>
 
 <div id="partie" class="feed">
     <img class="feed__people-btn" onclick="hiddenPeople()" src="img/icon/people-btn.png"/>
@@ -78,7 +79,57 @@
     <div class="feed__col1">
         <div class="feed__search">
             <a href="/" class="feed__search_logo"></a>
-            <input class="feed__search_search" type="text" placeholder="Search">
+            <div class="search-win">
+                <input class="feed__search_search" type="text" placeholder="Search">
+                <div class="search-win__box">
+                    <div class="search-win__content">
+                        <div class="recent">Recent</div>
+                        <ul>
+                            <li>
+                                <div class="clock"></div>
+                                Apex
+                                <div class="delete"></div>
+                            </li>
+                            <li>
+                                <div class="clock"></div>
+                                Apx
+                                <div class="delete"></div>
+                            </li>
+                            <li>
+                                <div class="clock"></div>
+                                Ape
+                                <div class="delete"></div>
+                            </li>
+                            <li>
+                                <div class="clock"></div>
+                                Ax
+                                <div class="delete"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="search-win__content search-win__content-search">
+                        <ul>
+                            <li>
+                                <div class="search-icon"></div>
+                                Apex
+                            </li>
+                            <li>
+                                <div class="search-icon"></div>
+                                Apx
+                            </li>
+                            <li>
+                                <div class="search-icon"></div>
+                                Ape
+                            </li>
+                            <li>
+                                <div class="search-icon"></div>
+                                Ax
+                            </li>
+                        </ul>
+                        <a href="/search.html">Show gg results</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="feed__nav">
             <ul>
@@ -164,9 +215,9 @@
             </div>
             <div onclick="openModal(hostPartie)" class="feed__header_post">+ Partie</div>
         </div>
-        <a href="/post_id.html" class="feed__post">
+        <div class="feed__post">
             <div class="feed__post_head user">
-                <div class="user__content">
+                <a href="/profiles.html" class="user__content">
                     <div class="avatar">
                         <div class="avatar__star"></div>
                     </div>
@@ -174,18 +225,38 @@
                         <div>HungryDima</div>
                         <div class="user__cd">CD: Warzone <span>1h</span></div>
                     </div>
+                </a>
+                <div class="feed__header_menu">
+                    <div class="header__menu_menu">
+                        <div class="close-place"></div>
+                        <ul>
+                            <li><a href="#">
+                                <img src="img/icon/mute-r.png" width="16"/>
+                                Mute</a></li>
+                            <li><a href="#" onclick="openModal(partieReport)">
+                                <img src="img/icon/report-r.png" width="16"/>
+                                Report</a></li>
+                            <li><a href="#">
+                                <img src="img/icon/folow-f.png" width="16"/>
+                                Follow gboy6827</a></li>
+                            <li><a href="#">
+                                <img src="img/icon/copy-f.png" width="16"/>
+                                Copy link</a></li>
+                            <li><a href="#" onclick="openModal(share)">
+                                <img src="img/icon/share-f.png" width="16"/>
+                                Share</a></li>
+                        </ul>
+                    </div>
+
                 </div>
-                <div class="feed__post_btn"></div>
             </div>
-            <div class="feed__post_title">Need 1 or 2 for some apex fun</div>
             <div class="feed__post_text">
                 I want to play MW with others on the platform but hardly anyone here is online. It's such a pain in
                 the butt ;(
             </div>
-            <div class="feed__post_img">
+            <a href="/post_id.html" class="feed__post_img">
                 <img src="img/pic/Image%20(2).png" width="100%"/>
-            </div>
-
+            </a>
             <div class="partie__post_footer">
                 <div class="footer__row1">
                     <div class="btn-epic round-btn pop">
@@ -207,7 +278,7 @@
                 </div>
                 <div class="footer__row2">
                     <div class="d-flex align-items-center">
-                        <button class="bg-fiolet">Join</button>
+                        <button class="btn-join">Join</button>
                         <div class="users-active">
                             <div class="avatar-wrapp">
                                 <div class="avatar"></div>
@@ -221,12 +292,12 @@
                         </div>
                         <div class="users-active-counter">2 active</div>
                     </div>
-                    <img class="share" src="img/icon/share.png" height="19"/></div>
+                    <img onclick="openModal(share)" class="share" src="img/icon/share.png" height="19"/></div>
             </div>
-        </a>
-        <a href="/post_id.html" class="feed__post">
+        </div>
+        <div class="feed__post">
             <div class="feed__post_head user">
-                <div class="user__content">
+                <a href="/profiles.html" class="user__content">
                     <div class="avatar">
                         <div class="avatar__star"></div>
                     </div>
@@ -234,18 +305,38 @@
                         <div>HungryDima</div>
                         <div class="user__cd">CD: Warzone <span>1h</span></div>
                     </div>
+                </a>
+                <div class="feed__header_menu">
+                    <div class="header__menu_menu">
+                        <div class="close-place"></div>
+                        <ul>
+                            <li><a href="#">
+                                <img src="img/icon/mute-r.png" width="16"/>
+                                Mute</a></li>
+                            <li><a href="#" onclick="openModal(partieReport)">
+                                <img src="img/icon/report-r.png" width="16"/>
+                                Report</a></li>
+                            <li><a href="#">
+                                <img src="img/icon/folow-f.png" width="16"/>
+                                Follow gboy6827</a></li>
+                            <li><a href="#">
+                                <img src="img/icon/copy-f.png" width="16"/>
+                                Copy link</a></li>
+                            <li><a href="#" onclick="openModal(share)">
+                                <img src="img/icon/share-f.png" width="16"/>
+                                Share</a></li>
+                        </ul>
+                    </div>
+
                 </div>
-                <div class="feed__post_btn"></div>
             </div>
-            <div class="feed__post_title">Need 1 or 2 for some apex fun</div>
             <div class="feed__post_text">
                 I want to play MW with others on the platform but hardly anyone here is online. It's such a pain in
                 the butt ;(
             </div>
-            <div class="feed__post_img">
+            <a href="/post_id.html" class="feed__post_img">
                 <img src="img/pic/Image%20(2).png" width="100%"/>
-            </div>
-
+            </a>
             <div class="partie__post_footer">
                 <div class="footer__row1">
                     <div class="btn-epic round-btn pop">
@@ -267,7 +358,7 @@
                 </div>
                 <div class="footer__row2">
                     <div class="d-flex align-items-center">
-                        <button class="bg-fiolet">Join</button>
+                        <button class="btn-join">Join</button>
                         <div class="users-active">
                             <div class="avatar-wrapp">
                                 <div class="avatar"></div>
@@ -281,9 +372,9 @@
                         </div>
                         <div class="users-active-counter">2 active</div>
                     </div>
-                    <img class="share" src="img/icon/share.png" height="19"/></div>
+                    <img onclick="openModal(share)" class="share" src="img/icon/share.png" height="19"/></div>
             </div>
-        </a>
+        </div>
     </div>
     <div class="feed__col2 global">
         <div>
@@ -420,7 +511,7 @@
                         <li><a href="#">
                             <img src="img/icon/mute-r.png" width="16"/>
                             Mute</a></li>
-                        <li><a href="#">
+                        <li><a href="#" onclick="openModal(partieReport)">
                             <img src="img/icon/report-r.png" width="16"/>
                             Report</a></li>
                         <li><a href="#">
@@ -429,7 +520,7 @@
                         <li><a href="#">
                             <img src="img/icon/copy-f.png" width="16"/>
                             Copy link</a></li>
-                        <li><a href="#">
+                        <li><a href="#" onclick="openModal(share)">
                             <img src="img/icon/share-f.png" width="16"/>
                             Share</a></li>
                     </ul>
@@ -609,7 +700,7 @@
                 <div>People</div>
             </div>
             <div class="feed__friends">
-                <div class="feed__friends_invite">
+                <div onclick="openModal(inviteFriendsSetting)" class="feed__friends_invite">
                     <div class="icon-invite"></div>
                     <div class="icon-invite-text">Invite friends</div>
                 </div>

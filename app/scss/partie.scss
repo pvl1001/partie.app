@@ -173,7 +173,7 @@
             width: 100%;
             padding: 0 336px;
             transition: .5s;
-            z-index: 100;
+            z-index: 9;
 
             .feed__header_post {
                 background: #6E4AFF;
@@ -538,7 +538,7 @@
     }
 
     .feed__col3 {
-        margin-top: 24px;
+        //margin-top: 24px;
 
         .feed__request {
             .feed__request_title {
