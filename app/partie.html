@@ -11,6 +11,7 @@
 </head>
 <body>
 @@include('_modals.html')
+<div class="gametrag-copied reportSubmitted">Report Submitted</div>
 
 <div id="partie" class="feed">
     <img class="feed__people-btn" onclick="hiddenPeople()" src="img/icon/people-btn.png"/>
@@ -78,7 +79,57 @@
     <div class="feed__col1">
         <div class="feed__search">
             <a href="/" class="feed__search_logo"></a>
-            <input class="feed__search_search" type="text" placeholder="Search">
+            <div class="search-win">
+                <input class="feed__search_search" type="text" placeholder="Search">
+                <div class="search-win__box">
+                    <div class="search-win__content">
+                        <div class="recent">Recent</div>
+                        <ul>
+                            <li>
+                                <div class="clock"></div>
+                                Apex
+                                <div class="delete"></div>
+                            </li>
+                            <li>
+                                <div class="clock"></div>
+                                Apx
+                                <div class="delete"></div>
+                            </li>
+                            <li>
+                                <div class="clock"></div>
+                                Ape
+                                <div class="delete"></div>
+                            </li>
+                            <li>
+                                <div class="clock"></div>
+                                Ax
+                                <div class="delete"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="search-win__content search-win__content-search">
+                        <ul>
+                            <li>
+                                <div class="search-icon"></div>
+                                Apex
+                            </li>
+                            <li>
+                                <div class="search-icon"></div>
+                                Apx
+                            </li>
+                            <li>
+                                <div class="search-icon"></div>
+                                Ape
+                            </li>
+                            <li>
+                                <div class="search-icon"></div>
+                                Ax
+                            </li>
+                        </ul>
+                        <a href="/search.html">Show gg results</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="feed__nav">
             <ul>
@@ -143,7 +194,7 @@
                 </li>
             </ul>
         </div>
-        <div class="active-partie">
+        <div onclick="openActivePartie()" class="active-partie">
             <div class="avatar"></div>
             <div class="active-partie__text">
                 <div class="active-partie__title">From Bronze to Pred...</div>
@@ -152,262 +203,301 @@
             <div class="active-partie__counter">15</div>
         </div>
     </div>
-    <!--    <div class="feed__col2 for-you">-->
-    <!--        <div class="feed__header">-->
-    <!--            <div class="feed__header_params">-->
-    <!--                <img src="img/icon/params.png" height="24" width="23"/>-->
-    <!--            </div>-->
-    <!--            <div class="feed__header_tabs">-->
-    <!--                <a href="#" class="active-tab">For You</a>-->
-    <!--                <a href="#" onclick="clickTab(global, forYou)" id="global">Browse</a>-->
-    <!--            </div>-->
-    <!--            <div onclick="openModal(hostPartie)" class="feed__header_post">+ Partie</div>-->
-    <!--        </div>-->
-    <!--        <a href="/post_id.html" class="feed__post">-->
-    <!--            <div class="feed__post_head user">-->
-    <!--                <div class="user__content">-->
-    <!--                    <div class="avatar">-->
-    <!--                        <div class="avatar__star"></div>-->
-    <!--                    </div>-->
-    <!--                    <div class="user__name">-->
-    <!--                        <div>HungryDima</div>-->
-    <!--                        <div>CD: Warzone <span>1h</span></div>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--                <div class="feed__post_btn"></div>-->
-    <!--            </div>-->
-    <!--            <div class="feed__post_title">Need 1 or 2 for some apex fun</div>-->
-    <!--            <div class="feed__post_text">-->
-    <!--                I want to play MW with others on the platform but hardly anyone here is online. It's such a pain in-->
-    <!--                the butt ;(-->
-    <!--            </div>-->
-    <!--            <div class="feed__post_img">-->
-    <!--                <img src="img/pic/Image%20(2).png" width="100%"/>-->
-    <!--            </div>-->
 
-    <!--            <div class="partie__post_footer">-->
-    <!--                <div class="footer__row1">-->
-    <!--                    <div class="btn-epic round-btn pop">-->
-    <!--                        <div class="popover">-->
-    <!--                            <div class="popover__name">Platform: PC</div>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="btn-pc round-btn pop">-->
-    <!--                        <div class="popover">-->
-    <!--                            <div class="popover__name">Platform: PC</div>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="btn-mic round-btn pop">-->
-    <!--                        <div class="popover">-->
-    <!--                            <div class="popover__name">Platform: PC</div>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="btn-time">Limited time mode</div>-->
-    <!--                </div>-->
-    <!--                <div class="footer__row2">-->
-    <!--                    <div class="d-flex align-items-center">-->
-    <!--                        <button class="bg-fiolet">Join</button>-->
-    <!--                        <div class="users-active">-->
-    <!--                            <div class="avatar-wrapp">-->
-    <!--                                <div class="avatar"></div>-->
-    <!--                            </div>-->
-    <!--                            <div class="avatar-wrapp">-->
-    <!--                                <div class="avatar"></div>-->
-    <!--                            </div>-->
-    <!--                            <div class="avatar-wrapp">-->
-    <!--                                <div class="avatar"></div>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                        <div class="users-active-counter">2 active</div>-->
-    <!--                    </div>-->
-    <!--                    <img class="share" src="img/icon/share.png" height="19"/></div>-->
-    <!--            </div>-->
-    <!--        </a>-->
-    <!--        <a href="/post_id.html" class="feed__post">-->
-    <!--            <div class="feed__post_head user">-->
-    <!--                <div class="user__content">-->
-    <!--                    <div class="avatar">-->
-    <!--                        <div class="avatar__star"></div>-->
-    <!--                    </div>-->
-    <!--                    <div class="user__name">-->
-    <!--                        <div>HungryDima</div>-->
-    <!--                        <div>CD: Warzone <span>1h</span></div>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--                <div class="feed__post_btn"></div>-->
-    <!--            </div>-->
-    <!--            <div class="feed__post_title">Need 1 or 2 for some apex fun</div>-->
-    <!--            <div class="feed__post_text">-->
-    <!--                I want to play MW with others on the platform but hardly anyone here is online. It's such a pain in-->
-    <!--                the butt ;(-->
-    <!--            </div>-->
-    <!--            <div class="feed__post_img">-->
-    <!--                <img src="img/pic/Image%20(2).png" width="100%"/>-->
-    <!--            </div>-->
+    <div class="feed__col2 for-you">
+        <div class="feed__header">
+            <div class="feed__header_params">
+                <img src="img/icon/params.png" height="24" width="23"/>
+            </div>
+            <div class="feed__header_tabs">
+                <a href="#" class="active-tab">For You</a>
+                <a href="#" onclick="clickTab(global, forYou)" id="global">Browse</a>
+            </div>
+            <div onclick="openModal(hostPartie)" class="feed__header_post">+ Partie</div>
+        </div>
+        <div class="feed__post">
+            <div class="feed__post_head user">
+                <a href="/profiles.html" class="user__content">
+                    <div class="avatar">
+                        <div class="avatar__star"></div>
+                    </div>
+                    <div class="user__name">
+                        <div>HungryDima</div>
+                        <div class="user__cd">CD: Warzone <span>1h</span></div>
+                    </div>
+                </a>
+                <div class="feed__header_menu">
+                    <div class="header__menu_menu">
+                        <div class="close-place"></div>
+                        <ul>
+                            <li><a href="#">
+                                <img src="img/icon/mute-r.png" width="16"/>
+                                Mute</a></li>
+                            <li><a href="#" onclick="openModal(partieReport)">
+                                <img src="img/icon/report-r.png" width="16"/>
+                                Report</a></li>
+                            <li><a href="#">
+                                <img src="img/icon/folow-f.png" width="16"/>
+                                Follow gboy6827</a></li>
+                            <li><a href="#">
+                                <img src="img/icon/copy-f.png" width="16"/>
+                                Copy link</a></li>
+                            <li><a href="#" onclick="openModal(share)">
+                                <img src="img/icon/share-f.png" width="16"/>
+                                Share</a></li>
+                        </ul>
+                    </div>
 
-    <!--            <div class="partie__post_footer">-->
-    <!--                <div class="footer__row1">-->
-    <!--                    <div class="btn-epic round-btn pop">-->
-    <!--                        <div class="popover">-->
-    <!--                            <div class="popover__name">Platform: PC</div>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="btn-pc round-btn pop">-->
-    <!--                        <div class="popover">-->
-    <!--                            <div class="popover__name">Platform: PC</div>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="btn-mic round-btn pop">-->
-    <!--                        <div class="popover">-->
-    <!--                            <div class="popover__name">Platform: PC</div>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="btn-time">Limited time mode</div>-->
-    <!--                </div>-->
-    <!--                <div class="footer__row2">-->
-    <!--                    <div class="d-flex align-items-center">-->
-    <!--                        <button class="bg-fiolet">Join</button>-->
-    <!--                        <div class="users-active">-->
-    <!--                            <div class="avatar-wrapp">-->
-    <!--                                <div class="avatar"></div>-->
-    <!--                            </div>-->
-    <!--                            <div class="avatar-wrapp">-->
-    <!--                                <div class="avatar"></div>-->
-    <!--                            </div>-->
-    <!--                            <div class="avatar-wrapp">-->
-    <!--                                <div class="avatar"></div>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                        <div class="users-active-counter">2 active</div>-->
-    <!--                    </div>-->
-    <!--                    <img class="share" src="img/icon/share.png" height="19"/></div>-->
-    <!--            </div>-->
-    <!--        </a>-->
-    <!--    </div>-->
-    <!--    <div class="feed__col2 global">-->
-    <!--        <div>-->
-    <!--            <div class="feed__header">-->
-    <!--                <div class="feed__header_params">-->
-    <!--                    <img src="img/icon/params.png" height="24" width="23"/>-->
-    <!--                </div>-->
-    <!--                <div class="feed__header_tabs">-->
-    <!--                    <a href="#" onclick="clickTab(forYou ,global)" id="tabForYou" >For You</a>-->
-    <!--                    <a href="#" class="active-tab">Browse</a>-->
-    <!--                </div>-->
-    <!--                <div onclick="openModal(newPost)" class="feed__header_post">+ Partie</div>-->
-    <!--            </div>-->
-    <!--            &lt;!&ndash;post&ndash;&gt;-->
-    <!--            <div class="cards">-->
-    <!--                <a href="/partie_id.html" class="card">-->
-    <!--                    <div class="card__img">-->
-    <!--                        <img src="img/pic/slide4.png"/>-->
-    <!--                        <div class="card__partie">-->
-    <!--                            <img src="img/icon/partie.png"/>-->
-    <!--                            424-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="card__name">Fortnite</div>-->
-    <!--                </a>-->
-    <!--                <a href="#" class="card">-->
-    <!--                    <div class="card__img">-->
-    <!--                        <img src="img/pic/slide1.png"/>-->
-    <!--                        <div class="card__partie">-->
-    <!--                            <img src="img/icon/partie.png"/>-->
-    <!--                            424-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="card__name">Fortnite</div>-->
-    <!--                </a>-->
-    <!--                <a href="#" class="card">-->
-    <!--                    <div class="card__img">-->
-    <!--                        <img src="img/pic/slide2.png"/>-->
-    <!--                        <div class="card__partie">-->
-    <!--                            <img src="img/icon/partie.png"/>-->
-    <!--                            42-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="card__name">Fortnite</div>-->
-    <!--                </a>-->
-    <!--                <a href="#" class="card">-->
-    <!--                    <div class="card__img">-->
-    <!--                        <img src="img/pic/slide3.png"/>-->
-    <!--                        <div class="card__partie">-->
-    <!--                            <img src="img/icon/partie.png"/>-->
-    <!--                            4-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="card__name">Fortnite</div>-->
-    <!--                </a>-->
-    <!--                <a href="#" class="card">-->
-    <!--                    <div class="card__img">-->
-    <!--                        <img src="img/pic/slide4.png"/>-->
-    <!--                        <div class="card__partie">-->
-    <!--                            <img src="img/icon/partie.png"/>-->
-    <!--                            424-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="card__name">Fortnite</div>-->
-    <!--                </a>-->
-    <!--                <a href="#" class="card">-->
-    <!--                    <div class="card__img">-->
-    <!--                        <img src="img/pic/slide1.png"/>-->
-    <!--                        <div class="card__partie">-->
-    <!--                            <img src="img/icon/partie.png"/>-->
-    <!--                            424-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="card__name">Fortnite</div>-->
-    <!--                </a>-->
-    <!--                <a href="#" class="card">-->
-    <!--                    <div class="card__img">-->
-    <!--                        <img src="img/pic/slide2.png"/>-->
-    <!--                        <div class="card__partie">-->
-    <!--                            <img src="img/icon/partie.png"/>-->
-    <!--                            424-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="card__name">Fortnite</div>-->
-    <!--                </a>-->
-    <!--                <a href="#" class="card">-->
-    <!--                    <div class="card__img">-->
-    <!--                        <img src="img/pic/slide3.png"/>-->
-    <!--                        <div class="card__partie">-->
-    <!--                            <img src="img/icon/partie.png"/>-->
-    <!--                            424-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="card__name">Fortnite</div>-->
-    <!--                </a>-->
-    <!--                <a href="#" class="card">-->
-    <!--                    <div class="card__img">-->
-    <!--                        <img src="img/pic/slide4.png"/>-->
-    <!--                        <div class="card__partie">-->
-    <!--                            <img src="img/icon/partie.png"/>-->
-    <!--                            424-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="card__name">Fortnite</div>-->
-    <!--                </a>-->
-    <!--                <a href="#" class="card">-->
-    <!--                    <div class="card__img">-->
-    <!--                        <img src="img/pic/slide1.png"/>-->
-    <!--                        <div class="card__partie">-->
-    <!--                            <img src="img/icon/partie.png"/>-->
-    <!--                            424-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="card__name">Fortnite</div>-->
-    <!--                </a>-->
+                </div>
+            </div>
+            <div class="feed__post_text">
+                I want to play MW with others on the platform but hardly anyone here is online. It's such a pain in
+                the butt ;(
+            </div>
+            <a href="/post_id.html" class="feed__post_img">
+                <img src="img/pic/Image%20(2).png" width="100%"/>
+            </a>
+            <div class="partie__post_footer">
+                <div class="footer__row1">
+                    <div class="btn-epic round-btn pop">
+                        <div class="popover">
+                            <div class="popover__name">Platform: PC</div>
+                        </div>
+                    </div>
+                    <div class="btn-pc round-btn pop">
+                        <div class="popover">
+                            <div class="popover__name">Platform: PC</div>
+                        </div>
+                    </div>
+                    <div class="btn-mic round-btn pop">
+                        <div class="popover">
+                            <div class="popover__name">Platform: PC</div>
+                        </div>
+                    </div>
+                    <div class="btn-time">Limited time mode</div>
+                </div>
+                <div class="footer__row2">
+                    <div class="d-flex align-items-center">
+                        <button class="btn-join">Join</button>
+                        <div class="users-active">
+                            <div class="avatar-wrapp">
+                                <div class="avatar"></div>
+                            </div>
+                            <div class="avatar-wrapp">
+                                <div class="avatar"></div>
+                            </div>
+                            <div class="avatar-wrapp">
+                                <div class="avatar"></div>
+                            </div>
+                        </div>
+                        <div class="users-active-counter">2 active</div>
+                    </div>
+                    <img onclick="openModal(share)" class="share" src="img/icon/share.png" height="19"/></div>
+            </div>
+        </div>
+        <div class="feed__post">
+            <div class="feed__post_head user">
+                <a href="/profiles.html" class="user__content">
+                    <div class="avatar">
+                        <div class="avatar__star"></div>
+                    </div>
+                    <div class="user__name">
+                        <div>HungryDima</div>
+                        <div class="user__cd">CD: Warzone <span>1h</span></div>
+                    </div>
+                </a>
+                <div class="feed__header_menu">
+                    <div class="header__menu_menu">
+                        <div class="close-place"></div>
+                        <ul>
+                            <li><a href="#">
+                                <img src="img/icon/mute-r.png" width="16"/>
+                                Mute</a></li>
+                            <li><a href="#" onclick="openModal(partieReport)">
+                                <img src="img/icon/report-r.png" width="16"/>
+                                Report</a></li>
+                            <li><a href="#">
+                                <img src="img/icon/folow-f.png" width="16"/>
+                                Follow gboy6827</a></li>
+                            <li><a href="#">
+                                <img src="img/icon/copy-f.png" width="16"/>
+                                Copy link</a></li>
+                            <li><a href="#" onclick="openModal(share)">
+                                <img src="img/icon/share-f.png" width="16"/>
+                                Share</a></li>
+                        </ul>
+                    </div>
 
-    <!--            </div>-->
-    <!--        </div>-->
-
-    <!--    </div>-->
+                </div>
+            </div>
+            <div class="feed__post_text">
+                I want to play MW with others on the platform but hardly anyone here is online. It's such a pain in
+                the butt ;(
+            </div>
+            <a href="/post_id.html" class="feed__post_img">
+                <img src="img/pic/Image%20(2).png" width="100%"/>
+            </a>
+            <div class="partie__post_footer">
+                <div class="footer__row1">
+                    <div class="btn-epic round-btn pop">
+                        <div class="popover">
+                            <div class="popover__name">Platform: PC</div>
+                        </div>
+                    </div>
+                    <div class="btn-pc round-btn pop">
+                        <div class="popover">
+                            <div class="popover__name">Platform: PC</div>
+                        </div>
+                    </div>
+                    <div class="btn-mic round-btn pop">
+                        <div class="popover">
+                            <div class="popover__name">Platform: PC</div>
+                        </div>
+                    </div>
+                    <div class="btn-time">Limited time mode</div>
+                </div>
+                <div class="footer__row2">
+                    <div class="d-flex align-items-center">
+                        <button class="btn-join">Join</button>
+                        <div class="users-active">
+                            <div class="avatar-wrapp">
+                                <div class="avatar"></div>
+                            </div>
+                            <div class="avatar-wrapp">
+                                <div class="avatar"></div>
+                            </div>
+                            <div class="avatar-wrapp">
+                                <div class="avatar"></div>
+                            </div>
+                        </div>
+                        <div class="users-active-counter">2 active</div>
+                    </div>
+                    <img onclick="openModal(share)" class="share" src="img/icon/share.png" height="19"/></div>
+            </div>
+        </div>
+    </div>
+    <div class="feed__col2 global">
+        <div>
+            <div class="feed__header">
+                <div class="feed__header_params">
+                    <img src="img/icon/params.png" height="24" width="23"/>
+                </div>
+                <div class="feed__header_tabs">
+                    <a href="#" onclick="clickTab(forYou ,global)" id="tabForYou">For You</a>
+                    <a href="#" class="active-tab">Browse</a>
+                </div>
+                <div onclick="openModal(newPost)" class="feed__header_post">+ Partie</div>
+            </div>
+            <!--post-->
+            <div class="cards">
+                <a href="/partie_id.html" class="card">
+                    <div class="card__img">
+                        <img src="img/pic/slide4.png"/>
+                        <div class="card__partie">
+                            <img src="img/icon/partie.png"/>
+                            424
+                        </div>
+                    </div>
+                    <div class="card__name">Fortnite</div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card__img">
+                        <img src="img/pic/slide1.png"/>
+                        <div class="card__partie">
+                            <img src="img/icon/partie.png"/>
+                            424
+                        </div>
+                    </div>
+                    <div class="card__name">Fortnite</div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card__img">
+                        <img src="img/pic/slide2.png"/>
+                        <div class="card__partie">
+                            <img src="img/icon/partie.png"/>
+                            42
+                        </div>
+                    </div>
+                    <div class="card__name">Fortnite</div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card__img">
+                        <img src="img/pic/slide3.png"/>
+                        <div class="card__partie">
+                            <img src="img/icon/partie.png"/>
+                            4
+                        </div>
+                    </div>
+                    <div class="card__name">Fortnite</div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card__img">
+                        <img src="img/pic/slide4.png"/>
+                        <div class="card__partie">
+                            <img src="img/icon/partie.png"/>
+                            424
+                        </div>
+                    </div>
+                    <div class="card__name">Fortnite</div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card__img">
+                        <img src="img/pic/slide1.png"/>
+                        <div class="card__partie">
+                            <img src="img/icon/partie.png"/>
+                            424
+                        </div>
+                    </div>
+                    <div class="card__name">Fortnite</div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card__img">
+                        <img src="img/pic/slide2.png"/>
+                        <div class="card__partie">
+                            <img src="img/icon/partie.png"/>
+                            424
+                        </div>
+                    </div>
+                    <div class="card__name">Fortnite</div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card__img">
+                        <img src="img/pic/slide3.png"/>
+                        <div class="card__partie">
+                            <img src="img/icon/partie.png"/>
+                            424
+                        </div>
+                    </div>
+                    <div class="card__name">Fortnite</div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card__img">
+                        <img src="img/pic/slide4.png"/>
+                        <div class="card__partie">
+                            <img src="img/icon/partie.png"/>
+                            424
+                        </div>
+                    </div>
+                    <div class="card__name">Fortnite</div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card__img">
+                        <img src="img/pic/slide1.png"/>
+                        <div class="card__partie">
+                            <img src="img/icon/partie.png"/>
+                            424
+                        </div>
+                    </div>
+                    <div class="card__name">Fortnite</div>
+                </a>
+            </div>
+        </div>
+    </div>
     <div class="feed__col2 new-active-partie">
         <div class="gametrag-copied">Gametrag copied</div>
         <div class="gametrag-copied reportSubmitted">Report Submitted</div>
         <div class="feed__header">
-            <a href="/feed.html" class="feed__header_params">
+            <a href="/partie.html" class="feed__header_params">
                 <img src="img/icon/arrow_back.png" height="24"/>
             </a>
             <div class="feed__header_title">
@@ -421,7 +511,7 @@
                         <li><a href="#">
                             <img src="img/icon/mute-r.png" width="16"/>
                             Mute</a></li>
-                        <li><a href="#">
+                        <li><a href="#" onclick="openModal(partieReport)">
                             <img src="img/icon/report-r.png" width="16"/>
                             Report</a></li>
                         <li><a href="#">
@@ -430,7 +520,7 @@
                         <li><a href="#">
                             <img src="img/icon/copy-f.png" width="16"/>
                             Copy link</a></li>
-                        <li><a href="#">
+                        <li><a href="#" onclick="openModal(share)">
                             <img src="img/icon/share-f.png" width="16"/>
                             Share</a></li>
                     </ul>
@@ -440,166 +530,169 @@
 
         <!--post-->
         <div class="feed__content">
-            <!--                <div class="invite-people">-->
-            <!--                    <div class="invite-people__img">-->
-            <!--                        <img src="img/pic/invite.png"/>-->
-            <!--                    </div>-->
-            <!--                    <div class="invite-people__title">Invite People</div>-->
-            <!--                    <div class="invite-people__description">Feeling lonely in here? How about you <br> start inviting some friends?</div>-->
-            <!--                    <button class="bg-fiolet">Invite people</button>-->
-            <!--                </div>-->
-        </div>
-        <div class="new-active-partie__messages">
-            <div class="new-active-partie__messages_date">28 july</div>
-            <div class="message">
-                <div class="message__user">
-                    <div class="avatar"></div>
-                    <div>
-                        <div class="user-window">
-                            <div class="close-place"></div>
-                            <div class="user-window__user">
-                                <div class="avatar"></div>
-                                <div>
-                                    <div class="user-name">MirinaAkhaviik</div>
-                                    <div class="user-level">Level 64</div>
-                                </div>
-                            </div>
-                            <button class="btn-origin">MirinaAkhaviik</button>
-                            <div class="user-window__menu">
-                                <div>
-                                    <div class="profile">View profile</div>
-                                </div>
-                                <div>
-                                    <div class="folow">Follow gboy6827</div>
-                                </div>
-                                <!--                                <div>-->
-                                <!--                                    <div class="accept">Accept</div>-->
-                                <!--                                </div>-->
-                                <div>
-                                    <div onclick="openModal(removeUser)" class="remove">Remove</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message__user_user-name">gboy6827</div>
-                        <div class="user-message">Someone come join my Partie for a free lich king kill</div>
-                    </div>
+            <div class="invite-people">
+                <div class="invite-people__img">
+                    <img src="img/pic/invite.png"/>
                 </div>
-                <div class="message__time">8:33 PM</div>
-            </div>
-            <div class="message">
-                <div class="message__user">
-                    <div class="avatar"></div>
-                    <div>
-                        <div class="user-window">
-                            <div class="close-place"></div>
-                            <div class="user-window__user">
-                                <div class="avatar"></div>
-                                <div>
-                                    <div class="user-name">MirinaAkhaviik</div>
-                                    <div class="user-level">Level 64</div>
-                                </div>
-                            </div>
-                            <button class="btn-origin">MirinaAkhaviik</button>
-                            <div class="user-window__menu">
-                                <div>
-                                    <div class="profile">View profile</div>
-                                </div>
-                                <div>
-                                    <div class="folow">Follow gboy6827</div>
-                                </div>
-                                <div>
-                                    <div class="accept">Accept</div>
-                                </div>
-                                <!--                                <div>-->
-                                <!--                                    <div class="remove">Remove</div>-->
-                                <!--                                </div>-->
-                            </div>
-                        </div>
-                        <div class="message__user_user-name">gboy6827</div>
-                        <div class="user-message">Someone come join my Partie for a free lich king kill</div>
-                    </div>
+                <div class="invite-people__title">Invite People</div>
+                <div class="invite-people__description">Feeling lonely in here? How about you <br> start inviting some
+                    friends?
                 </div>
-                <div class="message__time">8:33 PM</div>
-            </div>
-            <div class="new-active-partie__messages_joined">
-                <span>Mandalorian5917</span> joined the Partie
-            </div>
-            <div class="message">
-                <div class="message__user">
-                    <div class="avatar"></div>
-                    <div>
-                        <div class="user-window">
-                            <div class="close-place"></div>
-                            <div class="user-window__user">
-                                <div class="avatar"></div>
-                                <div>
-                                    <div class="user-name">MirinaAkhaviik</div>
-                                    <div class="user-level">Level 64</div>
-                                </div>
-                            </div>
-                            <button class="btn-origin">MirinaAkhaviik</button>
-                            <div class="user-window__menu">
-                                <div>
-                                    <div class="profile">View profile</div>
-                                </div>
-                                <div>
-                                    <div class="folow">Follow gboy6827</div>
-                                </div>
-                                <!--                                <div>-->
-                                <!--                                    <div class="accept">Accept</div>-->
-                                <!--                                </div>-->
-                                <div>
-                                    <div onclick="openModal(removeUser)" class="remove">Remove</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message__user_user-name">gboy6827</div>
-                        <div class="user-message">Someone come join my Partie for a free lich king kill</div>
-                    </div>
-                </div>
-                <div class="message__time">8:33 PM</div>
-            </div>
-            <div class="message">
-                <div class="message__user">
-                    <div class="avatar"></div>
-                    <div>
-                        <div class="user-window">
-                            <div class="close-place"></div>
-                            <div class="user-window__user">
-                                <div class="avatar"></div>
-                                <div>
-                                    <div class="user-name">MirinaAkhaviik</div>
-                                    <div class="user-level">Level 64</div>
-                                </div>
-                            </div>
-                            <button class="btn-origin">MirinaAkhaviik</button>
-                            <div class="user-window__menu">
-                                <div>
-                                    <div class="profile">View profile</div>
-                                </div>
-                                <div>
-                                    <div class="folow">Follow gboy6827</div>
-                                </div>
-                                <div>
-                                    <div class="accept">Accept</div>
-                                </div>
-                                <!--                                <div>-->
-                                <!--                                    <div class="remove">Remove</div>-->
-                                <!--                                </div>-->
-                            </div>
-                        </div>
-                        <div class="message__user_user-name">gboy6827</div>
-                        <div class="user-message">Someone come join my Partie for a free lich king kill</div>
-                    </div>
-                </div>
-                <div class="message__time">8:33 PM</div>
+                <button onclick="openModal(inviteFriends)" class="bg-fiolet">Invite people</button>
             </div>
         </div>
 
-        <div class="new-active-partie__message">
-            <div class="avatar"></div>
-            <input type="text" placeholder="Add message...">
-        </div>
+<!--        <div class="new-active-partie__messages">-->
+<!--            <div class="new-active-partie__messages_date">28 july</div>-->
+<!--            <div class="message">-->
+<!--                <div class="message__user">-->
+<!--                    <div class="avatar"></div>-->
+<!--                    <div>-->
+<!--                        <div class="user-window">-->
+<!--                            <div class="close-place"></div>-->
+<!--                            <div class="user-window__user">-->
+<!--                                <div class="avatar"></div>-->
+<!--                                <div>-->
+<!--                                    <div class="user-name">MirinaAkhaviik</div>-->
+<!--                                    <div class="user-level">Level 64</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <button class="btn-origin">MirinaAkhaviik</button>-->
+<!--                            <div class="user-window__menu">-->
+<!--                                <div>-->
+<!--                                    <div class="profile">View profile</div>-->
+<!--                                </div>-->
+<!--                                <div>-->
+<!--                                    <div class="folow">Follow gboy6827</div>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash;                                <div>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                    <div class="accept">Accept</div>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--                                <div>-->
+<!--                                    <div onclick="openModal(removeUser)" class="remove">Remove</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="message__user_user-name">gboy6827</div>-->
+<!--                        <div class="user-message">Someone come join my Partie for a free lich king kill</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="message__time">8:33 PM</div>-->
+<!--            </div>-->
+<!--            <div class="message">-->
+<!--                <div class="message__user">-->
+<!--                    <div class="avatar"></div>-->
+<!--                    <div>-->
+<!--                        <div class="user-window">-->
+<!--                            <div class="close-place"></div>-->
+<!--                            <div class="user-window__user">-->
+<!--                                <div class="avatar"></div>-->
+<!--                                <div>-->
+<!--                                    <div class="user-name">MirinaAkhaviik</div>-->
+<!--                                    <div class="user-level">Level 64</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <button class="btn-origin">MirinaAkhaviik</button>-->
+<!--                            <div class="user-window__menu">-->
+<!--                                <div>-->
+<!--                                    <div class="profile">View profile</div>-->
+<!--                                </div>-->
+<!--                                <div>-->
+<!--                                    <div class="folow">Follow gboy6827</div>-->
+<!--                                </div>-->
+<!--                                <div>-->
+<!--                                    <div class="accept">Accept</div>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash;                                <div>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                    <div class="remove">Remove</div>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="message__user_user-name">gboy6827</div>-->
+<!--                        <div class="user-message">Someone come join my Partie for a free lich king kill</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="message__time">8:33 PM</div>-->
+<!--            </div>-->
+<!--            <div class="new-active-partie__messages_joined">-->
+<!--                <span>Mandalorian5917</span> joined the Partie-->
+<!--            </div>-->
+<!--            <div class="message">-->
+<!--                <div class="message__user">-->
+<!--                    <div class="avatar"></div>-->
+<!--                    <div>-->
+<!--                        <div class="user-window">-->
+<!--                            <div class="close-place"></div>-->
+<!--                            <div class="user-window__user">-->
+<!--                                <div class="avatar"></div>-->
+<!--                                <div>-->
+<!--                                    <div class="user-name">MirinaAkhaviik</div>-->
+<!--                                    <div class="user-level">Level 64</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <button class="btn-origin">MirinaAkhaviik</button>-->
+<!--                            <div class="user-window__menu">-->
+<!--                                <div>-->
+<!--                                    <div class="profile">View profile</div>-->
+<!--                                </div>-->
+<!--                                <div>-->
+<!--                                    <div class="folow">Follow gboy6827</div>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash;                                <div>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                    <div class="accept">Accept</div>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--                                <div>-->
+<!--                                    <div onclick="openModal(removeUser)" class="remove">Remove</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="message__user_user-name">gboy6827</div>-->
+<!--                        <div class="user-message">Someone come join my Partie for a free lich king kill</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="message__time">8:33 PM</div>-->
+<!--            </div>-->
+<!--            <div class="message">-->
+<!--                <div class="message__user">-->
+<!--                    <div class="avatar"></div>-->
+<!--                    <div>-->
+<!--                        <div class="user-window">-->
+<!--                            <div class="close-place"></div>-->
+<!--                            <div class="user-window__user">-->
+<!--                                <div class="avatar"></div>-->
+<!--                                <div>-->
+<!--                                    <div class="user-name">MirinaAkhaviik</div>-->
+<!--                                    <div class="user-level">Level 64</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <button class="btn-origin">MirinaAkhaviik</button>-->
+<!--                            <div class="user-window__menu">-->
+<!--                                <div>-->
+<!--                                    <div class="profile">View profile</div>-->
+<!--                                </div>-->
+<!--                                <div>-->
+<!--                                    <div class="folow">Follow gboy6827</div>-->
+<!--                                </div>-->
+<!--                                <div>-->
+<!--                                    <div class="accept">Accept</div>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash;                                <div>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                    <div class="remove">Remove</div>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="message__user_user-name">gboy6827</div>-->
+<!--                        <div class="user-message">Someone come join my Partie for a free lich king kill</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="message__time">8:33 PM</div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="new-active-partie__message">-->
+<!--            <div class="avatar"></div>-->
+<!--            <input type="text" placeholder="Add message...">-->
+<!--        </div>-->
     </div>
     <div class="feed__col3">
         <div>
@@ -607,7 +700,7 @@
                 <div>People</div>
             </div>
             <div class="feed__friends">
-                <div class="feed__friends_invite">
+                <div onclick="openModal(inviteFriendsSetting)" class="feed__friends_invite">
                     <div class="icon-invite"></div>
                     <div class="icon-invite-text">Invite friends</div>
                 </div>

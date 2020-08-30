@@ -26,7 +26,19 @@ let removeUser = document.querySelector('#removeUser')
 let titleModal = document.querySelector('#titleModal')
 let editPartie = document.querySelector('#editPartie')
 let partieReport = document.querySelector('#partieReport')
+let ratingPartie = document.querySelector('#ratingPartie')
 let titleModalStart = document.querySelector('#titleModalStart')
+let inviteFriends = document.querySelector('#inviteFriends')
+let newChat = document.querySelector('#newChat')
+let chatHead = document.querySelector('#chatHead')
+let editChat = document.querySelector('#editChat')
+let leaveChat = document.querySelector('#leaveChat')
+let inviteFriendsSetting = document.querySelector('#inviteFriendsSetting')
+let deleteAccount = document.querySelector('#deleteAccount')
+let changePaymentMethod = document.querySelector('#changePaymentMethod')
+let addCreditCardSetting = document.querySelector('#addCreditCardSetting')
+let share = document.querySelector('#share')
+let logInPlatformsGames = document.querySelector('#logInPlatformsGames')
 let arrHeaderMenuMenu = document.querySelectorAll('.header__menu_menu')
 let arrlogInMenu = document.querySelectorAll('.logIn__menu')
 let arrModalWrapp = document.querySelectorAll( '.modal-wrapp' )
@@ -35,13 +47,8 @@ let arrFeedHeaderMenu = document.querySelectorAll( '.feed__header_menu' )
 document.addEventListener('DOMContentLoaded', function () {
 
     $( '.slider' ).slick( {
-        autoplay: true,
-        autoplaySpeed: 4000,
-        delay: 5000,
-        speed: 700,
-
         slidesToShow: 10,
-        slidesToScroll: 5,
+        slidesToScroll: 1,
         infinite: true,
         swipeToSlide: true,
         responsive: [
@@ -111,6 +118,40 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
 
+    let arrCheckedGames = [] // появление кнопки platforms continue
+    let arrPlatformsGames = document.querySelectorAll('#logInPlatformsGames .cards input')
+    let btnPlatformsGames = document.getElementById('btnPlatformsGames')
+    for(let platform of arrPlatformsGames) {
+        platform.addEventListener('change', function () {
+            if(platform.checked) {
+                arrCheckedGames.push('')
+            } else {
+                arrCheckedGames.pop()
+            }
+            if(arrCheckedGames.length > 0) {
+                btnPlatformsGames.style.display = 'block'
+                btnPlatformsGames.classList.remove('animate__fadeOutDown')
+                btnPlatformsGames.classList.add('animate__fadeInUp')
+                if(window.innerWidth > 767) {
+                    btnPlatformsGames.style.zIndex = ''
+                    logInPlatforms.children[0].style.backgroundColor = 'transparent'
+                }
+
+                console.log(arrCheckedGames.length)
+
+            } else {
+                btnPlatformsGames.classList.remove('animate__fadeInUp')
+                btnPlatformsGames.classList.add('animate__fadeOutDown')
+                if(window.innerWidth > 767) { //pc
+                    setTimeout(function () {
+                        btnPlatformsGames.style.zIndex = '-1'
+                    },500)
+                    logInPlatforms.children[0].style.backgroundColor = ''
+                }
+            }
+        })
+    }
+
 })
 
 function next(open, close) { // кнопка далее
@@ -133,7 +174,7 @@ function next(open, close) { // кнопка далее
         }
 
 
-        if (open === logInCode || open === logInPlatforms) open.children[0].style.left = '0'
+        if (open === logInCode || open === logInPlatforms || open === logInPlatformsGames || open === checkEmail) open.children[0].style.left = '0'
         setTimeout(function () {
             if (close === logInCode) {
                 close.children[0].style.left = '100%'
@@ -259,6 +300,43 @@ if(shortcuts !== null) {
 }
 
 
+function openBurger() {
+    let windowBurger = document.querySelector('.burger__menu')
+    let closePlace = windowBurger.querySelector('.close-place')
+    windowBurger.style.opacity = '1'
+    windowBurger.style.visibility = 'visible'
+    closePlace.addEventListener('click', function () {
+        windowBurger.style.cssText = ''
+    })
+}
+
+
+let feedPostImg = document.querySelector('.post .feed__post_img img')
+if (feedPostImg !== null) {
+    feedPostImg.onclick = openImg
+    let bg = document.querySelector('.img-bg')
+    let bgBtn = document.querySelector('.img-bg .img-bg__close')
+    let img
+    function openImg() {
+        img = this
+        this.style.cssText =
+            'top:0;' +
+            'right:0;' +
+            'bottom:0;' +
+            'left:0;' +
+            'position:fixed;' +
+            'z-index: 12;' +
+            'margin: auto;' +
+            'padding: 0 50px'
+        bg.style.zIndex = '11'
+        bgBtn.onclick = function () {
+            img.style.cssText = ''
+            bg.style.zIndex = ''
+        }
+    }
+}
+
+
 
 // open reply comment
 // let reply = document.querySelectorAll('.reply')
@@ -316,3 +394,7 @@ if(shortcuts !== null) {
 @@include( 'feed.js' )
 @@include( 'profile.js' )
 @@include( 'partie.js' )
+@@include( 'settings.js' )
+@@include( 'about.js' )
+@@include( 'search.js' )
+@@include( 'notifications.js' )

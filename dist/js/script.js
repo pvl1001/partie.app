@@ -26,7 +26,19 @@ let removeUser = document.querySelector('#removeUser')
 let titleModal = document.querySelector('#titleModal')
 let editPartie = document.querySelector('#editPartie')
 let partieReport = document.querySelector('#partieReport')
+let ratingPartie = document.querySelector('#ratingPartie')
 let titleModalStart = document.querySelector('#titleModalStart')
+let inviteFriends = document.querySelector('#inviteFriends')
+let newChat = document.querySelector('#newChat')
+let chatHead = document.querySelector('#chatHead')
+let editChat = document.querySelector('#editChat')
+let leaveChat = document.querySelector('#leaveChat')
+let inviteFriendsSetting = document.querySelector('#inviteFriendsSetting')
+let deleteAccount = document.querySelector('#deleteAccount')
+let changePaymentMethod = document.querySelector('#changePaymentMethod')
+let addCreditCardSetting = document.querySelector('#addCreditCardSetting')
+let share = document.querySelector('#share')
+let logInPlatformsGames = document.querySelector('#logInPlatformsGames')
 let arrHeaderMenuMenu = document.querySelectorAll('.header__menu_menu')
 let arrlogInMenu = document.querySelectorAll('.logIn__menu')
 let arrModalWrapp = document.querySelectorAll( '.modal-wrapp' )
@@ -35,13 +47,8 @@ let arrFeedHeaderMenu = document.querySelectorAll( '.feed__header_menu' )
 document.addEventListener('DOMContentLoaded', function () {
 
     $( '.slider' ).slick( {
-        autoplay: true,
-        autoplaySpeed: 4000,
-        delay: 5000,
-        speed: 700,
-
         slidesToShow: 10,
-        slidesToScroll: 5,
+        slidesToScroll: 1,
         infinite: true,
         swipeToSlide: true,
         responsive: [
@@ -111,6 +118,40 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
 
+    let arrCheckedGames = [] // появление кнопки platforms continue
+    let arrPlatformsGames = document.querySelectorAll('#logInPlatformsGames .cards input')
+    let btnPlatformsGames = document.getElementById('btnPlatformsGames')
+    for(let platform of arrPlatformsGames) {
+        platform.addEventListener('change', function () {
+            if(platform.checked) {
+                arrCheckedGames.push('')
+            } else {
+                arrCheckedGames.pop()
+            }
+            if(arrCheckedGames.length > 0) {
+                btnPlatformsGames.style.display = 'block'
+                btnPlatformsGames.classList.remove('animate__fadeOutDown')
+                btnPlatformsGames.classList.add('animate__fadeInUp')
+                if(window.innerWidth > 767) {
+                    btnPlatformsGames.style.zIndex = ''
+                    logInPlatforms.children[0].style.backgroundColor = 'transparent'
+                }
+
+                console.log(arrCheckedGames.length)
+
+            } else {
+                btnPlatformsGames.classList.remove('animate__fadeInUp')
+                btnPlatformsGames.classList.add('animate__fadeOutDown')
+                if(window.innerWidth > 767) { //pc
+                    setTimeout(function () {
+                        btnPlatformsGames.style.zIndex = '-1'
+                    },500)
+                    logInPlatforms.children[0].style.backgroundColor = ''
+                }
+            }
+        })
+    }
+
 })
 
 function next(open, close) { // кнопка далее
@@ -133,7 +174,7 @@ function next(open, close) { // кнопка далее
         }
 
 
-        if (open === logInCode || open === logInPlatforms) open.children[0].style.left = '0'
+        if (open === logInCode || open === logInPlatforms || open === logInPlatformsGames || open === checkEmail) open.children[0].style.left = '0'
         setTimeout(function () {
             if (close === logInCode) {
                 close.children[0].style.left = '100%'
@@ -254,6 +295,43 @@ if(shortcuts !== null) {
             shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
             btnUp.style.transform = ''
             bgClick.style.cssText = ''
+        }
+    }
+}
+
+
+function openBurger() {
+    let windowBurger = document.querySelector('.burger__menu')
+    let closePlace = windowBurger.querySelector('.close-place')
+    windowBurger.style.opacity = '1'
+    windowBurger.style.visibility = 'visible'
+    closePlace.addEventListener('click', function () {
+        windowBurger.style.cssText = ''
+    })
+}
+
+
+let feedPostImg = document.querySelector('.post .feed__post_img img')
+if (feedPostImg !== null) {
+    feedPostImg.onclick = openImg
+    let bg = document.querySelector('.img-bg')
+    let bgBtn = document.querySelector('.img-bg .img-bg__close')
+    let img
+    function openImg() {
+        img = this
+        this.style.cssText =
+            'top:0;' +
+            'right:0;' +
+            'bottom:0;' +
+            'left:0;' +
+            'position:fixed;' +
+            'z-index: 12;' +
+            'margin: auto;' +
+            'padding: 0 50px'
+        bg.style.zIndex = '11'
+        bgBtn.onclick = function () {
+            img.style.cssText = ''
+            bg.style.zIndex = ''
         }
     }
 }
@@ -412,14 +490,23 @@ function isNewComment() {
 
 let global = document.querySelector( '.global' )
 let forYou = document.querySelector( '.for-you' )
+let newActivePartie = document.querySelector( '.new-active-partie' )
 
-    function clickTab(open, close) {
+function openActivePartie() {
+    global.style.display = 'none'
+    forYou.style.display = 'none'
+    newActivePartie.style.display = 'flex'
+}
+
+function clickTab(open, close) {
         open.style.display = 'block'
         close.style.display = 'none'
         $( '.slider' ).slick('unslick')
         $( '.slider' ).slick( {
             slidesToShow: 10,
+            slidesToScroll: 1,
             infinite: true,
+            swipeToSlide: true,
             responsive: [
                 {
                     breakpoint: 1600,
@@ -447,7 +534,23 @@ let forYou = document.querySelector( '.for-you' )
                 }
             ]
         } )
+
     }
+
+function openChat() {
+    let newChatPage = document.querySelector( '.new-active-partie.chat' )
+    let chatPage = document.querySelector( '.chats' )
+    closeModal(newChat)
+    chatPage.style.display = 'none'
+    newChatPage.style.display = 'flex'
+}
+
+
+$( '.share__btns' ).slick( {
+    slidesToScroll: 1,
+    slidesToShow: 5,
+    infinite: false
+})
 // })
 
 
@@ -657,12 +760,43 @@ for(let i = 0; i < arrUser.length; i++){
     })
 }
 
-function openMore() {
+function openMorePartie() {
     let moreWin = document.querySelector( '.more__win' )
     let closePlaceMore = document.querySelector( '.big-round-btn.more .close-place' )
+
     moreWin.style.visibility = 'visible'
     moreWin.style.opacity = '1'
     closePlaceMore.style.display = 'block'
+
+    let test = moreWin.querySelectorAll( '.more__win_row ' )
+    for (let el of test)
+        el.addEventListener( 'click', function (e) {
+            moreWin.style.cssText = ''
+            closePlaceMore.style.display = ''
+            e.stopPropagation()
+        } )
+    closePlaceMore.addEventListener( 'click', function (e) {
+        moreWin.style.cssText = ''
+        closePlaceMore.style.display = ''
+        e.stopPropagation()
+    } )
+}
+
+function openMoreChats() {
+    let moreWin = document.querySelector( '.more__win-chats' )
+    let closePlaceMore = document.querySelector( '.big-round-btn.more .close-place.more__win-chats' )
+
+    moreWin.style.visibility = 'visible'
+    moreWin.style.opacity = '1'
+    closePlaceMore.style.display = 'block'
+
+    let test = moreWin.querySelectorAll( '.more__win_row' )
+    for (let el of test)
+        el.addEventListener( 'click', function (e) {
+            moreWin.style.cssText = ''
+            closePlaceMore.style.display = ''
+            e.stopPropagation()
+        } )
     closePlaceMore.addEventListener( 'click', function (e) {
         moreWin.style.cssText = ''
         closePlaceMore.style.display = ''
@@ -699,19 +833,219 @@ for(let input of arrReportInput) {
 
 function reportSubmitted() {
     let reportSubmitted = document.querySelector('.reportSubmitted')
-    closeModal(partieReport)
-    reportSubmitted.style.visibility = 'visible'
-    reportSubmitted.style.opacity = '1'
-    setTimeout(function () {
-        reportSubmitted.style.cssText = ''
-    },5000)
+    if(reportSubmitted !== null) {
+        closeModal(partieReport)
+        reportSubmitted.style.visibility = 'visible'
+        reportSubmitted.style.opacity = '1'
+        setTimeout(function () {
+            reportSubmitted.style.cssText = ''
+        },5000)
+    }
 }
 
 
-let arrStar = document.querySelectorAll('.rating__stars input')
-for(let star of arrStar){
-    star.addEventListener('change', function () {
-        if(star.checked) console.log(this.checked)
+let arrStar = document.querySelectorAll('.rating-area input')
+let ratingPartieModal = document.querySelector('#ratingPartie .modal')
+let btnSkip = document.querySelector('#btnSkip')
+let star2 = document.querySelector('.star-2')
+let star3 = document.querySelector('.star-3')
+let star4 = document.querySelector('.star-4')
+let star5 = document.querySelector('.star-5')
+for(let star of arrStar) {
+    star.addEventListener('change', function (e) {
+        if(e.target.value <= '2') {
+            star5.style.right = ''
+            star4.style.right = ''
+            star3.style.right = ''
+            btnSkip.style.right = '110%'
+            setTimeout(function () {
+                ratingPartie.style.background = 'linear-gradient(0deg, rgba(60,28,32,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
+                ratingPartieModal.style.height = '379px'
+                star2.style.right = '0'
+                star5.style.position = 'absolute'
+                star4.style.position = 'absolute'
+                star3.style.position = 'absolute'
+                star2.style.position = ''
+            },300)
+        }
+        if (e.target.value === '3'){
+            star5.style.right = ''
+            star4.style.right = ''
+            star2.style.right = ''
+            btnSkip.style.right = '110%'
+            setTimeout(function () {
+                ratingPartie.style.background = 'linear-gradient(0deg, rgba(42,24,45,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
+                ratingPartieModal.style.height = '629px'
+                star3.style.right = '0'
+                star5.style.position = 'absolute'
+                star4.style.position = 'absolute'
+                star2.style.position = 'absolute'
+                star3.style.position = ''
+            },300)
+        }
+        if (e.target.value === '4'){
+            star5.style.right = ''
+            star3.style.right = ''
+            star2.style.right = ''
+            btnSkip.style.right = '110%'
+            setTimeout(function () {
+                ratingPartie.style.background = 'linear-gradient(0deg, rgba(33,26,61,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
+                ratingPartieModal.style.height = '629px'
+                star4.style.right = '0'
+                star5.style.position = 'absolute'
+                star3.style.position = 'absolute'
+                star2.style.position = 'absolute'
+                star4.style.position = ''
+            },300)
+        }
+        if (e.target.value === '5'){
+            star4.style.right = ''
+            star3.style.right = ''
+            star2.style.right = ''
+            btnSkip.style.right = '110%'
+            setTimeout(function () {
+                ratingPartie.style.background = 'linear-gradient(0deg, rgba(61,58,36,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
+                ratingPartieModal.style.height = '629px'
+                star5.style.right = '0'
+                star4.style.position = 'absolute'
+                star3.style.position = 'absolute'
+                star2.style.position = 'absolute'
+                star5.style.position = ''
+            },300)
+        }
     })
+}
+
+
+function textareaWidth() {
+    let text = document.querySelector('.textarea')
+    if(text.value.length) {
+        text.style.width = '100%'
+    } else {
+        text.style.width = ''
+    }
+}
+
+
+let arrPostFooterBtn = document.querySelectorAll('.partie__post_footer button')
+let onPostFooterBtn = []
+for(let i = 0; i < arrPostFooterBtn.length; i++) {
+    if(arrPostFooterBtn[i] !== null) {
+        arrPostFooterBtn[i].addEventListener('click', function () {
+            onPostFooterBtn[i] = !onPostFooterBtn[i]
+            if(onPostFooterBtn[i]) {
+                arrPostFooterBtn[i].style.backgroundColor = '#F45365'
+                arrPostFooterBtn[i].innerHTML = 'Leave'
+            } else {
+                arrPostFooterBtn[i].style.backgroundColor = ''
+                arrPostFooterBtn[i].innerHTML = 'Join'
+            }
+        })
+    }}
+
+
+
+function openSetting(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent-setting");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks-setting");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+if(document.getElementById("defaultOpenSetting") !== null)
+document.getElementById("defaultOpenSetting").click();
+
+
+let subscriptionManage = document.querySelector('.settings .subscription__manage')
+let mutedAccountsPage = document.querySelector('.settings .muted-accounts-page')
+let blockedAccountsPage = document.querySelector('.settings .blocked-accounts-page')
+let emailNotificationsPage = document.querySelector('.settings .email-notifications-page')
+function openSettings(blockPage) {
+    blockPage.style.left = '0'
+}
+function backSettings(blockPage) {
+    blockPage.style.left = ''
+}
+let tell = document.querySelector('#Tell')
+
+if(tell !== null) {
+    tell.addEventListener('keyup', function () {
+        let label = document.querySelector('#How label')
+        let btn = document.querySelector('#How button')
+        if(tell.value.length) {
+            label.style.opacity = '.5'
+            label.style.top = '70px'
+            label.style.fontSize = '13px'
+            btn.style.opacity = '1'
+            btn.style.visibility = 'visible'
+        } else {
+            label.style.cssText = ''
+            btn.style.cssText = ''
+        }
+    })
+}
+
+
+let inputSearch = document.querySelector('input.feed__search_search')
+let searchWinBox = document.querySelector('.search-win__box')
+let contentSearch = document.querySelector('.search-win__content.search-win__content-search')
+let content = document.querySelector('.search-win__content')
+
+if (inputSearch !== null) {
+    inputSearch.addEventListener('focus', function () {
+        searchWinBox.style.opacity = '1'
+        searchWinBox.style.visibility = 'visible'
+    })
+
+    inputSearch.addEventListener('blur', function () {
+        searchWinBox.style.cssText = ''
+    })
+
+    inputSearch.addEventListener('keyup', function () {
+        if (inputSearch.value.length) {
+            contentSearch.style.display = 'block'
+            content.style.display = 'none'
+        } else {
+            contentSearch.style.display = ''
+            content.style.display = ''
+        }
+    })
+}
+
+
+function openTabSearch(evt, Tab) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.querySelectorAll(".search .profile__tabs .tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.querySelectorAll(".search .profile__tabs .tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(Tab).style.display = "block";
+    evt.currentTarget.className += " active";
+
+}
+
+let followRequests = document.querySelector('.follow-requests')
+let requestsCounter = document.querySelector('.requests__counter')
+
+if (requestsCounter !== null)
+if(requestsCounter.innerHTML === '0') {
+    requestsCounter.style.backgroundColor = '#14131A'
 }
 

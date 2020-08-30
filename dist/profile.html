@@ -20,11 +20,17 @@
             </div>
             <div class="modal__content">
                 <button onclick="next(chooseGame, newPost)" class="empty-select">Select a Game (Optional)</button>
+                <button class="game AL">
+                    <div class="game__icon"></div>
+                    Apex Legends
+                </button>
+
                 <textarea placeholder="What’s new?"></textarea>
                 <div class="new-post__row">
                     <label for="photo2"></label>
                     <input id="photo2" type="file" class="feed__what-new_photo">
                     <button class="bg-fiolet">Public post</button>
+                    <button class="followers-only-btn">Followers only</button>
                     <button class="feed__what-new_post disabled">Post</button>
                 </div>
             </div>
@@ -147,7 +153,7 @@
                     <div class="progress-bar__progress"></div>
                 </div>
                 <div class="info_avatar__about">
-                    <span onclick="alert()">About Partnership</span>
+                    <span>About Partnership</span>
                 </div>
 
             </div>
@@ -399,6 +405,46 @@
                     Account settings
                 </div>
                 <button class="bg-fiolet">Save</button>
+            </div>
+        </div>
+    </div>
+    <div id="share" class="modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                Share
+                <div onclick="closeModal(share)" class="modal__close"></div>
+            </div>
+            <div class="modal__content">
+                <div class="share__btns">
+                    <div class="btn__box">
+                        <div class="btn__logo FB"></div>
+                        <div class="btn__name">Facebook</div>
+                    </div>
+                    <div class="btn__box">
+                        <div class="btn__logo TW"></div>
+                        <div class="btn__name">Twitter</div>
+                    </div>
+                    <div class="btn__box">
+                        <div class="btn__logo BL"></div>
+                        <div class="btn__name">Blogger</div>
+                    </div>
+                    <div class="btn__box">
+                        <div class="btn__logo RD"></div>
+                        <div class="btn__name">Reddit</div>
+                    </div>
+                    <div class="btn__box">
+                        <div class="btn__logo TM"></div>
+                        <div class="btn__name">Tumblr</div>
+                    </div>
+                    <div class="btn__box">
+                        <div class="btn__logo TM"></div>
+                        <div class="btn__name">Tumblr</div>
+                    </div>
+                </div>
+                <div class="share__copy">
+                    <input id="shareCopy" type="text" readonly value="https://app.partie.com/profile/02bab...">
+                    <label for="shareCopy">copy</label>
+                </div>
             </div>
         </div>
     </div>
@@ -702,10 +748,10 @@
     </div>
 
 <!--Active partie-->
-    <div id="inviteFriends" class="modal-wrapp">
+    <div id="inviteFriends" class="inviteFriends modal-wrapp">
         <div class="modal center">
             <div class="modal__head">
-                <div onclick="closeModal(newPost)" class="modal__close"></div>
+                <div onclick="closeModal(inviteFriends)" class="modal__close"></div>
                 Invite friends
                 <button class="bg-fiolet">Invite</button>
             </div>
@@ -850,7 +896,7 @@
                         <div class="big-round-btn invite"></div>
                         <div class="big-round-text">Invite</div>
                     </div>
-                    <div onclick="openMore()" class="btn-container">
+                    <div onclick="openMorePartie()" class="btn-container">
                         <div class="big-round-btn more">
 <!--                            <div class="more__win">-->
 <!--                                <div>-->
@@ -862,10 +908,10 @@
 <!--                            </div>-->
                             <div class="more__win dev">
                                 <div>
-                                    <div class="more__win_row mute">Mute</div>
+                                    <div onclick="next(partieReport, titleModal)" class="more__win_row report">Report</div>
                                 </div>
                                 <div>
-                                    <div onclick="next(partieReport, titleModal)" class="more__win_row report">Report</div>
+                                    <div onclick="openModal(ratingPartie)" class="more__win_row leave">Leave</div>
                                 </div>
                             </div>
                             <div class="close-place"></div>
@@ -1030,57 +1076,459 @@
             <div class="modal__content">
                 <div class="avatar"></div>
                 <div class="rating__title">Rate Partie</div>
-<!--                <div class="rating__stars">-->
-<!--                    <input id="star1" name="stars" type="checkbox">-->
-<!--                    <label for="star1">-->
-<!--                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-<!--                            <path d="M8.54384 1.01636C8.72053 0.622675 9.27947 0.622674 9.45616 1.01636L11.657 5.91989C11.7297 6.08189 11.8828 6.19317 12.0594 6.21226L17.403 6.79007C17.832 6.83646 18.0047 7.36804 17.6849 7.65774L13.7015 11.2661C13.5699 11.3853 13.5114 11.5654 13.5478 11.7392L14.6495 16.9998C14.7379 17.4221 14.2858 17.7507 13.9114 17.536L9.2487 14.8626C9.09466 14.7743 8.90534 14.7743 8.7513 14.8626L4.08859 17.536C3.71424 17.7507 3.26205 17.4221 3.35051 16.9998L4.45225 11.7392C4.48865 11.5654 4.43014 11.3853 4.29854 11.2661L0.315091 7.65774C-0.00472718 7.36804 0.167993 6.83646 0.597014 6.79007L5.94063 6.21226C6.11717 6.19317 6.27033 6.08189 6.34304 5.91989L8.54384 1.01636Z"-->
-<!--                                  fill="#322F42"/>-->
-<!--                        </svg>-->
-<!--                    </label>-->
 
-<!--                    <input id="star2" name="stars" type="checkbox">-->
-<!--                    <label for="star2">-->
-<!--                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-<!--                            <path d="M8.54384 1.01636C8.72053 0.622675 9.27947 0.622674 9.45616 1.01636L11.657 5.91989C11.7297 6.08189 11.8828 6.19317 12.0594 6.21226L17.403 6.79007C17.832 6.83646 18.0047 7.36804 17.6849 7.65774L13.7015 11.2661C13.5699 11.3853 13.5114 11.5654 13.5478 11.7392L14.6495 16.9998C14.7379 17.4221 14.2858 17.7507 13.9114 17.536L9.2487 14.8626C9.09466 14.7743 8.90534 14.7743 8.7513 14.8626L4.08859 17.536C3.71424 17.7507 3.26205 17.4221 3.35051 16.9998L4.45225 11.7392C4.48865 11.5654 4.43014 11.3853 4.29854 11.2661L0.315091 7.65774C-0.00472718 7.36804 0.167993 6.83646 0.597014 6.79007L5.94063 6.21226C6.11717 6.19317 6.27033 6.08189 6.34304 5.91989L8.54384 1.01636Z"-->
-<!--                                  fill="#322F42"/>-->
-<!--                        </svg>-->
-<!--                    </label>-->
-
-<!--                    <input id="star3" name="stars" type="checkbox">-->
-<!--                    <label for="star3">-->
-<!--                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-<!--                            <path d="M8.54384 1.01636C8.72053 0.622675 9.27947 0.622674 9.45616 1.01636L11.657 5.91989C11.7297 6.08189 11.8828 6.19317 12.0594 6.21226L17.403 6.79007C17.832 6.83646 18.0047 7.36804 17.6849 7.65774L13.7015 11.2661C13.5699 11.3853 13.5114 11.5654 13.5478 11.7392L14.6495 16.9998C14.7379 17.4221 14.2858 17.7507 13.9114 17.536L9.2487 14.8626C9.09466 14.7743 8.90534 14.7743 8.7513 14.8626L4.08859 17.536C3.71424 17.7507 3.26205 17.4221 3.35051 16.9998L4.45225 11.7392C4.48865 11.5654 4.43014 11.3853 4.29854 11.2661L0.315091 7.65774C-0.00472718 7.36804 0.167993 6.83646 0.597014 6.79007L5.94063 6.21226C6.11717 6.19317 6.27033 6.08189 6.34304 5.91989L8.54384 1.01636Z"-->
-<!--                                  fill="#322F42"/>-->
-<!--                        </svg>-->
-<!--                    </label>-->
-
-<!--                    <input id="star4" name="stars" type="checkbox">-->
-<!--                    <label for="star4">-->
-<!--                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-<!--                            <path d="M8.54384 1.01636C8.72053 0.622675 9.27947 0.622674 9.45616 1.01636L11.657 5.91989C11.7297 6.08189 11.8828 6.19317 12.0594 6.21226L17.403 6.79007C17.832 6.83646 18.0047 7.36804 17.6849 7.65774L13.7015 11.2661C13.5699 11.3853 13.5114 11.5654 13.5478 11.7392L14.6495 16.9998C14.7379 17.4221 14.2858 17.7507 13.9114 17.536L9.2487 14.8626C9.09466 14.7743 8.90534 14.7743 8.7513 14.8626L4.08859 17.536C3.71424 17.7507 3.26205 17.4221 3.35051 16.9998L4.45225 11.7392C4.48865 11.5654 4.43014 11.3853 4.29854 11.2661L0.315091 7.65774C-0.00472718 7.36804 0.167993 6.83646 0.597014 6.79007L5.94063 6.21226C6.11717 6.19317 6.27033 6.08189 6.34304 5.91989L8.54384 1.01636Z"-->
-<!--                                  fill="#322F42"/>-->
-<!--                        </svg>-->
-<!--                    </label>-->
-
-<!--                    <input id="star5" name="stars" type="checkbox">-->
-<!--                    <label for="star5">-->
-<!--                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-<!--                            <path d="M8.54384 1.01636C8.72053 0.622675 9.27947 0.622674 9.45616 1.01636L11.657 5.91989C11.7297 6.08189 11.8828 6.19317 12.0594 6.21226L17.403 6.79007C17.832 6.83646 18.0047 7.36804 17.6849 7.65774L13.7015 11.2661C13.5699 11.3853 13.5114 11.5654 13.5478 11.7392L14.6495 16.9998C14.7379 17.4221 14.2858 17.7507 13.9114 17.536L9.2487 14.8626C9.09466 14.7743 8.90534 14.7743 8.7513 14.8626L4.08859 17.536C3.71424 17.7507 3.26205 17.4221 3.35051 16.9998L4.45225 11.7392C4.48865 11.5654 4.43014 11.3853 4.29854 11.2661L0.315091 7.65774C-0.00472718 7.36804 0.167993 6.83646 0.597014 6.79007L5.94063 6.21226C6.11717 6.19317 6.27033 6.08189 6.34304 5.91989L8.54384 1.01636Z"-->
-<!--                                  fill="#322F42"/>-->
-<!--                        </svg>-->
-<!--                    </label>-->
-<!--                </div>-->
-
-
-                <div class="rating">
-                    <div class="rating-item active" data-rate="1"></div>
-                    <div class="rating-item" data-rate="2"></div>
-                    <div class="rating-item" data-rate="3"></div>
-                    <div class="rating-item" data-rate="4"></div>
-                    <div class="rating-item" data-rate="5"></div>
+                <div class="rating-area">
+                    <input type="radio" id="star-5" name="rating" value="5">
+                    <label for="star-5"></label>
+                    <input type="radio" id="star-4" name="rating" value="4">
+                    <label for="star-4"></label>
+                    <input type="radio" id="star-3" name="rating" value="3">
+                    <label for="star-3"></label>
+                    <input type="radio" id="star-2" name="rating" value="2">
+                    <label for="star-2"></label>
+                    <input type="radio" id="star-1" name="rating" value="1">
+                    <label for="star-1"></label>
                 </div>
-                <button>Skip</button>
+                <button id="btnSkip" onclick="closeModal(ratingPartie)">Skip</button>
+
+                <div class="star-2">
+                    <hr>
+                    <textarea class="textarea" onkeyup="textareaWidth()" type="text" placeholder="What went wrong?"></textarea>
+                    <button onclick="closeModal(ratingPartie)" class="bg-fiolet">Done</button>
+                </div>
+
+                <div class="star-3">
+                    <hr>
+                    <div class="star-3__title">Offer tokens</div>
+                    <div class="star-3__tokens">
+                        <div class="token token-opacity">
+                            <div class="token__img"></div>
+                            <div class="token__name">Great Communication</div>
+                        </div>
+                        <div class="token">
+                            <div class="token__img"></div>
+                            <div class="token__name">All-Star</div>
+                        </div>
+                        <div class="token token-opacity">
+                            <div class="token__img"></div>
+                            <div class="token__name">Mission Accomplished</div>
+                        </div>
+                        <div class="token token-opacity">
+                            <div class="token__img"></div>
+                            <div class="token__name">Great Communication</div>
+                        </div>
+                        <div class="token token-opacity">
+                            <div class="token__img"></div>
+                            <div class="token__name">All-Star</div>
+                        </div>
+                        <div class="token token-opacity">
+                            <div class="token__img"></div>
+                            <div class="token__name">Mission Accomplished</div>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <button>Share</button>
+                        <button onclick="closeModal(ratingPartie)" class="bg-fiolet">Done</button>
+                    </div>
+
+                </div>
+
+                <div class="star-4">
+                    <hr>
+                    <div class="star-3__title">Offer tokens</div>
+                    <div class="star-3__tokens">
+                        <div class="token token-opacity">
+                            <div class="token__img"></div>
+                            <div class="token__name">Great Communication</div>
+                        </div>
+                        <div class="token">
+                            <div class="token__img"></div>
+                            <div class="token__name">All-Star</div>
+                        </div>
+                        <div class="token token-opacity">
+                            <div class="token__img"></div>
+                            <div class="token__name">Mission Accomplished</div>
+                        </div>
+                        <div class="token token-opacity">
+                            <div class="token__img"></div>
+                            <div class="token__name">Great Communication</div>
+                        </div>
+                        <div class="token token-opacity">
+                            <div class="token__img"></div>
+                            <div class="token__name">All-Star</div>
+                        </div>
+                        <div class="token token-opacity">
+                            <div class="token__img"></div>
+                            <div class="token__name">Mission Accomplished</div>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <button>Share</button>
+                        <button onclick="closeModal(ratingPartie)" class="bg-fiolet">Done</button>
+                    </div>
+
+                </div>
+
+                <div class="star-5">
+                    <hr>
+                    <div class="star-3__title">Offer tokens</div>
+                    <div class="star-3__tokens">
+                        <div class="token token-opacity">
+                            <div class="token__img"></div>
+                            <div class="token__name">Great Communication</div>
+                        </div>
+                        <div class="token">
+                            <div class="token__img"></div>
+                            <div class="token__name">All-Star</div>
+                        </div>
+                        <div class="token token-opacity">
+                            <div class="token__img"></div>
+                            <div class="token__name">Mission Accomplished</div>
+                        </div>
+                        <div class="token token-opacity">
+                            <div class="token__img"></div>
+                            <div class="token__name">Great Communication</div>
+                        </div>
+                        <div class="token token-opacity">
+                            <div class="token__img"></div>
+                            <div class="token__name">All-Star</div>
+                        </div>
+                        <div class="token token-opacity">
+                            <div class="token__img"></div>
+                            <div class="token__name">Mission Accomplished</div>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <button>Share</button>
+                        <button onclick="closeModal(ratingPartie)" class="bg-fiolet">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--Chats-->
+    <div id="newChat" class="inviteFriends modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                <div onclick="closeModal(newChat)" class="modal__close"></div>
+                New chat
+                <button onclick="openChat()" class="bg-fiolet">Start</button>
+            </div>
+
+            <div class="modal__content">
+                <input type="text" placeholder="Search">
+                <div class="users-check">
+                    <div class="user-check bg-fiolet">gboy6827</div>
+                    <div class="user-check bg-yellow">gboy6827</div>
+                </div>
+                <div class="suggested">
+                    <div class="suggested__titile">Suggested</div>
+                    <div class="suggested__box">
+                        <input id="chat_user1" name="suggested" type="checkbox">
+                        <label for="chat_user1">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="chat_user1"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="chat_user2" name="suggested" type="checkbox">
+                        <label for="chat_user2">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="chat_user2"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="chat_user3" name="suggested" type="checkbox">
+                        <label for="chat_user3">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="chat_user3"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="chat_user4" name="suggested" type="checkbox">
+                        <label for="chat_user4">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="chat_user4"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="chat_user5" name="suggested" type="checkbox">
+                        <label for="chat_user5">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="chat_user5"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="chat_user6" name="suggested" type="checkbox">
+                        <label for="chat_user6">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="chat_user6"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="chat_user7" name="suggested" type="checkbox">
+                        <label for="chat_user7">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="chat_user7"></label>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="chatHead" class="titleModal modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                <div onclick="next(editChat, chatHead)" class="btn-edit">Edit</div>
+                <div onclick="closeModal(chatHead)" class="modal__close"></div>
+            </div>
+            <div class="modal__content">
+
+                <div class="titleModal__users">
+                    <div class="titleModal__users_avatar">
+                        <div class="avatar"></div>
+                        <div class="avatar"></div>
+                    </div>
+                    <div class="titleModal__users_name">
+                        gboy6827, Killershyguy, Kam...
+                    </div>
+                    <div class="titleModal__users_active">3 active</div>
+                </div>
+
+                <div class="titleModal__btns">
+                    <div class="btn-container">
+                        <div class="big-round-btn invite"></div>
+                        <div class="big-round-text">Invite</div>
+                    </div>
+                    <div onclick="openMoreChats()" class="btn-container">
+                        <div class="big-round-btn more">
+                            <div class="more__win more__win-chats dev">
+                                <div>
+                                    <div class="more__win_row report">Report</div>
+                                </div>
+                                <div>
+                                    <div onclick="openModal(leaveChat)" class="more__win_row leave">Leave</div>
+                                </div>
+                            </div>
+                            <div class="close-place more__win-chats"></div>
+                        </div>
+                        <div class="big-round-text">More</div>
+                    </div>
+                </div>
+                <div class="titleModal__active">
+                    <div class="user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="user__name">GameLiveShow</div>
+                            <div class="user__level">54 level</div>
+                        </div>
+                        <div class="user__creator">Creator</div>
+                    </div>
+                    <div class="user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="user__name">GameLiveShow</div>
+                            <div class="user__level">54 level</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="editChat" class="titleModal modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                <div class="modal__head-title">Edit chat</div>
+                <div onclick="closeModal(editChat)" class="modal__close"></div>
+            </div>
+            <div class="modal__content">
+                <div class="titleModal__users">
+                    <div class="titleModal__users_avatar">
+                        <div class="avatar"></div>
+                        <div class="avatar"></div>
+
+                        <input id="editChatPhoto" type="file">
+                        <label for="editChatPhoto"></label>
+                    </div>
+
+                </div>
+                <div class="titleModal__chat-name">
+                    <div class="titleModal__text_title">Chat name</div>
+                    <div class="titleModal__text_name">gboy6827, Killershyguy, Mandalorian...</div>
+                </div>
+                <button class="bg-fiolet">Save</button>
+            </div>
+        </div>
+    </div>
+    <div id="leaveChat" class="leaveChat modal-wrapp">
+        <div class="modal center">
+            <div class="modal__content">
+                <div class="leaveChat__text">
+                    Are you sure you want
+                    to leave chat?
+                </div>
+                <div class="leaveChat__btns">
+                    <button onclick="closeModal(leaveChat)">Cancel</button>
+                    <a  href="/partie.html" class="btn">Yes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--Settings-->
+    <div id="inviteFriendsSetting" class="modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                <div onclick="closeModal(inviteFriendsSetting)" class="modal__close"></div>
+            </div>
+
+            <div class="modal__content">
+                <div class="invite__img"></div>
+                <div class="invite__title">Invite Friends</div>
+                <div class="invite__text">Feeling lonely in here? How about you start inviting some friends?</div>
+                <div class="invite__refactor">Referal link</div>
+                <div class="invite__link">
+                    <a href="https://app.partie.com/referral/bd622d5a">
+                        https://app.partie.com/referral/bd622d5a
+                    </a>
+                </div>
+                <div class="invite__btns">
+                    <button>Copy</button>
+                    <button class="bg-fiolet">Share</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="deleteAccount" class="leaveChat modal-wrapp">
+        <div class="modal center">
+            <div class="modal__content">
+                <div class="leaveChat__text">
+                    Are you sure you want
+                    detete account?
+                </div>
+                <div class="leaveChat__btns">
+                    <button onclick="closeModal(deleteAccount)">Cancel</button>
+                    <a  href="/partie.html" class="btn">Yes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="changePaymentMethod" class="modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                Before you go
+                <div onclick="closeModal(changePaymentMethod)" class="modal__close"></div>
+            </div>
+            <div class="modal__content">
+                <div class="changePaymentMethod__description">
+                    Will you take a few seconds to let us know why you decided to cancel your subscription?
+                </div>
+                <div>
+                    <div class="radio-row">
+                        <input id="method-1" name="PaymentMethod" type="radio">
+                        <label class="checkbox" for="method-1"></label>
+                        <label class="text" for="method-1">I did’t find the parties</label>
+                    </div>
+
+                    <div class="radio-row">
+                        <input id="method-2" name="PaymentMethod" type="radio">
+                        <label class="checkbox" for="method-2"></label>
+                        <label class="text" for="method-2">I can’t create something</label>
+                    </div>
+
+                    <div class="radio-row">
+                        <input id="method-3" name="PaymentMethod" type="radio">
+                        <label class="checkbox" for="method-3"></label>
+                        <label class="text" for="method-3">Reason number 3</label>
+                    </div>
+
+                    <div class="radio-row">
+                        <input id="method-4" name="PaymentMethod" type="radio">
+                        <label class="checkbox" for="method-4"></label>
+                        <label class="text" for="method-4">And few more reasons</label>
+                    </div>
+
+                    <div class="radio-row">
+                        <input id="method-5" name="PaymentMethod" type="radio">
+                        <label class="checkbox" for="method-5"></label>
+                        <label class="text" for="method-5">I did’t find the parties</label>
+                    </div>
+
+                    <div class="radio-row">
+                        <input id="method-6" name="PaymentMethod" type="radio">
+                        <label class="checkbox" for="method-6"></label>
+                        <label class="text" for="method-6">Reason number 3</label>
+                    </div>
+
+                    <div class="radio-row">
+                        <input id="method-7" name="PaymentMethod" type="radio">
+                        <label class="checkbox" for="method-7"></label>
+                        <label class="text" for="method-7">And few more reasons</label>
+                    </div>
+
+                    <div class="radio-row">
+                        <input id="method-8" name="PaymentMethod" type="radio">
+                        <label class="checkbox" for="method-8"></label>
+                        <label class="text" for="method-8">I did’t find the parties</label>
+                    </div>
+
+                </div>
+                <input type="text"placeholder="Add a description">
+                <button class="bg-fiolet">Yes, cancel my subscription</button>
+            </div>
+        </div>
+    </div>
+    <div id="addCreditCardSetting" class="modal-wrapp">
+        <div class="add-credit-card center modal">
+            <div class="modal__head">
+                Add a Credit card
+                <div onclick="closeModal(addCreditCardSetting)" class="modal__close"></div>
+            </div>
+            <div class="add-credit-card__text">
+                Few words about privacy and something like that and Privacy Policy.
+            </div>
+            <input class="card-number" type="number" placeholder="Card number">
+            <input type="text" placeholder="Name on the card">
+            <div class="add-credit-card__input-group">
+                <input type="number" placeholder="Date">
+                <input type="password" placeholder="CVC" maxlength="3">
+            </div>
+            <a href="#" class="btn bg-fiolet">Confirm</a>
+            <div class="subscription__policy">
+                By signing up, your agree to Partie’s <span>Terms and Conditions</span> Terms and Conditions,
+                End-User License Agreement and Privacy Policy.
             </div>
         </div>
     </div>
@@ -1095,7 +1543,57 @@
     <div class="feed__col1">
         <div class="feed__search">
             <a href="/" class="feed__search_logo"></a>
-            <input class="feed__search_search" type="text" placeholder="Search">
+            <div class="search-win">
+                <input class="feed__search_search" type="text" placeholder="Search">
+                <div class="search-win__box">
+                    <div class="search-win__content">
+                        <div class="recent">Recent</div>
+                        <ul>
+                            <li>
+                                <div class="clock"></div>
+                                Apex
+                                <div class="delete"></div>
+                            </li>
+                            <li>
+                                <div class="clock"></div>
+                                Apx
+                                <div class="delete"></div>
+                            </li>
+                            <li>
+                                <div class="clock"></div>
+                                Ape
+                                <div class="delete"></div>
+                            </li>
+                            <li>
+                                <div class="clock"></div>
+                                Ax
+                                <div class="delete"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="search-win__content search-win__content-search">
+                        <ul>
+                            <li>
+                                <div class="search-icon"></div>
+                                Apex
+                            </li>
+                            <li>
+                                <div class="search-icon"></div>
+                                Apx
+                            </li>
+                            <li>
+                                <div class="search-icon"></div>
+                                Ape
+                            </li>
+                            <li>
+                                <div class="search-icon"></div>
+                                Ax
+                            </li>
+                        </ul>
+                        <a href="/search.html">Show gg results</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="feed__nav">
             <ul>
@@ -1154,15 +1652,29 @@
             </ul>
         </div>
     </div>
-    <div class="feed__col2">
+    <div class="feed__col2 profile-col2">
         <div class="feed__header">
             <div onclick="openModal(editProfile)" class="feed__header_params">
                 Edit
             </div>
-            <div>
-                <a class="burger">
+            <div class="burger__wrapp">
+                <div onclick="openBurger()" class="burger">
                     <span></span>
-                </a>
+                </div>
+                <div class="burger__menu">
+                    <div>
+                        <div class="burger-bg"></div>
+                        <div class="close-place"></div>
+                        <ul>
+                            <li><a href="#" onclick="openModal(inviteFriendsSetting)">Invite friends</a> <span>Copy link</span></li>
+                            <li><a href="/settings.html">Settings</a></li>
+                            <li><a href="#">Help</a></li>
+                            <li><a href="/about.html">About</a></li>
+                        </ul>
+                        <button>Log out</button>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="profile__info info">
@@ -1176,11 +1688,11 @@
                 <div class="star"></div>
             </div>
             <div class="info_avatar__counters">
-                <div class="info_avatar__counters_follow">
+                <div onclick="followPage(followersTab)" class="info_avatar__counters_follow">
                     <div class="counter__number">44</div>
                     <div class="counter__name">Followers</div>
                 </div>
-                <div class="info_avatar__counters_follow">
+                <div onclick="followPage(followersTab)" class="info_avatar__counters_follow">
                     <div class="counter__number">291</div>
                     <div class="counter__name">Following</div>
                 </div>
@@ -1215,12 +1727,14 @@
                     <div>Show</div>
                 </div>
             </div>
+
             <div class="info_avatar__row">
                 <div class="gamertags">Gamertags</div>
-                <div class="show-all">Show all</div>
+                <div onclick="showBtnPs()" class="show-all">Show all</div>
             </div>
             <button class="epic">GameLiveShow</button>
             <button class="origin bg-orange">GameLiveShow</button>
+            <button class="ps">GameLiveShow</button>
         </div>
         <div class="profile__tabs">
 <!-- Tab links -->
@@ -1251,30 +1765,53 @@
             </div>
 <!-- Tab content -->
             <div id="Posts" class="tabcontent">
-                <a href="/post_id.html" class="feed__post">
+                <div class="feed__post">
                     <div class="feed__post_head user">
-                        <div class="user__content">
+                        <a href="/profiles.html" class="user__content">
                             <div class="avatar">
                                 <div class="avatar__star"></div>
                             </div>
                             <div class="user__name">
                                 <div>HungryDima</div>
-                                <div>CD: Warzone <span>1h</span></div>
+                                <div class="user__cd">CD: Warzone <span>1h</span></div>
                             </div>
+                        </a>
+                        <div class="feed__header_menu">
+                            <div class="header__menu_menu">
+                                <div class="close-place"></div>
+                                <ul>
+                                    <li><a href="#">
+                                        <img src="img/icon/mute-r.png" width="16"/>
+                                        Mute</a></li>
+                                    <li><a href="#" onclick="openModal(partieReport)">
+                                        <img src="img/icon/report-r.png" width="16"/>
+                                        Report</a></li>
+                                    <li><a href="#">
+                                        <img src="img/icon/folow-f.png" width="16"/>
+                                        Follow gboy6827</a></li>
+                                    <li><a href="#">
+                                        <img src="img/icon/copy-f.png" width="16"/>
+                                        Copy link</a></li>
+                                    <li><a href="#" onclick="openModal(share)">
+                                        <img src="img/icon/share-f.png" width="16"/>
+                                        Share</a></li>
+                                </ul>
+                            </div>
+
                         </div>
-                        <div class="feed__post_btn"></div>
                     </div>
                     <div class="feed__post_text">
-                        Post1
+                        I want to play MW with others on the platform but hardly anyone here is online. It's such a pain in
+                        the butt ;(
                     </div>
-                    <div class="feed__post_img">
+                    <a href="/post_id.html" class="feed__post_img">
                         <img src="img/pic/Rectangle 78.png" width="100%"/>
-                    </div>
+                    </a>
                     <div class="feed__post_footer">
                         <div class="footer-social">
                             <div class="like">
-                                <input id="like" type="checkbox">
-                                <label for="like">
+                                <input id="like0" type="checkbox">
+                                <label for="like0">
                                     <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path d="M17.4927 1.56581C16.5092 0.556101 15.1596 0 13.6923 0C12.5956 0 11.5912 0.328199 10.7069 0.975406C10.2607 1.3021 9.85645 1.70178 9.5 2.16828C9.14369 1.70192 8.73926 1.3021 8.29293 0.975406C7.40883 0.328199 6.40441 0 5.30766 0C3.84039 0 2.49068 0.556101 1.50713 1.56581C0.535332 2.56372 0 3.92701 0 5.40473C0 6.92567 0.598824 8.31791 1.88446 9.7863C3.03456 11.0998 4.68752 12.4332 6.6017 13.9772C7.25532 14.5044 7.9962 15.1021 8.7655 15.7388C8.96873 15.9072 9.22951 16 9.5 16C9.77035 16 10.0313 15.9072 10.2342 15.739C11.0035 15.1023 11.7448 14.5043 12.3987 13.9767C14.3126 12.433 15.9656 11.0998 17.1157 9.78616C18.4013 8.31791 19 6.92567 19 5.40459C19 3.92701 18.4647 2.56372 17.4927 1.56581Z"
@@ -1283,40 +1820,63 @@
                                     <div class="like__counter">42</div>
                                 </label>
                             </div>
-                            <div class="comment">
+                            <a href="/post_id.html" class="comment">
                                 <img src="img/icon/comment.png" width="20"/>
                                 <div class="comment__counter">492</div>
-                            </div>
+                            </a>
                         </div>
-                        <img class="share" src="img/icon/share.png" height="19"/></div>
-                </a>
+                        <img onclick="openModal(share)" class="share" src="img/icon/share.png" height="19"/></div>
+                </div>
             </div>
 
             <div id="Likes" class="tabcontent">
-                <a href="/post_id.html" class="feed__post">
+                <div class="feed__post">
                     <div class="feed__post_head user">
-                        <div class="user__content">
+                        <a href="/profiles.html" class="user__content">
                             <div class="avatar">
                                 <div class="avatar__star"></div>
                             </div>
                             <div class="user__name">
                                 <div>HungryDima</div>
-                                <div>CD: Warzone <span>1h</span></div>
+                                <div class="user__cd">CD: Warzone <span>1h</span></div>
                             </div>
+                        </a>
+                        <div class="feed__header_menu">
+                            <div class="header__menu_menu">
+                                <div class="close-place"></div>
+                                <ul>
+                                    <li><a href="#">
+                                        <img src="img/icon/mute-r.png" width="16"/>
+                                        Mute</a></li>
+                                    <li><a href="#" onclick="openModal(partieReport)">
+                                        <img src="img/icon/report-r.png" width="16"/>
+                                        Report</a></li>
+                                    <li><a href="#">
+                                        <img src="img/icon/folow-f.png" width="16"/>
+                                        Follow gboy6827</a></li>
+                                    <li><a href="#">
+                                        <img src="img/icon/copy-f.png" width="16"/>
+                                        Copy link</a></li>
+                                    <li><a href="#" onclick="openModal(share)">
+                                        <img src="img/icon/share-f.png" width="16"/>
+                                        Share</a></li>
+                                </ul>
+                            </div>
+
                         </div>
-                        <div class="feed__post_btn"></div>
                     </div>
                     <div class="feed__post_text">
-                        post2
+                        I want to play MW with others on the platform but hardly anyone here is online. It's such a pain in
+                        the butt ;(
                     </div>
-                    <div class="feed__post_img">
+                    <a href="/post_id.html" class="feed__post_img">
                         <img src="img/pic/Rectangle 78.png" width="100%"/>
-                    </div>
+                    </a>
                     <div class="feed__post_footer">
                         <div class="footer-social">
                             <div class="like">
-                                <input id="like" type="checkbox">
-                                <label for="like">
+                                <input id="like0" type="checkbox">
+                                <label for="like0">
                                     <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path d="M17.4927 1.56581C16.5092 0.556101 15.1596 0 13.6923 0C12.5956 0 11.5912 0.328199 10.7069 0.975406C10.2607 1.3021 9.85645 1.70178 9.5 2.16828C9.14369 1.70192 8.73926 1.3021 8.29293 0.975406C7.40883 0.328199 6.40441 0 5.30766 0C3.84039 0 2.49068 0.556101 1.50713 1.56581C0.535332 2.56372 0 3.92701 0 5.40473C0 6.92567 0.598824 8.31791 1.88446 9.7863C3.03456 11.0998 4.68752 12.4332 6.6017 13.9772C7.25532 14.5044 7.9962 15.1021 8.7655 15.7388C8.96873 15.9072 9.22951 16 9.5 16C9.77035 16 10.0313 15.9072 10.2342 15.739C11.0035 15.1023 11.7448 14.5043 12.3987 13.9767C14.3126 12.433 15.9656 11.0998 17.1157 9.78616C18.4013 8.31791 19 6.92567 19 5.40459C19 3.92701 18.4647 2.56372 17.4927 1.56581Z"
@@ -1325,40 +1885,63 @@
                                     <div class="like__counter">42</div>
                                 </label>
                             </div>
-                            <div class="comment">
+                            <a href="/post_id.html" class="comment">
                                 <img src="img/icon/comment.png" width="20"/>
                                 <div class="comment__counter">492</div>
-                            </div>
+                            </a>
                         </div>
-                        <img class="share" src="img/icon/share.png" height="19"/></div>
-                </a>
+                        <img onclick="openModal(share)" class="share" src="img/icon/share.png" height="19"/></div>
+                </div>
             </div>
 
             <div id="Parties" class="tabcontent">
-                <a href="/post_id.html" class="feed__post">
+                <div class="feed__post">
                     <div class="feed__post_head user">
-                        <div class="user__content">
+                        <a href="/profiles.html" class="user__content">
                             <div class="avatar">
                                 <div class="avatar__star"></div>
                             </div>
                             <div class="user__name">
                                 <div>HungryDima</div>
-                                <div>CD: Warzone <span>1h</span></div>
+                                <div class="user__cd">CD: Warzone <span>1h</span></div>
                             </div>
+                        </a>
+                        <div class="feed__header_menu">
+                            <div class="header__menu_menu">
+                                <div class="close-place"></div>
+                                <ul>
+                                    <li><a href="#">
+                                        <img src="img/icon/mute-r.png" width="16"/>
+                                        Mute</a></li>
+                                    <li><a href="#" onclick="openModal(partieReport)">
+                                        <img src="img/icon/report-r.png" width="16"/>
+                                        Report</a></li>
+                                    <li><a href="#">
+                                        <img src="img/icon/folow-f.png" width="16"/>
+                                        Follow gboy6827</a></li>
+                                    <li><a href="#">
+                                        <img src="img/icon/copy-f.png" width="16"/>
+                                        Copy link</a></li>
+                                    <li><a href="#" onclick="openModal(share)">
+                                        <img src="img/icon/share-f.png" width="16"/>
+                                        Share</a></li>
+                                </ul>
+                            </div>
+
                         </div>
-                        <div class="feed__post_btn"></div>
                     </div>
                     <div class="feed__post_text">
-                        post3
+                        I want to play MW with others on the platform but hardly anyone here is online. It's such a pain in
+                        the butt ;(
                     </div>
-                    <div class="feed__post_img">
+                    <a href="/post_id.html" class="feed__post_img">
                         <img src="img/pic/Rectangle 78.png" width="100%"/>
-                    </div>
+                    </a>
                     <div class="feed__post_footer">
                         <div class="footer-social">
                             <div class="like">
-                                <input id="like" type="checkbox">
-                                <label for="like">
+                                <input id="like0" type="checkbox">
+                                <label for="like0">
                                     <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path d="M17.4927 1.56581C16.5092 0.556101 15.1596 0 13.6923 0C12.5956 0 11.5912 0.328199 10.7069 0.975406C10.2607 1.3021 9.85645 1.70178 9.5 2.16828C9.14369 1.70192 8.73926 1.3021 8.29293 0.975406C7.40883 0.328199 6.40441 0 5.30766 0C3.84039 0 2.49068 0.556101 1.50713 1.56581C0.535332 2.56372 0 3.92701 0 5.40473C0 6.92567 0.598824 8.31791 1.88446 9.7863C3.03456 11.0998 4.68752 12.4332 6.6017 13.9772C7.25532 14.5044 7.9962 15.1021 8.7655 15.7388C8.96873 15.9072 9.22951 16 9.5 16C9.77035 16 10.0313 15.9072 10.2342 15.739C11.0035 15.1023 11.7448 14.5043 12.3987 13.9767C14.3126 12.433 15.9656 11.0998 17.1157 9.78616C18.4013 8.31791 19 6.92567 19 5.40459C19 3.92701 18.4647 2.56372 17.4927 1.56581Z"
@@ -1367,24 +1950,320 @@
                                     <div class="like__counter">42</div>
                                 </label>
                             </div>
-                            <div class="comment">
+                            <a href="/post_id.html" class="comment">
                                 <img src="img/icon/comment.png" width="20"/>
                                 <div class="comment__counter">492</div>
-                            </div>
+                            </a>
                         </div>
-                        <img class="share" src="img/icon/share.png" height="19"/></div>
-                </a>
+                        <img onclick="openModal(share)" class="share" src="img/icon/share.png" height="19"/></div>
+                </div>
             </div>
         </div>
 
     </div>
+    <div class="feed__col2 followers">
+        <div class="feed__header">
+            <a onclick="backProfile()" class="feed__header_params">
+                <img src="img/icon/arrow_back.png" height="24"/>
+            </a>
+
+            <!-- Tab links -->
+            <div class="tab">
+                <div class="tablinks" id="followingTab" onclick="openFoll(event, 'Following')">Following</div>
+                <div class="tablinks" id="followersTab" onclick="openFoll(event, 'Followers')">Followers</div>
+            </div>
+        </div>
+
+        <!-- Tab content -->
+        <div id="Following" class="tabcontent followers-content following-content">
+            <input type="text" placeholder="Search">
+            <div class="followers__container">
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">hey, it's you 👋</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class="followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="Followers" class="tabcontent followers-content">
+            <input type="text" placeholder="Search">
+            <div class="followers__container">
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class="followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class="followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class="followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class="followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+                <div class="followers__row">
+                    <div class="followers__user">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="followers__user_name">gboy6827</div>
+                            <div class="followers__user_level">2 mutal followers</div>
+                        </div>
+                    </div>
+                    <button class=" followers__btn">Follow</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="feed__col3">
         <div>
             <div class="feed__header">
                 <div>People</div>
             </div>
             <div class="feed__friends">
-                <div class="feed__friends_invite">
+                <div onclick="openModal(inviteFriendsSetting)" class="feed__friends_invite">
                     <div class="icon-invite"></div>
                     <div class="icon-invite-text">Invite friends</div>
                 </div>

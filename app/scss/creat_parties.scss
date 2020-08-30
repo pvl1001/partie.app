@@ -327,6 +327,10 @@
         height: auto;
         border-radius: 0;
         margin-bottom: 38px;
+
+        &:focus {
+            border: 0;
+        }
     }
 
     .platform__title {
@@ -489,63 +493,6 @@
         }
     }
 
-    .switch {
-        position: relative;
-        display: inline-block;
-        width: 53px;
-        height: 32px;
-
-        input {
-            display: none;
-        }
-
-        span {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #19181F;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-        span:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 3px;
-            background-color: #6E4AFF;
-            -webkit-transition: .5s;
-            transition: .5s;
-        }
-
-        input:checked + span {
-            background-color: #19181F;
-        }
-
-        input:focus + span {
-            box-shadow: 0 0 1px #19181F;
-        }
-
-        input:checked + span:before {
-            -webkit-transform: translateX(19px);
-            -ms-transform: translateX(19px);
-            transform: translateX(19px);
-        }
-
-        /* Rounded sliders */
-        span.round {
-            border-radius: 34px;
-        }
-
-        span.round:before {
-            border-radius: 50%;
-        }
-    }
 }
 
 #additionalSettings {

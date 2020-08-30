@@ -1,0 +1,40 @@
+@media (min-width: 768px) { // PC
+    .feed__col3.about {
+        padding: 0 40px;
+
+        .tabcontent-setting {
+            height: 100%;
+            font-size: 17px;
+            line-height: 150%;
+        }
+
+        #How {
+            textarea {
+                width: 100%;
+                height: calc(100% - 165px);;
+                opacity: 1;
+                margin-top: 25px;
+            }
+            label {
+                position: absolute;
+                top: 94px;
+                left: 40px;
+                font-size: 17px;
+                line-height: 22px;
+                opacity: 0.3;
+                font-weight: 200;
+                transition: .1s;
+            }
+            button {
+                opacity: 0;
+                visibility: hidden;
+                transition: .3s;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 767px) { // mobile
+
+}

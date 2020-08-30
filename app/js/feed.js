@@ -52,14 +52,23 @@ function isNewComment() {
 
 let global = document.querySelector( '.global' )
 let forYou = document.querySelector( '.for-you' )
+let newActivePartie = document.querySelector( '.new-active-partie' )
 
-    function clickTab(open, close) {
+function openActivePartie() {
+    global.style.display = 'none'
+    forYou.style.display = 'none'
+    newActivePartie.style.display = 'flex'
+}
+
+function clickTab(open, close) {
         open.style.display = 'block'
         close.style.display = 'none'
         $( '.slider' ).slick('unslick')
         $( '.slider' ).slick( {
             slidesToShow: 10,
+            slidesToScroll: 1,
             infinite: true,
+            swipeToSlide: true,
             responsive: [
                 {
                     breakpoint: 1600,
@@ -87,7 +96,23 @@ let forYou = document.querySelector( '.for-you' )
                 }
             ]
         } )
+
     }
+
+function openChat() {
+    let newChatPage = document.querySelector( '.new-active-partie.chat' )
+    let chatPage = document.querySelector( '.chats' )
+    closeModal(newChat)
+    chatPage.style.display = 'none'
+    newChatPage.style.display = 'flex'
+}
+
+
+$( '.share__btns' ).slick( {
+    slidesToScroll: 1,
+    slidesToShow: 5,
+    infinite: false
+})
 // })
 
 
