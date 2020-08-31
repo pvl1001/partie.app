@@ -170,6 +170,12 @@
             }
         }
 
+        .logInCode__past {
+            font-weight: bold;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+
         button {
             display: block;
             width: 139px;
@@ -179,7 +185,7 @@
 
     .logIn__platforms {
         background-color: #000;
-        padding: 56px 40px 20px;
+        padding: 56px 0 20px;
         left: 100%;
 
         .logIn__platforms-title {
@@ -204,15 +210,25 @@
             flex-wrap: wrap;
 
             .card {
-                width: calc(50% - 7.5px);
+                width: 150px;
                 border-radius: 20px;
                 height: 200px;
                 margin-bottom: 15px;
                 position: relative;
                 overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
 
                 &:nth-child(odd) {
                     margin-right: 15px;
+                }
+
+                .card__name {
+                    color: rgba(235, 235, 245, 0.5);
+                    margin-bottom: 26px;
+                    z-index: 1;
+                    transition: .5s;
                 }
 
                 input[type=checkbox] {
@@ -226,6 +242,11 @@
                     top: 0;
                     left: 0;
                     transition: .5s;
+                    cursor: pointer;
+                }
+
+                input[type=checkbox]:checked + label + .card__name {
+                    color: rgba(235, 235, 245, 1);
                 }
 
                 input[type=checkbox]:checked + label[for=pc] {
@@ -249,23 +270,23 @@
                 }
 
                 label[for=pc] {
-                    background: url('../img/icon/pc.png') center / 67px no-repeat;
+                    background: url('../img/icon/pc.png') center 49.7px / 58.2px no-repeat;
                 }
 
                 label[for=ps] {
-                    background: url('../img/icon/ps.png') center / 73px no-repeat;
+                    background: url('../img/icon/ps.png') center 48.7px / 63px no-repeat;
                 }
 
                 label[for=switch] {
-                    background: url('../img/icon/switch.png') center / 56px no-repeat;
+                    background: url('../img/icon/switch.png') center 49.5px / 49px no-repeat;
                 }
 
                 label[for=xbox] {
-                    background: url('../img/icon/xbox.png') center / 56px no-repeat;
+                    background: url('../img/icon/xbox.png') center 48.5px / 49px no-repeat;
                 }
 
                 label[for=mobile] {
-                    background: url('../img/icon/mobile.png') center / 40px no-repeat;
+                    background: url('../img/icon/mobile.png') center 46px / 35px no-repeat;
                 }
             }
 
@@ -429,6 +450,10 @@
                     margin: 0 25px 0 0 !important;
                     width: 130px;
                     height: 172px;
+
+                    label:hover {
+                        background-color: rgba(23, 22, 31, 0.8);
+                    }
                 }
 
                 .card:nth-child(5) {
@@ -709,6 +734,23 @@
             }
 
         }
+    }
+
+    .logIn .logIn__platforms {
+
+        .logIn__platforms-title,
+        .logIn__platforms-description {
+            padding: 0 40px;
+        }
+
+        .logIn__platforms-platforms {
+            width: 315px;
+            margin: 0 auto;
+        }
+    }
+
+    .logIn__platforms-games .logInPlatformsGames__wrapp .logInPlatformsGames__title {
+        margin-top: 56px;
     }
 
 }

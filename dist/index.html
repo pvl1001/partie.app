@@ -222,12 +222,13 @@
         <!--logIn__code-->
         <div id="logInCode" class="modal-wrapp">
             <div class="logIn__code center">
-                <div class="logIn__code_title">Do you have creator code?</div>
-                <div class="logIn__code_description">You can select multiply choices</div>
+                <div class="logIn__code_title">Do you have <br> creator code?</div>
+                <div class="logIn__code_description">Enter it below</div>
                 <form onsubmit="return false;">
                     <div class="logIn__code_code">
                         <input autofocus placeholder="Enter code" type="number">
                     </div>
+                    <div class="logInCode__past">Past</div>
                     <button id="btnCode" onclick="next(logInPlatforms, logInCode)" class="bg-fiolet">Continue</button>
                 </form>
 
@@ -238,27 +239,32 @@
             <div class="logIn__platforms center">
 
                 <div class="logIn__platforms-title">Where do you play?</div>
-                <div class="logIn__platforms-description">You can select multiply choices</div>
+                <div class="logIn__platforms-description">You can select multiply <br> choices</div>
                 <form onsubmit="return false;" class="logIn__platforms-platforms">
                     <div class="card">
                         <input id="pc" name="platforms" type="checkbox">
                         <label for="pc"></label>
+                        <div class="card__name">PC</div>
                     </div>
                     <div class="card">
                         <input id="ps" name="platforms" type="checkbox">
                         <label for="ps"></label>
-                    </div>
-                    <div class="card">
-                        <input id="switch" name="platforms" type="checkbox">
-                        <label for="switch"></label>
+                        <div class="card__name">Playstation</div>
                     </div>
                     <div class="card">
                         <input id="xbox" name="platforms" type="checkbox">
                         <label for="xbox"></label>
+                        <div class="card__name">XBOX</div>
+                    </div>
+                    <div class="card">
+                        <input id="switch" name="platforms" type="checkbox">
+                        <label for="switch"></label>
+                        <div class="card__name">Switch</div>
                     </div>
                     <div class="card">
                         <input id="mobile" name="platforms" type="checkbox">
                         <label for="mobile"></label>
+                        <div class="card__name">Mobile</div>
                     </div>
                     <button id="btnPlatforms" onclick="next(logInPlatformsGames, logInPlatforms)"
                             class="bg-fiolet animate__animated">Continue
@@ -399,7 +405,7 @@
                 </div>
 
                 <div class="sign-up__top">
-                    Sign up to Partie
+                    Log in to Partie
                     <svg id="back" onclick="back(logInIn)" class="btn-back" width="24" height="24" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"/>
@@ -423,7 +429,7 @@
                 </form>
 
                 <div class="logIn__menu d-block">
-                    <a href="/feed.html" class="btn btn-in bg-fiolet">Log in</a>
+                    <button onclick="next(subscriptionModal, logInIn)" class="btn-in bg-fiolet">Log in</button>
                     <div class="need-help">Need help? Contact Us</div>
                     <div class="or"><span>or</span></div>
                     <div id="btnContainer" class="btn-container">
@@ -496,7 +502,8 @@
                                     password
                                 </div>
                             </div>
-                            <button onclick="next(subscriptionModal, checkEmail)" class="bg-fiolet">Open email app
+                            <button class="bg-fiolet">
+                                Open email app
                             </button>
                             <div class="need-help">Need help? Contact Us</div>
                         </div>
@@ -509,9 +516,22 @@
 
     <!--Subscription-->
     <div class="subscription">
+        <div class="btn-container-wrapp">
+            <div class="btn-container-show animate__animated animate__fadeInUp">
+                <div class="subscription__payment">
+                    <div class="subscription__payment_title">
+                        Payment method
+                    </div>
+                    <button class="subscription__payment-paypal">Paypal</button>
+                    <button onclick="next(addCreditCard,subscriptionModal)" class="subscription__payment-card">
+                        Credit card
+                    </button>
+                </div>
+            </div>
+        </div>
 
         <form onsubmit="return false;" id="subscriptionModal" class="modal-wrapp">
-            <div onclick="back(subscriptionModal, checkEmail)" class="btn-back"></div>
+            <div onclick="back(subscriptionModal, logInIn)" class="btn-back"></div>
             <div class="subscription__modal center modal">
                 <div class="subscription__title">Partie Subscriptions</div>
                 <div class="radio-group">
@@ -553,7 +573,7 @@
                     <div class="subscription__description-article">Personal customize your partie</div>
                 </div>
 
-                <button class="bg-fiolet">Start 30 day trial</button>
+                <button onclick="showBtns()" class="bg-fiolet">Start 30 day trial</button>
                 <div class="subscription__payment">
                     <button onclick="next(addCreditCard,subscriptionModal)" class="subscription__payment-card">Credit
                         card

@@ -11,6 +11,7 @@
 </head>
 <body>
 @@include('_modals.html')
+<div class="gametrag-copied reportSubmitted">Report Submitted</div>
 
     <div class="feed post">
         <img class="feed__people-btn" onclick="hiddenPeople()" src="img/icon/people-btn.png"/>
@@ -178,9 +179,8 @@
                 </div>
                 <div class="feed__post_img">
                     <img src="img/pic/Rectangle 78.png" width="100%"/>
-                    <div class="img-bg">
-                        <div class="img-bg__close"></div>
-                    </div>
+                    <div class="img-bg__close"></div>
+                    <div class="img-bg"></div>
                 </div>
                 <div class="feed__post_footer">
                     <div class="footer-social">
@@ -196,7 +196,12 @@
                             </label>
                         </div>
                         <div class="comment">
-                            <img src="img/icon/comment.png" width="20"/>
+                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path opacity="0.5"
+                                      d="M2.91194 18.6432H1.49483L2.49687 17.5864C3.03716 17.0166 3.37455 16.2755 3.46526 15.4715C1.15153 13.8701 0 11.5503 0 9.11825C0 4.63143 3.91015 0.0717773 10.0339 0.0717773C16.5213 0.0717773 20 4.26752 20 8.72516C20 13.2122 16.4846 17.4051 10.0339 17.4051C8.90388 17.4051 7.72473 17.246 6.67198 16.9541C5.67541 18.0321 4.32514 18.6432 2.91194 18.6432Z"
+                                      fill="#EBEBF5"/>
+                            </svg>
                             <div class="comment__counter">492</div>
                         </div>
                     </div>
@@ -209,7 +214,13 @@
                     </div>
                     <div class="comments__new-comment">
                         <div class="avatar"></div>
-                        <input onkeyup="isNewComment()" id="newComment" type="text" placeholder="Add comment...">
+                        <textarea onkeyup="isNewComment()"
+                                  id="newComment"
+                                  placeholder="Add comment..."
+                                  oninput="auto_grow(this)"
+                                  maxlength="500"
+                                  ></textarea>
+
                         <button id="newCommentBtn">Add</button>
                         <div class="comments__new-comment_people people">
                             <div class="people__row">

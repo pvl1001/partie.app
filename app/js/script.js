@@ -100,9 +100,10 @@ document.addEventListener('DOMContentLoaded', function () {
             } else { arrChecked.pop() }
             if(arrChecked.length > 0) {
                 btnPlatforms.style.display = 'block'
+                btnPlatforms.style.zIndex = '1'
                 btnPlatforms.classList.remove('animate__fadeOutDown')
                 btnPlatforms.classList.add('animate__fadeInUp')
-                if(window.innerWidth > 767) {
+                if(window.innerWidth > 767) { //pc
                     btnPlatforms.style.zIndex = ''
                     logInPlatforms.children[0].style.backgroundColor = 'transparent'
                 }
@@ -110,6 +111,9 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 btnPlatforms.classList.remove('animate__fadeInUp')
                 btnPlatforms.classList.add('animate__fadeOutDown')
+                setTimeout(function () {
+                    btnPlatforms.style.cssText = ''
+                },500)
                 if(window.innerWidth > 767) { //pc
                     btnPlatforms.style.zIndex = '-1'
                     logInPlatforms.children[0].style.backgroundColor = ''
@@ -161,12 +165,22 @@ function next(open, close) { // кнопка далее
         setTimeout(function () {
             close.style.top = '-200%'
         }, 500)
+
+        if (open === addCreditCard || open === subscriptionModal) {
+            open.style.left = '0'
+            open.children[1].style.left = '0'
+            close.style.cssText = ''
+            closeModal(checkEmail)
+        } else {
+            openModal(open)
+            closeModal(close)
+        }
     }
 
     if (window.innerWidth > 767) { // pc
         if (open === addCreditCard || open === subscriptionModal) {
             open.style.left = '0'
-            close.style.left = ''
+            close.style.cssText = ''
             closeModal(checkEmail)
         } else {
             openModal(open)
@@ -174,7 +188,8 @@ function next(open, close) { // кнопка далее
         }
 
 
-        if (open === logInCode || open === logInPlatforms || open === logInPlatformsGames || open === checkEmail) open.children[0].style.left = '0'
+        if (open === logInCode || open === logInPlatforms || open === logInPlatformsGames || open === checkEmail)
+            open.children[0].style.left = '0'
         setTimeout(function () {
             if (close === logInCode) {
                 close.children[0].style.left = '100%'
@@ -211,8 +226,15 @@ function back(close, open) { // кнопка назад
         }
     }
     if (window.innerWidth <= 767) { // mobile
-        close.children[0].style.left = '100%'
-        open.children[0].style.left = '0'
+        if (open === subscriptionModal) {
+            open.style.left = '0'
+            open.children[1].style.left = '0'
+            close.style.left = ''
+            close.children[1].style.left = ''
+        } else {
+            close.children[0].style.left = '100%'
+            open.children[0].style.left = '0'
+        }
     }
 }
 
@@ -227,11 +249,11 @@ function openModal(modal) { // modal
         }
     }
 
-    if (window.innerWidth <= 767) { // mobile
-        if (modal === resetPass) {
-            next(modal)
-        }
-    }
+    // if (window.innerWidth <= 767) { // mobile
+    //     if (modal === resetPass) {
+    //         next(modal)
+    //     }
+    // }
 }
 
 function closeModal(modal) {
@@ -315,7 +337,7 @@ let feedPostImg = document.querySelector('.post .feed__post_img img')
 if (feedPostImg !== null) {
     feedPostImg.onclick = openImg
     let bg = document.querySelector('.img-bg')
-    let bgBtn = document.querySelector('.img-bg .img-bg__close')
+    let bgBtn = document.querySelector('.img-bg__close')
     let img
     function openImg() {
         img = this
@@ -329,13 +351,20 @@ if (feedPostImg !== null) {
             'margin: auto;' +
             'padding: 0 50px'
         bg.style.zIndex = '11'
+        bgBtn.style.display = 'block'
         bgBtn.onclick = function () {
             img.style.cssText = ''
             bg.style.zIndex = ''
+            bgBtn.style.cssText = ''
         }
     }
 }
 
+
+function auto_grow(element) {
+    element.style.height = "5px";
+    element.style.height = (element.scrollHeight)+"px";
+}
 
 
 // open reply comment

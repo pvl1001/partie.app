@@ -192,7 +192,7 @@ input:focus {
 input::placeholder {
     color: #2F2F31;
     font-size: 17px;
-    line-height: 100%;
+    line-height: 52px;
 }
 
 input[type=password] {
@@ -312,6 +312,53 @@ input[type=password] {
 
 .token-opacity {
     opacity: .5;
+}
+
+.tool {
+    transition: .3s;
+}
+
+.tooltip {
+    padding: 13px 20px;
+    border-radius: 20px;
+    height: auto;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    bottom: calc(100% + 20px);
+    left: -49px;
+    text-align: center;
+    width: 132px;
+    transition: .3s;
+
+    .popover__name {
+        margin-bottom: 0;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        transform: rotate(45deg);
+        bottom: -8px;
+        left: calc(50% - 8px);
+    }
+}
+
+.tool:hover  {
+    background-color: rgba(116,116,128,.3) !important;
+
+    .tooltip {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+.tooltip, .tooltip:before {
+    background: #1E1D24;
+    border: 0;
 }
 
 .center {
@@ -567,6 +614,7 @@ textarea {
     label {
         display: flex;
         align-items: center;
+        cursor: pointer;
 
         path {
             transition: .2s;
@@ -577,7 +625,6 @@ textarea {
     }
 
     svg {
-        cursor: pointer;
         margin-right: 10px;
     }
 }
@@ -585,11 +632,25 @@ textarea {
 .comment {
     display: flex;
     align-items: center;
+    cursor: pointer;
 
-    img {
+    svg {
         margin-right: 10px;
-        cursor: pointer;
     }
+
+    .comment__counter {
+        opacity: .5;
+        transition: .2s;
+    }
+
+}
+
+.like__counter {
+    font-size: 13px;
+    line-height: 20px;
+    opacity: 0.5;
+    margin-right: 8px;
+    transition: .2s;
 }
 
 .share {
@@ -807,7 +868,7 @@ textarea {
         height: 100% !important;
         top: 100%;
         left: 0;
-        background-color: rgba(0,0,0,.2);
+        background-color: rgba(20, 20, 20, .6);
         text-align: center;
     }
 

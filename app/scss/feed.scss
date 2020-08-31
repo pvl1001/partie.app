@@ -34,6 +34,11 @@
                 min-height: 80px;
                 width: 100%;
                 margin-bottom: 20px;
+                opacity: 1;
+
+                &::placeholder {
+                    opacity: .3;
+                }
             }
 
             .new-post__row {
@@ -126,6 +131,11 @@
             }
         }
 
+        #chooseGame .choose-game.modal {
+            height: 720px;
+            overflow: auto;
+        }
+
         .choose-game.modal {
             //max-height: 75%;
             overflow: hidden;
@@ -142,6 +152,7 @@
                 background: #14131a url('../img/icon/search.png') 19px center / 20px no-repeat;
                 padding-left: 55px;
                 margin-bottom: 28px;
+                border: 0;
             }
 
             .choose-game__game {
@@ -194,11 +205,20 @@
             min-width: 336px;
             position: fixed;
             z-index: 10;
+
+            @media (max-width: 1300px) {
+                width: 300px;
+                min-width: 300px;
+            }
         }
 
         .feed__col2 {
-            flex-grow: 1;
-            margin: 0 336px;
+            width: 680px;
+            margin: 0 auto;
+
+            @media (max-width: 1300px) {
+                max-width: 480px;
+            }
         }
 
         .feed__col1 {
@@ -226,6 +246,10 @@
                     border-radius: 16px;
                     border: 0;
                     padding-left: 40px;
+
+                    &::placeholder {
+                        line-height: 40px;
+                    }
                 }
             }
 
@@ -421,9 +445,14 @@
 
                         .avatar {
                             margin-right: 15px;
+                            height: 36px;
+                            width: 36px;
+                            min-width: 36px;
                         }
 
                         .user__name {
+                            margin-bottom: 0;
+
                             div:nth-child(1) {
                                 font-weight: bold;
                                 margin-bottom: 6px;
@@ -482,6 +511,9 @@
 
                 input[type=checkbox]:checked + label path {
                     fill: #F45365;
+                }
+                input[type=checkbox]:checked + label .like__counter {
+                    opacity: 1;
                 }
 
                 .footer-social {
@@ -616,12 +648,18 @@
                 margin-bottom: 30px;
                 position: relative;
 
-                input {
+                textarea {
                     height: auto;
                     width: auto;
                     flex-grow: 1;
                     border: 0;
-                    padding-left: 15px;
+                    padding: 3px 15px 0;
+                    opacity: 1;
+
+                    &::placeholder {
+                        line-height: 20px;
+                        opacity: .3;
+                    }
                 }
 
                 button {
@@ -632,7 +670,7 @@
                     font-size: 13px;
                     line-height: 17px;
                     color: #000000;
-                    height: auto;
+                    height: 32px;
                     width: 67px;
                     text-align: center;
                 }
@@ -646,6 +684,8 @@
                     display: none;
                     padding: 15px 0;
                     flex-direction: column;
+
+
 
                     .people__row {
                         display: flex;
@@ -666,6 +706,10 @@
                             display: flex;
                             align-items: center;
                             cursor: pointer;
+
+                            .user__name {
+                                margin-bottom: 0;
+                            }
                         }
 
                         .avatar {
@@ -679,6 +723,7 @@
                         .people__creater {
                             color: rgba(235, 235, 245, .4);
                             margin-left: 68px;
+                            padding-bottom: 2px;
                         }
                     }
                 }
@@ -705,6 +750,7 @@
                         span {
                             opacity: 0.3;
                             margin-left: 7px;
+                            font-weight: 400;
                         }
                     }
 
@@ -855,17 +901,19 @@
     left: 0;
     background-color: rgba(0,0,0,.5);
     z-index: -1;
+}
 
-    .img-bg__close {
-        position: absolute;
-        right: 40px;
-        top: 40px;
-        width: 52px;
-        height: 52px;
-        border-radius: 50%;
-        background: #fff url('../img/icon/close-b.png') center / 16px no-repeat;
-        cursor: pointer;
-    }
+.img-bg__close {
+    position: fixed;
+    right: 40px;
+    top: 40px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #fff url('../img/icon/close-b.png') center / 16px no-repeat;
+    cursor: pointer;
+    z-index: 13;
+    display: none;
 }
 
 //modals

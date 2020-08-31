@@ -8,9 +8,16 @@ let peopleBtn = document.querySelector('.feed__people-btn')
         feedHeader.style.opacity = ''
         peopleBtn.style.transform = ''
     } else {
-        people.style.transform = 'translateX(220px)'
-        feedHeader.style.opacity = '0'
-        peopleBtn.style.transform = 'rotateY(180deg)'
+        if(window.innerWidth <= 1300) { // mobile
+            people.style.transform = 'translateX(180px)'
+            feedHeader.style.opacity = '0'
+            peopleBtn.style.transform = 'rotateY(180deg)'
+        } else {
+            people.style.transform = 'translateX(220px)'
+            feedHeader.style.opacity = '0'
+            peopleBtn.style.transform = 'rotateY(180deg)'
+        }
+
 
     }
 }
