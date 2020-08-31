@@ -157,8 +157,12 @@
                     margin-right: 0;
                 }
             }
-            .tablinks.active:not(:last-child) {
+
+            .tablinks.active {
                 color: #EBEBF5;
+            }
+
+            .tablinks.active:not(:last-child) {
 
                 svg path,
                 svg circle {

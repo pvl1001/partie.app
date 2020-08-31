@@ -198,18 +198,36 @@ function textareaWidth() {
 
 let arrPostFooterBtn = document.querySelectorAll('.partie__post_footer button')
 let onPostFooterBtn = []
-for(let i = 0; i < arrPostFooterBtn.length; i++) {
-    if(arrPostFooterBtn[i] !== null) {
-        arrPostFooterBtn[i].addEventListener('click', function () {
+for (let i = 0; i < arrPostFooterBtn.length; i++) {
+    if (arrPostFooterBtn[i] !== null) {
+        arrPostFooterBtn[i].addEventListener( 'click', function () {
             onPostFooterBtn[i] = !onPostFooterBtn[i]
-            if(onPostFooterBtn[i]) {
+            if (onPostFooterBtn[i]) {
                 arrPostFooterBtn[i].style.backgroundColor = '#F45365'
                 arrPostFooterBtn[i].innerHTML = 'Leave'
             } else {
                 arrPostFooterBtn[i].style.backgroundColor = ''
                 arrPostFooterBtn[i].innerHTML = 'Join'
             }
-        })
-    }}
+        } )
+    }
+}
+
+
+let arrShortcutsBox = document.querySelectorAll('.shortcuts__box')
+let box = document.querySelector('.shortcuts__box_menu')
+for(let shortcutsBox of arrShortcutsBox) {
+    if(shortcutsBox !== null)
+        shortcutsBox.onclick = function (e) {
+        if(e.target === shortcutsBox) {
+            box.style.top = e.pageY + 'px'
+            box.style.left = e.pageX + 'px'
+            box.style.display= 'block'
+        } else {
+            box.style.display= ''
+        }
+    }
+}
+
 
 

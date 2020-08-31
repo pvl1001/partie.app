@@ -18,6 +18,10 @@
         }
     }
 
+    input {
+        border: 0;
+    }
+
     .game__img {
         position: relative;
 
@@ -74,6 +78,45 @@
             justify-content: space-between;
             padding: 16px 20px;
             margin-bottom: 10px;
+            position: relative;
+
+            .shortcuts__box_menu {
+                display: none;
+                position: fixed;
+                width: 280px;
+                height: 112px;
+                background: #14131A;
+                border-radius: 20px;
+                z-index: 1;
+
+                .menu-wrapper {
+                    padding: 28px;
+                }
+
+                .edit-shortcut {
+                    margin-bottom: 20px;
+
+                    span {
+                        padding-left: 38px;
+                        background: url('../img/icon/edit.png') 0 50% / 18px no-repeat;
+                        line-height: 18px;
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
+                }
+
+
+                .delete {
+                    span {
+                        padding-left: 38px;
+                        background: url('../img/icon/remove.png') 0 50% / 18px no-repeat;
+                        line-height: 18px;
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
+                }
+
+            }
 
             .shortcuts__box_btns {
                 display: flex;

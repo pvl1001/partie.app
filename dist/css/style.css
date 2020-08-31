@@ -228,6 +228,12 @@
   width: 138px;
 }
 
+.logIn .logIn__code .logInCode__past {
+  font-weight: bold;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
 .logIn .logIn__code button {
   display: block;
   width: 139px;
@@ -236,7 +242,7 @@
 
 .logIn .logIn__platforms {
   background-color: #000;
-  padding: 56px 40px 20px;
+  padding: 56px 0 20px;
   left: 100%;
 }
 
@@ -266,16 +272,34 @@
 }
 
 .logIn .logIn__platforms .logIn__platforms-platforms .card {
-  width: calc(50% - 7.5px);
+  width: 150px;
   border-radius: 20px;
   height: 200px;
   margin-bottom: 15px;
   position: relative;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
 }
 
 .logIn .logIn__platforms .logIn__platforms-platforms .card:nth-child(odd) {
   margin-right: 15px;
+}
+
+.logIn .logIn__platforms .logIn__platforms-platforms .card .card__name {
+  color: rgba(235, 235, 245, 0.5);
+  margin-bottom: 26px;
+  z-index: 1;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
 }
 
 .logIn .logIn__platforms .logIn__platforms-platforms .card input[type=checkbox] {
@@ -291,6 +315,11 @@
   -webkit-transition: .5s;
   -o-transition: .5s;
   transition: .5s;
+  cursor: pointer;
+}
+
+.logIn .logIn__platforms .logIn__platforms-platforms .card input[type=checkbox]:checked + label + .card__name {
+  color: #ebebf5;
 }
 
 .logIn .logIn__platforms .logIn__platforms-platforms .card input[type=checkbox]:checked + label[for=pc] {
@@ -314,23 +343,23 @@
 }
 
 .logIn .logIn__platforms .logIn__platforms-platforms .card label[for=pc] {
-  background: url("../img/icon/pc.png") center/67px no-repeat;
+  background: url("../img/icon/pc.png") center 49.7px/58.2px no-repeat;
 }
 
 .logIn .logIn__platforms .logIn__platforms-platforms .card label[for=ps] {
-  background: url("../img/icon/ps.png") center/73px no-repeat;
+  background: url("../img/icon/ps.png") center 48.7px/63px no-repeat;
 }
 
 .logIn .logIn__platforms .logIn__platforms-platforms .card label[for=switch] {
-  background: url("../img/icon/switch.png") center/56px no-repeat;
+  background: url("../img/icon/switch.png") center 49.5px/49px no-repeat;
 }
 
 .logIn .logIn__platforms .logIn__platforms-platforms .card label[for=xbox] {
-  background: url("../img/icon/xbox.png") center/56px no-repeat;
+  background: url("../img/icon/xbox.png") center 48.5px/49px no-repeat;
 }
 
 .logIn .logIn__platforms .logIn__platforms-platforms .card label[for=mobile] {
-  background: url("../img/icon/mobile.png") center/40px no-repeat;
+  background: url("../img/icon/mobile.png") center 46px/35px no-repeat;
 }
 
 .logIn .logIn__platforms .logIn__platforms-platforms button {
@@ -847,8 +876,8 @@
   z-index: -1;
 }
 
-.img-bg .img-bg__close {
-  position: absolute;
+.img-bg__close {
+  position: fixed;
   right: 40px;
   top: 40px;
   width: 52px;
@@ -856,6 +885,8 @@
   border-radius: 50%;
   background: #fff url("../img/icon/close-b.png") center/16px no-repeat;
   cursor: pointer;
+  z-index: 13;
+  display: none;
 }
 
 #share .share__btns {
@@ -2305,6 +2336,10 @@
   z-index: -1;
 }
 
+#hostPartie input {
+  border: 0;
+}
+
 #hostPartie .game__img {
   position: relative;
 }
@@ -2384,6 +2419,41 @@
   justify-content: space-between;
   padding: 16px 20px;
   margin-bottom: 10px;
+  position: relative;
+}
+
+#hostPartie .shortcuts .shortcuts__box .shortcuts__box_menu {
+  display: none;
+  position: fixed;
+  width: 280px;
+  height: 112px;
+  background: #14131A;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+#hostPartie .shortcuts .shortcuts__box .shortcuts__box_menu .menu-wrapper {
+  padding: 28px;
+}
+
+#hostPartie .shortcuts .shortcuts__box .shortcuts__box_menu .edit-shortcut {
+  margin-bottom: 20px;
+}
+
+#hostPartie .shortcuts .shortcuts__box .shortcuts__box_menu .edit-shortcut span {
+  padding-left: 38px;
+  background: url("../img/icon/edit.png") 0 50%/18px no-repeat;
+  line-height: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#hostPartie .shortcuts .shortcuts__box .shortcuts__box_menu .delete span {
+  padding-left: 38px;
+  background: url("../img/icon/remove.png") 0 50%/18px no-repeat;
+  line-height: 18px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 #hostPartie .shortcuts .shortcuts__box .shortcuts__box_btns {
@@ -3391,31 +3461,31 @@ input:focus {
 input::-webkit-input-placeholder {
   color: #2F2F31;
   font-size: 17px;
-  line-height: 100%;
+  line-height: 52px;
 }
 
 input::-moz-placeholder {
   color: #2F2F31;
   font-size: 17px;
-  line-height: 100%;
+  line-height: 52px;
 }
 
 input:-ms-input-placeholder {
   color: #2F2F31;
   font-size: 17px;
-  line-height: 100%;
+  line-height: 52px;
 }
 
 input::-ms-input-placeholder {
   color: #2F2F31;
   font-size: 17px;
-  line-height: 100%;
+  line-height: 52px;
 }
 
 input::placeholder {
   color: #2F2F31;
   font-size: 17px;
-  line-height: 100%;
+  line-height: 52px;
 }
 
 input[type=password] {
@@ -3558,6 +3628,59 @@ input[type=password]::placeholder {
 
 .token-opacity {
   opacity: .5;
+}
+
+.tool {
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+.tooltip {
+  padding: 13px 20px;
+  border-radius: 20px;
+  height: auto;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  bottom: calc(100% + 20px);
+  left: -49px;
+  text-align: center;
+  width: 132px;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+.tooltip .popover__name {
+  margin-bottom: 0;
+}
+
+.tooltip:before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  bottom: -8px;
+  left: calc(50% - 8px);
+}
+
+.tool:hover {
+  background-color: rgba(116, 116, 128, 0.3) !important;
+}
+
+.tool:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip,
+.tooltip:before {
+  background: #1E1D24;
+  border: 0;
 }
 
 .center {
@@ -3841,6 +3964,7 @@ textarea {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .like label path {
@@ -3854,7 +3978,6 @@ textarea {
 }
 
 .like svg {
-  cursor: pointer;
   margin-right: 10px;
 }
 
@@ -3865,11 +3988,28 @@ textarea {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: pointer;
 }
 
-.comment img {
+.comment svg {
   margin-right: 10px;
-  cursor: pointer;
+}
+
+.comment .comment__counter {
+  opacity: .5;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+}
+
+.like__counter {
+  font-size: 13px;
+  line-height: 20px;
+  opacity: 0.5;
+  margin-right: 8px;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
 }
 
 .share {
@@ -3990,6 +4130,10 @@ textarea {
     margin: 0 25px 0 0 !important;
     width: 130px;
     height: 172px;
+  }
+
+  .logIn .logIn__platforms .logIn__platforms-platforms .card label:hover {
+    background-color: rgba(23, 22, 31, 0.8);
   }
 
   .logIn .logIn__platforms .logIn__platforms-platforms .card:nth-child(5) {
@@ -4149,10 +4293,6 @@ textarea {
     border-radius: 50%;
     background: #19181F url("../img/icon/arrow_back.png") center no-repeat;
     cursor: pointer;
-  }
-
-  .subscription #addCreditCard.modal-wrapp {
-    top: 0;
   }
 
   .subscription .modal-wrapp {
@@ -4383,6 +4523,27 @@ textarea {
     min-height: 80px;
     width: 100%;
     margin-bottom: 20px;
+    opacity: 1;
+  }
+
+  .feed .new-post.modal textarea::-webkit-input-placeholder {
+    opacity: .3;
+  }
+
+  .feed .new-post.modal textarea::-moz-placeholder {
+    opacity: .3;
+  }
+
+  .feed .new-post.modal textarea:-ms-input-placeholder {
+    opacity: .3;
+  }
+
+  .feed .new-post.modal textarea::-ms-input-placeholder {
+    opacity: .3;
+  }
+
+  .feed .new-post.modal textarea::placeholder {
+    opacity: .3;
   }
 
   .feed .new-post.modal .new-post__row {
@@ -4477,6 +4638,11 @@ textarea {
     background: url("../img/pic/slide2.png") center/cover no-repeat;
   }
 
+  .feed #chooseGame .choose-game.modal {
+    height: 720px;
+    overflow: auto;
+  }
+
   .feed .choose-game.modal {
     overflow: hidden;
   }
@@ -4493,6 +4659,7 @@ textarea {
     background: #14131a url("../img/icon/search.png") 19px center/20px no-repeat;
     padding-left: 55px;
     margin-bottom: 28px;
+    border: 0;
   }
 
   .feed .choose-game.modal .choose-game__game {
@@ -4554,10 +4721,8 @@ textarea {
   }
 
   .feed .feed__col2 {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    margin: 0 336px;
+    width: 680px;
+    margin: 0 auto;
   }
 
   .feed .feed__col1 {
@@ -4591,6 +4756,26 @@ textarea {
     border-radius: 16px;
     border: 0;
     padding-left: 40px;
+  }
+
+  .feed .feed__col1 .feed__search .feed__search_search::-webkit-input-placeholder {
+    line-height: 40px;
+  }
+
+  .feed .feed__col1 .feed__search .feed__search_search::-moz-placeholder {
+    line-height: 40px;
+  }
+
+  .feed .feed__col1 .feed__search .feed__search_search:-ms-input-placeholder {
+    line-height: 40px;
+  }
+
+  .feed .feed__col1 .feed__search .feed__search_search::-ms-input-placeholder {
+    line-height: 40px;
+  }
+
+  .feed .feed__col1 .feed__search .feed__search_search::placeholder {
+    line-height: 40px;
   }
 
   .feed .feed__col1 .feed__nav {
@@ -4818,6 +5003,13 @@ textarea {
 
   .feed .feed__col2 .feed__post .feed__post_head .user__content .avatar {
     margin-right: 15px;
+    height: 36px;
+    width: 36px;
+    min-width: 36px;
+  }
+
+  .feed .feed__col2 .feed__post .feed__post_head .user__content .user__name {
+    margin-bottom: 0;
   }
 
   .feed .feed__col2 .feed__post .feed__post_head .user__content .user__name div:nth-child(1) {
@@ -4885,6 +5077,10 @@ textarea {
 
   .feed .feed__col2 .feed__post input[type=checkbox]:checked + label path {
     fill: #F45365;
+  }
+
+  .feed .feed__col2 .feed__post input[type=checkbox]:checked + label .like__counter {
+    opacity: 1;
   }
 
   .feed .feed__col2 .feed__post .footer-social {
@@ -5040,14 +5236,40 @@ textarea {
     position: relative;
   }
 
-  .feed.post .feed__comments .comments__new-comment input {
+  .feed.post .feed__comments .comments__new-comment textarea {
     height: auto;
     width: auto;
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
     border: 0;
-    padding-left: 15px;
+    padding: 3px 15px 0;
+    opacity: 1;
+  }
+
+  .feed.post .feed__comments .comments__new-comment textarea::-webkit-input-placeholder {
+    line-height: 20px;
+    opacity: .3;
+  }
+
+  .feed.post .feed__comments .comments__new-comment textarea::-moz-placeholder {
+    line-height: 20px;
+    opacity: .3;
+  }
+
+  .feed.post .feed__comments .comments__new-comment textarea:-ms-input-placeholder {
+    line-height: 20px;
+    opacity: .3;
+  }
+
+  .feed.post .feed__comments .comments__new-comment textarea::-ms-input-placeholder {
+    line-height: 20px;
+    opacity: .3;
+  }
+
+  .feed.post .feed__comments .comments__new-comment textarea::placeholder {
+    line-height: 20px;
+    opacity: .3;
   }
 
   .feed.post .feed__comments .comments__new-comment button {
@@ -5058,7 +5280,7 @@ textarea {
     font-size: 13px;
     line-height: 17px;
     color: #000000;
-    height: auto;
+    height: 32px;
     width: 67px;
     text-align: center;
   }
@@ -5109,6 +5331,10 @@ textarea {
     cursor: pointer;
   }
 
+  .feed.post .feed__comments .comments__new-comment .comments__new-comment_people .people__row .user .user__name {
+    margin-bottom: 0;
+  }
+
   .feed.post .feed__comments .comments__new-comment .comments__new-comment_people .people__row .avatar {
     margin-right: 15px;
   }
@@ -5120,6 +5346,7 @@ textarea {
   .feed.post .feed__comments .comments__new-comment .comments__new-comment_people .people__row .people__creater {
     color: rgba(235, 235, 245, 0.4);
     margin-left: 68px;
+    padding-bottom: 2px;
   }
 
   .feed.post .feed__comments .comments__comment {
@@ -5146,6 +5373,7 @@ textarea {
   .feed.post .feed__comments .comments__comment .comments__comment_text .avatar-name span {
     opacity: 0.3;
     margin-left: 7px;
+    font-weight: 400;
   }
 
   .feed.post .feed__comments .comments__comment .comments__comment_text .comment-text {
@@ -5817,25 +6045,45 @@ textarea {
     cursor: pointer;
   }
 
-  #partie .partie__post_footer .footer__row1 .popover {
+  #partie .partie__post_footer .footer__row1 .tooltip {
     padding: 13px 20px;
     border-radius: 20px;
     height: auto;
     position: absolute;
     opacity: 0;
-    visibility: visible;
+    visibility: hidden;
     bottom: calc(100% + 20px);
-    left: -64px;
+    left: -49px;
     text-align: center;
-    width: 160px;
+    width: 132px;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
   }
 
-  #partie .partie__post_footer .footer__row1 .popover .popover__name {
+  #partie .partie__post_footer .footer__row1 .tooltip .popover__name {
     margin-bottom: 0;
   }
 
-  #partie .partie__post_footer .footer__row1 .popover,
-  #partie .partie__post_footer .footer__row1 .popover:before {
+  #partie .partie__post_footer .footer__row1 .tooltip:before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    bottom: -8px;
+    left: calc(50% - 8px);
+  }
+
+  #partie .partie__post_footer .footer__row1 .tool:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #partie .partie__post_footer .footer__row1 .tooltip,
+  #partie .partie__post_footer .footer__row1 .tooltip:before {
     background: #1E1D24;
     border: 0;
   }
@@ -6230,7 +6478,8 @@ textarea {
     margin-bottom: 0;
   }
 
-  .feed__col2.new-active-partie .new-active-partie__messages .message .message__user .user-window .user-window__menu > div > div {
+  .feed__col2.new-active-partie .new-active-partie__messages .message .message__user .user-window .user-window__menu > div > div,
+  .feed__col2.new-active-partie .new-active-partie__messages .message .message__user .user-window .user-window__menu > div a {
     font-weight: bold;
     font-size: 14px;
     color: #FFFFFF;
@@ -6240,7 +6489,8 @@ textarea {
     display: inline-block;
   }
 
-  .feed__col2.new-active-partie .new-active-partie__messages .message .message__user .user-window .user-window__menu > div > div:last-child {
+  .feed__col2.new-active-partie .new-active-partie__messages .message .message__user .user-window .user-window__menu > div > div:last-child,
+  .feed__col2.new-active-partie .new-active-partie__messages .message .message__user .user-window .user-window__menu > div a:last-child {
     margin-bottom: 0;
   }
 
@@ -7488,7 +7738,7 @@ textarea {
     margin-right: 0;
   }
 
-  .feed .feed__col2.search .profile__tabs .tablinks.active:not(:last-child) {
+  .feed .feed__col2.search .profile__tabs .tablinks.active {
     color: #EBEBF5;
   }
 
@@ -8384,12 +8634,274 @@ textarea {
     line-height: 52px;
   }
 
+  .logIn .logIn__platforms .logIn__platforms-title,
+  .logIn .logIn__platforms .logIn__platforms-description {
+    padding: 0 40px;
+  }
+
+  .logIn .logIn__platforms .logIn__platforms-platforms {
+    width: 315px;
+    margin: 0 auto;
+  }
+
+  .logIn__platforms-games .logInPlatformsGames__wrapp .logInPlatformsGames__title {
+    margin-top: 56px;
+  }
+
   .header {
     display: none;
   }
 
-  .subscription {
+  .subscription .btn-back {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 20px !important;
+    top: 20px;
+    z-index: 10;
+    background: url("../img/icon/arrow_back.png") center/24px no-repeat;
+    cursor: pointer;
+  }
+
+  .subscription #subscriptionModal .btn-back {
     display: none;
+  }
+
+  .subscription #addCreditCard.modal-wrapp {
+    top: 0;
+  }
+
+  .subscription .modal-wrapp {
+    background-color: #000;
+    left: 100%;
+    top: 0;
+    -webkit-transition: .5s ease;
+    -o-transition: .5s ease;
+    transition: .5s ease;
+  }
+
+  .subscription .modal-wrapp .subscription__modal {
+    padding: 64px 20px 54px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    left: 100%;
+  }
+
+  .subscription .modal-wrapp .subscription__title {
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .subscription .modal-wrapp .radio-group {
+    margin-bottom: 20px;
+  }
+
+  .subscription .modal-wrapp .radio-group .subscription__radio {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    height: 64px;
+    margin-bottom: 10px;
+  }
+
+  .subscription .modal-wrapp .radio-group .checkbox-round {
+    position: absolute;
+    left: 15px;
+    top: calc(50% - 16px);
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background-color: #19181F;
+  }
+
+  .subscription .modal-wrapp .radio-group input[type=radio] {
+    display: none;
+  }
+
+  .subscription .modal-wrapp .radio-group label {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+  }
+
+  .subscription .modal-wrapp .radio-group input[type=radio]:checked + label {
+    color: #000000 !important;
+    background: #D2C867 url("../img/icon/ok-black.png") 25px center no-repeat;
+    -webkit-transition: 0s background;
+    -o-transition: 0s background;
+    transition: 0s background;
+  }
+
+  .subscription .modal-wrapp .radio-group input[type=radio]:checked + label .checkbox-round {
+    display: none;
+  }
+
+  .subscription .modal-wrapp .radio-group .subscription__annual {
+    padding: 15px 30px 15px 60px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .subscription .modal-wrapp .radio-group .subscription__annual .subscription__annual-name {
+    font-weight: bold;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .subscription .modal-wrapp .radio-group .subscription__annual .subscription__annual-name img {
+    margin-right: 28px;
+  }
+
+  .subscription .modal-wrapp .radio-group .subscription__annual .subscription__annual-price {
+    text-align: right;
+  }
+
+  .subscription .modal-wrapp .radio-group .subscription__annual .subscription__annual-price div:nth-child(1) {
+    margin-bottom: 6px;
+  }
+
+  .subscription .modal-wrapp .radio-group .subscription__annual .subscription__annual-price div:nth-child(2) {
+    font-size: 13px;
+    opacity: 0.4;
+  }
+
+  .subscription .modal-wrapp .subscription__description {
+    margin-bottom: 40px;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
+
+  .subscription .modal-wrapp .subscription__description .subscription__description-article {
+    font-size: 14px;
+    color: rgba(235, 235, 245, 0.5);
+    margin-bottom: 10px;
+    background: url("../img/icon/ok-yellow.png") 25px center no-repeat;
+    padding-left: 60px;
+  }
+
+  .subscription .modal-wrapp .subscription__description .subscription__description-article:last-child {
+    margin-bottom: 0;
+  }
+
+  .subscription .modal-wrapp button,
+  .subscription .modal-wrapp a.btn {
+    margin-bottom: 20px;
+    min-height: 52px;
+  }
+
+  .subscription .modal-wrapp .subscription__payment {
+    display: none;
+  }
+
+  .subscription .modal-wrapp .subscription__payment .subscription__payment-card {
+    margin-right: 10px;
+    background: #17161f url("../img/icon/credit-card.png") 20px center no-repeat;
+  }
+
+  .subscription .modal-wrapp .subscription__payment .subscription__payment-paypal {
+    background: #17161f url("../img/icon/paypel.png") 20px center no-repeat;
+  }
+
+  .subscription .modal-wrapp .subscription__policy {
+    font-size: 12px;
+    text-align: center;
+    color: rgba(248, 246, 255, 0.3);
+    line-height: 150%;
+  }
+
+  .subscription .modal-wrapp .subscription__policy span {
+    color: #EBEBF5;
+  }
+
+  .subscription .modal-wrapp .add-credit-card {
+    padding: 64px 20px 54px;
+    width: 100%;
+    left: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .subscription .modal-wrapp .add-credit-card .subscription__title {
+    margin-bottom: 20px;
+  }
+
+  .subscription .modal-wrapp .add-credit-card .add-credit-card__text {
+    font-size: 17px;
+    text-align: center;
+    opacity: 0.5;
+    padding: 0 40px;
+    margin-bottom: 40px;
+  }
+
+  .subscription .modal-wrapp .add-credit-card > input {
+    margin-bottom: 20px;
+    min-height: 52px;
+  }
+
+  .subscription .modal-wrapp .add-credit-card .add-credit-card__input-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 40px;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
+
+  .subscription .modal-wrapp .add-credit-card .add-credit-card__input-group input {
+    width: 98px;
+    margin-right: 17px;
+  }
+
+  .subscription .modal-wrapp .add-credit-card input.card-number {
+    background: url("../img/icon/logo-card.png") calc(100% - 15px) 50%/32px no-repeat;
+  }
+
+  .subscription .btn-container-show .subscription__payment .subscription__payment_title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: -0.408px;
+    margin-bottom: 20px;
+  }
+
+  .subscription .btn-container-show .subscription__payment .subscription__payment-card {
+    background: #17171A url("../img/icon/credit-card.png") 24px 50%/18.6px no-repeat;
+  }
+
+  .subscription .btn-container-show .subscription__payment .subscription__payment-paypal {
+    background: #17171A url("../img/icon/paypel.png") 24px 50%/24px no-repeat;
+    margin-bottom: 10px;
   }
 
   .links {
@@ -8402,7 +8914,7 @@ textarea {
     height: 100% !important;
     top: 100%;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(20, 20, 20, 0.6);
     text-align: center;
   }
 
@@ -8424,6 +8936,18 @@ textarea {
 
   .btn-container-show .btn-apple {
     display: block;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1300px) {
+  .feed .feed__col1,
+  .feed .feed__col3 {
+    width: 300px;
+    min-width: 300px;
+  }
+
+  .feed .feed__col2 {
+    max-width: 480px;
   }
 }
 

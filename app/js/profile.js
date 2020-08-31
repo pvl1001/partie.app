@@ -58,6 +58,26 @@ function openTabModal(evt, Tab) {
             popover.style.cssText = ''
         } )
     }
+
+    // let tools = document.querySelectorAll( '.tool' )
+    // let tooltips = document.querySelectorAll( '.tooltip' )
+    // for (let i = 0; i < tools.length; i++) {
+    //     let tool = tools[i]
+    //     let tooltip = tooltips[i]
+    //     let h = tooltip.getBoundingClientRect().height
+    //     let x = tool.getBoundingClientRect().left
+    //     let y = tool.getBoundingClientRect().top
+    //     tool.addEventListener( 'mouseover', function () {
+    //         console.log(window.scrollTop)
+    //         tooltip.style.opacity = '1'
+    //         tooltip.style.visibility = 'visible'
+    //         tooltip.style.left = x + 'px'
+    //         tooltip.style.top = y + 'px'
+    //     } )
+    //     tool.addEventListener( 'mouseout', function () {
+    //         tooltip.style.cssText = ''
+    //     } )
+    // }
 }
 
 function openFoll(evt, cityName) {
