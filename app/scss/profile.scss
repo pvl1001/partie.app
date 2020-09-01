@@ -47,6 +47,11 @@
             align-items: center;
             margin-bottom: 40px;
 
+
+            > button {
+                font-weight: 400;
+            }
+
             .avatar {
                 width: 140px;
                 height: 140px;
@@ -183,12 +188,12 @@
                 }
                 .info_avatar__progress_text {
                     font-weight: bold;
-                    padding-top: 4px;
                     position: relative;
                     z-index: 1;
 
                     div {
                         font-weight: 400;
+                        padding-top: 4px;
                     }
                 }
             }

@@ -72,36 +72,36 @@ function clickTab(open, close) {
         close.style.display = 'none'
         $( '.slider' ).slick('unslick')
         $( '.slider' ).slick( {
-            slidesToShow: 10,
+            slidesToShow: 5,
             slidesToScroll: 1,
             infinite: true,
             swipeToSlide: true,
-            responsive: [
-                {
-                    breakpoint: 1600,
-                    settings: {
-                        slidesToShow: 7
-                    }
-                },
-                {
-                    breakpoint: 1500,
-                    settings: {
-                        slidesToShow: 6
-                    }
-                },
-                {
-                    breakpoint: 1300,
-                    settings: {
-                        slidesToShow: 5
-                    }
-                },
-                {
-                    breakpoint: 1180,
-                    settings: {
-                        slidesToShow: 4
-                    }
-                }
-            ]
+            // responsive: [
+            //     {
+            //         breakpoint: 1600,
+            //         settings: {
+            //             slidesToShow: 7
+            //         }
+            //     },
+            //     {
+            //         breakpoint: 1500,
+            //         settings: {
+            //             slidesToShow: 6
+            //         }
+            //     },
+            //     {
+            //         breakpoint: 1300,
+            //         settings: {
+            //             slidesToShow: 5
+            //         }
+            //     },
+            //     {
+            //         breakpoint: 1180,
+            //         settings: {
+            //             slidesToShow: 4
+            //         }
+            //     }
+            // ]
         } )
 
     }

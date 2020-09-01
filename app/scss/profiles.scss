@@ -1,6 +1,11 @@
 @media (min-width: 768px) { // PC
     #profile.profiles {
         .profile__info {
+
+            > button {
+                font-weight: 400;
+            }
+
             .avatar {
                 background: url('../img/pic/ava1.png') center / cover no-repeat;
             }
