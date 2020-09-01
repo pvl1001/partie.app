@@ -74,15 +74,34 @@
 
         .feed__col1 {
             position: relative;
+            flex-grow: 1;
         }
 
         .feed__col2 {
-            margin: 0;
-            flex-grow: 0;
-            width: 320px;
-            min-width: 320px;
-            border-left: 1px solid rgba(255,255,255,.1);
-            border-right: 1px solid rgba(255,255,255,.1);
+            //margin: 0;
+            //flex-grow: 0;
+            //width: 320px;
+            //min-width: 320px;
+            //border-left: 1px solid rgba(255,255,255,.1);
+            //border-right: 1px solid rgba(255,255,255,.1);
+            //position: relative;
+
+
+            .col2-settings {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                background-color: #000;
+                display: flex;
+
+                .col2-settings-wrapp {
+                    width: 320px;
+                    border-left: 1px solid rgba(255,255,255,.1);
+                    border-right: 1px solid rgba(255,255,255,.1);
+                }
+
+            }
 
             .feed__header {
                 justify-content: center;
@@ -94,11 +113,10 @@
         }
 
         .feed__col3 {
-            width: auto;
-            padding: 0 20px;
             flex-grow: 1;
-            margin-top: 0;
             position: relative;
+            z-index: -1;
+            max-width: 564px;
 
             .form {
                 margin-top: 34px;
@@ -697,6 +715,14 @@
 
         .subscription__title {
             margin-bottom: 20px;
+        }
+
+        a.btn {
+            transition: .3s;
+
+            &:hover {
+                background-color: rgba(20,19,26,1);
+            }
         }
 
         .add-credit-card__text {

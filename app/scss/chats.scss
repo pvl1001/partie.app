@@ -245,6 +245,11 @@
 
             button {
                 width: 160px;
+                transition: .3s;
+                
+                &:hover {
+                    background-color: rgba(20,19,26,1);
+                }
             }
 
             a.btn {

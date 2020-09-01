@@ -1,5 +1,7 @@
 @media (min-width: 768px) { // PC
     #profile {
+        min-height: 100%;
+
         .feed__header_params {
             font-weight: bold;
             font-size: 17px;
@@ -222,6 +224,10 @@
             }
             button.epic {
                 background: rgba(20,19,26,.8) url('../img/icon/epic.png') 29px 50% / 20px no-repeat;
+                
+                &:hover {
+                    background-color: rgba(20,19,26,1);
+                }
             }
             button.origin {
                 background: url('../img/icon/origin.png') 29px 50% / 18px no-repeat;
@@ -302,6 +308,11 @@
             }
 
             .followers-content {
+
+                input {
+                    border: 0;
+                }
+
                 .followers__row {
                     display: flex;
                     align-items: center;

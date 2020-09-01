@@ -158,18 +158,18 @@ body {
 
 
 button, a.btn {
-    background-color: #17161F;
+    background-color: rgba(20,19,26,.8);
     border-radius: 20px;
     width: 100%;
     height: 52px;
     color: #EBEBF5;
     font-weight: bold;
-    transition: .5s easy;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 14px;
+    transition: .3s;
 }
 
 input {
@@ -449,18 +449,27 @@ input[type=password] {
     display: none;
 
     .btn-apple {
-        background: #17161f url('../img/icon/apple.png') 20px center / auto 19px no-repeat;
+        background: rgba(20,19,26,.8) url('../img/icon/apple.png') 20px center / auto 19px no-repeat;
         margin-bottom: 10px;
         display: none;
+        &:hover {
+            background-color: rgba(20,19,26,1);
+        }
     }
 
     .btn-google {
-        background: #17161f url('../img/icon/google.png') 20px center / auto 19px no-repeat;
+        background: rgba(20,19,26,.8) url('../img/icon/google.png') 20px center / auto 19px no-repeat;
         margin-bottom: 10px;
+        &:hover {
+            background-color: rgba(20,19,26,1);
+        }
     }
 
     .btn-facebook {
-        background: #17161f url('../img/icon/facebook.png') 20px center / auto 19px no-repeat;
+        background: rgba(20,19,26,.8) url('../img/icon/facebook.png') 20px center / auto 19px no-repeat;
+        &:hover {
+            background-color: rgba(20,19,26,1);
+        }
     }
 }
 
@@ -558,10 +567,25 @@ input[type=password] {
 textarea {
     background-color: transparent;
     color: #F8F6FF;
-    opacity: 0.3;
     font-size: 17px;
     height: 25px;
     margin-right: auto;
+
+    &::placeholder {
+        opacity: .3;
+    }
+}
+
+.tablinks, svg path, svg circle{
+    transition: .3s;
+}
+
+.tablinks:hover:not(.active) {
+    color: #737180 !important;
+
+    svg path {
+        fill: #737180;
+    }
 }
 
 .avatar {
@@ -617,6 +641,10 @@ textarea {
         display: flex;
         align-items: center;
         cursor: pointer;
+
+        &:hover svg path{
+            fill: rgba(235,235,245,.9);
+        }
 
         path {
             transition: .2s;
@@ -854,8 +882,37 @@ textarea {
     
     .btn-join {
         background-color: #6E4AFF;
+        transition: .2s;
+
+        &:active {
+            opacity: .7;
+        }
     }
 
+}
+
+.followers__row button {
+    font-size: 12px;
+    transition: .2s opacity;
+
+    &:active {
+        opacity: .7;
+    }
+}
+
+.card-name {
+    text-transform: capitalize;
+}
+
+
+.feed__header_tabs {
+    a {
+        transition: .3s;
+    }
+
+    a:hover:not(.active-tab) {
+        color: #8E8C9C !important;
+    }
 }
 
 @media (max-width: 767px) { // mobile

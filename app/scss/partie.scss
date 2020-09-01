@@ -5,6 +5,11 @@
         .feed__header_post {
             background-color: #6E4AFF;
             color: #EBEBF5;
+            transition: .2s;
+
+            &:active {
+                background-color: rgba(110,74,255,.7);
+            }
         }
 
         .feed__post_title {
@@ -25,6 +30,10 @@
                 text-align: center;
                 margin-bottom: 20px;
 
+                &:hover .card__name{
+                    color: rgba(235, 235, 245, 1);
+                }
+
                 img {
                     width: 100%;
                 }
@@ -32,6 +41,7 @@
                 .card__name {
                     color: rgba(235, 235, 245, 0.5);
                     margin-top: 20px;
+                    transition: .3s;
                 }
 
                 .card__img {

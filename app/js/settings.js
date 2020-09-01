@@ -25,3 +25,14 @@ function openSettings(blockPage) {
 function backSettings(blockPage) {
     blockPage.style.left = ''
 }
+
+
+let w = document.querySelector('.feed__col1')
+let col2Settings = document.querySelector('.col2-settings')
+
+if(col2Settings !== null) {
+    col2Settings.style.width = window.innerWidth - w.offsetWidth + 'px'
+    window.onresize = function () {
+        col2Settings.style.width = window.innerWidth - w.offsetWidth + 'px'
+    }
+}

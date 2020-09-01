@@ -48,6 +48,12 @@ let bgYellowBlue = document.querySelector( '.bg-yellow-blue' )
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    jQuery(function($){
+        $(".card-number").mask("0000 0000 0000 0000");
+        $(".add-credit-card__input-group .input-date").mask("00/00");
+        $(".add-credit-card__input-group .input-CVC").mask("000");
+    });
+
     $( '.slider' ).slick( {
         slidesToShow: 5,
         slidesToScroll: 1,
@@ -379,6 +385,8 @@ function auto_grow(element) {
 }
 
 
+
+
 // open reply comment
 // let reply = document.querySelectorAll('.reply')
 // let commentReply = document.querySelectorAll('.comments__reply')
@@ -439,3 +447,4 @@ function auto_grow(element) {
 @@include( 'about.js' )
 @@include( 'search.js' )
 @@include( 'notifications.js' )
+@@include( 'jquery.mask.js' )

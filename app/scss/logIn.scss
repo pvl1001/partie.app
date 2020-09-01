@@ -56,7 +56,10 @@
     }
 
     .btn-apple {
-        background: #17161f url('../img/icon/apple.png') 20px center / auto 19px no-repeat;
+        background: rgba(20,19,26,.8) url('../img/icon/apple.png') 20px center / auto 19px no-repeat;
+        &:hover {
+            background-color: rgba(20,19,26,1);
+        }
     }
 
     .show-all {
@@ -451,8 +454,12 @@
                     width: 130px;
                     height: 172px;
 
-                    label:hover {
+                    &:hover label {
                         background-color: rgba(23, 22, 31, 0.8);
+
+                        + .card__name {
+                            color: rgba(235,235,245,1);
+                        }
                     }
                 }
 
@@ -524,6 +531,10 @@
                         text-align: center;
                         margin-bottom: 20px;
 
+                        &:hover .card__name{
+                            color: rgba(235, 235, 245, 1);
+                        }
+
                         img {
                             width: 100%;
                         }
@@ -531,6 +542,7 @@
                         .card__name {
                             color: rgba(235, 235, 245, 0.5);
                             margin-top: 20px;
+                            transition: .3s;
                         }
 
                         .card__img {

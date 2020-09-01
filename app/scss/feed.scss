@@ -1,6 +1,10 @@
 @media (min-width: 768px) { // PC
+
+    #feed {
+        min-height: 100%;
+    }
+
     .feed {
-        //height: 100%;
         width: 100%;
         background-color: #000;
         display: flex;
@@ -163,6 +167,10 @@
                 .game-cont {
                     margin-bottom: 20px;
 
+                    &:hover .game__name {
+                        color: rgba(235,235,245,1);
+                    }
+
                     &:nth-child(2n) {
                         margin-left: 15px;
                     }
@@ -179,6 +187,7 @@
                         text-align: center;
                         color: rgba(235, 235, 245, 0.5);
                         font-size: 14px;
+                        transition: .3s;
                     }
                 }
             }
@@ -281,11 +290,11 @@
                             transition: .3s;
                         }
 
-                        &:hover {
-                            color: #F8F6FF;
+                        &:hover:not(.active-tab) {
+                            color: #8E8C9C;
 
                             svg path {
-                                fill: #F8F6FF;
+                                fill: #8E8C9C;
                             }
                         }
                     }
@@ -345,6 +354,11 @@
                     font-weight: bold;
                     font-size: 13px;
                     cursor: pointer;
+                    transition: .2s;
+
+                    &:active {
+                        background-color: rgba(210,200,103,.7);
+                    }
                 }
             }
 
@@ -419,11 +433,16 @@
 
             .feed__post {
                 width: 100%;
-                background: #14131A;
+                background: rgba(20,19,26,.8);
                 border-radius: 20px;
                 padding: 20px 20px 26px;
                 margin-bottom: 20px;
                 display: block;
+                transition: .2s;
+
+                &:hover {
+                    background: rgba(20,19,26,1);
+                }
 
                 .feed__header_menu {
                     //opacity: .5;
@@ -616,11 +635,16 @@
 
         .feed__post {
             background: #000;
+            
+            &:hover {
+                background-color: #000;
+            }
         }
 
         .feed__header_tabs {
             font-size: 17px;
             font-weight: 700;
+            transition: .2s;
         }
 
         .feed__comments {
