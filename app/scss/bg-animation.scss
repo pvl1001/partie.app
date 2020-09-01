@@ -245,5 +245,123 @@
     }
 }
 
+.bg-red-blue {
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s;
+    position: fixed;
+    z-index: -1;
 
+    .bg-animate.red-blue {
+
+        .line-1 {
+            background-color: #EB4335;
+        }
+
+        .line-2 {
+            background-color: #EB4335;
+        }
+
+        .line-3 {
+            background-color: #EB4335;
+        }
+
+        .line-4 {
+            background-color: #EB4335;
+        }
+
+        .line-5 {
+            background-color: #EB4335;
+        }
+
+        .line-6 {
+            background-color:  #184292;
+        }
+
+        .line-7 {
+            background-color: #184292;
+        }
+
+        .line-8 {
+            background-color:  #184292;
+        }
+
+        .line-9 {
+            background-color:  #184292;
+        }
+
+        .line-10 {
+            background-color: #EB4335;
+        }
+
+        .line-11 {
+            background-color: #EB4335;
+        }
+
+        .line-12 {
+            background-color:  #184292;
+        }
+
+        .line-13 {
+            background-color:  #184292;
+        }
+    }
+
+}
+
+
+.bg-yellow-blue {
+    visibility: hidden;
+    opacity: 0;
+    transition: 1s;
+    position: fixed;
+    z-index: -1;
+
+    .bg-animate {
+        transition: 0s;
+    }
+
+    .bg-animate.yellow-blue {
+
+        .line-1 {
+            background-color: #D2C867;
+        }
+        .line-2 {
+            background-color: #D2C867;
+        }
+        .line-3 {
+            background-color: #D2C867;
+        }
+        .line-4 {
+            background-color: #D2C867;
+        }
+        .line-5 {
+            background-color: #D2C867;
+        }
+        .line-6 {
+            background-color:  #184292;
+        }
+        .line-7 {
+            background-color: #184292;
+        }
+        .line-8 {
+            background-color:  #184292;
+        }
+        .line-9 {
+            background-color:  #184292;
+        }
+        .line-10 {
+            background-color: #D2C867;
+        }
+        .line-11 {
+            background-color: #D2C867;
+        }
+        .line-12 {
+            background-color:  #184292;
+        }
+        .line-13 {
+            background-color:  #184292;
+        }
+    }
+}
 

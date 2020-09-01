@@ -39,44 +39,46 @@ let changePaymentMethod = document.querySelector('#changePaymentMethod')
 let addCreditCardSetting = document.querySelector('#addCreditCardSetting')
 let share = document.querySelector('#share')
 let logInPlatformsGames = document.querySelector('#logInPlatformsGames')
+let headerLogo = document.querySelector('.header__logo')
 let arrHeaderMenuMenu = document.querySelectorAll('.header__menu_menu')
 let arrlogInMenu = document.querySelectorAll('.logIn__menu')
 let arrModalWrapp = document.querySelectorAll( '.modal-wrapp' )
 let arrFeedHeaderMenu = document.querySelectorAll( '.feed__header_menu' )
+let bgYellowBlue = document.querySelector( '.bg-yellow-blue' )
 
 document.addEventListener('DOMContentLoaded', function () {
 
     $( '.slider' ).slick( {
-        slidesToShow: 10,
+        slidesToShow: 5,
         slidesToScroll: 1,
         infinite: true,
         swipeToSlide: true,
-        responsive: [
-            {
-                breakpoint: 1600,
-                settings: {
-                    slidesToShow: 7
-                }
-            },
-            {
-                breakpoint: 1500,
-                settings: {
-                    slidesToShow: 6
-                }
-            },
-            {
-                breakpoint: 1300,
-                settings: {
-                    slidesToShow: 5
-                }
-            },
-            {
-                breakpoint: 1180,
-                settings: {
-                    slidesToShow: 4
-                }
-            }
-        ]
+        // responsive: [
+        //     {
+        //         breakpoint: 1600,
+        //         settings: {
+        //             slidesToShow: 7
+        //         }
+        //     },
+        //     {
+        //         breakpoint: 1500,
+        //         settings: {
+        //             slidesToShow: 6
+        //         }
+        //     },
+        //     {
+        //         breakpoint: 1300,
+        //         settings: {
+        //             slidesToShow: 5
+        //         }
+        //     },
+        //     {
+        //         breakpoint: 1180,
+        //         settings: {
+        //             slidesToShow: 4
+        //         }
+        //     }
+        // ]
     } )
 
     function logoAnimate() { // анимицаия лого
@@ -92,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let arrChecked = [] // появление кнопки platforms continue
     let arrPlatforms = document.querySelectorAll('.logIn__platforms-platforms input')
+    let bgRedBlue = document.querySelector('.bg-red-blue')
     let btnPlatforms = document.getElementById('btnPlatforms')
     for(let platform of arrPlatforms) {
         platform.addEventListener('change', function () {
@@ -105,7 +108,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 btnPlatforms.classList.add('animate__fadeInUp')
                 if(window.innerWidth > 767) { //pc
                     btnPlatforms.style.zIndex = ''
-                    logInPlatforms.children[0].style.backgroundColor = 'transparent'
+                    bgRedBlue.style.visibility = 'visible'
+                    bgRedBlue.style.opacity = '1'
                 }
 
             } else {
@@ -116,13 +120,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 },500)
                 if(window.innerWidth > 767) { //pc
                     btnPlatforms.style.zIndex = '-1'
-                    logInPlatforms.children[0].style.backgroundColor = ''
+                    bgRedBlue.style.cssText = ''
                 }
             }
         })
     }
 
-    let arrCheckedGames = [] // появление кнопки platforms continue
+
+    let arrCheckedGames = [] // появление кнопки games continue
     let arrPlatformsGames = document.querySelectorAll('#logInPlatformsGames .cards input')
     let btnPlatformsGames = document.getElementById('btnPlatformsGames')
     for(let platform of arrPlatformsGames) {
@@ -138,10 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 btnPlatformsGames.classList.add('animate__fadeInUp')
                 if(window.innerWidth > 767) {
                     btnPlatformsGames.style.zIndex = ''
-                    logInPlatforms.children[0].style.backgroundColor = 'transparent'
                 }
-
-                console.log(arrCheckedGames.length)
 
             } else {
                 btnPlatformsGames.classList.remove('animate__fadeInUp')
@@ -150,7 +152,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     setTimeout(function () {
                         btnPlatformsGames.style.zIndex = '-1'
                     },500)
-                    logInPlatforms.children[0].style.backgroundColor = ''
                 }
             }
         })
@@ -181,6 +182,10 @@ function next(open, close) { // кнопка далее
         if (open === addCreditCard || open === subscriptionModal) {
             open.style.left = '0'
             close.style.cssText = ''
+            setTimeout(function () {
+                bgYellowBlue.style.visibility = 'visible'
+                bgYellowBlue.style.opacity = '1'
+            },500)
             closeModal(checkEmail)
         } else {
             openModal(open)
@@ -224,6 +229,10 @@ function back(close, open) { // кнопка назад
             closeModal( close )
             openModal( open )
         }
+        if (close === subscriptionModal) {
+            bgYellowBlue.style.cssText = ''
+
+        }
     }
     if (window.innerWidth <= 767) { // mobile
         if (open === subscriptionModal) {
@@ -243,6 +252,7 @@ function openModal(modal) { // modal
     if (window.innerWidth > 767) { //pc
         modal.style.top = '0'
         modal.style.backgroundColor = 'rgba(20,20,20,0.8)'
+        if(headerLogo !== null) headerLogo.style.zIndex = '1'
 
         if (modal === resetPass) {
             logInIn.style.top = ''
@@ -261,6 +271,8 @@ function closeModal(modal) {
     modal.style.transitionProperty = 'background-color, top'
     modal.style.transitionDuration = '.4s, .5s'
     modal.style.transitionDelay = '0s, .2s'
+    if(headerLogo !== null) headerLogo.style.zIndex = ''
+
     setTimeout(function () {
         modal.style.cssText = ''
     },300)
