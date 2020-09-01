@@ -654,7 +654,7 @@
             <div class="modal__content">
                 <div class="platform__title">Partie name</div>
                 <input type="text" placeholder="Add name">
-                <input type="text" placeholder="Add description">
+                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add description"></textarea>
 
                 <div class="hostLiveShow__img">
                     <img src="img/pic/Image (2).png"/>
@@ -680,7 +680,7 @@
                 <div class="hostLiveShow__save">
                     <div>
                         <div class="hostLiveShow__save_title">Save as shortcut</div>
-                        <input class="hostLiveShow__save_desc" placeholder="Description here">
+                        <div class="hostLiveShow__save_desc">Description here</div>
                     </div>
                     <label class="switch">
                         <input type="checkbox">
@@ -1530,11 +1530,11 @@
             <div class="add-credit-card__text">
                 Few words about privacy and something like that and Privacy Policy.
             </div>
-            <input class="card-number" type="number" placeholder="Card number">
-            <input type="text" placeholder="Name on the card">
+            <input class="card-number" type="text" placeholder="Card number">
+            <input class="card-name" type="text" placeholder="Name on the card">
             <div class="add-credit-card__input-group">
-                <input type="number" placeholder="Date">
-                <input type="password" placeholder="CVC" maxlength="3">
+                <input class="input-date" type="text" placeholder="Date">
+                <input class="input-CVC" type="password" placeholder="CVC" maxlength="3">
             </div>
             <a href="#" class="btn bg-fiolet">Confirm</a>
             <div class="subscription__policy">

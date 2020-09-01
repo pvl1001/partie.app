@@ -183,6 +183,11 @@
         height: 64px;
         margin-bottom: 10px;
         font-weight: 400;
+        transition: .3s;
+        
+        &:hover {
+            background-color: rgba(20,19,26,1) !important;
+        }
 
         &:last-child {
             margin-bottom: 0;
@@ -363,6 +368,10 @@
 
 .hostLiveShow {
     //top: 0;
+    textarea {
+        width: 100%;
+        margin-bottom: 38px;
+    }
 
     input {
         border: 0;
@@ -531,8 +540,10 @@
             margin-bottom: 4px;
         }
 
-        input {
-            margin: 0;
+        .hostLiveShow__save_desc {
+            font-size: 13px;
+            line-height: 16px;
+            opacity: 0.5;
         }
     }
 
@@ -561,6 +572,11 @@
         button {
             color: rgba(248, 246, 255, .4);
             font-weight: 400;
+
+            &:hover {
+                background-color: rgba(20,19,26,1);
+                color: rgba(248, 246, 255, .5);
+            }
         }
     }
 }

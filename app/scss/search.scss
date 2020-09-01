@@ -178,15 +178,33 @@
             .tablinks.active:last-child svg path:first-child {
                 fill: #6E4AFF;
             }
+
+            .tablinks:last-child svg path:not(:first-child),
+            .tablinks:last-child svg circle:not(:first-child), {
+                fill: black !important;
+            }
+
+            .tablinks:hover:not(.active) {
+                color: #737180 !important;
+
+                svg path,
+                svg circle {
+                    fill: #737180;
+                }
+            }
         }
 
         .feed__post {
             width: 100%;
-            background: #14131A;
+            background: rgba(20,19,26,.8);
             border-radius: 20px;
             padding: 20px 20px 26px;
             margin-bottom: 20px;
             display: block;
+
+            &:hover {
+                background: rgba(20,19,26,1);
+            }
 
             &:last-child {
                 margin-bottom: 0;
@@ -473,6 +491,11 @@
                 border-radius: 16px;
                 text-align: center;
                 margin-bottom: 20px;
+                transition: .3s;
+
+                &:hover .card__name{
+                    color: rgba(235, 235, 245, 1);
+                }
 
                 img {
                     width: 100%;
@@ -481,6 +504,7 @@
                 .card__name {
                     color: rgba(235, 235, 245, 0.5);
                     margin-top: 20px;
+                    transition: .3s;
                 }
 
                 .card__img {

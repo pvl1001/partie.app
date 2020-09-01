@@ -136,401 +136,406 @@
         </div>
     </div>
     <div class="feed__col2">
-        <div class="feed__header">
-            Setting
-        </div>
-        <div class="tab">
-            <div class="tablinks-setting" id="defaultOpenSetting" onclick="openSetting(event, 'Account')">Account</div>
-            <div class="tablinks-setting" onclick="openSetting(event, 'Preferences')">Preferences</div>
-            <div class="tablinks-setting" onclick="openSetting(event, 'Subscription')">Subscription</div>
-            <div class="tablinks-setting" onclick="openSetting(event, 'Notifications')">Notifications</div>
-            <div class="tablinks-setting" onclick="openSetting(event, 'PrivacySafety')">Privacy & Safety</div>
-            <div class="tablinks-setting" onclick="openSetting(event, 'LinkedAccounts')">Linked accounts</div>
-            <div class="tablinks-setting" onclick="openSetting(event, 'Language')">Language</div>
+        <div class="col2-settings">
+            <div class="col2-settings-wrapp">
+                <div class="feed__header">
+                    Setting
+                </div>
+                <div class="tab">
+                    <div class="tablinks-setting" id="defaultOpenSetting" onclick="openSetting(event, 'Account')">Account</div>
+                    <div class="tablinks-setting" onclick="openSetting(event, 'Preferences')">Preferences</div>
+                    <div class="tablinks-setting" onclick="openSetting(event, 'Subscription')">Subscription</div>
+                    <div class="tablinks-setting" onclick="openSetting(event, 'Notifications')">Notifications</div>
+                    <div class="tablinks-setting" onclick="openSetting(event, 'PrivacySafety')">Privacy & Safety</div>
+                    <div class="tablinks-setting" onclick="openSetting(event, 'LinkedAccounts')">Linked accounts</div>
+                    <div class="tablinks-setting" onclick="openSetting(event, 'Language')">Language</div>
+                </div>
+            </div>
+            <div class="feed__col3">
+                <div id="Account" class="tabcontent-setting">
+                    <div class="feed__col3_header">Account</div>
+                    <form>
+                        <div class="input-box">
+                            <div class="input-box__title">Username</div>
+                            <input type="text">
+                        </div>
+                        <div class="input-box">
+                            <div class="input-box__title">Email</div>
+                            <input type="email">
+                        </div>
+                        <div class="input-box">
+                            <div class="input-box__title">Date of Birth</div>
+                            <input type="text">
+                        </div>
+                        <input type="submit" class="change-password" value="Change password">
+                    </form>
+
+                    <div onclick="openModal(deleteAccount)" class="delete-account">Delete account</div>
+                </div>
+
+                <div id="Preferences" class="tabcontent-setting">
+                    <div class="feed__col3_header">Preferences</div>
+                    <div class="btn-box">
+                        <div class="btn-box__title">
+                            <div class="btn-box__title_title">Plattfform</div>
+                            <div class="btn-box__title_change">Change</div>
+                        </div>
+                        <button class="ps">Playstation</button>
+                    </div>
+
+                    <div class="btn-box">
+                        <div class="btn-box__title">
+                            <div class="btn-box__title_title">Favorite games</div>
+                            <div class="btn-box__title_change">Change</div>
+                        </div>
+                        <button class="game AL">
+                            <div class="game__icon"></div>
+                            Apex Legends
+                        </button>
+                        <button class="game FN">
+                            <div class="game__icon"></div>
+                            Fortnite
+                        </button>
+                    </div>
+                </div>
+
+                <div id="Subscription" class="tabcontent-setting">
+                    <div class="feed__col3_header">Subscription</div>
+                    <div class="subscription__annual">
+                        <div class="subscription__annual-name">
+                            <div class="checkbox-round"></div>
+                            <div>Annual</div>
+                        </div>
+                        <div class="subscription__annual-price">
+                            <div class="">$49.99 annual</div>
+                            <div class="">billed once</div>
+                        </div>
+                    </div>
+                    <div class="subscription__text">Your plan is scheldeled to renew on 23 July 2021</div>
+                    <div onclick="openSettings(subscriptionManage)" class="subscription__manage-btn">Manage subscription</div>
+                    <div class="subscription__manage">
+                        <div class="feed__col3_header">
+                            <svg id="back" onclick="backSettings(subscriptionManage)" class="btn-back" width="24" height="24"
+                                 fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                                <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                            </svg>
+                            Subscription
+                        </div>
+                        <div class="btn-box">
+                            <div class="btn-box__title">
+                                <div class="btn-box__title_title">Payment info</div>
+                            </div>
+                            <div class="subscription__card">
+                                <div class="subscription__card_ending">Mastercard ending in 2345</div>
+                                <div class="subscription__card_expires">Expires: 12/2021</div>
+                            </div>
+                            <div class="subscription__change">Change payment method</div>
+                            <div class="subscription__pay-btns">
+                                <button onclick="openModal(addCreditCardSetting)" class="creditCard">Credit card</button>
+                                <button class="paypal">Paypal</button>
+                            </div>
+                            <div class="subscription__description">Changing payment method would cancel existing subscription
+                                and re-subscribe using the new CC info
+                            </div>
+                            <div onclick="openModal(changePaymentMethod)" class="subscription__manage_cancel">Cancel
+                                subscription
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="Notifications" class="tabcontent-setting">
+                    <div class="feed__col3_header">App Notifications</div>
+                    <div class="notifications__box">
+                        <div class="notifications__row">
+                            <input id="Requests" type="checkbox">
+                            <label for="Requests">
+                                <div class="title">Follow Requests</div>
+                                <div class="description">Notify me of new follow requests</div>
+                            </label>
+                            <label for="Requests" class="switch">
+                                <span class="round"></span>
+                            </label>
+                        </div>
+                        <div class="notifications__row">
+                            <input id="Chats" type="checkbox">
+                            <label for="Chats">
+                                <div class="title">Chats</div>
+                                <div class="description">Notify me of new messages</div>
+                            </label>
+                            <label for="Chats" class="switch">
+                                <span class="round"></span>
+                            </label>
+                        </div>
+                        <div class="notifications__row">
+                            <input id="NewParties" type="checkbox">
+                            <label for="NewParties">
+                                <div class="title">New Parties</div>
+                                <div class="description">Notify me when friends start a Partie</div>
+                            </label>
+                            <label for="NewParties" class="switch">
+                                <span class="round"></span>
+                            </label>
+                        </div>
+                        <div class="notifications__row">
+                            <input id="PartieInvites" type="checkbox">
+                            <label for="PartieInvites">
+                                <div class="title">Partie invites</div>
+                                <div class="description">Notify me when friends start a Partie</div>
+                            </label>
+                            <label for="PartieInvites" class="switch">
+                                <span class="round"></span>
+                            </label>
+                        </div>
+                        <div class="notifications__row">
+                            <input id="Something" type="checkbox">
+                            <label for="Something">
+                                <div class="title">Something</div>
+                                <div class="description">Pew pew one more</div>
+                            </label>
+                            <label for="Something" class="switch">
+                                <span class="round"></span>
+                            </label>
+                        </div>
+                        <div class="notifications__row">
+                            <div onclick="openSettings(emailNotificationsPage)" class="pointer">
+                                <div class="title">Email Notifications</div>
+                                <div class="description">Some notifications on</div>
+                            </div>
+                            <div class="arrow">
+                                <img src="img/icon/arrow-right.png" width="9"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="email-notifications-page">
+                        <div class="feed__col3_header">
+                            <svg id="back" onclick="backSettings(emailNotificationsPage)" class="btn-back" width="24" height="24"
+                                 fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                                <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                            </svg>
+                            Email Notifications
+                        </div>
+                        <div class="notifications__box">
+                            <div class="notifications__row">
+                                <input id="Request" type="checkbox">
+                                <label for="Request">
+                                    <div class="title">Follow Requests</div>
+                                    <div class="description">Notify me of new follow requests</div>
+                                </label>
+                                <label for="Request" class="switch">
+                                    <span class="round"></span>
+                                </label>
+                            </div>
+                            <div class="notifications__row">
+                                <input id="Chat" type="checkbox">
+                                <label for="Chat">
+                                    <div class="title">Chats</div>
+                                    <div class="description">Notify me of new messages</div>
+                                </label>
+                                <label for="Chat" class="switch">
+                                    <span class="round"></span>
+                                </label>
+                            </div>
+                            <div class="notifications__row">
+                                <input id="NewPartie" type="checkbox">
+                                <label for="NewPartie">
+                                    <div class="title">New Parties</div>
+                                    <div class="description">Notify me when friends start a Partie</div>
+                                </label>
+                                <label for="NewPartie" class="switch">
+                                    <span class="round"></span>
+                                </label>
+                            </div>
+                            <div class="notifications__row">
+                                <input id="PartieInvite" type="checkbox">
+                                <label for="PartieInvite">
+                                    <div class="title">Partie invites</div>
+                                    <div class="description">Notify me when friends start a Partie</div>
+                                </label>
+                                <label for="PartieInvite" class="switch">
+                                    <span class="round"></span>
+                                </label>
+                            </div>
+                            <div class="notifications__row">
+                                <input id="Somethin" type="checkbox">
+                                <label for="Somethin">
+                                    <div class="title">Something</div>
+                                    <div class="description">Pew pew one more</div>
+                                </label>
+                                <label for="Somethin" class="switch">
+                                    <span class="round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="PrivacySafety" class="tabcontent-setting">
+                    <div class="feed__col3_header">Privacy & Safety</div>
+                    <div class="appear-offline">
+                        <input id="Offline" type="checkbox">
+                        <label for="Offline">
+                            <div class="title">Appear Offline</div>
+                            <div class="description">Description here</div>
+                        </label>
+                        <label for="Offline" class="switch">
+                            <span class="round"></span>
+                        </label>
+                    </div>
+                    <div class="private-account">
+                        <div class="title">Private account</div>
+                        <div class="description">When your account is private, only people you approve can seen your parties and
+                            posts in your profile.
+                        </div>
+                        <div class="form">
+                            <div class="input-row">
+                                <input id="private-1" name="privateAccount" type="radio">
+                                <label for="private-1">Everyone</label>
+                                <label class="checkbox" for="private-1"></label>
+                            </div>
+
+                            <div class="input-row">
+                                <input id="private-2" name="privateAccount" type="radio">
+                                <label for="private-2">Followers only</label>
+                                <label class="checkbox" for="private-2"></label>
+                            </div>
+
+                            <div class="input-row">
+                                <input id="private-3" name="privateAccount" type="radio">
+                                <label for="private-3">Only me</label>
+                                <label class="checkbox" for="private-3"></label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="gamertag-privacy">
+                        <div class="title">Gamertag Privacy</div>
+                        <div class="description">When your account is private, only people you approve can seen your parties and posts
+                            in your profile.
+                        </div>
+                        <div class="form">
+                            <div class="input-row">
+                                <input id="privateGamertag-1" name="privateGamertag" type="radio">
+                                <label for="privateGamertag-1">Everyone</label>
+                                <label class="checkbox" for="privateGamertag-1"></label>
+                            </div>
+
+                            <div class="input-row">
+                                <input id="privateGamertag-2" name="privateGamertag" type="radio">
+                                <label for="privateGamertag-2">Followers only</label>
+                                <label class="checkbox" for="privateGamertag-2"></label>
+                            </div>
+
+                            <div class="input-row">
+                                <input id="privateGamertag-3" name="privateGamertag" type="radio">
+                                <label for="privateGamertag-3">Only me</label>
+                                <label class="checkbox" for="privateGamertag-3"></label>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div onclick="openSettings(mutedAccountsPage)" class="muted-accounts">Muted Accounts</div>
+                    <div onclick="openSettings(blockedAccountsPage)" class="blocked-accounts">Blocked Accounts</div>
+                    <div class="muted-accounts-page">
+                        <div class="feed__col3_header">
+                            <svg id="back" onclick="backSettings(mutedAccountsPage)" class="btn-back" width="24" height="24"
+                                 fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                                <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                            </svg>
+                            Muted Accounts
+                        </div>
+                        <div class="user">
+                            <div class="avatar"></div>
+                            <div>
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </div>
+                        <div class="user">
+                            <div class="avatar"></div>
+                            <div>
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </div>
+                        <div class="user">
+                            <div class="avatar"></div>
+                            <div>
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </div>
+                        <div class="user">
+                            <div class="avatar"></div>
+                            <div>
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </div>
+                        <div class="user">
+                            <div class="avatar"></div>
+                            <div>
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="blocked-accounts-page">
+                        <div class="feed__col3_header">
+                            <svg id="back" onclick="backSettings(blockedAccountsPage)" class="btn-back" width="24" height="24"
+                                 fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                                <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                            </svg>
+                            Blocked Accounts
+                        </div>
+                        <div class="blocked-accounts__container">
+                            <div class="blocked-accounts__img"></div>
+                            <div class="blocked-accounts__title">No one here</div>
+                            <div class="blocked-accounts__description">You have not blocked anyone.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="LinkedAccounts" class="tabcontent-setting">
+                    <div class="feed__col3_header">Linked Accounts</div>
+                </div>
+
+                <div id="Language" class="tabcontent-setting">
+                    <div class="feed__col3_header">Language</div>
+
+                    <div class="form">
+                        <div class="input-row">
+                            <input id="English" name="privateAccount" type="radio">
+                            <label for="English">English</label>
+                            <label class="checkbox" for="English"></label>
+                        </div>
+
+                        <div class="input-row">
+                            <input id="Estonian" name="privateAccount" type="radio">
+                            <label for="Estonian">Estonian</label>
+                            <label class="checkbox" for="Estonian"></label>
+                        </div>
+
+                        <div class="input-row">
+                            <input id="Portuguese" name="privateAccount" type="radio">
+                            <label for="Portuguese">Portuguese (BRA)</label>
+                            <label class="checkbox" for="Portuguese"></label>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
-    <div class="feed__col3">
-        <div id="Account" class="tabcontent-setting">
-            <div class="feed__col3_header">Account</div>
-            <form>
-                <div class="input-box">
-                    <div class="input-box__title">Username</div>
-                    <input type="text">
-                </div>
-                <div class="input-box">
-                    <div class="input-box__title">Email</div>
-                    <input type="email">
-                </div>
-                <div class="input-box">
-                    <div class="input-box__title">Date of Birth</div>
-                    <input type="text">
-                </div>
-                <input type="submit" class="change-password" value="Change password">
-            </form>
-
-            <div onclick="openModal(deleteAccount)" class="delete-account">Delete account</div>
-        </div>
-
-        <div id="Preferences" class="tabcontent-setting">
-            <div class="feed__col3_header">Preferences</div>
-            <div class="btn-box">
-                <div class="btn-box__title">
-                    <div class="btn-box__title_title">Platform</div>
-                    <div class="btn-box__title_change">Change</div>
-                </div>
-                <button class="ps">Playstation</button>
-            </div>
-
-            <div class="btn-box">
-                <div class="btn-box__title">
-                    <div class="btn-box__title_title">Favorite games</div>
-                    <div class="btn-box__title_change">Change</div>
-                </div>
-                <button class="game AL">
-                    <div class="game__icon"></div>
-                    Apex Legends
-                </button>
-                <button class="game FN">
-                    <div class="game__icon"></div>
-                    Fortnite
-                </button>
-            </div>
-        </div>
-
-        <div id="Subscription" class="tabcontent-setting">
-            <div class="feed__col3_header">Subscription</div>
-            <div class="subscription__annual">
-                <div class="subscription__annual-name">
-                    <div class="checkbox-round"></div>
-                    <div>Annual</div>
-                </div>
-                <div class="subscription__annual-price">
-                    <div class="">$49.99 annual</div>
-                    <div class="">billed once</div>
-                </div>
-            </div>
-            <div class="subscription__text">Your plan is scheldeled to renew on 23 July 2021</div>
-            <div onclick="openSettings(subscriptionManage)" class="subscription__manage-btn">Manage subscription</div>
-            <div class="subscription__manage">
-                <div class="feed__col3_header">
-                    <svg id="back" onclick="backSettings(subscriptionManage)" class="btn-back" width="24" height="24"
-                         fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
-                        <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
-                    </svg>
-                    Subscription
-                </div>
-                <div class="btn-box">
-                    <div class="btn-box__title">
-                        <div class="btn-box__title_title">Payment info</div>
-                    </div>
-                    <div class="subscription__card">
-                        <div class="subscription__card_ending">Mastercard ending in 2345</div>
-                        <div class="subscription__card_expires">Expires: 12/2021</div>
-                    </div>
-                    <div class="subscription__change">Change payment method</div>
-                    <div class="subscription__pay-btns">
-                        <button onclick="openModal(addCreditCardSetting)" class="creditCard">Credit card</button>
-                        <button class="paypal">Paypal</button>
-                    </div>
-                    <div class="subscription__description">Changing payment method would cancel existing subscription
-                        and re-subscribe using the new CC info
-                    </div>
-                    <div onclick="openModal(changePaymentMethod)" class="subscription__manage_cancel">Cancel
-                        subscription
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div id="Notifications" class="tabcontent-setting">
-            <div class="feed__col3_header">App Notifications</div>
-            <div class="notifications__box">
-                <div class="notifications__row">
-                    <input id="Requests" type="checkbox">
-                    <label for="Requests">
-                        <div class="title">Follow Requests</div>
-                        <div class="description">Notify me of new follow requests</div>
-                    </label>
-                    <label for="Requests" class="switch">
-                        <span class="round"></span>
-                    </label>
-                </div>
-                <div class="notifications__row">
-                    <input id="Chats" type="checkbox">
-                    <label for="Chats">
-                        <div class="title">Chats</div>
-                        <div class="description">Notify me of new messages</div>
-                    </label>
-                    <label for="Chats" class="switch">
-                        <span class="round"></span>
-                    </label>
-                </div>
-                <div class="notifications__row">
-                    <input id="NewParties" type="checkbox">
-                    <label for="NewParties">
-                        <div class="title">New Parties</div>
-                        <div class="description">Notify me when friends start a Partie</div>
-                    </label>
-                    <label for="NewParties" class="switch">
-                        <span class="round"></span>
-                    </label>
-                </div>
-                <div class="notifications__row">
-                    <input id="PartieInvites" type="checkbox">
-                    <label for="PartieInvites">
-                        <div class="title">Partie invites</div>
-                        <div class="description">Notify me when friends start a Partie</div>
-                    </label>
-                    <label for="PartieInvites" class="switch">
-                        <span class="round"></span>
-                    </label>
-                </div>
-                <div class="notifications__row">
-                    <input id="Something" type="checkbox">
-                    <label for="Something">
-                        <div class="title">Something</div>
-                        <div class="description">Pew pew one more</div>
-                    </label>
-                    <label for="Something" class="switch">
-                        <span class="round"></span>
-                    </label>
-                </div>
-                <div class="notifications__row">
-                    <div onclick="openSettings(emailNotificationsPage)" class="pointer">
-                        <div class="title">Email Notifications</div>
-                        <div class="description">Some notifications on</div>
-                    </div>
-                    <div class="arrow">
-                        <img src="img/icon/arrow-right.png" width="9"/>
-                    </div>
-                </div>
-            </div>
-            <div class="email-notifications-page">
-                <div class="feed__col3_header">
-                    <svg id="back" onclick="backSettings(emailNotificationsPage)" class="btn-back" width="24" height="24"
-                         fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
-                        <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
-                    </svg>
-                    Email Notifications
-                </div>
-                <div class="notifications__box">
-                    <div class="notifications__row">
-                        <input id="Request" type="checkbox">
-                        <label for="Request">
-                            <div class="title">Follow Requests</div>
-                            <div class="description">Notify me of new follow requests</div>
-                        </label>
-                        <label for="Request" class="switch">
-                            <span class="round"></span>
-                        </label>
-                    </div>
-                    <div class="notifications__row">
-                        <input id="Chat" type="checkbox">
-                        <label for="Chat">
-                            <div class="title">Chats</div>
-                            <div class="description">Notify me of new messages</div>
-                        </label>
-                        <label for="Chat" class="switch">
-                            <span class="round"></span>
-                        </label>
-                    </div>
-                    <div class="notifications__row">
-                        <input id="NewPartie" type="checkbox">
-                        <label for="NewPartie">
-                            <div class="title">New Parties</div>
-                            <div class="description">Notify me when friends start a Partie</div>
-                        </label>
-                        <label for="NewPartie" class="switch">
-                            <span class="round"></span>
-                        </label>
-                    </div>
-                    <div class="notifications__row">
-                        <input id="PartieInvite" type="checkbox">
-                        <label for="PartieInvite">
-                            <div class="title">Partie invites</div>
-                            <div class="description">Notify me when friends start a Partie</div>
-                        </label>
-                        <label for="PartieInvite" class="switch">
-                            <span class="round"></span>
-                        </label>
-                    </div>
-                    <div class="notifications__row">
-                        <input id="Somethin" type="checkbox">
-                        <label for="Somethin">
-                            <div class="title">Something</div>
-                            <div class="description">Pew pew one more</div>
-                        </label>
-                        <label for="Somethin" class="switch">
-                            <span class="round"></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="PrivacySafety" class="tabcontent-setting">
-            <div class="feed__col3_header">Privacy & Safety</div>
-            <div class="appear-offline">
-                <input id="Offline" type="checkbox">
-                <label for="Offline">
-                    <div class="title">Appear Offline</div>
-                    <div class="description">Description here</div>
-                </label>
-                <label for="Offline" class="switch">
-                    <span class="round"></span>
-                </label>
-            </div>
-            <div class="private-account">
-                <div class="title">Private account</div>
-                <div class="description">When your account is private, only people you approve can seen your parties and
-                    posts in your profile.
-                </div>
-                <div class="form">
-                    <div class="input-row">
-                        <input id="private-1" name="privateAccount" type="radio">
-                        <label for="private-1">Everyone</label>
-                        <label class="checkbox" for="private-1"></label>
-                    </div>
-
-                    <div class="input-row">
-                        <input id="private-2" name="privateAccount" type="radio">
-                        <label for="private-2">Followers only</label>
-                        <label class="checkbox" for="private-2"></label>
-                    </div>
-
-                    <div class="input-row">
-                        <input id="private-3" name="privateAccount" type="radio">
-                        <label for="private-3">Only me</label>
-                        <label class="checkbox" for="private-3"></label>
-                    </div>
-
-                </div>
-            </div>
-            <div class="gamertag-privacy">
-                <div class="title">Gamertag Privacy</div>
-                <div class="description">When your account is private, only people you approve can seen your parties and posts
-                    in your profile.
-                </div>
-                <div class="form">
-                    <div class="input-row">
-                        <input id="privateGamertag-1" name="privateGamertag" type="radio">
-                        <label for="privateGamertag-1">Everyone</label>
-                        <label class="checkbox" for="privateGamertag-1"></label>
-                    </div>
-
-                    <div class="input-row">
-                        <input id="privateGamertag-2" name="privateGamertag" type="radio">
-                        <label for="privateGamertag-2">Followers only</label>
-                        <label class="checkbox" for="privateGamertag-2"></label>
-                    </div>
-
-                    <div class="input-row">
-                        <input id="privateGamertag-3" name="privateGamertag" type="radio">
-                        <label for="privateGamertag-3">Only me</label>
-                        <label class="checkbox" for="privateGamertag-3"></label>
-                    </div>
-
-                </div>
-
-            </div>
-            <div onclick="openSettings(mutedAccountsPage)" class="muted-accounts">Muted Accounts</div>
-            <div onclick="openSettings(blockedAccountsPage)" class="blocked-accounts">Blocked Accounts</div>
-            <div class="muted-accounts-page">
-                <div class="feed__col3_header">
-                    <svg id="back" onclick="backSettings(mutedAccountsPage)" class="btn-back" width="24" height="24"
-                         fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
-                        <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
-                    </svg>
-                    Muted Accounts
-                </div>
-                <div class="user">
-                    <div class="avatar"></div>
-                    <div>
-                        <div class="user__name">gboy6827</div>
-                        <div class="user__level">54 level</div>
-                    </div>
-                </div>
-                <div class="user">
-                    <div class="avatar"></div>
-                    <div>
-                        <div class="user__name">gboy6827</div>
-                        <div class="user__level">54 level</div>
-                    </div>
-                </div>
-                <div class="user">
-                    <div class="avatar"></div>
-                    <div>
-                        <div class="user__name">gboy6827</div>
-                        <div class="user__level">54 level</div>
-                    </div>
-                </div>
-                <div class="user">
-                    <div class="avatar"></div>
-                    <div>
-                        <div class="user__name">gboy6827</div>
-                        <div class="user__level">54 level</div>
-                    </div>
-                </div>
-                <div class="user">
-                    <div class="avatar"></div>
-                    <div>
-                        <div class="user__name">gboy6827</div>
-                        <div class="user__level">54 level</div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="blocked-accounts-page">
-                <div class="feed__col3_header">
-                    <svg id="back" onclick="backSettings(blockedAccountsPage)" class="btn-back" width="24" height="24"
-                         fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
-                        <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
-                    </svg>
-                    Blocked Accounts
-                </div>
-                <div class="blocked-accounts__container">
-                    <div class="blocked-accounts__img"></div>
-                    <div class="blocked-accounts__title">No one here</div>
-                    <div class="blocked-accounts__description">You have not blocked anyone.</div>
-                </div>
-            </div>
-        </div>
-
-        <div id="LinkedAccounts" class="tabcontent-setting">
-            <div class="feed__col3_header">Linked Accounts</div>
-        </div>
-
-        <div id="Language" class="tabcontent-setting">
-            <div class="feed__col3_header">Language</div>
-
-            <div class="form">
-                <div class="input-row">
-                    <input id="English" name="privateAccount" type="radio">
-                    <label for="English">English</label>
-                    <label class="checkbox" for="English"></label>
-                </div>
-
-                <div class="input-row">
-                    <input id="Estonian" name="privateAccount" type="radio">
-                    <label for="Estonian">Estonian</label>
-                    <label class="checkbox" for="Estonian"></label>
-                </div>
-
-                <div class="input-row">
-                    <input id="Portuguese" name="privateAccount" type="radio">
-                    <label for="Portuguese">Portuguese (BRA)</label>
-                    <label class="checkbox" for="Portuguese"></label>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
+    <div class="feed__col3"></div>
 </div>
 
 
