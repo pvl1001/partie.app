@@ -9240,9 +9240,9 @@ svg circle {
     z-index: 11;
     opacity: 0;
     visibility: hidden;
-    -webkit-transition: .3s ease;
-    -o-transition: .3s ease;
-    transition: .3s ease;
+    -webkit-transition: opacity .3s ease;
+    -o-transition: opacity .3s ease;
+    transition: opacity .3s ease;
   }
 
   .header__menu_menu ul {

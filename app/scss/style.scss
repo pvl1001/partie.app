@@ -1018,7 +1018,7 @@ textarea {
         z-index: 11;
         opacity: 0;
         visibility: hidden;
-        transition: .3s ease;
+        transition: opacity .3s ease;
 
 
         ul {

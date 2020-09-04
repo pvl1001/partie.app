@@ -282,24 +282,29 @@ function closeModal(modal) {
 
 }
 
-// for (let modalWrapp of arrModalWrapp) { // close modal target
-//     modalWrapp.onclick = function (e) {
-//         if (e.target === modalWrapp) {
-//             modalWrapp.style.cssText = ''
-//             setTimeout(function () {
-//                 modalWrapp.style.cssText = ''
-//             },300)
-//         }
-//     }
-// }
- if (window.innerWidth >=768)
-for (let feedHeaderMenu of arrFeedHeaderMenu) {
-    feedHeaderMenu.addEventListener( 'click', function () {
-        this.style.backgroundColor = '#19181F'
-        this.children[0].style.visibility = 'visible'
-        this.children[0].style.opacity = '1'
-    } )
+
+
+
+
+let arrHeedHeaderMenu = document.querySelectorAll('.feed__header_menu')
+let postMenu = document.querySelector('#postMenu')
+
+if (window.innerWidth >=768) {
+    for (let el of arrHeedHeaderMenu) {
+
+        el.onclick = function() {
+            let x = el.getBoundingClientRect()
+            postMenu.style.position = 'fixed'
+            postMenu.style.left = x.left + 'px'
+            postMenu.style.top = x.top +42 + 'px'
+            postMenu.style.visibility = 'visible'
+            postMenu.style.opacity = '1'
+        }
+    }
 }
+
+
+
 let arrHeaderMenu = document.querySelectorAll('.header__menu_menu')
 for(let headerMenu of  arrHeaderMenu) {
     window.addEventListener('click', function (e) {
@@ -587,13 +592,11 @@ function isNewComment() {
 }
 
 
-let global = document.querySelector( '.global' )
-let forYou = document.querySelector( '.for-you' )
+let partieTab = document.querySelector( '.feed__col2.partie-tab' )
 let newActivePartie = document.querySelector( '.new-active-partie' )
 
 function openActivePartie() {
-    global.style.display = 'none'
-    forYou.style.display = 'none'
+    partieTab.style.display = 'none'
     newActivePartie.style.display = 'flex'
 }
 
@@ -684,9 +687,6 @@ if (window.innerWidth <= 767) {
 //             commentsCommentReply.style.display = ''
 //         }
 //     }
-// }
-
-
 
 
 
@@ -965,9 +965,11 @@ function showBtnGametrag(el) {
 
 
 let profileProgressModal = document.querySelector('#profileProgress .modal')
+if(profileProgressModal !== null) {
+    profileProgressModal.addEventListener('touchstart', handleTouchStart, false);
+    profileProgressModal.addEventListener('touchmove', handleTouchMove, false);
+}
 
-profileProgressModal.addEventListener('touchstart', handleTouchStart, false);
-profileProgressModal.addEventListener('touchmove', handleTouchMove, false);
 var xDown = null;
 var yDown = null;
 function getTouches(evt) {

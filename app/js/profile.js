@@ -271,9 +271,11 @@ function showBtnGametrag(el) {
 
 
 let profileProgressModal = document.querySelector('#profileProgress .modal')
+if(profileProgressModal !== null) {
+    profileProgressModal.addEventListener('touchstart', handleTouchStart, false);
+    profileProgressModal.addEventListener('touchmove', handleTouchMove, false);
+}
 
-profileProgressModal.addEventListener('touchstart', handleTouchStart, false);
-profileProgressModal.addEventListener('touchmove', handleTouchMove, false);
 var xDown = null;
 var yDown = null;
 function getTouches(evt) {

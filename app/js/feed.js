@@ -56,13 +56,11 @@ function isNewComment() {
 }
 
 
-let global = document.querySelector( '.global' )
-let forYou = document.querySelector( '.for-you' )
+let partieTab = document.querySelector( '.feed__col2.partie-tab' )
 let newActivePartie = document.querySelector( '.new-active-partie' )
 
 function openActivePartie() {
-    global.style.display = 'none'
-    forYou.style.display = 'none'
+    partieTab.style.display = 'none'
     newActivePartie.style.display = 'flex'
 }
 
@@ -153,9 +151,6 @@ if (window.innerWidth <= 767) {
 //             commentsCommentReply.style.display = ''
 //         }
 //     }
-// }
-
-
 
 
 
