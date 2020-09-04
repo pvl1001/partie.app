@@ -16,6 +16,18 @@
 </a>
 @@include('_bg-animation.html')
 
+<div class="btn-container-wrapp">
+    <div id="btnSocialMobile" class="btn-container-show animate__animated">
+        <button id="btnAppleMobile" class="btn-apple">Log in with Apple</button>
+        <button id="btnGoogleMobile" class="btn-google animate__animated">Log in with
+            Google
+        </button>
+        <button id="btnFacebookMobile" class="btn-facebook animate__animated">Connect with
+            Facebook
+        </button>
+    </div>
+</div>
+
 <div class="wrapper">
     <!--header-->
     <div class="header">
@@ -85,8 +97,8 @@
         </div>
 
         <div class="logIn__menu animate__animated animate__fadeInUp">
-            <button id="signUp" onclick="next(signUpPage)" class="bg-fiolet">Sign up to Partie</button>
-            <button onclick="next(logInIn)" class="btn-in">Log in</button>
+            <button id="signUp" onclick="openModal(signUpPage)" class="bg-fiolet">Sign up to Partie</button>
+            <button onclick="openModal(logInIn)" class="btn-in">Log in</button>
             <div class="or"><span>or</span></div>
 
             <div id="btnContainer" class="btn-container">
@@ -97,17 +109,17 @@
             </div>
         </div>
         <div id="bgShow" class="bg-btn-container-show"></div>
-        <div class="btn-container-wrapp">
-            <div id="btnSocial" class="btn-container-show animate__animated">
-                <!--                <button id="btnApple" class="btn-apple">Log in with Apple</button>-->
-                <button id="btnGoogle2" class="btn-google animate__animated">Log in with
-                    Google
-                </button>
-                <button id="btnFacebook2" class="btn-facebook animate__animated">Connect with
-                    Facebook
-                </button>
-            </div>
-        </div>
+<!--        <div class="btn-container-wrapp">-->
+<!--            <div id="btnSocial" class="btn-container-show animate__animated">-->
+<!--                &lt;!&ndash;                <button id="btnApple" class="btn-apple">Log in with Apple</button>&ndash;&gt;-->
+<!--                <button id="btnGoogle2" class="btn-google animate__animated">Log in with-->
+<!--                    Google-->
+<!--                </button>-->
+<!--                <button id="btnFacebook2" class="btn-facebook animate__animated">Connect with-->
+<!--                    Facebook-->
+<!--                </button>-->
+<!--            </div>-->
+<!--        </div>-->
 
         <!--        @@include('_loginButtons.html')-->
 
@@ -184,7 +196,7 @@
                     <div class="logIn__code_code">
                         <input autofocus placeholder="Enter code" type="number">
                     </div>
-                    <div class="logInCode__past">Past</div>
+                    <div class="logInCode__past">Paste</div>
                     <button id="btnCode" onclick="next(logInPlatforms, logInCode)" class="bg-fiolet">Continue</button>
                 </form>
 
@@ -391,7 +403,65 @@
         </div>
 
 
-        <!--logInIn-->
+
+<!--resetPass-->
+        <div id="resetPass" class="modal-wrapp">
+            <div class="logIn__reset-pass center modal">
+
+                <div class="sign-up__top d-block">
+                    <span>Reset Password</span>
+                    <!--                    <div class="password-reseted">Password reseted</div>-->
+                    <svg id="back" onclick="back(resetPass, logInIn)" class="btn-back" width="24" height="24"
+                         fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"/>
+                        <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"/>
+                    </svg>
+                </div>
+
+                <form onsubmit="return false;" class="sign-up__forms">
+                    <div class="sign-up__form">
+                        <div class="title">Email</div>
+                        <input placeholder="Enter email" type="text">
+                        <div class="hint animate__animated animate__fadeInDown">Enter the email address
+                            associated with your account.
+                        </div>
+                    </div>
+                </form>
+                <button onclick="next(checkEmail, resetPass)" class="bg-fiolet">Reset Password</button>
+                <div class="need-help">Need help? Contact Us</div>
+            </div>
+        </div>
+<!--logIn__check-email-->
+        <div id="checkEmail" class="modal-wrapp">
+            <div class="logIn__check-email center modal">
+                <div class="sign-up__top">
+                    <svg id="back" onclick="back(checkEmail, resetPass)" class="btn-back" width="24" height="24"
+                         fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"/>
+                        <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="pc-wrapper">
+                    <div class="logIn__check-email_cont">
+                        <img src="img/pic/checkemail.png" width="100%"/>
+                        <div class="title">Check your email</div>
+                        <div class="description">An email was sent to janecooper@gmail.com, tap to link to
+                            create
+                            new
+                            Partie
+                            password
+                        </div>
+                    </div>
+                    <button class="bg-fiolet">
+                        Dismiss
+                    </button>
+                    <div class="need-help">Need help? Contact Us</div>
+                </div>
+            </div>
+        </div>
+<!--logInIn-->
         <div id="logInIn" class="modal-wrapp">
             <div class="logIn__in center modal">
                 <div class="sign-up__tab">
@@ -408,7 +478,7 @@
 
                 <div class="sign-up__top">
                     Log in to Partie
-                    <svg id="back" onclick="back(logInIn)" class="btn-back" width="24" height="24" fill="none"
+                    <svg id="back" onclick="closeModal(logInIn)" class="btn-back" width="24" height="24" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"/>
                         <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"/>
@@ -437,69 +507,25 @@
                     <div id="btnContainer" class="btn-container">
                         <button id="btnApple" class="btn-apple">Log in with Apple</button>
                     </div>
+
+                    <div class="btn-container-wrapp">
+                        <div id="btnSocial" class="btn-container-show animate__animated">
+                            <!--                <button id="btnApple" class="btn-apple">Log in with Apple</button>-->
+                            <button id="btnGoogle2" class="btn-google animate__animated">Log in with
+                                Google
+                            </button>
+                            <button id="btnFacebook2" class="btn-facebook animate__animated">Connect with
+                                Facebook
+                            </button>
+                        </div>
+                    </div>
+
                     <div id="showAll" class="show-all">
                         <a href="#" onclick="showAllBtns()">Show all</a>
                     </div>
                 </div>
                 @@include('_loginButtons.html')
 
-                <!--logIn__reset-pass-->
-                <div id="resetPass" class="modal-wrapp">
-                    <div class="logIn__reset-pass center modal">
-
-                        <div class="sign-up__top d-block">
-                            <span>Reset Password</span>
-                            <!--                    <div class="password-reseted">Password reseted</div>-->
-                            <svg id="back" onclick="back(resetPass, logInIn)" class="btn-back" width="24" height="24"
-                                 fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"/>
-                                <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"/>
-                            </svg>
-                        </div>
-
-                        <form onsubmit="return false;" class="sign-up__forms">
-                            <div class="sign-up__form">
-                                <div class="title">Email</div>
-                                <input placeholder="Enter email" type="text">
-                                <div class="hint animate__animated animate__fadeInDown">Enter the email address
-                                    associated with your account.
-                                </div>
-                            </div>
-                        </form>
-                        <button onclick="next(checkEmail, resetPass)" class="bg-fiolet">Reset Password</button>
-                        <div class="need-help">Need help? Contact Us</div>
-                    </div>
-                </div>
-                <!--logIn__check-email-->
-                <div id="checkEmail" class="modal-wrapp">
-                    <div class="logIn__check-email center modal">
-                        <div class="sign-up__top">
-                            <svg id="back" onclick="back(checkEmail)" class="btn-back" width="24" height="24"
-                                 fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"/>
-                                <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <div class="pc-wrapper">
-                            <div class="logIn__check-email_cont">
-                                <img src="img/pic/checkemail.png" width="100%"/>
-                                <div class="title">Check your email</div>
-                                <div class="description">An email was sent to janecooper@gmail.com, tap to link to
-                                    create
-                                    new
-                                    Partie
-                                    password
-                                </div>
-                            </div>
-                            <button class="bg-fiolet">
-                                Open email app
-                            </button>
-                            <div class="need-help">Need help? Contact Us</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -522,7 +548,7 @@
         </div>
 
         <form onsubmit="return false;" id="subscriptionModal" class="modal-wrapp">
-            <div onclick="back(subscriptionModal, logInIn)" class="btn-back"></div>
+            <div onclick="closeModal(subscriptionModal)" class="btn-back"></div>
             <div class="subscription__modal center modal">
                 <div class="subscription__title">Partie Subscriptions</div>
                 <div class="radio-group">
@@ -637,13 +663,30 @@
                     <input class="input-date" type="text" placeholder="Date">
                     <input class="input-CVC" type="password" placeholder="CVC" maxlength="3">
                 </div>
-                <a href="/feed.html" class="btn">Confirm</a>
+                <button onclick="next(welcomeMobile, addCreditCard)" >Confirm</button>
                 <div class="subscription__policy">
                     By signing up, your agree to Partie’s <span>Terms and Conditions</span>,<br>
                     End-User License Agreement and Privacy Policy.
                 </div>
             </div>
         </form>
+
+        <div id="welcomeMobile" class="modal-wrapp">
+            <div class="logIn__check-email center modal">
+                <div class="pc-wrapper">
+                    <div class="logIn__check-email_cont">
+                        <img src="img/pic/checkemail.png" width="100%"/>
+                        <div class="title">Welcome to the Partie</div>
+                        <div class="description">
+                            Few words about privacy and something like that and Privacy Policy.
+                        </div>
+                    </div>
+                    <a href="/feed.html" class="btn bg-fiolet">
+                        Start
+                    </a>
+                </div>
+            </div>
+        </div>
 
     </div>
 

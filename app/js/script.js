@@ -40,11 +40,14 @@ let addCreditCardSetting = document.querySelector('#addCreditCardSetting')
 let share = document.querySelector('#share')
 let logInPlatformsGames = document.querySelector('#logInPlatformsGames')
 let headerLogo = document.querySelector('.header__logo')
-let arrHeaderMenuMenu = document.querySelectorAll('.header__menu_menu')
 let arrlogInMenu = document.querySelectorAll('.logIn__menu')
 let arrModalWrapp = document.querySelectorAll( '.modal-wrapp' )
 let arrFeedHeaderMenu = document.querySelectorAll( '.feed__header_menu' )
 let bgYellowBlue = document.querySelector( '.bg-yellow-blue' )
+let welcomeMobile = document.querySelector( '#welcomeMobile' )
+let gamertags = document.querySelector( '#gamertags' )
+let preferencesModal = document.querySelector( '#preferencesModal' )
+let unfollow = document.querySelector( '#unfollow' )
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -59,32 +62,14 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesToScroll: 1,
         infinite: true,
         swipeToSlide: true,
-        // responsive: [
-        //     {
-        //         breakpoint: 1600,
-        //         settings: {
-        //             slidesToShow: 7
-        //         }
-        //     },
-        //     {
-        //         breakpoint: 1500,
-        //         settings: {
-        //             slidesToShow: 6
-        //         }
-        //     },
-        //     {
-        //         breakpoint: 1300,
-        //         settings: {
-        //             slidesToShow: 5
-        //         }
-        //     },
-        //     {
-        //         breakpoint: 1180,
-        //         settings: {
-        //             slidesToShow: 4
-        //         }
-        //     }
-        // ]
+        responsive: [
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 3
+                }
+            }
+        ]
     } )
 
     function logoAnimate() { // анимицаия лого
@@ -165,16 +150,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 })
 
-function next(open, close) { // кнопка далее
+function next(open, close) {
 
     if (window.innerWidth <= 767) { // mobile
-        open.children[0].style.left = '0'
-        setTimeout(function () {
-            close.style.top = '-200%'
-        }, 500)
 
-        if (open === addCreditCard || open === subscriptionModal) {
-            open.style.left = '0'
+        if (close === newPost) {
+            openModal(open)
+        } else  if (open === addCreditCard || open === subscriptionModal) {
+            open.style.zIndex = '1'
+            open.style.opacity = '1'
             open.children[1].style.left = '0'
             close.style.cssText = ''
             closeModal(checkEmail)
@@ -192,10 +176,13 @@ function next(open, close) { // кнопка далее
                 bgYellowBlue.style.visibility = 'visible'
                 bgYellowBlue.style.opacity = '1'
             },500)
-            closeModal(checkEmail)
+
         } else {
             openModal(open)
             closeModal(close)
+        }
+        if (open === welcomeMobile) {
+            location.href = '/feed.html'
         }
 
 
@@ -226,7 +213,7 @@ function next(open, close) { // кнопка далее
     }
 }
 
-function back(close, open) { // кнопка назад
+function back(close, open) {
     if (window.innerWidth > 767) { // pc
         if (open === subscriptionModal) {
             open.style.left = '0'
@@ -247,57 +234,65 @@ function back(close, open) { // кнопка назад
             close.style.left = ''
             close.children[1].style.left = ''
         } else {
-            close.children[0].style.left = '100%'
-            open.children[0].style.left = '0'
+            closeModal(close)
+            openModal(open)
+            // close.style.cssText = ''
+            // close.children[0].style.left = ''
         }
     }
 }
 
 function openModal(modal) { // modal
-
     if (window.innerWidth > 767) { //pc
-        modal.style.top = '0'
+        modal.style.opacity = '1'
+        modal.style.zIndex = '13'
+        modal.children[0].style.opacity = '1'
         modal.style.backgroundColor = 'rgba(20,20,20,0.8)'
-        if(headerLogo !== null) headerLogo.style.zIndex = '1'
+
+        if (headerLogo !== null) headerLogo.style.zIndex = '1'
 
         if (modal === resetPass) {
             logInIn.style.top = ''
         }
-    }
+    } else { // mobile
+        modal.style.zIndex = '2'
+        modal.style.opacity = '1'
+        modal.children[0].style.left = '0'
 
-    // if (window.innerWidth <= 767) { // mobile
-    //     if (modal === resetPass) {
-    //         next(modal)
-    //     }
-    // }
+        if(modal === share) modal.style.zIndex = '14'
+    }
 }
 
 function closeModal(modal) {
-    modal.style.cssText = ''
-    modal.style.transitionProperty = 'background-color, top'
-    modal.style.transitionDuration = '.4s, .5s'
-    modal.style.transitionDelay = '0s, .2s'
-    if(headerLogo !== null) headerLogo.style.zIndex = ''
-
-    setTimeout(function () {
-        modal.style.cssText = ''
-    },300)
-}
-
-for (let modalWrapp of arrModalWrapp) { // close modal target
-    modalWrapp.onclick = function (e) {
-        if (e.target === modalWrapp) {
-            modalWrapp.style.cssText = ''
-            modalWrapp.style.transitionProperty = 'background-color, top'
-            modalWrapp.style.transitionDuration = '.4s, .5s'
-            modalWrapp.style.transitionDelay = '0s, .2s'
-            setTimeout(function () {
-                modalWrapp.style.cssText = ''
-            },300)
-        }
+    if (window.innerWidth <= 767) { //mobile
+        if(modal === gametrag) closeModal(gamertags)
     }
+
+    modal.style.cssText = ''
+    modal.children[0].style.cssText = ''
+    if (headerLogo !== null) headerLogo.style.zIndex = ''
+
+    if (modal === subscriptionModal) {
+        bgYellowBlue.style.cssText = ''
+    }
+
+    setTimeout( function () {
+        modal.style.cssText = ''
+    }, 300 )
+
 }
 
+// for (let modalWrapp of arrModalWrapp) { // close modal target
+//     modalWrapp.onclick = function (e) {
+//         if (e.target === modalWrapp) {
+//             modalWrapp.style.cssText = ''
+//             setTimeout(function () {
+//                 modalWrapp.style.cssText = ''
+//             },300)
+//         }
+//     }
+// }
+ if (window.innerWidth >=768)
 for (let feedHeaderMenu of arrFeedHeaderMenu) {
     feedHeaderMenu.addEventListener( 'click', function () {
         this.style.backgroundColor = '#19181F'
@@ -356,24 +351,42 @@ if (feedPostImg !== null) {
     feedPostImg.onclick = openImg
     let bg = document.querySelector('.img-bg')
     let bgBtn = document.querySelector('.img-bg__close')
+    let bgBtnShare = document.querySelector('.img-bg__share')
     let img
     function openImg() {
         img = this
-        this.style.cssText =
-            'top:0;' +
-            'right:0;' +
-            'bottom:0;' +
-            'left:0;' +
-            'position:fixed;' +
-            'z-index: 12;' +
-            'margin: auto;' +
-            'padding: 0 50px'
+        if (window.innerWidth >=768) { // pc
+            this.style.cssText =
+                'top:0;' +
+                'right:0;' +
+                'bottom:0;' +
+                'left:0;' +
+                'position:fixed;' +
+                'z-index: 12;' +
+                'margin: auto;' +
+                'padding: 0 50px'
+        } else { // mobile
+            this.style.cssText =
+                'top:0;' +
+                'right:0;' +
+                'bottom:0;' +
+                'left:0;' +
+                'position:fixed;' +
+                'z-index: 12;' +
+                'margin: auto;'
+        }
+
         bg.style.zIndex = '11'
         bgBtn.style.display = 'block'
+        bgBtnShare.style.display = 'block'
         bgBtn.onclick = function () {
             img.style.cssText = ''
             bg.style.zIndex = ''
             bgBtn.style.cssText = ''
+            bgBtnShare.style.cssText = ''
+        }
+        bgBtnShare.onclick = function () {
+            openModal(share)
         }
     }
 }
@@ -382,6 +395,13 @@ if (feedPostImg !== null) {
 function auto_grow(element) {
     element.style.height = "5px";
     element.style.height = (element.scrollHeight)+"px";
+}
+
+if (window.innerWidth <= 767) {
+    window.onclick = function (e) {
+        for (let modalWrapp of arrModalWrapp)
+            if (e.target === modalWrapp) modalWrapp.style.cssText = ''
+    }
 }
 
 

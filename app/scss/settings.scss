@@ -1,396 +1,505 @@
-@media (min-width: 768px) { // PC
-    .burger__wrapp {
-        position: relative;
+.burger__wrapp {
+    position: absolute;
+    right: 0;
 
-        .burger-bg {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            top: -50px;
-            left: 0;
-            background-color: rgba(23,22,31,.9);
-            border-radius: 16px;
+    .burger-bg {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top: -50px;
+        left: 0;
+        background-color: rgba(23, 22, 31, .9);
+        border-radius: 16px;
+    }
+
+    .burger__menu {
+        background: #14131A;
+        border-radius: 20px;
+        position: absolute;
+        top: 30px;
+        left: -30px;
+        width: 280px;
+        z-index: 11;
+        opacity: 0;
+        visibility: hidden;
+        transition: .3s;
+
+        > div {
+            padding: 30px 20px 20px;
         }
 
-        .burger__menu {
-            background: #14131A;
-            border-radius: 20px;
-            position: absolute;
-            top: 30px;
-            left: -30px;
-            width: 280px;
-            z-index: 11;
-            opacity: 0;
-            visibility: hidden;
-            transition: .3s;
+        a {
+            padding-left: 40px;
+            line-height: 19px;
+        }
 
-            > div {
-                padding: 30px 20px 20px;
+        li {
+            margin-bottom: 18px;
+
+            &:nth-child(1) {
+                display: flex;
+                justify-content: space-between;
+
+                span {
+                    line-height: 19px;
+                    font-weight: bold;
+                    color: #504D60;
+                    cursor: pointer;
+                }
             }
 
-            a {
-                padding-left: 40px;
-                line-height: 19px;
+            &:nth-child(1) a {
+                background: url('../img/icon/addFriend.png') 0 50% / 17px no-repeat;
+
             }
 
-            li {
-                margin-bottom: 18px;
+            &:nth-child(2) a {
+                background: url('../img/icon/setting.png') 0 50% / 16.9px no-repeat;
+            }
 
-                &:nth-child(1) {
-                    display: flex;
-                    justify-content: space-between;
+            &:nth-child(3) a {
+                background: url('../img/icon/report-f.png') 0 50% / 16px no-repeat;
+            }
 
-                    span {
-                        line-height: 19px;
-                        font-weight: bold;
-                        color: #504D60;
-                        cursor: pointer;
-                    }
-                }
-
-                &:nth-child(1) a {
-                    background: url('../img/icon/addFriend.png') 0 50% / 17px no-repeat;
-
-                }
-
-                &:nth-child(2) a {
-                    background: url('../img/icon/setting.png') 0 50% / 16.9px no-repeat;
-                }
-
-                &:nth-child(3) a {
-                    background: url('../img/icon/report-f.png') 0 50% / 16px no-repeat;
-                }
-
-                &:nth-child(4) a {
-                    background: url('../img/icon/partie-f.png') 0 50% / 14.3px no-repeat;
-                }
+            &:nth-child(4) a {
+                background: url('../img/icon/partie-f.png') 0 50% / 14.3px no-repeat;
             }
         }
     }
+}
 
-    .settings {
-        min-height: 100%;
+.settings {
+    min-height: 100%;
 
-        .feed__col1 {
-            position: relative;
-            flex-grow: 1;
+    .feed__col1 {
+        position: relative;
+        flex-grow: 1;
+    }
+
+    .feed__col2 {
+        //margin: 0;
+        //flex-grow: 0;
+        //width: 320px;
+        //min-width: 320px;
+        //border-left: 1px solid rgba(255,255,255,.1);
+        //border-right: 1px solid rgba(255,255,255,.1);
+        //position: relative;
+
+
+        .col2-settings {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            background-color: #000;
+            display: flex;
+
+            .col2-settings-wrapp {
+                width: 320px;
+                border-left: 1px solid rgba(255, 255, 255, .1);
+                border-right: 1px solid rgba(255, 255, 255, .1);
+            }
+
+            .feed__col3 {
+                max-width: 564px;
+            }
+
         }
 
-        .feed__col2 {
-            //margin: 0;
-            //flex-grow: 0;
-            //width: 320px;
-            //min-width: 320px;
-            //border-left: 1px solid rgba(255,255,255,.1);
-            //border-right: 1px solid rgba(255,255,255,.1);
-            //position: relative;
+        .feed__header {
+            justify-content: center;
+            font-weight: bold;
+            font-size: 17px;
+            line-height: 22px;
+            letter-spacing: -0.408px;
+        }
+    }
 
+    .feed__col3 {
+        flex-grow: 1;
+        position: relative;
+        z-index: -1;
+        max-width: none;
 
-            .col2-settings {
-                position: fixed;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                background-color: #000;
+        .form {
+            margin-top: 34px;
+            font-size: 17px;
+
+            .input-row {
                 display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 12px;
 
-                .col2-settings-wrapp {
-                    width: 320px;
-                    border-left: 1px solid rgba(255,255,255,.1);
-                    border-right: 1px solid rgba(255,255,255,.1);
-                }
-
-            }
-
-            .feed__header {
-                justify-content: center;
-                font-weight: bold;
-                font-size: 17px;
-                line-height: 22px;
-                letter-spacing: -0.408px;
-            }
-        }
-
-        .feed__col3 {
-            flex-grow: 1;
-            position: relative;
-            z-index: -1;
-            max-width: 564px;
-
-            .form {
-                margin-top: 34px;
-                font-size: 17px;
-
-                .input-row {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin-bottom: 12px;
-
-                    &:last-child {
-                        margin-bottom: 0;
-                    }
-                }
-
-                input[type=radio] {
-                    display: none;
-                }
-
-                input[type=radio]:checked + label + label {
-                    background: #6E4AFF url('../img/icon/ok-w.png') center / 15px no-repeat;
-                }
-
-                label {
-                    cursor: pointer;
-                }
-
-                label.checkbox {
-                    width: 32px;
-                    height: 32px;
-                    border-radius: 50%;
-                    background-color: #19181F;
-                    transition: .3s background-color;
+                &:last-child {
+                    margin-bottom: 0;
                 }
             }
 
-            .title {
-                font-weight: bold;
-                font-size: 17px;
-                margin-bottom: 4px;
-            }
-            .description {
-                font-size: 13px;
-                line-height: 140%;
-                opacity: 0.5;
-            }
-
-            input[type=checkbox] {
+            input[type=radio] {
                 display: none;
             }
 
-            input:checked + label + label span {
-                background-color: #19181F;
-            }
-
-            input:checked + label + label span:before {
-                -webkit-transform: translateX(19px);
-                -ms-transform: translateX(19px);
-                transform: translateX(19px);
-                background-color: #6E4AFF;
+            input[type=radio]:checked + label + label {
+                background: #6E4AFF url('../img/icon/ok-w.png') center / 15px no-repeat;
             }
 
             label {
                 cursor: pointer;
             }
 
-            .switch {
-                position: relative;
-                display: inline-block;
-                width: 53px;
+            label.checkbox {
+                width: 32px;
                 height: 32px;
-                margin-top: -6px;
+                border-radius: 50%;
+                background-color: #19181F;
+                transition: .3s background-color;
+            }
+        }
 
-                span {
-                    position: absolute;
+        .title {
+            font-weight: bold;
+            font-size: 17px;
+            margin-bottom: 4px;
+        }
+
+        .description {
+            font-size: 13px;
+            line-height: 140%;
+            opacity: 0.5;
+        }
+
+        input[type=checkbox] {
+            display: none;
+        }
+
+        input:checked + label + label span {
+            background-color: #19181F;
+        }
+
+        input:checked + label + label span:before {
+            -webkit-transform: translateX(19px);
+            -ms-transform: translateX(19px);
+            transform: translateX(19px);
+            background-color: #6E4AFF;
+        }
+
+        label {
+            cursor: pointer;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 53px;
+            height: 32px;
+            margin-top: -6px;
+
+            span {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #19181F;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+
+            span:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 3px;
+                background-color: #4B4A51;
+                -webkit-transition: .5s;
+                transition: .5s;
+            }
+
+            span.round {
+                border-radius: 34px;
+            }
+
+            span.round:before {
+                border-radius: 50%;
+            }
+        }
+
+        .feed__col3_header {
+            position: relative;
+            text-align: center;
+            font-weight: bold;
+            font-size: 17px;
+            line-height: 60px;
+            letter-spacing: -0.408px;
+            height: 60px;
+            margin-bottom: 6px;
+
+            .btn-back {
+                top: calc(50% - 12px);
+            }
+        }
+
+        .input-box {
+            margin-bottom: 20px;
+
+            &:nth-child(3) input {
+                width: 187px;
+            }
+
+            .input-box__title {
+                font-size: 13px;
+                margin-bottom: 10px;
+            }
+        }
+
+        .change-password {
+            font-weight: 700;
+            margin-top: 20px;
+            border: 0;
+            width: auto;
+            padding: 0;
+            height: auto;
+            border-radius: 0;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .delete-account {
+            font-weight: bold;
+            color: #F45365;
+            cursor: pointer;
+            position: absolute;
+            bottom: 56px;
+        }
+
+        .btn-box {
+            margin-bottom: 24px;
+
+            .btn-box__title {
+                display: flex;
+                justify-content: space-between;
+                font-size: 13px;
+                margin-bottom: 10px;
+
+                .btn-box__title_title {
+                    opacity: 0.5;
+                }
+
+                .btn-box__title_change {
+                    font-weight: bold;
                     cursor: pointer;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background-color: #19181F;
-                    -webkit-transition: .4s;
-                    transition: .4s;
-                }
-
-                span:before {
-                    position: absolute;
-                    content: "";
-                    height: 26px;
-                    width: 26px;
-                    left: 4px;
-                    bottom: 3px;
-                    background-color: #4B4A51;
-                    -webkit-transition: .5s;
-                    transition: .5s;
-                }
-
-                span.round {
-                    border-radius: 34px;
-                }
-
-                span.round:before {
-                    border-radius: 50%;
                 }
             }
 
-            .feed__col3_header {
+            button {
+                height: 64px;
+                margin-bottom: 10px;
+                font-weight: 400;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            button.ps {
+                background: #19181F url('../img/icon/ps.png') 27px 50% / 23px no-repeat;
+            }
+
+            button.game {
                 position: relative;
-                text-align: center;
+                overflow: hidden;
+                z-index: 1;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                    filter: blur(15px);
+                    z-index: 0;
+                    opacity: .5;
+                }
+
+                .game__icon {
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 10px;
+                    position: absolute;
+                    left: 27px;
+                    top: calc(50% - 16px);
+                }
+            }
+
+            button.game.AL:before {
+                background: #19181F url('../img/pic/slide2.png') center / cover no-repeat;
+            }
+
+            button.game.AL .game__icon {
+                background: url('../img/pic/slide2.png') center / cover no-repeat;
+            }
+
+            button.game.FN:before {
+                background: #19181F url('../img/pic/slide4.png') center / cover no-repeat;
+            }
+
+            button.game.FN .game__icon {
+                background: url('../img/pic/slide4.png') center / cover no-repeat;
+            }
+        }
+
+        .subscription__annual {
+            padding: 15px 30px 15px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 16px;
+            cursor: pointer;
+            color: #000 !important;
+            background: #d2c867 url('../img/icon/ok-black.png') 25px center no-repeat;
+            border-radius: 20px;
+            margin-bottom: 20px;
+
+            .subscription__annual-name {
+                font-weight: bold;
+                display: flex;
+
+                img {
+                    margin-right: 28px;
+                }
+            }
+
+            .subscription__annual-price {
+                text-align: right;
+
+                div:nth-child(1) {
+                    margin-bottom: 6px;
+                }
+
+                div:nth-child(2) {
+                    font-size: 13px;
+                    opacity: 0.4;
+                }
+            }
+        }
+
+        .subscription__text {
+            line-height: 150%;
+            color: rgba(235, 235, 245, 0.5);
+            margin-bottom: 40px;
+        }
+
+        .subscription__manage-btn {
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .subscription__manage {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: #000;
+            top: 0;
+            left: 100%;
+            padding: 0 20px;
+            transition: .5s;
+
+            .subscription__card {
+                padding: 20px 0 16px 80px;
+                border-radius: 20px;
+                background: rgba(20, 19, 26, .8) url('../img/icon/logo-card.png') 24px 50% / 32px no-repeat;
+                margin-bottom: 40px;
+
+                .subscription__card_ending {
+                    font-size: 17px;
+                    margin-bottom: 4px;
+                }
+            }
+
+            .subscription__card_expires {
+                line-height: 150%;
+                color: rgba(235, 235, 245, 0.5);
+            }
+
+            .subscription__change {
                 font-weight: bold;
                 font-size: 17px;
-                line-height: 60px;
+                line-height: 22px;
                 letter-spacing: -0.408px;
-                height: 60px;
-                margin-bottom: 6px;
-
-                .btn-back {
-                    top: calc(50% - 12px);
-                }
+                margin-bottom: 3px;
             }
 
-            .input-box {
-                margin-bottom: 20px;
-
-                &:nth-child(3) input {
-                    width: 187px;
-                }
-
-                .input-box__title {
-                    font-size: 13px;
-                    margin-bottom: 10px;
-                }
+            .subscription__description {
+                line-height: 150%;
+                color: rgba(235, 235, 245, 0.5);
             }
 
-            .change-password {
-                font-weight: 700;
-                margin-top: 20px;
-                border: 0;
-                width: auto;
-                padding: 0;
-                height: auto;
-                border-radius: 0;
-                font-size: 14px;
-                cursor: pointer;
-            }
-
-            .delete-account {
+            .subscription__manage_cancel {
                 font-weight: bold;
+                line-height: 140%;
                 color: #F45365;
                 cursor: pointer;
                 position: absolute;
-                bottom: 56px;
+                bottom: 38px;
+                left: calc(50% - 72px);
             }
 
-            .btn-box {
-                margin-bottom: 24px;
-
-                .btn-box__title {
-                    display: flex;
-                    justify-content: space-between;
-                    font-size: 13px;
-                    margin-bottom: 10px;
-
-                    .btn-box__title_title {
-                        opacity: 0.5;
-                    }
-
-                    .btn-box__title_change {
-                        font-weight: bold;
-                        cursor: pointer;
-                    }
-                }
-
-                button {
-                    height: 64px;
-                    margin-bottom: 10px;
-                    font-weight: 400;
-
-                    &:last-child {
-                        margin-bottom: 0;
-                    }
-                }
-                
-                button.ps {
-                    background: #19181F url('../img/icon/ps.png') 27px 50% / 23px no-repeat;
-                }
-                button.game {
-                    position: relative;
-                    overflow: hidden;
-                    z-index: 1;
-
-                    &:before {
-                        content: '';
-                        position: absolute;
-                        top: 0;
-                        right: 0;
-                        left: 0;
-                        bottom: 0;
-                        filter: blur(15px);
-                        z-index: 0;
-                        opacity: .5;
-                    }
-
-                    .game__icon {
-                        width: 32px;
-                        height: 32px;
-                        border-radius: 10px;
-                        position: absolute;
-                        left: 27px;
-                        top: calc(50% - 16px);
-                    }
-                }
-
-                button.game.AL:before {
-                    background: #19181F url('../img/pic/slide2.png') center / cover no-repeat;
-                }
-                button.game.AL .game__icon {
-                    background: url('../img/pic/slide2.png') center / cover no-repeat;
-                }
-
-                button.game.FN:before {
-                    background: #19181F url('../img/pic/slide4.png') center / cover no-repeat;
-                }
-                button.game.FN .game__icon {
-                    background: url('../img/pic/slide4.png') center / cover no-repeat;
-                }
-            }
-
-            .subscription__annual {
-                padding: 15px 30px 15px 60px;
+            .subscription__pay-btns {
                 display: flex;
-                align-items: center;
-                justify-content: space-between;
-                font-size: 16px;
-                cursor: pointer;
-                color: #000!important;
-                background: #d2c867 url('../img/icon/ok-black.png') 25px center no-repeat;
-                border-radius: 20px;
+                margin-top: 20px;
                 margin-bottom: 20px;
 
-                .subscription__annual-name {
-                    font-weight: bold;
-                    display: flex;
-
-                    img {
-                        margin-right: 28px;
-                    }
+                button {
+                    width: 207px;
+                    height: 52px;
+                    font-weight: 700;
                 }
-                .subscription__annual-price {
-                    text-align: right;
 
-                    div:nth-child(1) {
-                        margin-bottom: 6px;
-                    }
-                    div:nth-child(2) {
-                        font-size: 13px;
-                        opacity: 0.4;
-                    }
+                .creditCard {
+                    background: #17171A url('../img/icon/credit-card.png') 20px 50% / 24px no-repeat;
+                    margin-right: 10px;
+                    margin-bottom: 0;
+                }
+
+                .paypal {
+                    background: #17171A url('../img/icon/paypel.png') 20px 50% / 18.6px no-repeat;
                 }
             }
+        }
 
-            .subscription__text {
-                line-height: 150%;
-                color: rgba(235, 235, 245, 0.5);
+        #PrivacySafety {
+
+            .appear-offline {
+                display: flex;
+                justify-content: space-between;
                 margin-bottom: 40px;
             }
 
-            .subscription__manage-btn {
-                font-weight: 700;
+            .private-account,
+            .gamertag-privacy {
+                margin-bottom: 45px;
+            }
+
+            .muted-accounts,
+            .blocked-accounts {
+                font-weight: bold;
+                font-size: 17px;
+                color: #F8F6FF;
+                margin-bottom: 40px;
                 cursor: pointer;
             }
 
-            .subscription__manage {
+            .blocked-accounts {
+                margin-bottom: 0;
+            }
+
+            .muted-accounts-page {
                 position: absolute;
                 height: 100%;
                 width: 100%;
@@ -400,204 +509,107 @@
                 padding: 0 20px;
                 transition: .5s;
 
-                .subscription__card {
-                    padding: 20px 0 16px 80px;
-                    border-radius: 20px;
-                    background: rgba(20,19,26,.8) url('../img/icon/logo-card.png') 24px 50% / 32px no-repeat;
-                    margin-bottom: 40px;
-
-                    .subscription__card_ending {
-                        font-size: 17px;
-                        margin-bottom: 4px;
-                    }
-                }
-
-                .subscription__card_expires {
-                    line-height: 150%;
-                    color: rgba(235, 235, 245, 0.5);
-                }
-
-                .subscription__change {
-                    font-weight: bold;
-                    font-size: 17px;
-                    line-height: 22px;
-                    letter-spacing: -0.408px;
-                    margin-bottom: 3px;
-                }
-
-                .subscription__description {
-                    line-height: 150%;
-                    color: rgba(235, 235, 245, 0.5);
-                }
-
-                .subscription__manage_cancel {
-                    font-weight: bold;
-                    line-height: 140%;
-                    color: #F45365;
-                    cursor: pointer;
-                    position: absolute;
-                    bottom: 38px;
-                    left: calc(50% - 72px);
-                }
-
-                .subscription__pay-btns {
-                    display: flex;
-                    margin-top: 20px;
+                .user:not(:last-child) {
                     margin-bottom: 20px;
-
-                    button {
-                        width: 207px;
-                        height: 52px;
-                        font-weight: 700;
-                    }
-                    .creditCard {
-                        background: #17171A url('../img/icon/credit-card.png') 20px 50% / 24px no-repeat;
-                        margin-right: 10px;
-                        margin-bottom: 0;
-                    }
-                    .paypal {
-                        background: #17171A url('../img/icon/paypel.png') 20px 50% / 18.6px no-repeat;
-                    }
                 }
             }
 
-            #PrivacySafety {
+            .blocked-accounts-page {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-color: #000;
+                top: 0;
+                left: 100%;
+                padding: 0 20px;
+                transition: .5s;
 
-                .appear-offline {
+                .blocked-accounts__container {
                     display: flex;
-                    justify-content: space-between;
-                    margin-bottom: 40px;
-                }
-
-                .private-account,
-                .gamertag-privacy {
-                    margin-bottom: 45px;
-                }
-                .muted-accounts,
-                .blocked-accounts {
-                    font-weight: bold;
-                    font-size: 17px;
-                    color: #F8F6FF;
-                    margin-bottom: 40px;
-                    cursor: pointer;
-                }
-                
-                .blocked-accounts {
-                    margin-bottom: 0;
-                }
-
-                .muted-accounts-page {
-                    position: absolute;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
                     height: 100%;
-                    width: 100%;
-                    background-color: #000;
-                    top: 0;
-                    left: 100%;
-                    padding: 0 20px;
-                    transition: .5s;
+                    margin-top: -70px;
 
-                    .user:not(:last-child) {
-                        margin-bottom: 20px;
+                    .blocked-accounts__img {
+                        width: 130px;
+                        height: 140px;
+                        background: url('../img/pic/invite.png') center / contain no-repeat;
+                        margin-bottom: 16px;
                     }
-                }
 
-                .blocked-accounts-page {
-                    position: absolute;
-                    height: 100%;
-                    width: 100%;
-                    background-color: #000;
-                    top: 0;
-                    left: 100%;
-                    padding: 0 20px;
-                    transition: .5s;
+                    .blocked-accounts__title {
+                        font-weight: bold;
+                        font-size: 24px;
+                        line-height: 120%;
+                        letter-spacing: -0.408px;
+                        margin-bottom: 10px;
+                    }
 
-                    .blocked-accounts__container {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                        height: 100%;
-                        margin-top: -70px;
-
-                        .blocked-accounts__img {
-                            width: 130px;
-                            height: 140px;
-                            background: url('../img/pic/invite.png') center / contain no-repeat;
-                            margin-bottom: 16px;
-                        }
-
-                        .blocked-accounts__title {
-                            font-weight: bold;
-                            font-size: 24px;
-                            line-height: 120%;
-                            letter-spacing: -0.408px;
-                            margin-bottom: 10px;
-                        }
-
-                        .blocked-accounts__description {
-                            line-height: 150%;
-                            color: rgba(235, 235, 245, 0.5);
-                        }
+                    .blocked-accounts__description {
+                        line-height: 150%;
+                        color: rgba(235, 235, 245, 0.5);
                     }
                 }
             }
-
-            #Notifications {
-                .notifications__row {
-                    display: flex;
-                    justify-content: space-between;
-                    margin-bottom: 40px;
-
-                    &:last-child {
-                        margin-bottom: 0;
-                    }
-                }
-
-                .email-notifications-page {
-                    position: absolute;
-                    height: 100%;
-                    width: 100%;
-                    background-color: #000;
-                    top: 0;
-                    left: 100%;
-                    padding: 0 20px;
-                    transition: .5s;
-                }
-            }
-
-            #Language {
-                input + label {
-                    padding-left: 38px;
-                }
-
-                input + label[for=English] {
-                    background: url('../img/icon/English.png') 0 50% / 24px no-repeat;
-                }
-
-                input + label[for=Estonian] {
-                    background: url('../img/icon/Estonian.png') 0 50% / 24px no-repeat;
-                }
-
-                input + label[for=Portuguese] {
-                    background: url('../img/icon/Portuguese.png') 0 50% / 24px no-repeat;
-                }
-            }
-
         }
 
-        .tab {
-            .tablinks-setting {
-                height: 52px;
-                padding: 18px 0 17px 20px;
-                font-weight: bold;
-                font-size: 17px;
-                cursor: pointer;
-                transition: .3s;
+        #Notifications {
+            .notifications__row {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 40px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
             }
 
-            .active {
-                background-color: rgba(20,19,26,.8);
+            .email-notifications-page {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-color: #000;
+                top: 0;
+                left: 100%;
+                padding: 0 20px;
+                transition: .5s;
             }
+        }
+
+        #Language {
+            input + label {
+                padding-left: 38px;
+            }
+
+            input + label[for=English] {
+                background: url('../img/icon/English.png') 0 50% / 24px no-repeat;
+            }
+
+            input + label[for=Estonian] {
+                background: url('../img/icon/Estonian.png') 0 50% / 24px no-repeat;
+            }
+
+            input + label[for=Portuguese] {
+                background: url('../img/icon/Portuguese.png') 0 50% / 24px no-repeat;
+            }
+        }
+
+    }
+
+    .tab {
+        .tablinks-setting {
+            height: 52px;
+            padding: 18px 0 17px 20px;
+            font-weight: bold;
+            font-size: 17px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .active {
+            background-color: rgba(20, 19, 26, .8);
         }
     }
 }
@@ -651,14 +663,17 @@
         button {
             width: 50%;
         }
+
         button.bg-fiolet {
             margin-left: 12px;
         }
     }
 }
+
 #deleteAccount.leaveChat {
     //top: 0;
 }
+
 #changePaymentMethod {
     //top: 0;
 
@@ -684,17 +699,20 @@
     input[type=radio] {
         display: none;
     }
+
     label {
         cursor: pointer;
     }
+
     label.checkbox {
         height: 32px;
         width: 32px;
         border-radius: 50%;
-        border: 1px solid rgba(255,255,255,.2);
+        border: 1px solid rgba(255, 255, 255, .2);
         margin-right: 20px;
         transition: .3s background-color;
     }
+
     input[type=radio]:checked + label {
         background: #6E4AFF url('../img/icon/ok-w.png') center / 15px no-repeat;
     }
@@ -706,8 +724,9 @@
         height: auto;
         margin-bottom: 33px;
     }
-    
+
 }
+
 #addCreditCardSetting {
 
     .add-credit-card {
@@ -721,7 +740,7 @@
             transition: .3s;
 
             &:hover {
-                background-color: rgba(20,19,26,1);
+                background-color: rgba(20, 19, 26, 1);
             }
         }
 
@@ -769,7 +788,6 @@
     }
 
 }
-
 
 
 @media (max-width: 767px) { // mobile

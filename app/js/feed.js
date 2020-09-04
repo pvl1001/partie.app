@@ -34,7 +34,6 @@ textarea.addEventListener( 'focus', function () {
     photo1.style.display = 'none'
     textarea.style.width = '100%'
     textarea.style.order = '1'
-    textarea.style.height = 'auto'
     textarea.style.marginTop = '12px'
     feedWhatNewHead.style.flexWrap = 'wrap'
 } )
@@ -68,40 +67,29 @@ function openActivePartie() {
 }
 
 function clickTab(open, close) {
-        open.style.display = 'block'
-        close.style.display = 'none'
+    open.style.display = 'block'
+    close.style.display = 'none'
+
+    setTimeout( function () {
+        open.children[1].style.display = 'block'
+        open.children[1].style.opacity = '1'
+        open.children[1].style.transform = 'scale(1)'
+    }, 100 )
+
+    close.children[1].style.opacity = '0'
+    close.children[1].style.transform = 'scale(.95)'
+    setTimeout( function () {
+        close.children[1].style.display = 'none'
+    }, 100 )
+
+
+
         $( '.slider' ).slick('unslick')
         $( '.slider' ).slick( {
             slidesToShow: 5,
             slidesToScroll: 1,
             infinite: true,
             swipeToSlide: true,
-            // responsive: [
-            //     {
-            //         breakpoint: 1600,
-            //         settings: {
-            //             slidesToShow: 7
-            //         }
-            //     },
-            //     {
-            //         breakpoint: 1500,
-            //         settings: {
-            //             slidesToShow: 6
-            //         }
-            //     },
-            //     {
-            //         breakpoint: 1300,
-            //         settings: {
-            //             slidesToShow: 5
-            //         }
-            //     },
-            //     {
-            //         breakpoint: 1180,
-            //         settings: {
-            //             slidesToShow: 4
-            //         }
-            //     }
-            // ]
         } )
 
     }
@@ -120,6 +108,30 @@ $( '.share__btns' ).slick( {
     slidesToShow: 5,
     infinite: false
 })
+let closePlaceMobile = document.querySelector('.close-place.post-menu.mobile')
+if (window.innerWidth <= 767) {
+    let commBtn =  document.querySelector('.feed__comments .comments__new-comment button')
+    if (commBtn !== null) commBtn.innerHTML = ''
+
+    for (let feedHeaderMenu of arrFeedHeaderMenu) {
+        feedHeaderMenu.onclick = function () {
+            closePlaceMobile.style.zIndex = '1'
+            closePlaceMobile.style.opacity = '1'
+            closePlaceMobile.children[0].style.bottom = '0'
+        }
+        if (closePlaceMobile !== null)
+        closePlaceMobile.onclick = function (e) {
+            if (e.target === closePlaceMobile) {
+                closePlaceMobile.style.cssText = ''
+                closePlaceMobile.children[0].style.bottom = ''
+            }
+
+        }
+    }
+}
+
+
+
 // })
 
 

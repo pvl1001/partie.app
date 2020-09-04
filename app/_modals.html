@@ -436,7 +436,7 @@
         </div>
     </div>
 
-    <!--Create parties-->
+<!--Create parties-->
     <div id="hostPartie" class="modal-wrapp">
         <div class="choose-game modal center">
             <div class="modal__head">
@@ -529,6 +529,22 @@
 
         </div>
     </div>
+    <div id="gamertags" class="modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                <svg id="back" onclick="closeModal(gamertags)" class="btn-back" width="24" height="24" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                    <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                </svg>
+                Gamertags
+                <div onclick="openModal(hostPlatform)" class="gamertags__add">+ Add</div>
+            </div>
+            <button class="epic">GameLiveShow</button>
+            <button class="origin bg-orange">GameLiveShow</button>
+            <button class="ps-mobile">GameLiveShow</button>
+        </div>
+    </div>
     <div id="hostPlatform" class="platforms modal-wrapp">
         <div class="modal center">
             <div class="modal__head">
@@ -542,7 +558,7 @@
                 <div onclick="closeModal(hostPlatform)" class="modal__close"></div>
             </div>
             <div class="modal__content">
-                <div class="platform__title">Select a platform</div>
+                <div class="platform__title">Select a plattfform</div>
                 <button onclick="next(gametrag, hostPlatform)" class="host-xb">Xbox</button>
                 <button onclick="next(gametrag, hostPlatform)" class="host-ps">Playstation</button>
                 <button onclick="next(gametrag, hostPlatform)" class="host-pc">PC</button>
@@ -570,6 +586,14 @@
                     <span onclick="next(gametragPlatform, gametrag)">Add gametrag</span>
                 </div>
             </div>
+            <div class="gametrag-mobile mobile">
+                <div onclick="back(gametrag, hostPlatform)" class="gametrag-mobile__title">Gamertag</div>
+                <div class="gametrag-mobile__row">
+                    <div class="label"></div>
+                    <input onkeyup="showBtnGametrag(this)" type="text" placeholder="Enter gametrag">
+                    <button onclick="closeModal(gametrag)" class="bg-fiolet">Next</button>
+                </div>
+            </div>
         </div>
     </div>
     <div id="gametragPlatform" class="platforms modal-wrapp">
@@ -581,7 +605,7 @@
                     <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
                     <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
                 </svg>
-                Select a platform
+                Select a plattfform
                 <button onclick="next(addGametrag, gametragPlatform)" class="platforms__create">Create</button>
             </div>
             <div class="modal__content">
@@ -621,7 +645,7 @@
                 <div class="platform__title">Select a platform</div>
                 <button class="host-xb">Xbox</button>
                 <div class="platform__title platform__title_gametrag">Gametrag</div>
-                <input type="text" placeholder="Text">
+                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Text"></textarea>
             </div>
         </div>
     </div>
@@ -639,6 +663,10 @@
             </div>
 
             <div class="modal__content">
+                <button class="game AL">
+                    <div class="game__icon"></div>
+                    Apex Legends
+                </button>
                 <div class="platform__title">Partie name</div>
                 <input type="text" placeholder="Add name">
                 <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add description"></textarea>
@@ -741,6 +769,39 @@
 
                 <input id="public" name="selectGame" type="radio">
                 <label for="public" class="selectGame__btn">Public</label>
+            </div>
+        </div>
+    </div>
+    <div id="preferencesModal" class="modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                Preferences
+                <div onclick="closeModal(preferencesModal)" class="modal__close"></div>
+            </div>
+
+            <div class="modal__content">
+                <div class="btn-box">
+                    <div class="btn-box__title">
+                        <div class="btn-box__title_title">Plattfform</div>
+                        <div class="btn-box__title_change">Change</div>
+                    </div>
+                    <button class="ps">Playstation</button>
+                </div>
+
+                <div class="btn-box">
+                    <div class="btn-box__title">
+                        <div class="btn-box__title_title">Favorite games</div>
+                        <div class="btn-box__title_change">Change</div>
+                    </div>
+                    <button class="game AL">
+                        <div class="game__icon"></div>
+                        Apex Legends
+                    </button>
+                    <button class="game FN">
+                        <div class="game__icon"></div>
+                        Fortnite
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -869,7 +930,7 @@
                 <input id="Other" name="removeUser" type="radio">
                 <label for="Other">Other</label>
 
-                <input type="text" placeholder="Add a discription">
+                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add a discription"></textarea>
                 <button>Remove User</button>
             </div>
         </div>
@@ -1064,7 +1125,7 @@
                 <input id="reportOther" name="partieReport" type="radio">
                 <label for="reportOther">Other</label>
 
-                <input type="text" placeholder="Add a discription">
+                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add a discription"></textarea>
                 <button onclick="reportSubmitted()" disabled class="disabled">Send report</button>
             </div>
         </div>
@@ -1530,5 +1591,22 @@
             </div>
         </div>
     </div>
+    <div id="unfollow" class="leaveChat modal-wrapp">
+        <div class="modal center">
+            <div class="modal__content">
+                <div class="leaveChat__text">
+                    Are you sure you want
+                    to unfollow?
+                </div>
+                <div class="leaveChat__btns">
+                    <button onclick="closeModal(deleteAccount)">Cancel</button>
+                    <a  href="/partie.html" class="btn">Yes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--profile-->
 
 </div>

@@ -354,10 +354,10 @@
         margin-bottom: 5px;
     }
 
-    input {
+    textarea {
+        width: 100%;
         border: 0;
         padding: 0;
-        height: auto;
         border-radius: 0;
     }
     
@@ -368,6 +368,53 @@
 
 .hostLiveShow {
     //top: 0;
+
+    button.game {
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        height: 64px;
+        margin-bottom: 20px;
+        font-weight: 400;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            filter: blur(15px);
+            z-index: 0;
+            opacity: .5;
+        }
+
+        .game__icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            position: absolute;
+            left: 27px;
+            top: calc(50% - 16px);
+        }
+    }
+
+    button.game.AL:before {
+        background: #19181F url('../img/pic/slide2.png') center / cover no-repeat;
+    }
+
+    button.game.AL .game__icon {
+        background: url('../img/pic/slide2.png') center / cover no-repeat;
+    }
+
+    button.game.FN:before {
+        background: #19181F url('../img/pic/slide4.png') center / cover no-repeat;
+    }
+
+    button.game.FN .game__icon {
+        background: url('../img/pic/slide4.png') center / cover no-repeat;
+    }
+
     textarea {
         width: 100%;
         margin-bottom: 38px;
