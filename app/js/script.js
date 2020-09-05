@@ -48,6 +48,10 @@ let welcomeMobile = document.querySelector( '#welcomeMobile' )
 let gamertags = document.querySelector( '#gamertags' )
 let preferencesModal = document.querySelector( '#preferencesModal' )
 let unfollow = document.querySelector( '#unfollow' )
+let hostLiveShowMobile = document.querySelector( '#hostLiveShowMobile' )
+let gametragName = document.querySelector( '#gametragName' )
+let createShortcutMobile = document.querySelector( '#createShortcutMobile' )
+let editShortcutMobile = document.querySelector( '#editShortcutMobile' )
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -162,10 +166,16 @@ function next(open, close) {
             open.children[1].style.left = '0'
             close.style.cssText = ''
             closeModal(checkEmail)
-        } else {
+        }
+        else if (open === hostPlatform) {
+            openModal(hostLiveShowMobile)
+        }
+        else {
             openModal(open)
             closeModal(close)
         }
+
+        if(open === createShortcutMobile) closeModal(hostLiveShowMobile)
     }
 
     if (window.innerWidth > 767) { // pc
@@ -329,8 +339,8 @@ if(shortcuts !== null) {
         if(onShortcuts) {
             shortcuts.style.bottom = '5px'
             btnUp.style.transform = 'rotateX(190deg)'
-            bgClick.style.opacity = '1'
             bgClick.style.zIndex = '1'
+            if (window.innerWidth >= 768) bgClick.style.opacity = '1'
         } else {
             shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
             btnUp.style.transform = ''
@@ -473,3 +483,4 @@ if (window.innerWidth <= 767) {
 @@include( 'search.js' )
 @@include( 'notifications.js' )
 @@include( 'jquery.mask.js' )
+@@include( 'swipeMobile.js' )

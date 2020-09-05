@@ -189,6 +189,8 @@
                 font-size: 13px;
                 line-height: 17px;
                 opacity: 0.3;
+                display: flex;
+                align-items: center;
             }
         }
 
@@ -1455,4 +1457,27 @@
         margin-bottom: 28px;
     }
 
+    .enter-message {
+        display: flex;
+        align-items: center;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 6px 20px 40px;
+
+        input {
+            border: 0;
+            border-radius: 0;
+            height: auto;
+        }
+    }
+
+    #partie .feed__col2.new-active-partie {
+        padding-top: 0;
+    }
+
+    #inviteFriends .modal {
+        background-color: #14131A;
+    }
 }
