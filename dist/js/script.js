@@ -40,11 +40,14 @@ let addCreditCardSetting = document.querySelector('#addCreditCardSetting')
 let share = document.querySelector('#share')
 let logInPlatformsGames = document.querySelector('#logInPlatformsGames')
 let headerLogo = document.querySelector('.header__logo')
-let arrHeaderMenuMenu = document.querySelectorAll('.header__menu_menu')
 let arrlogInMenu = document.querySelectorAll('.logIn__menu')
 let arrModalWrapp = document.querySelectorAll( '.modal-wrapp' )
 let arrFeedHeaderMenu = document.querySelectorAll( '.feed__header_menu' )
 let bgYellowBlue = document.querySelector( '.bg-yellow-blue' )
+let welcomeMobile = document.querySelector( '#welcomeMobile' )
+let gamertags = document.querySelector( '#gamertags' )
+let preferencesModal = document.querySelector( '#preferencesModal' )
+let unfollow = document.querySelector( '#unfollow' )
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -59,32 +62,14 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesToScroll: 1,
         infinite: true,
         swipeToSlide: true,
-        // responsive: [
-        //     {
-        //         breakpoint: 1600,
-        //         settings: {
-        //             slidesToShow: 7
-        //         }
-        //     },
-        //     {
-        //         breakpoint: 1500,
-        //         settings: {
-        //             slidesToShow: 6
-        //         }
-        //     },
-        //     {
-        //         breakpoint: 1300,
-        //         settings: {
-        //             slidesToShow: 5
-        //         }
-        //     },
-        //     {
-        //         breakpoint: 1180,
-        //         settings: {
-        //             slidesToShow: 4
-        //         }
-        //     }
-        // ]
+        responsive: [
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 3
+                }
+            }
+        ]
     } )
 
     function logoAnimate() { // анимицаия лого
@@ -165,16 +150,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 })
 
-function next(open, close) { // кнопка далее
+function next(open, close) {
 
     if (window.innerWidth <= 767) { // mobile
-        open.children[0].style.left = '0'
-        setTimeout(function () {
-            close.style.top = '-200%'
-        }, 500)
 
-        if (open === addCreditCard || open === subscriptionModal) {
-            open.style.left = '0'
+        if (close === newPost) {
+            openModal(open)
+        } else  if (open === addCreditCard || open === subscriptionModal) {
+            open.style.zIndex = '1'
+            open.style.opacity = '1'
             open.children[1].style.left = '0'
             close.style.cssText = ''
             closeModal(checkEmail)
@@ -192,10 +176,13 @@ function next(open, close) { // кнопка далее
                 bgYellowBlue.style.visibility = 'visible'
                 bgYellowBlue.style.opacity = '1'
             },500)
-            closeModal(checkEmail)
+
         } else {
             openModal(open)
             closeModal(close)
+        }
+        if (open === welcomeMobile) {
+            location.href = '/feed.html'
         }
 
 
@@ -226,7 +213,7 @@ function next(open, close) { // кнопка далее
     }
 }
 
-function back(close, open) { // кнопка назад
+function back(close, open) {
     if (window.innerWidth > 767) { // pc
         if (open === subscriptionModal) {
             open.style.left = '0'
@@ -247,64 +234,77 @@ function back(close, open) { // кнопка назад
             close.style.left = ''
             close.children[1].style.left = ''
         } else {
-            close.children[0].style.left = '100%'
-            open.children[0].style.left = '0'
+            closeModal(close)
+            openModal(open)
+            // close.style.cssText = ''
+            // close.children[0].style.left = ''
         }
     }
 }
 
 function openModal(modal) { // modal
-
     if (window.innerWidth > 767) { //pc
-        modal.style.top = '0'
+        modal.style.opacity = '1'
+        modal.style.zIndex = '13'
+        modal.children[0].style.opacity = '1'
         modal.style.backgroundColor = 'rgba(20,20,20,0.8)'
-        if(headerLogo !== null) headerLogo.style.zIndex = '1'
+
+        if (headerLogo !== null) headerLogo.style.zIndex = '1'
 
         if (modal === resetPass) {
             logInIn.style.top = ''
         }
-    }
+    } else { // mobile
+        modal.style.zIndex = '2'
+        modal.style.opacity = '1'
+        modal.children[0].style.left = '0'
 
-    // if (window.innerWidth <= 767) { // mobile
-    //     if (modal === resetPass) {
-    //         next(modal)
-    //     }
-    // }
+        if(modal === share) modal.style.zIndex = '14'
+    }
 }
 
 function closeModal(modal) {
-    modal.style.cssText = ''
-    modal.style.transitionProperty = 'background-color, top'
-    modal.style.transitionDuration = '.4s, .5s'
-    modal.style.transitionDelay = '0s, .2s'
-    if(headerLogo !== null) headerLogo.style.zIndex = ''
+    if (window.innerWidth <= 767) { //mobile
+        if(modal === gametrag) closeModal(gamertags)
+    }
 
-    setTimeout(function () {
+    modal.style.cssText = ''
+    modal.children[0].style.cssText = ''
+    if (headerLogo !== null) headerLogo.style.zIndex = ''
+
+    if (modal === subscriptionModal) {
+        bgYellowBlue.style.cssText = ''
+    }
+
+    setTimeout( function () {
         modal.style.cssText = ''
-    },300)
+    }, 300 )
+
 }
 
-for (let modalWrapp of arrModalWrapp) { // close modal target
-    modalWrapp.onclick = function (e) {
-        if (e.target === modalWrapp) {
-            modalWrapp.style.cssText = ''
-            modalWrapp.style.transitionProperty = 'background-color, top'
-            modalWrapp.style.transitionDuration = '.4s, .5s'
-            modalWrapp.style.transitionDelay = '0s, .2s'
-            setTimeout(function () {
-                modalWrapp.style.cssText = ''
-            },300)
+
+
+
+
+let arrHeedHeaderMenu = document.querySelectorAll('.feed__header_menu')
+let postMenu = document.querySelector('#postMenu')
+
+if (window.innerWidth >=768) {
+    for (let el of arrHeedHeaderMenu) {
+
+        el.onclick = function() {
+            let x = el.getBoundingClientRect()
+            postMenu.style.position = 'fixed'
+            postMenu.style.left = x.left + 'px'
+            postMenu.style.top = x.top +42 + 'px'
+            postMenu.style.visibility = 'visible'
+            postMenu.style.opacity = '1'
         }
     }
 }
 
-for (let feedHeaderMenu of arrFeedHeaderMenu) {
-    feedHeaderMenu.addEventListener( 'click', function () {
-        this.style.backgroundColor = '#19181F'
-        this.children[0].style.visibility = 'visible'
-        this.children[0].style.opacity = '1'
-    } )
-}
+
+
 let arrHeaderMenu = document.querySelectorAll('.header__menu_menu')
 for(let headerMenu of  arrHeaderMenu) {
     window.addEventListener('click', function (e) {
@@ -356,24 +356,42 @@ if (feedPostImg !== null) {
     feedPostImg.onclick = openImg
     let bg = document.querySelector('.img-bg')
     let bgBtn = document.querySelector('.img-bg__close')
+    let bgBtnShare = document.querySelector('.img-bg__share')
     let img
     function openImg() {
         img = this
-        this.style.cssText =
-            'top:0;' +
-            'right:0;' +
-            'bottom:0;' +
-            'left:0;' +
-            'position:fixed;' +
-            'z-index: 12;' +
-            'margin: auto;' +
-            'padding: 0 50px'
+        if (window.innerWidth >=768) { // pc
+            this.style.cssText =
+                'top:0;' +
+                'right:0;' +
+                'bottom:0;' +
+                'left:0;' +
+                'position:fixed;' +
+                'z-index: 12;' +
+                'margin: auto;' +
+                'padding: 0 50px'
+        } else { // mobile
+            this.style.cssText =
+                'top:0;' +
+                'right:0;' +
+                'bottom:0;' +
+                'left:0;' +
+                'position:fixed;' +
+                'z-index: 12;' +
+                'margin: auto;'
+        }
+
         bg.style.zIndex = '11'
         bgBtn.style.display = 'block'
+        bgBtnShare.style.display = 'block'
         bgBtn.onclick = function () {
             img.style.cssText = ''
             bg.style.zIndex = ''
             bgBtn.style.cssText = ''
+            bgBtnShare.style.cssText = ''
+        }
+        bgBtnShare.onclick = function () {
+            openModal(share)
         }
     }
 }
@@ -382,6 +400,13 @@ if (feedPostImg !== null) {
 function auto_grow(element) {
     element.style.height = "5px";
     element.style.height = (element.scrollHeight)+"px";
+}
+
+if (window.innerWidth <= 767) {
+    window.onclick = function (e) {
+        for (let modalWrapp of arrModalWrapp)
+            if (e.target === modalWrapp) modalWrapp.style.cssText = ''
+    }
 }
 
 
@@ -444,6 +469,8 @@ let arrShowAll = document.querySelectorAll('#showAll')
 let arrBtnSocial = document.querySelectorAll('.btn-container-show')
 let arrBtnContainerWrapp = document.querySelectorAll('.btn-container-wrapp')
 
+let btnSocialMobile = document.querySelector('#btnSocialMobile')
+
 for (let i = 0; i < arrShowAll.length; i++) {
     let showAll = arrShowAll[i]
     let btnContainerWrapp = arrBtnContainerWrapp[i]
@@ -451,11 +478,11 @@ for (let i = 0; i < arrShowAll.length; i++) {
 
     function showAllBtns() { // анимация кнопок на стартовой
         if (window.innerWidth <= 767) { // mobile
-            btnContainerWrapp.style.top = '0'
-            btnContainerWrapp.style.zIndex = '1'
-            btnSocial.classList.remove( 'animate__fadeOutDownBig' )
-            btnSocial.classList.add( 'animate__fadeInUp' )
-            btnSocial.style.cssText = 'z-index: 0; display: block;'
+            btnSocialMobile.parentElement.style.top = '0'
+            btnSocialMobile.parentElement.style.zIndex = '3'
+            btnSocialMobile.classList.remove( 'animate__fadeOutDownBig' )
+            btnSocialMobile.classList.add( 'animate__fadeInUp' )
+            btnSocialMobile.style.cssText = 'z-index: 0; display: block;'
         }
         else { // pc
             for(let i = 0; i < arrShowAll.length; i++){
@@ -487,9 +514,9 @@ for (let i = 0; i < arrShowAll.length; i++) {
 function showBtns() {
     let btnShow = document.querySelector('.subscription .btn-container-show')
     let btnWrapp = document.querySelector('.subscription .btn-container-wrapp')
-    if(window.innerWidth <= 767) {
+    if(window.innerWidth <= 767) { // mobile
         btnWrapp.style.top = '0'
-        btnWrapp.style.zIndex = '1'
+        btnWrapp.style.zIndex = '2'
         btnShow.classList.remove( 'animate__fadeOutDownBig' )
         btnShow.classList.add( 'animate__fadeInUp' )
         btnShow.style.cssText = 'z-index: 0; display: block;'
@@ -543,7 +570,6 @@ textarea.addEventListener( 'focus', function () {
     photo1.style.display = 'none'
     textarea.style.width = '100%'
     textarea.style.order = '1'
-    textarea.style.height = 'auto'
     textarea.style.marginTop = '12px'
     feedWhatNewHead.style.flexWrap = 'wrap'
 } )
@@ -566,51 +592,38 @@ function isNewComment() {
 }
 
 
-let global = document.querySelector( '.global' )
-let forYou = document.querySelector( '.for-you' )
+let partieTab = document.querySelector( '.feed__col2.partie-tab' )
 let newActivePartie = document.querySelector( '.new-active-partie' )
 
 function openActivePartie() {
-    global.style.display = 'none'
-    forYou.style.display = 'none'
+    partieTab.style.display = 'none'
     newActivePartie.style.display = 'flex'
 }
 
 function clickTab(open, close) {
-        open.style.display = 'block'
-        close.style.display = 'none'
+    open.style.display = 'block'
+    close.style.display = 'none'
+
+    setTimeout( function () {
+        open.children[1].style.display = 'block'
+        open.children[1].style.opacity = '1'
+        open.children[1].style.transform = 'scale(1)'
+    }, 100 )
+
+    close.children[1].style.opacity = '0'
+    close.children[1].style.transform = 'scale(.95)'
+    setTimeout( function () {
+        close.children[1].style.display = 'none'
+    }, 100 )
+
+
+
         $( '.slider' ).slick('unslick')
         $( '.slider' ).slick( {
             slidesToShow: 5,
             slidesToScroll: 1,
             infinite: true,
             swipeToSlide: true,
-            // responsive: [
-            //     {
-            //         breakpoint: 1600,
-            //         settings: {
-            //             slidesToShow: 7
-            //         }
-            //     },
-            //     {
-            //         breakpoint: 1500,
-            //         settings: {
-            //             slidesToShow: 6
-            //         }
-            //     },
-            //     {
-            //         breakpoint: 1300,
-            //         settings: {
-            //             slidesToShow: 5
-            //         }
-            //     },
-            //     {
-            //         breakpoint: 1180,
-            //         settings: {
-            //             slidesToShow: 4
-            //         }
-            //     }
-            // ]
         } )
 
     }
@@ -629,6 +642,30 @@ $( '.share__btns' ).slick( {
     slidesToShow: 5,
     infinite: false
 })
+let closePlaceMobile = document.querySelector('.close-place.post-menu.mobile')
+if (window.innerWidth <= 767) {
+    let commBtn =  document.querySelector('.feed__comments .comments__new-comment button')
+    if (commBtn !== null) commBtn.innerHTML = ''
+
+    for (let feedHeaderMenu of arrFeedHeaderMenu) {
+        feedHeaderMenu.onclick = function () {
+            closePlaceMobile.style.zIndex = '1'
+            closePlaceMobile.style.opacity = '1'
+            closePlaceMobile.children[0].style.bottom = '0'
+        }
+        if (closePlaceMobile !== null)
+        closePlaceMobile.onclick = function (e) {
+            if (e.target === closePlaceMobile) {
+                closePlaceMobile.style.cssText = ''
+                closePlaceMobile.children[0].style.bottom = ''
+            }
+
+        }
+    }
+}
+
+
+
 // })
 
 
@@ -650,22 +687,21 @@ $( '.share__btns' ).slick( {
 //             commentsCommentReply.style.display = ''
 //         }
 //     }
-// }
-
-
 
 
 
 
 
 function openTab(evt, Tab) {
-    // Declare all variables
     var i, tabcontent, tablinks;
 
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.querySelectorAll(".profile__tabs .tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+        tabcontent[i].style.transition = ".4s";
+        tabcontent[i].style.opacity = "0";
+        tabcontent[i].style.transform = "scale(.95)";
+        tabcontent[i].style.height = "0";
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
@@ -675,9 +711,12 @@ function openTab(evt, Tab) {
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(Tab).style.display = "block";
+    setTimeout(function () {
+        document.getElementById(Tab).style.opacity = "1";
+        document.getElementById(Tab).style.transform = "scale(1)";
+        document.getElementById(Tab).style.height = "100%";
+    },300)
     evt.currentTarget.className += " active";
-
 }
 
 function openTabModal(evt, Tab) {
@@ -740,7 +779,7 @@ function openTabModal(evt, Tab) {
     // }
 }
 
-function openFoll(evt, cityName) {
+function openFoll(evt, Tab) {
 
     // Declare all variables
     var i, tabcontent, tablinks;
@@ -748,7 +787,10 @@ function openFoll(evt, cityName) {
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.querySelectorAll(".followers .tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+        tabcontent[i].style.transition = ".4s";
+        tabcontent[i].style.opacity = "0";
+        tabcontent[i].style.transform = "scale(.95)";
+        tabcontent[i].style.height = "0";
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
@@ -758,7 +800,11 @@ function openFoll(evt, cityName) {
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(cityName).style.display = "block";
+    setTimeout(function () {
+        document.getElementById(Tab).style.opacity = "1";
+        document.getElementById(Tab).style.transform = "scale(1)";
+        document.getElementById(Tab).style.height = "auto";
+    },300)
     evt.currentTarget.className += " active";
 }
 
@@ -772,17 +818,22 @@ if(defaultOpen2 !== null) defaultOpen2.click()
 
 let showPs = false
 function showBtnPs() {
-    showPs = !showPs
-    let btn = document.querySelector( '.ps' )
-    let show = document.querySelector( '.show-all' )
-    if (showPs) {
-        btn.style.height = '64px'
-        show.innerHTML = 'Hide'
-        show.style.opacity = '.4'
-    } else {
-        btn.style.height = ''
-        show.innerHTML = 'Show all'
-        show.style.opacity = ''
+    if (window.innerWidth >=768) { // pc
+        showPs = !showPs
+        let btn = document.querySelector( '#ps' )
+        let show = document.querySelector( '.show-all' )
+        console.log(btn)
+        if (showPs) {
+            btn.style.height = '64px'
+            show.innerHTML = 'Hide'
+            show.style.opacity = '.4'
+        } else {
+            btn.style.height = ''
+            show.innerHTML = 'Show all'
+            show.style.opacity = ''
+        }
+    } else { // mobile
+        openModal(gamertags)
     }
 }
 
@@ -825,6 +876,150 @@ function backProfile() {
 
 
 
+function openTabPatie(evt, Tab) {
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.querySelectorAll(".partie-tab .tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.transition = "opacity .4s, transform .4s";
+        tabcontent[i].style.opacity = "0";
+        tabcontent[i].style.transform = "scale(.95)";
+        tabcontent[i].style.height = "0";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.querySelectorAll(".partie-tab .tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    setTimeout(function () {
+        document.getElementById(Tab).style.opacity = "1";
+        document.getElementById(Tab).style.transform = "scale(1)";
+        if(window.innerWidth <= 767) { // mobile
+            document.getElementById(Tab).style.height = "100%";
+        } else { // pc
+            document.getElementById(Tab).style.height = "calc(100% - 66px)";
+        }
+    },300)
+    evt.currentTarget.className += " active";
+}
+
+let defaultOpenPartieTab = document.getElementById("defaultOpenPartieTab")
+if(defaultOpenPartieTab !== null) defaultOpenPartieTab.click()
+
+
+function openTabFeed(evt, Tab) {
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.querySelectorAll(".feed-tab .tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.transition = "opacity .4s, transform .4s";
+        tabcontent[i].style.opacity = "0";
+        tabcontent[i].style.transform = "scale(.95)";
+        tabcontent[i].style.height = "0";
+
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.querySelectorAll(".feed-tab .tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    setTimeout(function () {
+        document.getElementById(Tab).style.opacity = "1";
+        document.getElementById(Tab).style.transform = "scale(1)";
+        if(window.innerWidth <= 767) { // mobile
+            document.getElementById(Tab).style.height = "100%";
+        } else { // pc
+            document.getElementById(Tab).style.height = "calc(100% - 66px)";
+        }
+    },300)
+    evt.currentTarget.className += " active";
+}
+
+
+
+
+
+
+let defaultOpenFeedTab = document.getElementById("defaultOpenFeedTab")
+if(defaultOpenFeedTab !== null) defaultOpenFeedTab.click()
+
+
+let btnGametrag = document.querySelector('.gametrag-mobile button')
+function showBtnGametrag(el) {
+    if(el.value.length) {
+        btnGametrag.style.cssText = 'visibility: visible; opacity: 1;'
+    } else btnGametrag.style.cssText = ''
+}
+
+
+
+
+
+
+let profileProgressModal = document.querySelector('#profileProgress .modal')
+if(profileProgressModal !== null) {
+    profileProgressModal.addEventListener('touchstart', handleTouchStart, false);
+    profileProgressModal.addEventListener('touchmove', handleTouchMove, false);
+}
+
+var xDown = null;
+var yDown = null;
+function getTouches(evt) {
+    return evt.touches ||             // browser API
+        evt.originalEvent.touches; // jQuery
+}
+function handleTouchStart(evt) {
+    const firstTouch = getTouches(evt)[0];
+    xDown = firstTouch.clientX;
+    yDown = firstTouch.clientY;
+};
+function handleTouchMove(evt) {
+    if ( ! xDown || ! yDown ) {
+        return;
+    }
+    var xUp = evt.touches[0].clientX;
+    var yUp = evt.touches[0].clientY;
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( xDiff > 0 ) { /* left swipe */
+        } else {/* right swipe */}
+    } else {
+        if ( yDiff > 0 ) {
+            /* up swipe */
+            if(window.innerWidth <= 767) {
+                profileProgressModal.children[1].style.height = 'calc(100vh - 60px)'
+                profileProgressModal.style.backgroundColor = '#17171a'
+                profileProgressModal.classList.add('modal-arrow')
+                setTimeout(function () {
+                    profileProgressModal.children[1].style.overflow = 'auto'
+                },500)
+            }
+        } else {
+            /* down swipe */
+            if (profileProgressModal.offsetTop !== 0) closeModal(profileProgress)
+            if(window.innerWidth <= 767) {
+                if (profileProgressModal.children[1].scrollTop === 0) {
+                    profileProgressModal.children[1].style.cssText = ''
+                    profileProgressModal.style.backgroundColor = ''
+                    profileProgressModal.classList.remove('modal-arrow')
+                }
+            }
+        }
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null;
+}
 
 
 let headerScroll = document.querySelector('.feed__header.scroll')

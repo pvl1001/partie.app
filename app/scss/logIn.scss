@@ -307,7 +307,7 @@
 
     .logIn__in {
         background-color: #000;
-        padding: 20px 20px 67px;
+        padding: 20px;
         left: 100%;
         display: flex;
         flex-direction: column;
@@ -334,7 +334,7 @@
 
     .logIn__reset-pass {
         background-color: #000;
-        padding: 20px 20px 67px;
+        padding: 20px 20px 40px;
         left: 100%;
         display: flex;
         flex-direction: column;
@@ -355,51 +355,68 @@
             flex-grow: 1;
         }
 
+        button {
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
         .need-help {
             margin-bottom: 0;
         }
     }
 
-    .logIn__check-email {
-        background-color: #000;
-        padding: 20px 30px 67px;
-        left: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-end;
+    .need-help {
+        text-align: center;
+        font-weight: 700;
+    }
 
-        .logIn__check-email_cont {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-
-            img {
-                margin-bottom: 39px;
-            }
-
-            .title {
-                text-align: center;
-                margin-bottom: 16px;
-            }
-
-            .description {
-                line-height: 150%;
-                text-align: center;
-                color: rgba(235, 235, 245, 0.5);
-                margin-bottom: 72px;
-            }
-        }
-
-        .need-help {
-            margin: 20px 0 0 0;
-        }
-
-        .sign-up__top {
-            align-self: flex-start;
-        }
+    #checkEmail {
+        transition: .5s !important;
     }
 }
+
+.logIn__check-email {
+    background-color: #000;
+    padding: 20px 30px 67px;
+    left: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+
+
+    .logIn__check-email_cont {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        img {
+            margin-bottom: 39px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .description {
+            line-height: 150%;
+            text-align: center;
+            color: rgba(235, 235, 245, 0.5);
+            margin-bottom: 72px;
+        }
+    }
+
+    .need-help {
+        margin: 20px 0 0 0;
+    }
+
+    .sign-up__top {
+        align-self: flex-start;
+    }
+}
+
 
 @media (min-width: 768px) { // pc
     .logIn {
@@ -614,6 +631,10 @@
 
 
     }
+
+    #welcomeMobile {
+        display: none;
+    }
 }
 
 
@@ -763,6 +784,29 @@
 
     .logIn__platforms-games .logInPlatformsGames__wrapp .logInPlatformsGames__title {
         margin-top: 56px;
+    }
+
+    #welcomeMobile {
+        display: block;
+
+        .logIn__check-email {
+            left: 100%;
+        }
+
+        .pc-wrapper {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .logIn__check-email_cont {
+                flex-grow: 1;
+                justify-content: center;
+            }
+
+            .description {
+                margin-bottom: 0;
+            }
+        }
     }
 
 }

@@ -2,6 +2,8 @@ let arrShowAll = document.querySelectorAll('#showAll')
 let arrBtnSocial = document.querySelectorAll('.btn-container-show')
 let arrBtnContainerWrapp = document.querySelectorAll('.btn-container-wrapp')
 
+let btnSocialMobile = document.querySelector('#btnSocialMobile')
+
 for (let i = 0; i < arrShowAll.length; i++) {
     let showAll = arrShowAll[i]
     let btnContainerWrapp = arrBtnContainerWrapp[i]
@@ -9,11 +11,11 @@ for (let i = 0; i < arrShowAll.length; i++) {
 
     function showAllBtns() { // анимация кнопок на стартовой
         if (window.innerWidth <= 767) { // mobile
-            btnContainerWrapp.style.top = '0'
-            btnContainerWrapp.style.zIndex = '1'
-            btnSocial.classList.remove( 'animate__fadeOutDownBig' )
-            btnSocial.classList.add( 'animate__fadeInUp' )
-            btnSocial.style.cssText = 'z-index: 0; display: block;'
+            btnSocialMobile.parentElement.style.top = '0'
+            btnSocialMobile.parentElement.style.zIndex = '3'
+            btnSocialMobile.classList.remove( 'animate__fadeOutDownBig' )
+            btnSocialMobile.classList.add( 'animate__fadeInUp' )
+            btnSocialMobile.style.cssText = 'z-index: 0; display: block;'
         }
         else { // pc
             for(let i = 0; i < arrShowAll.length; i++){
@@ -45,9 +47,9 @@ for (let i = 0; i < arrShowAll.length; i++) {
 function showBtns() {
     let btnShow = document.querySelector('.subscription .btn-container-show')
     let btnWrapp = document.querySelector('.subscription .btn-container-wrapp')
-    if(window.innerWidth <= 767) {
+    if(window.innerWidth <= 767) { // mobile
         btnWrapp.style.top = '0'
-        btnWrapp.style.zIndex = '1'
+        btnWrapp.style.zIndex = '2'
         btnShow.classList.remove( 'animate__fadeOutDownBig' )
         btnShow.classList.add( 'animate__fadeInUp' )
         btnShow.style.cssText = 'z-index: 0; display: block;'
