@@ -48,6 +48,10 @@ let welcomeMobile = document.querySelector( '#welcomeMobile' )
 let gamertags = document.querySelector( '#gamertags' )
 let preferencesModal = document.querySelector( '#preferencesModal' )
 let unfollow = document.querySelector( '#unfollow' )
+let hostLiveShowMobile = document.querySelector( '#hostLiveShowMobile' )
+let gametragName = document.querySelector( '#gametragName' )
+let createShortcutMobile = document.querySelector( '#createShortcutMobile' )
+let editShortcutMobile = document.querySelector( '#editShortcutMobile' )
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -162,10 +166,16 @@ function next(open, close) {
             open.children[1].style.left = '0'
             close.style.cssText = ''
             closeModal(checkEmail)
-        } else {
+        }
+        else if (open === hostPlatform) {
+            openModal(hostLiveShowMobile)
+        }
+        else {
             openModal(open)
             closeModal(close)
         }
+
+        if(open === createShortcutMobile) closeModal(hostLiveShowMobile)
     }
 
     if (window.innerWidth > 767) { // pc
@@ -329,8 +339,8 @@ if(shortcuts !== null) {
         if(onShortcuts) {
             shortcuts.style.bottom = '5px'
             btnUp.style.transform = 'rotateX(190deg)'
-            bgClick.style.opacity = '1'
             bgClick.style.zIndex = '1'
+            if (window.innerWidth >= 768) bgClick.style.opacity = '1'
         } else {
             shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
             btnUp.style.transform = ''
@@ -594,9 +604,11 @@ function isNewComment() {
 
 let partieTab = document.querySelector( '.feed__col2.partie-tab' )
 let newActivePartie = document.querySelector( '.new-active-partie' )
+let mobileNav  = document.querySelector( '.mobile-nav.mobile' )
 
 function openActivePartie() {
     partieTab.style.display = 'none'
+    mobileNav.style.display = 'none'
     newActivePartie.style.display = 'flex'
 }
 
@@ -757,6 +769,17 @@ function openTabModal(evt, Tab) {
             popover.style.cssText = ''
         } )
     }
+
+
+
+    let progressbar = document.querySelector( '.progressbar div' )
+    let tokens = document.querySelectorAll( '.level-progress__tab .tokens' )
+    for (let el of tokens)
+        el.onscroll = function () {
+            let winWidth = el.children[1].offsetWidth - el.offsetWidth +20
+            let bar = el.scrollLeft / winWidth  * 100
+            progressbar.style.width = bar + '%'
+        }
 
     // let tools = document.querySelectorAll( '.tool' )
     // let tooltips = document.querySelectorAll( '.tooltip' )
@@ -943,20 +966,15 @@ function openTabFeed(evt, Tab) {
     evt.currentTarget.className += " active";
 }
 
-
-
-
-
-
 let defaultOpenFeedTab = document.getElementById("defaultOpenFeedTab")
 if(defaultOpenFeedTab !== null) defaultOpenFeedTab.click()
 
 
-let btnGametrag = document.querySelector('.gametrag-mobile button')
 function showBtnGametrag(el) {
+let btnNext = el.parentElement.children[el.parentElement.children.length -1]
     if(el.value.length) {
-        btnGametrag.style.cssText = 'visibility: visible; opacity: 1;'
-    } else btnGametrag.style.cssText = ''
+        btnNext.style.cssText = 'visibility: visible; opacity: 1;'
+    } else btnNext.style.cssText = ''
 }
 
 
@@ -964,62 +982,34 @@ function showBtnGametrag(el) {
 
 
 
-let profileProgressModal = document.querySelector('#profileProgress .modal')
-if(profileProgressModal !== null) {
-    profileProgressModal.addEventListener('touchstart', handleTouchStart, false);
-    profileProgressModal.addEventListener('touchmove', handleTouchMove, false);
-}
+let editPhoto = document.querySelector('#editPhoto')
+let photoAvatar = document.querySelector('#photoAvatar')
 
-var xDown = null;
-var yDown = null;
-function getTouches(evt) {
-    return evt.touches ||             // browser API
-        evt.originalEvent.touches; // jQuery
+photoAvatar.onclick = function () {
+    event.preventDefault()
+    editPhoto.style.zIndex = '2'
+    editPhoto.style.opacity = '1'
+    editPhoto.children[0].style.bottom = '0'
 }
-function handleTouchStart(evt) {
-    const firstTouch = getTouches(evt)[0];
-    xDown = firstTouch.clientX;
-    yDown = firstTouch.clientY;
-};
-function handleTouchMove(evt) {
-    if ( ! xDown || ! yDown ) {
-        return;
+window.onclick = function (e) {
+    if (e.target === editPhoto) {
+        editPhoto.style.cssText = ''
+        editPhoto.children[0].style.bottom = ''
     }
-    var xUp = evt.touches[0].clientX;
-    var yUp = evt.touches[0].clientY;
-    var xDiff = xDown - xUp;
-    var yDiff = yDown - yUp;
-
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-        if ( xDiff > 0 ) { /* left swipe */
-        } else {/* right swipe */}
-    } else {
-        if ( yDiff > 0 ) {
-            /* up swipe */
-            if(window.innerWidth <= 767) {
-                profileProgressModal.children[1].style.height = 'calc(100vh - 60px)'
-                profileProgressModal.style.backgroundColor = '#17171a'
-                profileProgressModal.classList.add('modal-arrow')
-                setTimeout(function () {
-                    profileProgressModal.children[1].style.overflow = 'auto'
-                },500)
-            }
-        } else {
-            /* down swipe */
-            if (profileProgressModal.offsetTop !== 0) closeModal(profileProgress)
-            if(window.innerWidth <= 767) {
-                if (profileProgressModal.children[1].scrollTop === 0) {
-                    profileProgressModal.children[1].style.cssText = ''
-                    profileProgressModal.style.backgroundColor = ''
-                    profileProgressModal.classList.remove('modal-arrow')
-                }
-            }
-        }
-    }
-    /* reset values */
-    xDown = null;
-    yDown = null;
 }
+
+
+// function openMenu(menu) {
+//     if(window.innerWidth <= 767) { // mobile
+//         event.preventDefault()
+//         menu.style.zIndex = '2'
+//         menu.style.opacity = '1'
+//         menu.children[0].style.bottom = '0'
+//     }
+// }
+
+
+
 
 
 let headerScroll = document.querySelector('.feed__header.scroll')
@@ -1241,15 +1231,60 @@ for (let i = 0; i < arrPostFooterBtn.length; i++) {
 let arrShortcutsBox = document.querySelectorAll('.shortcuts__box')
 let box = document.querySelector('.shortcuts__box_menu')
 for(let shortcutsBox of arrShortcutsBox) {
-    if(shortcutsBox !== null)
+    if(shortcutsBox !== null && window.innerWidth >= 768)
         shortcutsBox.onclick = function (e) {
         if(e.target === shortcutsBox) {
             box.style.top = e.pageY + 'px'
             box.style.left = e.pageX + 'px'
             box.style.display= 'block'
-        } else {
-            box.style.display= ''
         }
+        else box.style.display= ''
+    }
+    if (window.innerWidth <= 767) {
+        var longpress = false;
+        var presstimer = null;
+
+        var cancel = function(e) {
+            if (presstimer !== null) {
+                clearTimeout(presstimer)
+                presstimer = null
+            }
+        }
+        var click = function(e) {
+            let closePlace = document.querySelector('.close-place')
+            let span = document.querySelectorAll('.menu-wrapper span')
+            if (e.target === closePlace || e.target === span[0] || e.target === span[1]) box.style.display= ''
+
+            if (presstimer !== null) {
+                clearTimeout(presstimer)
+                presstimer = null
+            }
+            if (longpress) {
+                return false
+            }
+        }
+        var start = function(e) {
+            if (e.type === "click" && e.button !== 0) {
+                return
+            }
+            longpress = false
+            presstimer = setTimeout(function() {
+                box.style.top = e.pageY + 'px'
+                box.style.left = e.pageX + 'px'
+                box.style.display= 'block'
+                longpress = true
+            }, 1000)
+
+            return false
+        }
+
+        shortcutsBox.addEventListener("mousedown", start);
+        shortcutsBox.addEventListener("touchstart", start);
+        shortcutsBox.addEventListener("click", click);
+        shortcutsBox.addEventListener("mouseout", cancel);
+        shortcutsBox.addEventListener("touchend", cancel);
+        shortcutsBox.addEventListener("touchleave", cancel);
+        shortcutsBox.addEventListener("touchcancel", cancel);
     }
 }
 
@@ -1976,4 +2011,163 @@ if(requestsCounter.innerHTML === '0') {
         }
     }, globals.watchInterval);
 }, window.jQuery, window.Zepto));
+
+if(window.innerWidth <= 767) {
+
+    let profileProgressModal = document.querySelector('#profileProgress .modal')
+    if(profileProgressModal !== null) {
+        profileProgressModal.addEventListener('touchstart', handleTouchStart, false);
+        profileProgressModal.addEventListener('touchmove', handleTouchMove, false);
+    }
+
+    var xDown = null;
+    var yDown = null;
+    function getTouches(evt) {
+        return evt.touches ||             // browser API
+            evt.originalEvent.touches; // jQuery
+    }
+    function handleTouchStart(evt) {
+        const firstTouch = getTouches(evt)[0];
+        xDown = firstTouch.clientX;
+        yDown = firstTouch.clientY;
+    }
+    function handleTouchMove(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+        var xUp = evt.touches[0].clientX;
+        var yUp = evt.touches[0].clientY;
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) { /* left swipe */
+            } else {/* right swipe */}
+        } else {
+            if ( yDiff > 0 ) {
+                /* up swipe */
+                profileProgressModal.children[1].style.height = 'calc(100vh - 60px)'
+                profileProgressModal.style.backgroundColor = '#17171a'
+                profileProgressModal.classList.add( 'modal-arrow' )
+                setTimeout( function () {
+                    profileProgressModal.children[1].style.overflow = 'auto'
+                }, 500 )
+
+            } else {
+                /* down swipe */
+                if (profileProgressModal.offsetTop !== 0) closeModal(profileProgress)
+                if(window.innerWidth <= 767) {
+                    if (profileProgressModal.children[1].scrollTop === 0) {
+                        profileProgressModal.children[1].style.cssText = ''
+                        profileProgressModal.style.backgroundColor = ''
+                        profileProgressModal.classList.remove('modal-arrow')
+                    }
+                }
+            }
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;
+    }
+
+
+
+
+    let shortcutsMobile = document.querySelector('#hostPartie .shortcuts')
+
+    if(shortcutsMobile !== null) {
+        shortcutsMobile.addEventListener('touchstart', handleTouchStart, false);
+        shortcutsMobile.addEventListener('touchmove', handleTouchMove, false);
+    }
+
+    var xDown = null;
+    var yDown = null;
+    function getTouches(evt) {
+        return evt.touches ||             // browser API
+            evt.originalEvent.touches; // jQuery
+    }
+    function handleTouchStart(evt) {
+        const firstTouch = getTouches(evt)[0];
+        xDown = firstTouch.clientX;
+        yDown = firstTouch.clientY;
+    }
+    function handleTouchMove(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+        var xUp = evt.touches[0].clientX;
+        var yUp = evt.touches[0].clientY;
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) { /* left swipe */
+            } else {/* right swipe */}
+        } else {
+            if ( yDiff > 0 ) {
+                /* up swipe */
+                shortcutsUp()
+            } else {
+                /* down swipe */
+                shortcutsUp()
+            }
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;
+    }
+
+
+
+
+    let modals = document.querySelectorAll('.modal')
+    for (let modal of modals) {
+        if (modal.parentElement !== hostLiveShowMobile &&
+            modal.parentElement !== hostPartie &&
+            modal.parentElement !== createShortcutMobile &&
+            modal.parentElement !== editShortcutMobile) {
+
+            modal.addEventListener('touchstart', handleTouchStart, false);
+            modal.addEventListener('touchmove', handleTouchMove, false);
+        }
+
+
+        var xDown = null;
+        var yDown = null;
+        function getTouches(evt) {
+            return evt.touches ||             // browser API
+                evt.originalEvent.touches; // jQuery
+        }
+        function handleTouchStart(evt) {
+            const firstTouch = getTouches(evt)[0];
+            xDown = firstTouch.clientX;
+            yDown = firstTouch.clientY;
+        }
+        function handleTouchMove(evt) {
+            if ( ! xDown || ! yDown ) {
+                return;
+            }
+            var xUp = evt.touches[0].clientX;
+            var yUp = evt.touches[0].clientY;
+            var xDiff = xDown - xUp;
+            var yDiff = yDown - yUp;
+
+            if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+                if ( xDiff > 0 ) { /* left swipe */
+                } else {/* right swipe */}
+            } else {
+                if ( yDiff > 0 ) {
+                    /* up swipe */
+                } else {
+                    /* down swipe */
+                   closeModal(modal.parentElement)
+                }
+            }
+            /* reset values */
+            xDown = null;
+            yDown = null;
+        }
+    }
+
+}
 

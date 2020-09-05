@@ -58,9 +58,11 @@ function isNewComment() {
 
 let partieTab = document.querySelector( '.feed__col2.partie-tab' )
 let newActivePartie = document.querySelector( '.new-active-partie' )
+let mobileNav  = document.querySelector( '.mobile-nav.mobile' )
 
 function openActivePartie() {
     partieTab.style.display = 'none'
+    mobileNav.style.display = 'none'
     newActivePartie.style.display = 'flex'
 }
 

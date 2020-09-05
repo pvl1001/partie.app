@@ -1009,7 +1009,7 @@ textarea {
     }
 
     .header__menu_menu {
-        position: absolute;
+        position: fixed;
         top: calc(100% + 16px);
         background: #14131A;
         border-radius: 20px;
@@ -1143,6 +1143,17 @@ textarea {
 
         .btn-apple {
             display: block;
+        }
+    }
+
+    .subscription__policy {
+        font-size: 12px;
+        text-align: center;
+        color: rgba(248, 246, 255, 0.3);
+        line-height: 150%;
+
+        span {
+            color: #EBEBF5;
         }
     }
 

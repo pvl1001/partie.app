@@ -3258,6 +3258,7 @@
   font-size: 13px;
   line-height: 150%;
   color: #504D60;
+  white-space: nowrap;
 }
 
 #levelProgress .modal__content .level-progress__tab .tab {
@@ -3331,7 +3332,7 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  padding: 0 4px;
+  padding: 0 4px 2px;
   background: #6E4AFF;
   border-radius: 7px;
   min-width: 22px;
@@ -3689,6 +3690,12 @@
   font-size: 13px;
   line-height: 17px;
   opacity: 0.3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 #partie__id .feed__header.scroll {
@@ -5342,6 +5349,12 @@
   line-height: 17px;
   color: #D2C867;
   font-weight: 400;
+  overflow: auto;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline;
+  padding: 0 9px;
 }
 
 #hostPartie .shortcuts .shortcuts__create {
@@ -9231,7 +9244,7 @@ svg circle {
   }
 
   .header__menu_menu {
-    position: absolute;
+    position: fixed;
     top: calc(100% + 16px);
     background: #14131A;
     border-radius: 20px;
@@ -10101,7 +10114,10 @@ svg circle {
   #profileProgress .modal,
   #applyPartner .modal,
   #levelProgress .modal,
-  #unfollow .modal {
+  #unfollow .modal,
+  #gametragPlatform .modal,
+  #gametragName .modal,
+  #removeUser .modal {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -10124,7 +10140,10 @@ svg circle {
   #profileProgress .modal:before,
   #applyPartner .modal:before,
   #levelProgress .modal:before,
-  #unfollow .modal:before {
+  #unfollow .modal:before,
+  #gametragPlatform .modal:before,
+  #gametragName .modal:before,
+  #removeUser .modal:before {
     content: '';
     position: absolute;
     height: 6px;
@@ -10141,7 +10160,10 @@ svg circle {
   #profileProgress .modal .modal__head,
   #applyPartner .modal .modal__head,
   #levelProgress .modal .modal__head,
-  #unfollow .modal .modal__head {
+  #unfollow .modal .modal__head,
+  #gametragPlatform .modal .modal__head,
+  #gametragName .modal .modal__head,
+  #removeUser .modal .modal__head {
     display: none;
   }
 
@@ -10151,7 +10173,10 @@ svg circle {
   #profileProgress .modal .modal__content,
   #applyPartner .modal .modal__content,
   #levelProgress .modal .modal__content,
-  #unfollow .modal .modal__content {
+  #unfollow .modal .modal__content,
+  #gametragPlatform .modal .modal__content,
+  #gametragName .modal .modal__content,
+  #removeUser .modal .modal__content {
     width: 100%;
   }
 
@@ -10178,6 +10203,10 @@ svg circle {
     margin-bottom: 0;
   }
 
+  #gamertags button.next {
+    font-size: 13px;
+  }
+
   #gamertags button.epic {
     background: rgba(20, 19, 26, 0.8) url("../img/icon/epic.png") 29px 50%/20px no-repeat;
   }
@@ -10198,16 +10227,16 @@ svg circle {
     transition: .3s;
   }
 
-  #gametrag .modal__content,
-  #gametrag .modal__head {
+  .gametrag-modal .modal__content,
+  .gametrag-modal .modal__head {
     display: none;
   }
 
-  #gametrag .gametrag-mobile {
+  .gametrag-modal .gametrag-mobile {
     width: 100%;
   }
 
-  #gametrag .gametrag-mobile__title {
+  .gametrag-modal .gametrag-mobile__title {
     padding-left: 19px;
     background: url("../img/icon/arrow-left-w.png") 0 50%/7px no-repeat;
     color: rgba(248, 246, 255, 0.5);
@@ -10215,7 +10244,7 @@ svg circle {
     margin-bottom: 16px;
   }
 
-  #gametrag .gametrag-mobile__row {
+  .gametrag-modal .gametrag-mobile__row {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -10225,21 +10254,21 @@ svg circle {
     position: relative;
   }
 
-  #gametrag input {
+  .gametrag-modal input {
     width: calc(100% - 20px);
     height: auto;
     border: 0;
     border-radius: 0;
   }
 
-  #gametrag .label {
+  .gametrag-modal .label {
     width: 20px;
     height: 20px;
     min-width: 20px;
     background: url("../img/icon/ps.png") center/contain no-repeat;
   }
 
-  #gametrag button {
+  .gametrag-modal button {
     width: 59px;
     height: 32px;
     margin-left: auto;
@@ -10316,6 +10345,212 @@ svg circle {
     transform: matrix(1, 0, 0, -1, 0, 0);
   }
 
+  .tokens-pc {
+    display: none;
+  }
+
+  .tokens-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .level-progress.modal {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .level-progress.modal .modal__content_row,
+  .level-progress.modal .counters,
+  .level-progress.modal .tab {
+    padding: 0 20px;
+  }
+
+  #levelProgress .modal__content .level-progress__tab .tabcontent .tokens {
+    overflow: auto;
+    padding-left: 20px;
+  }
+
+  #levelProgress .modal__content .counters {
+    margin-bottom: 20px;
+  }
+
+  .progressbar {
+    width: 100%;
+    height: 1px;
+    background-color: #504D60;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .progressbar div {
+    width: 0;
+    height: 1px;
+    position: absolute;
+    left: 0;
+    background-color: #fff;
+  }
+
+  #levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token:nth-child(5n) {
+    margin-right: 20px;
+  }
+
+  .editProfile__save {
+    font-size: 13px;
+    width: 65px;
+    height: 32px;
+    background-color: #6E4AFF;
+    position: absolute;
+    right: 0;
+    margin-top: 0 !important;
+  }
+
+  #editProfile button.bg-fiolet {
+    display: none;
+  }
+
+  #editProfile .editProfile__account {
+    background: url("../img/icon/arrow-right.png") 100% 50%/8px no-repeat;
+  }
+
+  #hostPartie .shortcuts .shortcuts__box .shortcuts__btn-limited {
+    width: 52px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline;
+  }
+
+  #hostPartie .shortcuts:before {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: calc(50% - 19px);
+    width: 38px;
+    height: 6px;
+    border-radius: 20px;
+    background-color: #2b2a33;
+  }
+
+  #hostPartie .shortcuts .shortcuts__title .btn-up {
+    display: none;
+  }
+
+  #hostLiveShowMobile .modal__content.platform,
+  #createShortcutMobile .modal__content.platform,
+  #editShortcutMobile .modal__content.platform {
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  #hostLiveShowMobile .modal__content,
+  #createShortcutMobile .modal__content,
+  #editShortcutMobile .modal__content {
+    margin-bottom: 20px;
+  }
+
+  #hostLiveShowMobile .modal__content .platform__title,
+  #createShortcutMobile .modal__content .platform__title,
+  #editShortcutMobile .modal__content .platform__title {
+    margin-bottom: 10px;
+  }
+
+  #hostLiveShowMobile .modal .modal__close,
+  #createShortcutMobile .modal .modal__close,
+  #editShortcutMobile .modal .modal__close {
+    right: auto;
+    left: 0;
+  }
+
+  #hostLiveShowMobile .modal__content:not(:nth-child(2)) button,
+  #createShortcutMobile .modal__content:not(:nth-child(2)) button,
+  #editShortcutMobile .modal__content:not(:nth-child(2)) button {
+    font-weight: 400;
+    height: 64px;
+  }
+
+  #hostLiveShowMobile .modal__content:nth-last-child(1) button,
+  #hostLiveShowMobile .modal__content:nth-last-child(2) button,
+  #hostLiveShowMobile .modal__content:nth-last-child(3) button,
+  #createShortcutMobile .modal__content:nth-last-child(1) button,
+  #createShortcutMobile .modal__content:nth-last-child(2) button,
+  #createShortcutMobile .modal__content:nth-last-child(3) button,
+  #editShortcutMobile .modal__content:nth-last-child(1) button,
+  #editShortcutMobile .modal__content:nth-last-child(2) button,
+  #editShortcutMobile .modal__content:nth-last-child(3) button {
+    color: rgba(235, 235, 245, 0.4);
+  }
+
+  #hostLiveShowMobile .subscription__policy,
+  #createShortcutMobile .subscription__policy,
+  #editShortcutMobile .subscription__policy {
+    margin-top: 40px;
+  }
+
+  #hostLiveShowMobile .btn-create,
+  #createShortcutMobile .btn-create,
+  #editShortcutMobile .btn-create {
+    position: absolute;
+    right: 0;
+    background: #6E4AFF;
+    border-radius: 20px;
+    width: 59px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  #hostLiveShowMobile .gametrag button,
+  #createShortcutMobile .gametrag button,
+  #editShortcutMobile .gametrag button {
+    background: #3069e8 url("../img/icon/ps.png") 28.7px 50%/22.5px no-repeat;
+    height: 64px;
+  }
+
+  #hostLiveShowMobile button.host-ps,
+  #createShortcutMobile button.host-ps,
+  #editShortcutMobile button.host-ps {
+    background: rgba(20, 19, 26, 0.8) url("../img/icon/ps.png") 28.7px 50%/22.5px no-repeat;
+  }
+
+  #hostLiveShowMobile .communication button,
+  #createShortcutMobile .communication button,
+  #editShortcutMobile .communication button {
+    background: rgba(20, 19, 26, 0.8) url("../img/icon/mic.png") 33.8px 50%/13px no-repeat;
+    height: 64px;
+  }
+
+  #hostLiveShowMobile #gametragName.gametrag-modal input,
+  #createShortcutMobile #gametragName.gametrag-modal input,
+  #editShortcutMobile #gametragName.gametrag-modal input {
+    width: 100%;
+    padding: 0;
+  }
+
+  .feed__col2.new-active-partie .new-active-partie__messages .message .message__user .user-window {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+    background: #000000;
+    padding-top: 40px;
+    padding-bottom: 53px;
+  }
+
+  .feed__col2.new-active-partie .new-active-partie__messages .message .message__user .user-window:before {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: calc(50% - 19px);
+    width: 38px;
+    height: 6px;
+    border-radius: 20px;
+    background-color: #2b2a33;
+  }
+
   #partie .feed__col2 {
     padding-top: 127px;
   }
@@ -10350,6 +10585,34 @@ svg circle {
     display: flex;
     overflow: auto;
     margin-bottom: 28px;
+  }
+
+  .enter-message {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 6px 20px 40px;
+  }
+
+  .enter-message input {
+    border: 0;
+    border-radius: 0;
+    height: auto;
+  }
+
+  #partie .feed__col2.new-active-partie {
+    padding-top: 0;
+  }
+
+  #inviteFriends .modal {
+    background-color: #14131A;
   }
 
   #profile.profiles .profile__info .private {
@@ -10393,6 +10656,17 @@ svg circle {
 
   .btn-container-show .btn-apple {
     display: block;
+  }
+
+  .subscription__policy {
+    font-size: 12px;
+    text-align: center;
+    color: rgba(248, 246, 255, 0.3);
+    line-height: 150%;
+  }
+
+  .subscription__policy span {
+    color: #EBEBF5;
   }
 
   .feed__header_menu {

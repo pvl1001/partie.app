@@ -614,6 +614,7 @@
                     font-size: 13px;
                     line-height: 150%;
                     color: #504D60;
+                    white-space: nowrap;
                 }
             }
         }
@@ -678,7 +679,7 @@
                             position: absolute;
                             right: 0;
                             bottom: 0;
-                            padding: 0 4px;
+                            padding: 0 4px 2px;
                             background: #6E4AFF;
                             border-radius: 7px;
                             min-width: 22px;
@@ -849,7 +850,10 @@
     #profileProgress .modal,
     #applyPartner .modal,
     #levelProgress .modal,
-    #unfollow .modal {
+    #unfollow .modal,
+    #gametragPlatform .modal,
+    #gametragName .modal,
+    #removeUser .modal {
         display: flex;
         align-items: flex-end;
         position: absolute;
@@ -906,6 +910,10 @@
             }
         }
 
+        button.next {
+            font-size: 13px;
+        }
+
         button.epic {
             background: rgba(20, 19, 26, .8) url('../img/icon/epic.png') 29px 50% / 20px no-repeat;
 
@@ -926,7 +934,7 @@
 
     }
 
-    #gametrag {
+    .gametrag-modal {
         .modal__content,
         .modal__head {
             display: none;
@@ -1028,6 +1036,188 @@
                 background: linear-gradient(180deg, #17171A 0%, rgba(23, 23, 26, 0) 100%);
                 transform: matrix(1, 0, 0, -1, 0, 0);
             }
+        }
+    }
+
+    .tokens-pc {
+        display: none;
+    }
+
+    .tokens-mobile {
+        display: flex;
+    }
+
+    .level-progress.modal {
+        padding-left: 0;
+        padding-right: 0;
+
+        .modal__content_row,
+        .counters,
+        .tab {
+            padding: 0 20px;
+        }
+    }
+
+    #levelProgress .modal__content .level-progress__tab .tabcontent .tokens {
+        overflow: auto;
+        padding-left: 20px;
+    }
+
+    #levelProgress .modal__content .counters {
+        margin-bottom: 20px;
+    }
+
+    .progressbar {
+        width: 100%;
+        height: 1px;
+        background-color: #504D60;
+        position: relative;
+        margin-bottom: 20px;
+
+        div {
+            width: 0;
+            height: 1px;
+            position: absolute;
+            left: 0;
+            background-color: #fff;
+        }
+    }
+
+    #levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token:nth-child(5n) {
+        margin-right: 20px;
+    }
+
+    .editProfile__save {
+        font-size: 13px;
+        width: 65px;
+        height: 32px;
+        background-color: #6E4AFF;
+        position: absolute;
+        right: 0;
+        margin-top: 0 !important;
+    }
+
+    #editProfile button.bg-fiolet {
+        display: none;
+    }
+
+    #editProfile .editProfile__account {
+        background: url('../img/icon/arrow-right.png') 100% 50% / 8px no-repeat;
+    }
+
+    #hostPartie .shortcuts .shortcuts__box .shortcuts__btn-limited {
+        width: 52px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline;
+    }
+
+    #hostPartie .shortcuts:before {
+        content: '';
+        position: absolute;
+        top: 7px;
+        left: calc(50% - 19px);
+        width: 38px;
+        height: 6px;
+        border-radius: 20px;
+        background-color: #2b2a33;
+    }
+
+    #hostPartie .shortcuts .shortcuts__title .btn-up {
+        display: none;
+    }
+
+    #hostLiveShowMobile,
+    #createShortcutMobile,
+    #editShortcutMobile {
+        //z-index: 2;
+        //opacity: 1;
+
+        .modal__content.platform {
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .modal__content {
+            margin-bottom: 20px;
+
+            .platform__title {
+                margin-bottom: 10px;
+            }
+        }
+
+        .modal .modal__close {
+            right: auto;
+            left: 0;
+        }
+
+        .modal__content:not(:nth-child(2)) button{
+            font-weight: 400;
+            height: 64px;
+        }
+
+        .modal__content:nth-last-child(1) button,
+        .modal__content:nth-last-child(2) button,
+        .modal__content:nth-last-child(3) button {
+            color: rgba(235,235,245,.4);
+        }
+
+        .subscription__policy {
+            margin-top: 40px;
+        }
+
+        .btn-create {
+            position: absolute;
+            right: 0;
+            background: #6E4AFF;
+            border-radius: 20px;
+            width: 59px;
+            height: 32px;
+            font-size: 13px;
+        }
+
+        .gametrag button {
+            background: #3069e8 url('../img/icon/ps.png') 28.7px 50% / 22.5px no-repeat;
+            height: 64px;
+        }
+
+        button.host-ps {
+            background: rgba(20, 19, 26, .8) url('../img/icon/ps.png') 28.7px 50% / 22.5px no-repeat;
+        }
+
+        .communication button {
+            background: rgba(20,19,26,.8) url('../img/icon/mic.png') 33.8px 50% / 13px no-repeat;
+            height: 64px;
+        }
+
+        #gametragName.gametrag-modal input {
+            width: 100%;
+            padding: 0;
+        }
+    }
+
+    .feed__col2.new-active-partie .new-active-partie__messages .message .message__user .user-window {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: auto;
+        border-radius: 20px 20px 0 0;
+        width: 100%;
+        background: #000000;
+        padding-top: 40px;
+        padding-bottom: 53px;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 7px;
+            left: calc(50% - 19px);
+            width: 38px;
+            height: 6px;
+            border-radius: 20px;
+            background-color: #2b2a33;
         }
     }
 
