@@ -7006,6 +7006,33 @@
   color: #f8f6ff;
 }
 
+#LinkedAccounts .input-row label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: .5;
+}
+
+#LinkedAccounts .input-row label + label {
+  background-color: #000;
+}
+
+#LinkedAccounts .input-row label svg {
+  margin-right: 20px;
+}
+
+#LinkedAccounts input[type=checkbox]:checked + label {
+  opacity: 1;
+}
+
+#LinkedAccounts input[type=checkbox]:checked + label + label {
+  opacity: 1;
+  background: url("../img/icon/ok-w.png") center/15px no-repeat !important;
+}
+
 .feed__col1 {
   position: relative;
   -webkit-box-flex: 1;
