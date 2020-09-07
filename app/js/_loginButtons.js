@@ -10,7 +10,7 @@ for (let i = 0; i < arrShowAll.length; i++) {
     let btnSocial = arrBtnSocial[i]
 
     function showAllBtns() { // анимация кнопок на стартовой
-        if (window.innerWidth <= 767) { // mobile
+        if (window.innerWidth <= 1023) { // mobile
             btnSocialMobile.parentElement.style.top = '0'
             btnSocialMobile.parentElement.style.zIndex = '3'
             btnSocialMobile.classList.remove( 'animate__fadeOutDownBig' )
@@ -44,10 +44,16 @@ for (let i = 0; i < arrShowAll.length; i++) {
 }
 
 
-function showBtns() {
+function showBtns(el) {
+    let subscriptionChange = document.querySelector('.subscription__change.mobile')
+    if (el === subscriptionChange) {
+        let title = document.querySelector('.subscription__payment_title')
+        title.innerHTML = 'Change payment method'
+    }
+
     let btnShow = document.querySelector('.subscription .btn-container-show')
     let btnWrapp = document.querySelector('.subscription .btn-container-wrapp')
-    if(window.innerWidth <= 767) { // mobile
+    if(window.innerWidth <= 1023) { // mobile
         btnWrapp.style.top = '0'
         btnWrapp.style.zIndex = '2'
         btnShow.classList.remove( 'animate__fadeOutDownBig' )

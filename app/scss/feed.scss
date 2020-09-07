@@ -1027,7 +1027,7 @@
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
 
     .mobile {
         display: block;
@@ -1050,10 +1050,10 @@
         padding: 0 20px;
     }
 
-    .feed__header_tabs {
-        position: absolute;
-        left: calc(50% - 65px);
-    }
+    //.feed__header_tabs {
+    //    position: absolute;
+    //    left: calc(50% - 65px);
+    //}
 
     .mobile-nav {
         position: sticky;
@@ -1070,6 +1070,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .profile-border {
+            padding: 6px;
+            border: 1px solid #6E4AFF;
+            display: block;
+            border-radius: 50%;
+            margin: -6px;
         }
     }
 
@@ -1276,6 +1284,21 @@
 
     .feed__post .feed__header_menu {
         right: 0;
+    }
+
+    #newPost .modal {
+        display: flex;
+        flex-direction: column;
+
+        .modal__content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+
+            textarea {
+                flex-grow: 1;
+            }
+        }
     }
 
 }

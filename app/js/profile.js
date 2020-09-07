@@ -53,47 +53,33 @@ function openTabModal(evt, Tab) {
         let h = popover.getBoundingClientRect().height
         let x = el.getBoundingClientRect().left - 92
         let y = el.getBoundingClientRect().top - 20 - h
-        el.addEventListener( 'mouseover', function () {
-            popover.style.opacity = '1'
-            popover.style.visibility = 'visible'
-            popover.style.left = x + 'px'
-            popover.style.top = y + 'px'
-        } )
-        el.addEventListener( 'mouseout', function () {
-            popover.style.cssText = ''
-        } )
+        if(window.innerWidth >=1024) {
+            el.addEventListener( 'mouseover', function () {
+                popover.style.opacity = '1'
+                popover.style.visibility = 'visible'
+                popover.style.left = x + 'px'
+                popover.style.top = y + 'px'
+            } )
+            el.addEventListener( 'mouseout', function () {
+                popover.style.cssText = ''
+            } )
+        }
     }
 
 
 
     let progressbar = document.querySelector( '.progressbar div' )
     let tokens = document.querySelectorAll( '.level-progress__tab .tokens' )
-    for (let el of tokens)
+    for (let el of tokens) {
         el.onscroll = function () {
             let winWidth = el.children[1].offsetWidth - el.offsetWidth +20
             let bar = el.scrollLeft / winWidth  * 100
             progressbar.style.width = bar + '%'
         }
+    }
 
-    // let tools = document.querySelectorAll( '.tool' )
-    // let tooltips = document.querySelectorAll( '.tooltip' )
-    // for (let i = 0; i < tools.length; i++) {
-    //     let tool = tools[i]
-    //     let tooltip = tooltips[i]
-    //     let h = tooltip.getBoundingClientRect().height
-    //     let x = tool.getBoundingClientRect().left
-    //     let y = tool.getBoundingClientRect().top
-    //     tool.addEventListener( 'mouseover', function () {
-    //         console.log(window.scrollTop)
-    //         tooltip.style.opacity = '1'
-    //         tooltip.style.visibility = 'visible'
-    //         tooltip.style.left = x + 'px'
-    //         tooltip.style.top = y + 'px'
-    //     } )
-    //     tool.addEventListener( 'mouseout', function () {
-    //         tooltip.style.cssText = ''
-    //     } )
-    // }
+
+
 }
 
 function openFoll(evt, Tab) {
@@ -135,7 +121,7 @@ if(defaultOpen2 !== null) defaultOpen2.click()
 
 let showPs = false
 function showBtnPs() {
-    if (window.innerWidth >=768) { // pc
+    if (window.innerWidth >=1024) { // pc
         showPs = !showPs
         let btn = document.querySelector( '#ps' )
         let show = document.querySelector( '.show-all' )
@@ -215,7 +201,7 @@ function openTabPatie(evt, Tab) {
     setTimeout(function () {
         document.getElementById(Tab).style.opacity = "1";
         document.getElementById(Tab).style.transform = "scale(1)";
-        if(window.innerWidth <= 767) { // mobile
+        if(window.innerWidth <= 1023) { // mobile
             document.getElementById(Tab).style.height = "100%";
         } else { // pc
             document.getElementById(Tab).style.height = "calc(100% - 66px)";
@@ -251,7 +237,7 @@ function openTabFeed(evt, Tab) {
     setTimeout(function () {
         document.getElementById(Tab).style.opacity = "1";
         document.getElementById(Tab).style.transform = "scale(1)";
-        if(window.innerWidth <= 767) { // mobile
+        if(window.innerWidth <= 1023) { // mobile
             document.getElementById(Tab).style.height = "100%";
         } else { // pc
             document.getElementById(Tab).style.height = "calc(100% - 66px)";
@@ -278,7 +264,7 @@ let btnNext = el.parentElement.children[el.parentElement.children.length -1]
 
 let editPhoto = document.querySelector('#editPhoto')
 let photoAvatar = document.querySelector('#photoAvatar')
-
+if(photoAvatar !== null)
 photoAvatar.onclick = function () {
     event.preventDefault()
     editPhoto.style.zIndex = '2'
@@ -293,14 +279,71 @@ window.onclick = function (e) {
 }
 
 
-// function openMenu(menu) {
-//     if(window.innerWidth <= 767) { // mobile
-//         event.preventDefault()
-//         menu.style.zIndex = '2'
-//         menu.style.opacity = '1'
-//         menu.children[0].style.bottom = '0'
+//
+// let token = document.querySelectorAll( '.pop' )
+// let popovers = document.querySelectorAll( '.popover' )
+// for (let i = 0; i < token.length; i++) {
+//     let el = token[i]
+//     let popover = popovers[i]
+//     let h = popover.getBoundingClientRect().height
+//     let x = el.getBoundingClientRect().left - 92
+//     let y = el.getBoundingClientRect().top - 20 - h
+//     if(window.innerWidth >=1024) {
+//         el.addEventListener( 'mouseover', function () {
+//             popover.style.opacity = '1'
+//             popover.style.visibility = 'visible'
+//             popover.style.left = x + 'px'
+//             popover.style.top = y + 'px'
+//         } )
+//         el.addEventListener( 'mouseout', function () {
+//             popover.style.cssText = ''
+//         } )
+//     }
+//     if(window.innerWidth <=1023) {
+//         el.onclick = function () {
+//             testSlide = i
+//             console.log(testSlide)
+//         }
 //     }
 // }
+
+let indexToken
+let tokenMobiles = document.querySelectorAll( '#Tokens .tokens-mobile .token' )
+for (let i = 0; i < tokenMobiles.length; i++) {
+    let tokenMobile = tokenMobiles[i]
+    tokenMobile.onclick = function () {
+        indexToken = i
+        openModal( levelProgressToken )
+
+        $( '#levelProgressToken .modal__content' ).slick( {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: false,
+            dots: true,
+        } );
+        $( '#levelProgressToken .modal__content' ).slick( 'slickGoTo', indexToken, true );
+    }
+}
+
+let indexAchivements
+let achivementsMobiles = document.querySelectorAll( '#Achivements .tokens-mobile .token' )
+for (let i = 0; i < achivementsMobiles.length; i++) {
+    let achivementsMobile = achivementsMobiles[i]
+    achivementsMobile.onclick = function () {
+        indexAchivements = i
+        openModal( levelProgressAchivements )
+
+        $( '#levelProgressAchivements .modal__content' ).slick( {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: false,
+            dots: true,
+        } );
+        $( '#levelProgressAchivements .modal__content' ).slick( 'slickGoTo', indexAchivements, true );
+    }
+}
+
+
 
 
 

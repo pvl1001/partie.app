@@ -3303,7 +3303,8 @@
   margin-right: 7px;
 }
 
-#levelProgress .modal__content .level-progress__tab .tabcontent .tokens {
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens,
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens-pc {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3311,7 +3312,8 @@
   flex-wrap: wrap;
 }
 
-#levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token {
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token,
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens-pc .token {
   width: 70px;
   height: 80px;
   margin-right: 18px;
@@ -3320,15 +3322,18 @@
   position: relative;
 }
 
-#levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token:nth-child(5n) {
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token:nth-child(5n),
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens-pc .token:nth-child(5n) {
   margin-right: 0;
 }
 
-#levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token img {
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token img,
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens-pc .token img {
   width: 100%;
 }
 
-#levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token .token__counter {
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token .token__counter,
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens-pc .token .token__counter {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -3348,7 +3353,8 @@
   justify-content: center;
 }
 
-#levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token .popover {
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token .popover,
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens-pc .token .popover {
   padding: 20px;
   position: fixed;
   background: #14131A;
@@ -3373,7 +3379,8 @@
   transition: .3s opacity;
 }
 
-#levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token .popover:before {
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token .popover:before,
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens-pc .token .popover:before {
   content: '';
   width: 16px;
   height: 16px;
@@ -3387,14 +3394,16 @@
   left: calc(50% - 8px);
 }
 
-#levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token .popover .popover__name {
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token .popover .popover__name,
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens-pc .token .popover .popover__name {
   font-weight: bold;
   font-size: 17px;
   line-height: 150%;
   margin-bottom: 10px;
 }
 
-#levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token .popover .popover__description {
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token .popover .popover__description,
+#levelProgress .modal__content .level-progress__tab .tabcontent .tokens-pc .token .popover .popover__description {
   line-height: 150%;
   color: #EBEBF5;
   opacity: 0.5;
@@ -4568,6 +4577,18 @@
   line-height: 32px;
   text-align: center;
   cursor: pointer;
+}
+
+.titleModal .titleModal__active .members {
+  font-size: 13px;
+  opacity: 0.5;
+  margin-bottom: 20px;
+}
+
+.titleModal .titleModal__active .titleModal__active_title {
+  opacity: .5;
+  font-size: 13px;
+  margin-bottom: 20px;
 }
 
 .titleModal .titleModal__active .user {
@@ -6093,8 +6114,13 @@
 }
 
 #editChat.titleModal .titleModal__chat-name .titleModal__text_name {
-  font-size: 17px;
-  line-height: 22px;
+  display: inline;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
 }
 
 #editChat.titleModal button {
@@ -6617,14 +6643,19 @@
   color: rgba(235, 235, 245, 0.5);
 }
 
-.settings .feed__col3 .subscription__manage .subscription__manage_cancel {
+.settings .feed__col3 .subscription__manage .manage__cancel_wrapp {
+  position: absolute;
+  bottom: 38px;
+  left: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.settings .feed__col3 .subscription__manage .manage__cancel_wrapp .subscription__manage_cancel {
   font-weight: bold;
   line-height: 140%;
   color: #F45365;
   cursor: pointer;
-  position: absolute;
-  bottom: 38px;
-  left: calc(50% - 72px);
 }
 
 .settings .feed__col3 .subscription__manage .subscription__pay-btns {
@@ -6681,7 +6712,7 @@
 
 .settings .feed__col3 #PrivacySafety .muted-accounts-page {
   position: absolute;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   background-color: #000;
   top: 0;
@@ -6904,12 +6935,13 @@
   background: #6E4AFF url("../img/icon/ok-w.png") center/15px no-repeat;
 }
 
-#changePaymentMethod input[type=text] {
+#changePaymentMethod textarea {
   padding: 0;
   border: 0;
   border-radius: 0;
   height: auto;
   margin-bottom: 33px;
+  width: 100%;
 }
 
 #addCreditCardSetting .add-credit-card {
@@ -8913,6 +8945,10 @@ svg circle {
   text-transform: capitalize;
 }
 
+.relative {
+  position: relative;
+}
+
 .feed__header_tabs a {
   -webkit-transition: .3s;
   -o-transition: .3s;
@@ -8923,7 +8959,7 @@ svg circle {
   color: #8E8C9C !important;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .logIn .logo svg,
   .logIn .logIn__menu,
   .logIn .sign-up__top {
@@ -9343,7 +9379,7 @@ svg circle {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .salutation,
   .sign-up__tab,
   .header__logo {
@@ -9822,11 +9858,6 @@ svg circle {
     padding: 0 20px;
   }
 
-  .feed__header_tabs {
-    position: absolute;
-    left: calc(50% - 65px);
-  }
-
   .mobile-nav {
     position: -webkit-sticky;
     position: sticky;
@@ -9851,6 +9882,14 @@ svg circle {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+  }
+
+  .mobile-nav .profile-border {
+    padding: 6px;
+    border: 1px solid #6E4AFF;
+    display: block;
+    border-radius: 50%;
+    margin: -6px;
   }
 
   .feed .feed__col2 .feed__header {
@@ -10077,6 +10116,35 @@ svg circle {
     right: 0;
   }
 
+  #newPost .modal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  #newPost .modal .modal__content {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  #newPost .modal .modal__content textarea {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
+
   .burger__wrapp .burger__menu {
     position: fixed;
     bottom: 0;
@@ -10108,6 +10176,12 @@ svg circle {
     background-color: rgba(20, 20, 20, 0.6);
   }
 
+  #ratingPartie .modal {
+    left: 0;
+    bottom: 0;
+    top: auto;
+  }
+
   #inviteFriendsSetting .modal,
   #hostPlatform .modal,
   #gametrag .modal,
@@ -10117,7 +10191,11 @@ svg circle {
   #unfollow .modal,
   #gametragPlatform .modal,
   #gametragName .modal,
-  #removeUser .modal {
+  #removeUser .modal,
+  #partieReport .modal,
+  #leaveChat .modal,
+  #deleteAccount .modal,
+  #share .modal {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -10143,7 +10221,11 @@ svg circle {
   #unfollow .modal:before,
   #gametragPlatform .modal:before,
   #gametragName .modal:before,
-  #removeUser .modal:before {
+  #removeUser .modal:before,
+  #partieReport .modal:before,
+  #leaveChat .modal:before,
+  #deleteAccount .modal:before,
+  #share .modal:before {
     content: '';
     position: absolute;
     height: 6px;
@@ -10163,7 +10245,11 @@ svg circle {
   #unfollow .modal .modal__head,
   #gametragPlatform .modal .modal__head,
   #gametragName .modal .modal__head,
-  #removeUser .modal .modal__head {
+  #removeUser .modal .modal__head,
+  #partieReport .modal .modal__head,
+  #leaveChat .modal .modal__head,
+  #deleteAccount .modal .modal__head,
+  #share .modal .modal__head {
     display: none;
   }
 
@@ -10176,7 +10262,11 @@ svg circle {
   #unfollow .modal .modal__content,
   #gametragPlatform .modal .modal__content,
   #gametragName .modal .modal__content,
-  #removeUser .modal .modal__content {
+  #removeUser .modal .modal__content,
+  #partieReport .modal .modal__content,
+  #leaveChat .modal .modal__content,
+  #deleteAccount .modal .modal__content,
+  #share .modal .modal__content {
     width: 100%;
   }
 
@@ -10346,7 +10436,7 @@ svg circle {
   }
 
   .tokens-pc {
-    display: none;
+    display: none !important;
   }
 
   .tokens-mobile {
@@ -10435,6 +10525,100 @@ svg circle {
 
   #hostPartie .shortcuts .shortcuts__title .btn-up {
     display: none;
+  }
+
+  #editPartie {
+    width: 100%;
+  }
+
+  #editPartie .hostLiveShow__btns .btn-create {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    height: 32px;
+  }
+
+  #editPartie .hostLiveShow__btns .btn-round,
+  #editPartie .hostLiveShow__img .delete-img {
+    display: none;
+  }
+
+  #editPartie .modal__close {
+    left: 0;
+    right: auto;
+  }
+
+  #editPartie .btn-create {
+    position: absolute;
+    right: 0;
+    background: #6E4AFF;
+    border-radius: 20px;
+    width: 59px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  #editPartie .gametrag button {
+    background: #3069e8 url("../img/icon/ps.png") 28.7px 50%/22.5px no-repeat;
+    height: 64px;
+  }
+
+  #editPartie button.host-ps {
+    background: rgba(20, 19, 26, 0.8) url("../img/icon/ps.png") 28.7px 50%/22.5px no-repeat;
+  }
+
+  #editPartie .communication button {
+    background: rgba(20, 19, 26, 0.8) url("../img/icon/mic.png") 33.8px 50%/13px no-repeat;
+    height: 64px;
+  }
+
+  #editPartie #gametragName.gametrag-modal input {
+    width: 100%;
+    padding: 0;
+  }
+
+  #editPartie .modal__content.platform {
+    margin-top: 40px;
+  }
+
+  #editPartie .modal__content {
+    margin-bottom: 20px;
+  }
+
+  #editPartie .platform__title {
+    margin-bottom: 10px;
+  }
+
+  #editPartie .modal__content button {
+    height: 64px;
+  }
+
+  #editPartie .hostLiveShow__btns .btn-public {
+    height: 32px;
+  }
+
+  #editPartie .editPartie__btns.mobile button {
+    font-weight: 400;
+  }
+
+  #editPartie .editPartie__btns.mobile .modal__content:nth-last-child(2) button,
+  #editPartie .editPartie__btns.mobile .modal__content:nth-last-child(3) button {
+    color: rgba(235, 235, 245, 0.4);
+  }
+
+  #editPartie .hostLiveShow__btns input[type=file] + label {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    margin-right: 0;
+    left: calc(50% - 23px);
+    top: -146px;
+    background: #f8f6ff url("../img/icon/photo.png") center/20.1px no-repeat;
+    display: block;
+  }
+
+  #editPartie .hostLiveShow__img {
+    opacity: .5;
   }
 
   #hostLiveShowMobile .modal__content.platform,
@@ -10551,6 +10735,348 @@ svg circle {
     background-color: #2b2a33;
   }
 
+  #removeUser .modal,
+  #partieReport .modal {
+    padding-bottom: 54px;
+  }
+
+  #removeUser .removeUser__title,
+  #partieReport .removeUser__title {
+    opacity: 1;
+    color: rgba(235, 235, 245, 0.5);
+    background: url("../img/icon/arrow-left-w.png") 0 50%/8px no-repeat;
+    padding-left: 20px;
+  }
+
+  #removeUser .removeUser-mobile,
+  #partieReport .removeUser-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: auto;
+    margin: 0 -20px;
+    padding-left: 20px;
+  }
+
+  #removeUser .removeUser-mobile label,
+  #partieReport .removeUser-mobile label {
+    padding: 0 18px;
+    margin-right: 8px;
+  }
+
+  .titleModal .titleModal__btns .big-round-btn.more .more__win.dev {
+    width: 100%;
+  }
+
+  .titleModal .titleModal__btns .big-round-btn.more .more__win.dev:before {
+    display: none;
+  }
+
+  .titleModal .modal__close {
+    right: auto;
+    left: 0;
+  }
+
+  .titleModal .btn-edit {
+    left: auto;
+    right: 0;
+  }
+
+  .titleModal .titleModal__btns .big-round-btn.more .more__win {
+    left: 0;
+    bottom: 0;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    border-radius: 0;
+    padding-bottom: 34px;
+    background-color: #000;
+    height: auto;
+  }
+
+  #editPartie .hostLiveShow__img img {
+    height: 208px;
+    -o-object-fit: contain;
+    object-fit: contain;
+  }
+
+  .hostLiveShow__btns_label {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  #titleModalStart .requests {
+    margin-bottom: 40px;
+  }
+
+  #titleModalStart .requests .requests__title {
+    font-size: 13px;
+    opacity: 0.5;
+    margin-bottom: 20px;
+  }
+
+  #titleModalStart .requests button {
+    margin-left: auto;
+    background-color: #6E4AFF;
+    width: 68px;
+    height: 32px;
+  }
+
+  #ratingPartie.ratingPartie .modal__content .star-2 textarea {
+    min-height: 222px;
+    vertical-align: middle;
+    padding: 98px 0 10px 0;
+  }
+
+  #ratingPartie.ratingPartie .modal__content .star-3__tokens {
+    -ms-flex-wrap: nowrap !important;
+    flex-wrap: nowrap !important;
+    overflow: auto;
+    padding: 0 !important;
+  }
+
+  #ratingPartie.ratingPartie .modal__content .star-3__tokens .token {
+    min-width: 27%;
+    margin-right: 0;
+  }
+
+  #ratingPartie.ratingPartie .modal__content .star-3__tokens .token:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  #partie .feed__col2.chats {
+    padding-top: 60px;
+  }
+
+  #partie .feed__col2.chats .message-wrapp {
+    width: calc(100% - 66px);
+    padding-right: 65px;
+  }
+
+  #partie .feed__col2.chats .user {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  #partie .feed__col2.chats .user .avatar:not(.avatar-small) {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    cursor: pointer;
+    min-width: 50px;
+  }
+
+  #partie .feed__col2.chats .user .user__name {
+    font-weight: bold;
+    margin-bottom: 6px;
+    cursor: pointer;
+  }
+
+  #partie .feed__col2.chats .user .user__level,
+  #partie .feed__col2.chats .user .user__message {
+    opacity: 0.5;
+  }
+
+  #partie .feed__col2.chats .user .user__name,
+  #partie .feed__col2.chats .user .user__message {
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #newChat .modal {
+    background-color: #14131A;
+  }
+
+  #newChat .modal .modal__head button {
+    font-size: 13px;
+  }
+
+  #newChat .modal .users-check {
+    margin-bottom: 18px;
+  }
+
+  .feed__col2.new-active-partie .feed__header .feed__header_title {
+    width: calc(100% - 80px);
+  }
+
+  .feed__col2.new-active-partie .feed__header .feed__header_title .title {
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .feed__col2.new-active-partie .feed__header .feed__header_title .active {
+    font-size: 13px;
+    line-height: 16px;
+    opacity: 0.5;
+  }
+
+  #partie .feed__col2.new-active-partie {
+    padding: 60px 20px 78px;
+  }
+
+  #partie .feed__col2.new-active-partie .new-active-partie__message {
+    position: fixed;
+    left: 20px;
+    bottom: 0;
+    right: 20px;
+    padding: 6px 0 40px;
+    background-color: #000;
+  }
+
+  #levelProgressToken .modal,
+  #levelProgressAchivements .modal {
+    background-color: rgba(40, 26, 92, 0.89);
+    border-radius: 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  #levelProgressToken .modal__content,
+  #levelProgressAchivements .modal__content {
+    min-width: 0;
+    height: 435px;
+    position: relative;
+  }
+
+  #levelProgressToken .levelProgressSlider__box,
+  #levelProgressAchivements .levelProgressSlider__box {
+    width: 315px;
+    height: 435px;
+    border-radius: 20px;
+    background-color: #000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 27px;
+    margin: 0 10px;
+  }
+
+  #levelProgressToken .levelProgressSlider__img,
+  #levelProgressAchivements .levelProgressSlider__img {
+    width: 102px;
+    height: 120px;
+    background: url("../img/pic/great.png") center/contain no-repeat;
+    margin-bottom: 20px;
+  }
+
+  #levelProgressToken .levelProgressSlider__head-title,
+  #levelProgressAchivements .levelProgressSlider__head-title {
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+    color: #F8F6FF;
+    position: fixed;
+    top: calc(50% - 305px);
+    text-align: center;
+    width: 100%;
+  }
+
+  #levelProgressToken .levelProgressSlider__title,
+  #levelProgressAchivements .levelProgressSlider__title {
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 150%;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  #levelProgressToken .levelProgressSlider__description,
+  #levelProgressAchivements .levelProgressSlider__description {
+    font-size: 14px;
+    line-height: 150%;
+    color: #EBEBF5;
+    opacity: 0.5;
+    text-align: center;
+  }
+
+  #levelProgressToken .slick-track,
+  #levelProgressAchivements .slick-track {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  #levelProgressToken .slick-arrow,
+  #levelProgressAchivements .slick-arrow {
+    display: none !important;
+  }
+
+  #levelProgressToken .slick-dots,
+  #levelProgressAchivements .slick-dots {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 32px auto 0;
+    width: 70%;
+  }
+
+  #levelProgressToken .slick-dots .slick-active,
+  #levelProgressAchivements .slick-dots .slick-active {
+    background-color: white;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  #levelProgressToken .slick-dots li,
+  #levelProgressAchivements .slick-dots li {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
+
+  #levelProgressToken .slick-dots li button,
+  #levelProgressAchivements .slick-dots li button {
+    width: 100%;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 0;
+    border-radius: 0;
+  }
+
+  #levelProgressToken .slick-dots li:first-child button,
+  #levelProgressAchivements .slick-dots li:first-child button {
+    border-radius: 20px 0 0 20px;
+  }
+
+  #levelProgressToken .slick-dots li:last-child button,
+  #levelProgressAchivements .slick-dots li:last-child button {
+    border-radius: 0 20px 20px 0;
+  }
+
   #partie .feed__col2 {
     padding-top: 127px;
   }
@@ -10607,12 +11133,48 @@ svg circle {
     height: auto;
   }
 
-  #partie .feed__col2.new-active-partie {
-    padding-top: 0;
-  }
-
   #inviteFriends .modal {
     background-color: #14131A;
+  }
+
+  #chatHead.titleModal .titleModal__btns {
+    margin: 45px 0 40px;
+  }
+
+  #chatHead.titleModal .modal__head {
+    height: 18px;
+  }
+
+  #chatHead.titleModal .titleModal__users {
+    position: fixed;
+    top: 11px;
+    left: 60px;
+    right: 60px;
+  }
+
+  #chatHead.titleModal .titleModal__users_name {
+    overflow: hidden;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+  }
+
+  #chatHead.titleModal .modal__head > div {
+    position: absolute;
+  }
+
+  #chatHead.titleModal .titleModal__users_avatar {
+    display: none;
+  }
+
+  #editChat.titleModal button {
+    margin-top: 0;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 58px;
+    height: 32px;
+    font-size: 13px;
   }
 
   #profile.profiles .profile__info .private {
@@ -10621,6 +11183,361 @@ svg circle {
 
   #profile.profiles .feed__header_menu {
     right: 0;
+  }
+
+  .settings .feed__col2 {
+    padding: 0;
+  }
+
+  .settings .feed__col2 .col2-settings .feed__col3 {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: #000;
+    padding: 0 20px;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+  }
+
+  .settings .feed__col2 .col2-settings .feed__col3 .delete-account__wrapp {
+    left: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .settings .feed__col2 .col2-settings .feed__col3 .delete-account__wrapp .delete-account {
+    position: initial;
+  }
+
+  .settings .feed__col2 .col2-settings .feed__header .btn-back {
+    top: auto;
+    left: 20px;
+  }
+
+  .settings .feed__col2 .col2-settings .col2-settings-wrapp {
+    width: 100%;
+  }
+
+  .settings .feed__col2 .col2-settings .tabcontent-setting {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    padding: 0 20px;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+  }
+
+  .settings .feed__col2 .col2-settings .subscription__manage-wrapp {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .settings .feed__col2 .col2-settings .subscription__text {
+    width: 261px;
+  }
+
+  .settings .feed__col2 .col2-settings .subscription__change,
+  .settings .feed__col2 .col2-settings .subscription__pay-btns {
+    display: none;
+  }
+
+  .settings .feed__col2 .col2-settings .subscription__change.mobile {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 140%;
+    color: #FFFFFF;
+  }
+
+  .settings .feed__col2 .col2-settings .subscription .btn-container-show .subscription__payment .subscription__payment-paypal,
+  .settings .feed__col2 .col2-settings .subscription .btn-container-show .subscription__payment .subscription__payment-card {
+    height: 52px;
+  }
+
+  #addCreditCardSetting .add-credit-card.modal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  #addCreditCardSetting .add-credit-card.modal .add-credit-card__input-group {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
+
+  #addCreditCardSetting .modal__head {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+  }
+
+  #addCreditCardSetting .modal__head .btn-back.mobile {
+    position: absolute;
+  }
+
+  #addCreditCardSetting .modal__head span {
+    margin-top: 42px;
+    font-weight: bold;
+    font-size: 32px;
+    letter-spacing: -0.408px;
+  }
+
+  #addCreditCardSetting .modal__head .modal__close {
+    display: none;
+  }
+
+  #addCreditCardSetting .add-credit-card .add-credit-card__text {
+    text-align: left;
+    padding: 0;
+  }
+
+  #changePaymentMethod .modal__close {
+    display: none;
+  }
+
+  #changePaymentMethod .btn-back.mobile {
+    position: absolute;
+  }
+
+  .settings .feed__col3 #PrivacySafety .gamertag-privacy .form,
+  .settings .feed__col3 #PrivacySafety .private-account .form {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    top: 0;
+    left: 100%;
+    padding: 0 20px;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+    margin-top: 0;
+    z-index: 1;
+  }
+
+  .settings .feed__col3 #PrivacySafety .private-account .title,
+  .settings .feed__col3 #PrivacySafety .gamertag-privacy .title,
+  .settings .feed__col3 #PrivacySafety .muted-accounts,
+  .settings .feed__col3 #PrivacySafety .blocked-accounts {
+    background: url("../img/icon/arrow-right.png") 100% 50%/7px no-repeat;
+  }
+
+  .settings .feed__col3 #PrivacySafety .private-account .description,
+  .settings .feed__col3 #PrivacySafety .gamertag-privacy .description {
+    display: none;
+  }
+
+  .settings .feed__col3 #PrivacySafety .private-account .description.mobile,
+  .settings .feed__col3 #PrivacySafety .gamertag-privacy .description.mobile {
+    display: block;
+  }
+
+  .settings .feed__col3 #PrivacySafety .form .description.mobile {
+    margin-top: 20px;
+  }
+
+  .settings .feed__col3 #PrivacySafety .user {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .settings .feed__col3 #PrivacySafety .user .avatar {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    cursor: pointer;
+    min-width: 50px;
+  }
+
+  .settings .feed__col3 #PrivacySafety .user .user__name {
+    font-weight: bold;
+    margin-bottom: 6px;
+    cursor: pointer;
+  }
+
+  .settings .feed__col3 #PrivacySafety .user .user__level,
+  .settings .feed__col3 #PrivacySafety .user .user__message {
+    opacity: 0.5;
+  }
+
+  #Account,
+  .col2-settings-wrapp,
+  #Preferences,
+  #Notifications,
+  .email-notifications-page,
+  #PrivacySafety {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .account-wrapp,
+  .subscription__manage {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-bottom: 50px;
+    min-height: 100%;
+  }
+
+  .account-wrapp form,
+  .subscription__manage form {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    margin-bottom: 40px;
+  }
+
+  .settings .feed__col3 #Notifications .email-notifications-page {
+    position: fixed;
+  }
+
+  .settings .tab .tablinks-setting {
+    background: url("../img/icon/arrow-right.png") calc(100% - 20px) 50%/7px no-repeat;
+  }
+
+  .settings .feed__col3 .feed__col3_header .btn-back {
+    position: absolute;
+  }
+
+  .settings .tab .description.mobile {
+    font-size: 14px;
+    margin-top: 4px;
+    opacity: 0.5;
+    font-weight: 400;
+  }
+
+  .feed__col3.about #How label {
+    left: 20px;
+  }
+
+  .feed__col3.about .tabcontent-setting {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .col2-settings .col2-settings-wrapp .feed__header a {
+    position: absolute;
+    left: 0;
+  }
+
+  #feed .feed__col2.search {
+    padding-top: 14px;
+  }
+
+  #feed .feed__col2.search .feed__header {
+    display: none;
+  }
+
+  #feed .feed__col2.search .profile__tabs .tab {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+
+  #feed .feed__col2.search .profile__tabs .tablinks {
+    margin-right: 0;
+  }
+
+  #feed .feed__col2.search .cards .card {
+    width: 50%;
+  }
+
+  .search__input {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .btn-back.mobile {
+    position: relative;
+    margin-right: 10px;
+  }
+
+  .search-win .search-win__box {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    border-radius: 0;
+    background-color: #000;
+    z-index: -1;
+    padding-top: 75px;
+  }
+
+  .search-win .search-win__box:before {
+    display: none;
+  }
+
+  .search-win .feed__search_search {
+    -webkit-transition: padding .3s;
+    -o-transition: padding .3s;
+    transition: padding .3s;
+  }
+
+  .search-win.mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .search-win.mobile .btn-back.mobile {
+    display: none;
+  }
+
+  #feed.notifications .feed__col2 {
+    padding-top: 60px;
+  }
+
+  #feed.notifications .feed__col2 .notifications__content .notifications__row .avatar {
+    min-width: 50px;
+  }
+
+  #feed.notifications .feed__col2 .notifications__content.follow-requests .feed__header {
+    position: absolute;
+  }
+
+  #feed.notifications .feed__col2 .notifications__content.follow-requests {
+    padding: 0 20px;
+  }
+
+  #feed.notifications .feed__col2 .notifications__content.follow-requests .btn-back {
+    left: 20px;
+  }
+
+  #feed.notifications .feed__col2 .notifications__content.follow-requests {
+    z-index: 1;
   }
 
   .links,

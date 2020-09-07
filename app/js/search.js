@@ -1,27 +1,45 @@
-let inputSearch = document.querySelector('input.feed__search_search')
-let searchWinBox = document.querySelector('.search-win__box')
-let contentSearch = document.querySelector('.search-win__content.search-win__content-search')
-let content = document.querySelector('.search-win__content')
+let inputSearchs = document.querySelectorAll('input.feed__search_search')
+let searchWinBoxs = document.querySelectorAll('.search-win__box')
 
-if (inputSearch !== null) {
-    inputSearch.addEventListener('focus', function () {
-        searchWinBox.style.opacity = '1'
-        searchWinBox.style.visibility = 'visible'
-    })
 
-    inputSearch.addEventListener('blur', function () {
-        searchWinBox.style.cssText = ''
-    })
+for(let i = 0; i < inputSearchs.length; i++) {
+    let inputSearch = inputSearchs[i]
+    let searchWinBox = searchWinBoxs[i]
+    if (inputSearch !== null) {
+        inputSearch.addEventListener('focus', function () {
+            searchWinBox.style.opacity = '1'
+            searchWinBox.style.visibility = 'visible'
 
-    inputSearch.addEventListener('keyup', function () {
-        if (inputSearch.value.length) {
-            contentSearch.style.display = 'block'
-            content.style.display = 'none'
-        } else {
-            contentSearch.style.display = ''
-            content.style.display = ''
+            if(window.innerWidth <= 1023) {
+                inputSearch.style.paddingLeft = '16px'
+                inputSearch.style.background = '#19181F'
+                inputSearch.parentElement.style.marginTop = '-45px'
+                inputSearch.parentElement.children[0].style.display = 'block'
+            }
+        })
+
+        function closeSearch() {
+            inputSearch.style.cssText = ''
+            inputSearch.parentElement.style.marginTop = ''
+            inputSearch.parentElement.children[0].style.display = ''
+            searchWinBox.style.cssText = ''
         }
-    })
+
+        // inputSearch.addEventListener('blur', function () {
+        //     searchWinBox.style.cssText = ''
+        // })
+
+        inputSearch.addEventListener('keyup', function () {
+            if (inputSearch.value.length) {
+                searchWinBox.children[1].style.display = 'block'
+                searchWinBox.children[0].style.display = 'none'
+            } else {
+                searchWinBox.children[1].style.display = ''
+                searchWinBox.children[0].style.display = ''
+            }
+        })
+    }
+
 }
 
 

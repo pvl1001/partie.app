@@ -139,6 +139,11 @@
         <div class="col2-settings">
             <div class="col2-settings-wrapp">
                 <div class="feed__header">
+                    <a href="/profile.html"><svg id="back" class="btn-back mobile" width="24" height="24" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                        <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                    </svg></a>
                     Setting
                 </div>
                 <div class="tab">
@@ -148,33 +153,53 @@
                     <div class="tablinks-setting" onclick="openSetting(event, 'Notifications')">Notifications</div>
                     <div class="tablinks-setting" onclick="openSetting(event, 'PrivacySafety')">Privacy & Safety</div>
                     <div class="tablinks-setting" onclick="openSetting(event, 'LinkedAccounts')">Linked accounts</div>
-                    <div class="tablinks-setting" onclick="openSetting(event, 'Language')">Language</div>
+                    <div class="tablinks-setting" onclick="openSetting(event, 'Language')">
+                        Language
+                        <div class="description mobile"></div>
+                    </div>
                 </div>
             </div>
             <div class="feed__col3">
                 <div id="Account" class="tabcontent-setting">
-                    <div class="feed__col3_header">Account</div>
-                    <form>
-                        <div class="input-box">
-                            <div class="input-box__title">Username</div>
-                            <input type="text">
+                    <div class="account-wrapp">
+                        <div class="feed__col3_header">
+                            <svg onclick="backSettingsMobile('Account')" id="back" class="btn-back mobile" width="24" height="24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                                <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                            </svg>
+                            Account
                         </div>
-                        <div class="input-box">
-                            <div class="input-box__title">Email</div>
-                            <input type="email">
+                        <form>
+                            <div class="input-box">
+                                <div class="input-box__title">Username</div>
+                                <input type="text">
+                            </div>
+                            <div class="input-box">
+                                <div class="input-box__title">Email</div>
+                                <input type="email">
+                            </div>
+                            <div class="input-box">
+                                <div class="input-box__title">Date of Birth</div>
+                                <input type="text">
+                            </div>
+                            <input type="submit" class="change-password" value="Change password">
+                        </form>
+                        <div class="delete-account__wrapp">
+                            <span onclick="openModal(deleteAccount)" class="delete-account">Delete account</span>
                         </div>
-                        <div class="input-box">
-                            <div class="input-box__title">Date of Birth</div>
-                            <input type="text">
-                        </div>
-                        <input type="submit" class="change-password" value="Change password">
-                    </form>
-
-                    <div onclick="openModal(deleteAccount)" class="delete-account">Delete account</div>
+                    </div>
                 </div>
 
                 <div id="Preferences" class="tabcontent-setting">
-                    <div class="feed__col3_header">Preferences</div>
+                    <div class="feed__col3_header">
+                        <svg onclick="backSettingsMobile('Preferences')" id="back" class="btn-back mobile" width="24" height="24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                            <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                        </svg>
+                        Preferences
+                    </div>
                     <div class="btn-box">
                         <div class="btn-box__title">
                             <div class="btn-box__title_title">Plattfform</div>
@@ -200,7 +225,14 @@
                 </div>
 
                 <div id="Subscription" class="tabcontent-setting">
-                    <div class="feed__col3_header">Subscription</div>
+                    <div class="feed__col3_header">
+                        <svg onclick="backSettingsMobile('Subscription')" id="back" class="btn-back mobile" width="24" height="24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                            <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                        </svg>
+                        Subscription
+                    </div>
                     <div class="subscription__annual">
                         <div class="subscription__annual-name">
                             <div class="checkbox-round"></div>
@@ -212,7 +244,9 @@
                         </div>
                     </div>
                     <div class="subscription__text">Your plan is scheldeled to renew on 23 July 2021</div>
-                    <div onclick="openSettings(subscriptionManage)" class="subscription__manage-btn">Manage subscription</div>
+                    <div class="subscription__manage-wrapp">
+                        <span onclick="openSettings(subscriptionManage)" class="subscription__manage-btn">Manage subscription</span>
+                    </div>
                     <div class="subscription__manage">
                         <div class="feed__col3_header">
                             <svg id="back" onclick="backSettings(subscriptionManage)" class="btn-back" width="24" height="24"
@@ -231,6 +265,24 @@
                                 <div class="subscription__card_expires">Expires: 12/2021</div>
                             </div>
                             <div class="subscription__change">Change payment method</div>
+                            <div onclick="showBtns(this)" class="subscription__change mobile">Manage subscription</div>
+
+                            <div class="subscription">
+                                <div class="btn-container-wrapp">
+                                    <div class="btn-container-show animate__animated animate__fadeInUp">
+                                        <div class="subscription__payment">
+                                            <div class="subscription__payment_title">
+                                                Payment method
+                                            </div>
+                                            <button class="subscription__payment-paypal">Paypal</button>
+                                            <button onclick="openModal(addCreditCardSetting)" class="subscription__payment-card">
+                                                Credit card
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="subscription__pay-btns">
                                 <button onclick="openModal(addCreditCardSetting)" class="creditCard">Credit card</button>
                                 <button class="paypal">Paypal</button>
@@ -238,8 +290,10 @@
                             <div class="subscription__description">Changing payment method would cancel existing subscription
                                 and re-subscribe using the new CC info
                             </div>
-                            <div onclick="openModal(changePaymentMethod)" class="subscription__manage_cancel">Cancel
-                                subscription
+                            <div class="manage__cancel_wrapp">
+                                <span onclick="openModal(changePaymentMethod)" class="subscription__manage_cancel">
+                                    Cancel subscription
+                                </span>
                             </div>
                         </div>
 
@@ -247,7 +301,14 @@
                 </div>
 
                 <div id="Notifications" class="tabcontent-setting">
-                    <div class="feed__col3_header">App Notifications</div>
+                    <div class="feed__col3_header">
+                        <svg onclick="backSettingsMobile('Notifications')" id="back" class="btn-back mobile" width="24" height="24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                            <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                        </svg>
+                        App Notifications
+                    </div>
                     <div class="notifications__box">
                         <div class="notifications__row">
                             <input id="Requests" type="checkbox">
@@ -374,7 +435,14 @@
                 </div>
 
                 <div id="PrivacySafety" class="tabcontent-setting">
-                    <div class="feed__col3_header">Privacy & Safety</div>
+                    <div class="feed__col3_header">
+                        <svg onclick="backSettingsMobile('PrivacySafety')" id="back" class="btn-back mobile" width="24" height="24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                            <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                        </svg>
+                        Privacy & Safety
+                    </div>
                     <div class="appear-offline">
                         <input id="Offline" type="checkbox">
                         <label for="Offline">
@@ -385,56 +453,82 @@
                             <span class="round"></span>
                         </label>
                     </div>
-                    <div class="private-account">
+                    <div onclick="openSettings(privateAccount)" class="private-account">
                         <div class="title">Private account</div>
-                        <div class="description">When your account is private, only people you approve can seen your parties and
+                        <div class="description">
+                            When your account is private, only people you approve can seen your parties and
                             posts in your profile.
                         </div>
+                        <div class="description mobile"></div>
                         <div class="form">
+                            <div class="feed__col3_header mobile">
+                                <svg onclick="backSettings(privateAccount)" id="back" class="btn-back mobile test23" width="24" height="24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                                    <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                                </svg>
+                                Private account
+                            </div>
                             <div class="input-row">
-                                <input id="private-1" name="privateAccount" type="radio">
+                                <input id="private-1" name="privateAccount" value="Everyone" type="radio">
                                 <label for="private-1">Everyone</label>
                                 <label class="checkbox" for="private-1"></label>
                             </div>
 
                             <div class="input-row">
-                                <input id="private-2" name="privateAccount" type="radio">
+                                <input id="private-2" name="privateAccount" value="Followers only" type="radio">
                                 <label for="private-2">Followers only</label>
                                 <label class="checkbox" for="private-2"></label>
                             </div>
 
                             <div class="input-row">
-                                <input id="private-3" name="privateAccount" type="radio">
+                                <input id="private-3" name="privateAccount" value="Only me" type="radio">
                                 <label for="private-3">Only me</label>
                                 <label class="checkbox" for="private-3"></label>
                             </div>
-
+                            <div class="description mobile">
+                                When your account is private, only people you approve can seen your parties and
+                                posts in your profile.
+                            </div>
                         </div>
                     </div>
-                    <div class="gamertag-privacy">
+                    <div onclick="openSettings(gamertagPrivacy)" class="gamertag-privacy">
                         <div class="title">Gamertag Privacy</div>
-                        <div class="description">When your account is private, only people you approve can seen your parties and posts
+                        <div class="description">
+                            When your account is private, only people you approve can seen your parties and posts
                             in your profile.
                         </div>
+                        <div class="description mobile"></div>
                         <div class="form">
+                            <div class="feed__col3_header mobile">
+                                <svg onclick="backSettings(gamertagPrivacy)" id="back" class="btn-back mobile" width="24" height="24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                                    <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                                </svg>
+                                Gamertag Privacy
+                            </div>
                             <div class="input-row">
-                                <input id="privateGamertag-1" name="privateGamertag" type="radio">
+                                <input id="privateGamertag-1" name="privateGamertag" value="Everyone" type="radio">
                                 <label for="privateGamertag-1">Everyone</label>
                                 <label class="checkbox" for="privateGamertag-1"></label>
                             </div>
 
                             <div class="input-row">
-                                <input id="privateGamertag-2" name="privateGamertag" type="radio">
+                                <input id="privateGamertag-2" name="privateGamertag" value="Followers only" type="radio">
                                 <label for="privateGamertag-2">Followers only</label>
                                 <label class="checkbox" for="privateGamertag-2"></label>
                             </div>
 
                             <div class="input-row">
-                                <input id="privateGamertag-3" name="privateGamertag" type="radio">
+                                <input id="privateGamertag-3" name="privateGamertag" value="Only me" type="radio">
                                 <label for="privateGamertag-3">Only me</label>
                                 <label class="checkbox" for="privateGamertag-3"></label>
                             </div>
-
+                            <div class="description mobile">
+                                When your account is private, only people you approve can seen your parties and
+                                posts in your profile.
+                            </div>
                         </div>
 
                     </div>
@@ -450,6 +544,34 @@
                             Muted Accounts
                         </div>
                         <div class="user">
+                                <div class="avatar"></div>
+                                <div>
+                                    <div class="user__name">gboy6827</div>
+                                    <div class="user__level">54 level</div>
+                                </div>
+                            </div>
+                        <div class="user">
+                            <div class="avatar"></div>
+                            <div>
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </div>
+                        <div class="user">
+                            <div class="avatar"></div>
+                            <div>
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </div>
+                        <div class="user">
+                            <div class="avatar"></div>
+                            <div>
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </div>
+                        <div class="user">
                             <div class="avatar"></div>
                             <div>
                                 <div class="user__name">gboy6827</div>
@@ -484,7 +606,13 @@
                                 <div class="user__level">54 level</div>
                             </div>
                         </div>
-
+                        <div class="user">
+                            <div class="avatar"></div>
+                            <div>
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="blocked-accounts-page">
                         <div class="feed__col3_header">
@@ -504,27 +632,41 @@
                 </div>
 
                 <div id="LinkedAccounts" class="tabcontent-setting">
-                    <div class="feed__col3_header">Linked Accounts</div>
+                    <div class="feed__col3_header">
+                        <svg onclick="backSettingsMobile('LinkedAccounts')" id="back" class="btn-back mobile" width="24" height="24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                            <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                        </svg>
+                        Linked Accounts
+                    </div>
                 </div>
 
                 <div id="Language" class="tabcontent-setting">
-                    <div class="feed__col3_header">Language</div>
+                    <div class="feed__col3_header">
+                        <svg onclick="backSettingsMobile('Language')" id="back" class="btn-back mobile" width="24" height="24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                            <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                        </svg>
+                        Language
+                    </div>
 
                     <div class="form">
                         <div class="input-row">
-                            <input id="English" name="privateAccount" type="radio">
+                            <input id="English" name="language" value="English" type="radio">
                             <label for="English">English</label>
                             <label class="checkbox" for="English"></label>
                         </div>
 
                         <div class="input-row">
-                            <input id="Estonian" name="privateAccount" type="radio">
+                            <input id="Estonian" name="language" value="Estonian" type="radio">
                             <label for="Estonian">Estonian</label>
                             <label class="checkbox" for="Estonian"></label>
                         </div>
 
                         <div class="input-row">
-                            <input id="Portuguese" name="privateAccount" type="radio">
+                            <input id="Portuguese" name="language" value="Portuguese (BRA)" type="radio">
                             <label for="Portuguese">Portuguese (BRA)</label>
                             <label class="checkbox" for="Portuguese"></label>
                         </div>

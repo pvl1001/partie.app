@@ -925,7 +925,7 @@ textarea {
 }
 
 
-@media (min-width: 768px) { // PC
+@media (min-width: 1024px) { // PC
 
     body {
         background: #2e2e49 linear-gradient(180deg, #141423 22.4%, rgba(20, 20, 35, 0) 100%);
@@ -1099,6 +1099,9 @@ textarea {
     text-transform: capitalize;
 }
 
+.relative {
+    position: relative;
+}
 
 .feed__header_tabs {
     a {
@@ -1111,7 +1114,7 @@ textarea {
 }
 
 
-@media (max-width: 767px) { // mobile
+@media (max-width: 1023px) { // mobile
 
     .links,
     .header__menu_menu {

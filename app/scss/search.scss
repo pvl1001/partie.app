@@ -539,6 +539,63 @@
 }
 
 
-@media (max-width: 767px) { // mobile
+@media (max-width: 1023px) { // mobile
 
+    #feed .feed__col2.search {
+        padding-top: 14px;
+
+        .feed__header {
+            display: none;
+        }
+
+        .profile__tabs .tab {
+            justify-content: space-between;
+        }
+
+        .profile__tabs .tablinks {
+            margin-right: 0;
+        }
+
+        .cards .card {
+            width: 50%;
+        }
+    }
+
+    .search__input {
+        display: flex;
+        align-items: center;
+    }
+
+    .btn-back.mobile {
+        position: relative;
+        margin-right: 10px;
+    }
+
+    .search-win .search-win__box {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        border-radius: 0;
+        background-color: #000;
+        z-index: -1;
+        padding-top: 75px;
+
+        &:before {
+            display: none;
+        }
+    }
+
+    .search-win .feed__search_search {
+        transition: padding .3s;
+    }
+
+    .search-win.mobile {
+        display: flex;
+        align-items: center;
+
+        .btn-back.mobile {
+            display: none;
+        }
+    }
 }

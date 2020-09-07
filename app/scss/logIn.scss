@@ -418,7 +418,7 @@
 }
 
 
-@media (min-width: 768px) { // pc
+@media (min-width: 1024px) { // pc
     .logIn {
         .logo svg,
         .logIn__menu,
@@ -638,7 +638,7 @@
 }
 
 
-@media (max-width: 767px) { // mobile
+@media (max-width: 1023px) { // mobile
     .salutation,
     .sign-up__tab,
     .header__logo {

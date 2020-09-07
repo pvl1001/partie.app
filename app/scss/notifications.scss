@@ -154,6 +154,29 @@
 }
 
 
-@media (max-width: 767px) { // mobile
+@media (max-width: 1023px) { // mobile
 
+    #feed.notifications .feed__col2 {
+        padding-top: 60px;
+
+        .notifications__content .notifications__row .avatar {
+            min-width: 50px;
+        }
+
+        .notifications__content.follow-requests .feed__header {
+           position: absolute;
+       }
+
+       .notifications__content.follow-requests  {
+           padding: 0 20px;
+
+           .btn-back {
+               left: 20px;
+           }
+       }
+
+        .notifications__content.follow-requests {
+            z-index: 1;
+        }
+    }
 }

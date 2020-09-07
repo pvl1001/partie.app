@@ -52,6 +52,8 @@ let hostLiveShowMobile = document.querySelector( '#hostLiveShowMobile' )
 let gametragName = document.querySelector( '#gametragName' )
 let createShortcutMobile = document.querySelector( '#createShortcutMobile' )
 let editShortcutMobile = document.querySelector( '#editShortcutMobile' )
+let levelProgressToken = document.querySelector( '#levelProgressToken' )
+let levelProgressAchivements = document.querySelector( '#levelProgressAchivements' )
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -68,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         swipeToSlide: true,
         responsive: [
             {
-                breakpoint: 767,
+                breakpoint: 1023,
                 settings: {
                     slidesToShow: 3
                 }
@@ -101,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 btnPlatforms.style.zIndex = '1'
                 btnPlatforms.classList.remove('animate__fadeOutDown')
                 btnPlatforms.classList.add('animate__fadeInUp')
-                if(window.innerWidth > 767) { //pc
+                if(window.innerWidth > 1023) { //pc
                     btnPlatforms.style.zIndex = ''
                     bgRedBlue.style.visibility = 'visible'
                     bgRedBlue.style.opacity = '1'
@@ -113,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(function () {
                     btnPlatforms.style.cssText = ''
                 },500)
-                if(window.innerWidth > 767) { //pc
+                if(window.innerWidth > 1023) { //pc
                     btnPlatforms.style.zIndex = '-1'
                     bgRedBlue.style.cssText = ''
                 }
@@ -136,14 +138,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 btnPlatformsGames.style.display = 'block'
                 btnPlatformsGames.classList.remove('animate__fadeOutDown')
                 btnPlatformsGames.classList.add('animate__fadeInUp')
-                if(window.innerWidth > 767) {
+                if(window.innerWidth > 1023) {
                     btnPlatformsGames.style.zIndex = ''
                 }
 
             } else {
                 btnPlatformsGames.classList.remove('animate__fadeInUp')
                 btnPlatformsGames.classList.add('animate__fadeOutDown')
-                if(window.innerWidth > 767) { //pc
+                if(window.innerWidth > 1023) { //pc
                     setTimeout(function () {
                         btnPlatformsGames.style.zIndex = '-1'
                     },500)
@@ -156,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function next(open, close) {
 
-    if (window.innerWidth <= 767) { // mobile
+    if (window.innerWidth <= 1023) { // mobile
 
         if (close === newPost) {
             openModal(open)
@@ -178,7 +180,7 @@ function next(open, close) {
         if(open === createShortcutMobile) closeModal(hostLiveShowMobile)
     }
 
-    if (window.innerWidth > 767) { // pc
+    if (window.innerWidth > 1023) { // pc
         if (open === addCreditCard || open === subscriptionModal) {
             open.style.left = '0'
             close.style.cssText = ''
@@ -224,7 +226,7 @@ function next(open, close) {
 }
 
 function back(close, open) {
-    if (window.innerWidth > 767) { // pc
+    if (window.innerWidth > 1023) { // pc
         if (open === subscriptionModal) {
             open.style.left = '0'
             close.style.left = ''
@@ -237,7 +239,7 @@ function back(close, open) {
 
         }
     }
-    if (window.innerWidth <= 767) { // mobile
+    if (window.innerWidth <= 1023) { // mobile
         if (open === subscriptionModal) {
             open.style.left = '0'
             open.children[1].style.left = '0'
@@ -253,7 +255,7 @@ function back(close, open) {
 }
 
 function openModal(modal) { // modal
-    if (window.innerWidth > 767) { //pc
+    if (window.innerWidth > 1023) { //pc
         modal.style.opacity = '1'
         modal.style.zIndex = '13'
         modal.children[0].style.opacity = '1'
@@ -274,8 +276,14 @@ function openModal(modal) { // modal
 }
 
 function closeModal(modal) {
-    if (window.innerWidth <= 767) { //mobile
+    if (window.innerWidth <= 1023) { //mobile
         if(modal === gametrag) closeModal(gamertags)
+        if(modal === levelProgressToken) {
+            $( '#levelProgressToken .modal__content' ).slick('unslick')
+        }
+        if(modal === levelProgressAchivements) {
+            $( '#levelProgressAchivements .modal__content' ).slick('unslick')
+        }
     }
 
     modal.style.cssText = ''
@@ -299,7 +307,7 @@ function closeModal(modal) {
 let arrHeedHeaderMenu = document.querySelectorAll('.feed__header_menu')
 let postMenu = document.querySelector('#postMenu')
 
-if (window.innerWidth >=768) {
+if (window.innerWidth >=1024) {
     for (let el of arrHeedHeaderMenu) {
 
         el.onclick = function() {
@@ -340,7 +348,7 @@ if(shortcuts !== null) {
             shortcuts.style.bottom = '5px'
             btnUp.style.transform = 'rotateX(190deg)'
             bgClick.style.zIndex = '1'
-            if (window.innerWidth >= 768) bgClick.style.opacity = '1'
+            if (window.innerWidth >= 1024) bgClick.style.opacity = '1'
         } else {
             shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
             btnUp.style.transform = ''
@@ -370,7 +378,7 @@ if (feedPostImg !== null) {
     let img
     function openImg() {
         img = this
-        if (window.innerWidth >=768) { // pc
+        if (window.innerWidth >=1024) { // pc
             this.style.cssText =
                 'top:0;' +
                 'right:0;' +
@@ -412,7 +420,7 @@ function auto_grow(element) {
     element.style.height = (element.scrollHeight)+"px";
 }
 
-if (window.innerWidth <= 767) {
+if (window.innerWidth <= 1023) {
     window.onclick = function (e) {
         for (let modalWrapp of arrModalWrapp)
             if (e.target === modalWrapp) modalWrapp.style.cssText = ''
@@ -472,6 +480,16 @@ if (window.innerWidth <= 767) {
 //         });
 //     })(i);
 // }
+
+// let x = document.querySelector('.test23')
+// let y = document.querySelector('#test1')
+// x.addEventListener('click', function () {
+//     y.style.transform = 'translateX(100%)'
+//     setTimeout(function () {
+//         y.style.cssText = ''
+//     }, 1000)
+// })
+
 
 @@include( 'slick.min.js' )
 @@include( '_loginButtons.js' )
