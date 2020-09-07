@@ -796,12 +796,36 @@
 
 }
 
+#LinkedAccounts {
+    .input-row label {
+        display: flex;
+        align-items: center;
+        opacity: .5;
+
+        + label {
+            background-color: #000;
+        }
+
+        svg {
+            margin-right: 20px;
+        }
+    }
+
+    input[type=checkbox]:checked + label {
+        opacity: 1;
+        + label {
+            opacity: 1;
+            background: url('../img/icon/ok-w.png') center / 15px no-repeat !important;
+        }
+    }
+}
 
 @media (max-width: 1023px) { // mobile
 
     .settings {
         .feed__col2 {
             padding: 0;
+
             .col2-settings {
 
                 .feed__col3 {
@@ -822,7 +846,7 @@
                         left: 0;
                         text-align: center;
                         width: 100%;
-                        
+
                         .delete-account {
                             position: initial;
                         }
@@ -932,7 +956,7 @@
         }
     }
 
-    .settings .feed__col3 #PrivacySafety  {
+    .settings .feed__col3 #PrivacySafety {
         .gamertag-privacy .form,
         .private-account .form {
             position: fixed;
@@ -979,11 +1003,13 @@
                 cursor: pointer;
                 min-width: 50px;
             }
+
             .user__name {
                 font-weight: bold;
                 margin-bottom: 6px;
                 cursor: pointer;
             }
+
             .user__level,
             .user__message {
                 opacity: 0.5;

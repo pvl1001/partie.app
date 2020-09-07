@@ -349,11 +349,12 @@ if(shortcuts !== null) {
             btnUp.style.transform = 'rotateX(190deg)'
             bgClick.style.zIndex = '1'
             if (window.innerWidth >= 1024) bgClick.style.opacity = '1'
-        } else {
-            shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
-            btnUp.style.transform = ''
-            bgClick.style.cssText = ''
-        }
+        } else shortcutsDown
+    }
+    function shortcutsDown() {
+        shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
+        btnUp.style.transform = ''
+        bgClick.style.cssText = ''
     }
 }
 
@@ -489,6 +490,17 @@ if (window.innerWidth <= 1023) {
 //         y.style.cssText = ''
 //     }, 1000)
 // })
+
+if(window.innerWidth <=1023) {
+    let modalWrapps = document.querySelectorAll('.modal-wrapp')
+    for(let el of modalWrapps) {
+        window.addEventListener('click', function (e) {
+            if(e.target === el) closeModal(el)
+        })
+    }
+}
+
+
 
 
 @@include( 'slick.min.js' )
