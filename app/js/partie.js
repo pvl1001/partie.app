@@ -128,8 +128,13 @@ for(let star of arrStar) {
             star3.style.right = ''
             btnSkip.style.right = '110%'
             setTimeout(function () {
-                ratingPartie.style.background = 'linear-gradient(0deg, rgba(60,28,32,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
-                ratingPartieModal.style.height = '379px'
+                if (window.innerWidth >= 1024) {
+                    ratingPartie.style.background = 'linear-gradient(0deg, rgba(60,28,32,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
+                    ratingPartieModal.style.height = '379px'
+                } else {
+                    ratingPartie.style.background = 'rgba(244, 83, 101,.5)'
+                    ratingPartieModal.style.height = '490px'
+                }
                 star2.style.right = '0'
                 star5.style.position = 'absolute'
                 star4.style.position = 'absolute'
@@ -143,8 +148,13 @@ for(let star of arrStar) {
             star2.style.right = ''
             btnSkip.style.right = '110%'
             setTimeout(function () {
-                ratingPartie.style.background = 'linear-gradient(0deg, rgba(42,24,45,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
-                ratingPartieModal.style.height = '629px'
+                if (window.innerWidth >= 1024) {
+                    ratingPartie.style.background = 'linear-gradient(0deg, rgba(42,24,45,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
+                    ratingPartieModal.style.height = '629px'
+                } else {
+                    ratingPartie.style.background = 'rgba(156, 66, 171,.5)'
+                    ratingPartieModal.style.height = '490px'
+                }
                 star3.style.right = '0'
                 star5.style.position = 'absolute'
                 star4.style.position = 'absolute'
@@ -158,8 +168,13 @@ for(let star of arrStar) {
             star2.style.right = ''
             btnSkip.style.right = '110%'
             setTimeout(function () {
-                ratingPartie.style.background = 'linear-gradient(0deg, rgba(33,26,61,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
-                ratingPartieModal.style.height = '629px'
+                if (window.innerWidth >= 1024) {
+                    ratingPartie.style.background = 'linear-gradient(0deg, rgba(33,26,61,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
+                    ratingPartieModal.style.height = '629px'
+                } else {
+                    ratingPartie.style.background = 'rgb(110, 74, 255,.5)'
+                    ratingPartieModal.style.height = '490px'
+                }
                 star4.style.right = '0'
                 star5.style.position = 'absolute'
                 star3.style.position = 'absolute'
@@ -173,8 +188,13 @@ for(let star of arrStar) {
             star2.style.right = ''
             btnSkip.style.right = '110%'
             setTimeout(function () {
-                ratingPartie.style.background = 'linear-gradient(0deg, rgba(61,58,36,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
-                ratingPartieModal.style.height = '629px'
+                if (window.innerWidth >= 1024) {
+                    ratingPartie.style.background = 'linear-gradient(0deg, rgba(61,58,36,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
+                    ratingPartieModal.style.height = '629px'
+                } else {
+                    ratingPartie.style.background = 'rgba(210, 200, 103,.6)'
+                    ratingPartieModal.style.height = '490px'
+                }
                 star5.style.right = '0'
                 star4.style.position = 'absolute'
                 star3.style.position = 'absolute'
@@ -217,7 +237,7 @@ for (let i = 0; i < arrPostFooterBtn.length; i++) {
 let arrShortcutsBox = document.querySelectorAll('.shortcuts__box')
 let box = document.querySelector('.shortcuts__box_menu')
 for(let shortcutsBox of arrShortcutsBox) {
-    if(shortcutsBox !== null && window.innerWidth >= 768)
+    if(shortcutsBox !== null && window.innerWidth >= 1024)
         shortcutsBox.onclick = function (e) {
         if(e.target === shortcutsBox) {
             box.style.top = e.pageY + 'px'
@@ -226,7 +246,7 @@ for(let shortcutsBox of arrShortcutsBox) {
         }
         else box.style.display= ''
     }
-    if (window.innerWidth <= 767) {
+    if (window.innerWidth <= 1023) {
         var longpress = false;
         var presstimer = null;
 

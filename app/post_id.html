@@ -12,6 +12,26 @@
 <body>
 @@include('_modals.html')
 <div class="gametrag-copied reportSubmitted">Report Submitted</div>
+<div id="postMenu" class="header__menu_menu">
+    <div class="close-place"></div>
+    <ul>
+        <li><a href="#">
+            <img src="img/icon/mute-r.png" width="16"/>
+            Mute</a></li>
+        <li><a href="#" onclick="openModal(partieReport)">
+            <img src="img/icon/report-r.png" width="16"/>
+            Report</a></li>
+        <li><a href="#">
+            <img src="img/icon/folow-f.png" width="16"/>
+            Follow gboy6827</a></li>
+        <li><a href="#">
+            <img src="img/icon/copy-f.png" width="16"/>
+            Copy link</a></li>
+        <li><a href="#" onclick="openModal(share)">
+            <img src="img/icon/share-f.png" width="16"/>
+            Share</a></li>
+    </ul>
+</div>
 
     <div class="feed post">
         <img class="feed__people-btn" onclick="hiddenPeople()" src="img/icon/people-btn.png"/>
@@ -366,6 +386,30 @@
 
 
 <!--mobile content-->
+<div class="close-place post-menu mobile">
+    <div class="header__menu_menu">
+        <ul>
+            <li><a href="#">
+                <img src="img/icon/mute-r.png" width="16"/>
+                Mute</a></li>
+            <li><a href="#" onclick="openModal(partieReport)">
+                <img src="img/icon/report-r.png" width="16"/>
+                Report</a></li>
+            <li><a href="#">
+                <img src="img/icon/folow-f.png" width="16"/>
+                Follow back</a></li>
+            <li><a onclick="openModal(unfollow)" href="#">
+                <img src="img/icon/unfollow.png" width="21"/>
+                Unfollow</a></li>
+            <li><a href="#">
+                <img src="img/icon/copy-f.png" width="16"/>
+                Copy link</a></li>
+            <li><a href="#" onclick="openModal(share)">
+                <img src="img/icon/share-f.png" width="16"/>
+                Share</a></li>
+        </ul>
+    </div>
+</div>
 <div class="close-place post-menu mobile">
     <div class="header__menu_menu">
         <ul>

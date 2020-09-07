@@ -106,10 +106,18 @@ function openChat() {
 $( '.share__btns' ).slick( {
     slidesToScroll: 1,
     slidesToShow: 5,
-    infinite: false
+    infinite: false,
+    responsive: [
+        {
+            breakpoint: 1023,
+            settings: {
+                slidesToShow: 4
+            }
+        }
+    ]
 })
 let closePlaceMobile = document.querySelector('.close-place.post-menu.mobile')
-if (window.innerWidth <= 767) {
+if (window.innerWidth <= 1023) {
     let commBtn =  document.querySelector('.feed__comments .comments__new-comment button')
     if (commBtn !== null) commBtn.innerHTML = ''
 

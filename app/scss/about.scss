@@ -60,6 +60,20 @@
 }
 
 
-@media (max-width: 767px) { // mobile
+@media (max-width: 1023px) { // mobile
+    .feed__col3.about {
+        #How label {
+            left: 20px;
+        }
 
+        .tabcontent-setting {
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+    }
+
+    .col2-settings .col2-settings-wrapp .feed__header a {
+        position: absolute;
+        left: 0;
+    }
 }

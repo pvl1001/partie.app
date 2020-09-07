@@ -440,15 +440,21 @@
                 color: rgba(235, 235, 245, 0.5);
             }
 
-            .subscription__manage_cancel {
-                font-weight: bold;
-                line-height: 140%;
-                color: #F45365;
-                cursor: pointer;
+            .manage__cancel_wrapp {
                 position: absolute;
                 bottom: 38px;
-                left: calc(50% - 72px);
+                left: 0;
+                text-align: center;
+                width: 100%;
+
+                .subscription__manage_cancel {
+                    font-weight: bold;
+                    line-height: 140%;
+                    color: #F45365;
+                    cursor: pointer;
+                }
             }
+
 
             .subscription__pay-btns {
                 display: flex;
@@ -501,7 +507,7 @@
 
             .muted-accounts-page {
                 position: absolute;
-                height: 100%;
+                min-height: 100%;
                 width: 100%;
                 background-color: #000;
                 top: 0;
@@ -717,12 +723,13 @@
         background: #6E4AFF url('../img/icon/ok-w.png') center / 15px no-repeat;
     }
 
-    input[type=text] {
+    textarea {
         padding: 0;
         border: 0;
         border-radius: 0;
         height: auto;
         margin-bottom: 33px;
+        width: 100%;
     }
 
 }
@@ -790,6 +797,241 @@
 }
 
 
-@media (max-width: 767px) { // mobile
+@media (max-width: 1023px) { // mobile
+
+    .settings {
+        .feed__col2 {
+            padding: 0;
+            .col2-settings {
+
+                .feed__col3 {
+                    display: block !important;
+                    position: fixed;
+                    top: 0;
+                    bottom: 0;
+                    left: 100%;
+                    width: 100%;
+                    z-index: 1;
+                    background-color: #000;
+                    padding: 0 20px;
+                    transition: .5s;
+
+                    .delete-account__wrapp {
+                        //position: absolute;
+                        //bottom: 50px;
+                        left: 0;
+                        text-align: center;
+                        width: 100%;
+                        
+                        .delete-account {
+                            position: initial;
+                        }
+                    }
+                }
+
+                .feed__header {
+                    .btn-back {
+                        top: auto;
+                        left: 20px;
+                    }
+                }
+
+                .col2-settings-wrapp {
+                    width: 100%;
+                }
+
+                .tabcontent-setting {
+                    width: 100%;
+                    position: fixed;
+                    top: 0;
+                    left: 100%;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #000;
+                    padding: 0 20px;
+                    transition: .5s;
+                }
+
+                .subscription__manage-wrapp {
+                    position: absolute;
+                    bottom: 50px;
+                    left: 0;
+                    text-align: center;
+                    width: 100%;
+                }
+
+                .subscription__text {
+                    width: 261px;
+                }
+
+                .subscription__change,
+                .subscription__pay-btns {
+                    display: none;
+                }
+
+                .subscription__change.mobile {
+                    display: block;
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 140%;
+                    color: #FFFFFF;
+                }
+
+                .subscription .btn-container-show .subscription__payment .subscription__payment-paypal,
+                .subscription .btn-container-show .subscription__payment .subscription__payment-card {
+                    height: 52px;
+                }
+
+            }
+        }
+    }
+
+    #addCreditCardSetting {
+
+        .add-credit-card.modal {
+            display: flex;
+            flex-direction: column;
+
+            .add-credit-card__input-group {
+                flex-grow: 1;
+            }
+        }
+
+        .modal__head {
+            justify-content: start;
+
+            .btn-back.mobile {
+                position: absolute;
+            }
+
+            span {
+                margin-top: 42px;
+                font-weight: bold;
+                font-size: 32px;
+                letter-spacing: -0.408px;
+            }
+
+            .modal__close {
+                display: none;
+            }
+        }
+
+        .add-credit-card .add-credit-card__text {
+            text-align: left;
+            padding: 0;
+        }
+    }
+
+    #changePaymentMethod {
+        .modal__close {
+            display: none;
+        }
+
+        .btn-back.mobile {
+            position: absolute;
+        }
+    }
+
+    .settings .feed__col3 #PrivacySafety  {
+        .gamertag-privacy .form,
+        .private-account .form {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            top: 0;
+            left: 100%;
+            padding: 0 20px;
+            transition: .5s;
+            margin-top: 0;
+            z-index: 1;
+        }
+
+        .private-account .title,
+        .gamertag-privacy .title,
+        .muted-accounts,
+        .blocked-accounts {
+            background: url('../img/icon/arrow-right.png') 100% 50% / 7px no-repeat;
+        }
+
+        .private-account .description,
+        .gamertag-privacy .description {
+            display: none;
+        }
+
+        .private-account .description.mobile,
+        .gamertag-privacy .description.mobile {
+            display: block;
+        }
+
+        .form .description.mobile {
+            margin-top: 20px;
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+
+            .avatar {
+                width: 50px;
+                height: 50px;
+                margin-right: 15px;
+                cursor: pointer;
+                min-width: 50px;
+            }
+            .user__name {
+                font-weight: bold;
+                margin-bottom: 6px;
+                cursor: pointer;
+            }
+            .user__level,
+            .user__message {
+                opacity: 0.5;
+            }
+        }
+
+    }
+
+    #Account,
+    .col2-settings-wrapp,
+    #Preferences,
+    #Notifications,
+    .email-notifications-page,
+    #PrivacySafety {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .account-wrapp,
+    .subscription__manage {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 50px;
+        min-height: 100%;
+
+        form {
+            flex-grow: 1;
+            margin-bottom: 40px;
+        }
+    }
+
+    .settings .feed__col3 #Notifications .email-notifications-page {
+        position: fixed;
+    }
+
+    .settings .tab .tablinks-setting {
+        background: url('../img/icon/arrow-right.png') calc(100% - 20px) 50% / 7px no-repeat;
+    }
+
+    .settings .feed__col3 .feed__col3_header .btn-back {
+        position: absolute;
+    }
+
+    .settings .tab .description.mobile {
+        font-size: 14px;
+        margin-top: 4px;
+        opacity: 0.5;
+        font-weight: 400;
+    }
 
 }

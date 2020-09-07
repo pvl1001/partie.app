@@ -222,6 +222,14 @@
             Search results
         </div>
         <div class="search__input">
+            <a href="/feed.html">
+                <svg id="back" class="btn-back mobile" width="24" height="24"
+                     fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                    <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                </svg>
+            </a>
             <input type="text">
             <div class="search__input_del"></div>
         </div>
@@ -911,6 +919,32 @@
                 </a>
             </div>
         </div>
+    </div>
+</div>
+
+<!--mobile content-->
+<div class="close-place post-menu mobile">
+    <div class="header__menu_menu">
+        <ul>
+            <li><a href="#">
+                <img src="img/icon/mute-r.png" width="16"/>
+                Mute</a></li>
+            <li><a href="#" onclick="openModal(partieReport)">
+                <img src="img/icon/report-r.png" width="16"/>
+                Report</a></li>
+            <li><a href="#">
+                <img src="img/icon/folow-f.png" width="16"/>
+                Follow back</a></li>
+            <li><a onclick="openModal(unfollow)" href="#">
+                <img src="img/icon/unfollow.png" width="21"/>
+                Unfollow</a></li>
+            <li><a href="#">
+                <img src="img/icon/copy-f.png" width="16"/>
+                Copy link</a></li>
+            <li><a href="#" onclick="openModal(share)">
+                <img src="img/icon/share-f.png" width="16"/>
+                Share</a></li>
+        </ul>
     </div>
 </div>
 

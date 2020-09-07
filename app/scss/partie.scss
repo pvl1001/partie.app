@@ -1006,6 +1006,17 @@
     }
 
     .titleModal__active {
+
+        .members {
+            font-size: 13px;
+            opacity: 0.5;
+            margin-bottom: 20px;
+        }
+        .titleModal__active_title {
+            opacity: .5;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
         .user {
             display: flex;
             align-items: center;
@@ -1420,7 +1431,7 @@
 
 }
 
-@media (max-width: 767px) { // mobile
+@media (max-width: 1023px) { // mobile
 
     #partie .feed__col2 {
         padding-top: 127px;
@@ -1474,10 +1485,52 @@
     }
 
     #partie .feed__col2.new-active-partie {
-        padding-top: 0;
+        //padding-top: 0;
     }
 
     #inviteFriends .modal {
         background-color: #14131A;
     }
+
+    #chatHead.titleModal  {
+
+        .titleModal__btns {
+            margin: 45px 0 40px;
+        }
+
+        .modal__head {
+            height: 18px;
+        }
+
+        .titleModal__users {
+            position: fixed;
+            top: 11px;
+            left: 60px;
+            right: 60px;
+        }
+
+        .titleModal__users_name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .modal__head>div {
+            position: absolute;
+        }
+        .titleModal__users_avatar {
+            display: none;
+        }
+    }
+
+    #editChat.titleModal button {
+        margin-top: 0;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        width: 58px;
+        height: 32px;
+        font-size: 13px;
+    }
+
 }
