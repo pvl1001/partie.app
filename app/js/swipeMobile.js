@@ -172,7 +172,6 @@ if(window.innerWidth <= 1023) {
     let btnContainerWrapps = document.querySelectorAll( '.btn-container-wrapp' )
     for(let el of btnContainerWrapps) {
         if (el !== null) {
-            console.log(el)
             el.children[0].addEventListener( 'touchstart', handleTouchStart, false );
             el.children[0].addEventListener( 'touchmove', handleTouchMove, false );
         }

@@ -192,9 +192,23 @@
         }
     }
 
-    .global {
+    .global, .for-you,
+    .followers__container {
         min-width: 0;
-        //display: none;
+        width: 680px;
+
+        @media (max-width: 1300px) and (min-width: 1024px) {
+            width: 480px;
+        }
+        @media (max-width: 1023px) {
+            width: auto;
+        }
+    }
+
+    .global {
+        opacity: 0;
+        transform: scale(0.95);
+        position: absolute;
     }
 
     .feed__people-btn {
@@ -215,8 +229,8 @@
         z-index: 10;
 
         @media (max-width: 1300px) {
-            width: 300px;
-            min-width: 300px;
+            width: 260px;
+            min-width: 260px;
         }
     }
 
@@ -371,12 +385,18 @@
 
         .feed__what-new {
             width: 100%;
-            background: #14131A;
+            background: rgba(20,19,26,.8);
             border-radius: 20px;
             padding: 20px;
             margin-bottom: 20px;
             font-size: 17px;
             line-height: 22px;
+            transition: .2s;
+            position: relative;
+
+            &:hover {
+                background: rgba(20,19,26,1);
+            }
 
             .feed__what-new_head {
                 display: flex;
@@ -385,11 +405,22 @@
                 align-items: center;
             }
 
+            .photo-wrapp {
+                display: flex;
+                position: absolute;
+                right: 20px;
+                top: 15px;
+            }
+
             label:not(label[for=photo]) {
                 opacity: .6;
                 margin-bottom: 12px;
                 display: block;
                 height: 26px;
+            }
+
+            label[for=photo-1] {
+                margin-left: auto;
             }
 
             label[for=photo-1],
@@ -400,6 +431,7 @@
                 background: #F8F6FF url('../img/icon/photo.png') center / 14px no-repeat;
                 cursor: pointer;
                 margin-right: 8px;
+                transition: .2s;
             }
 
             .feed__what-new_row,
@@ -416,23 +448,46 @@
 
                 .feed__what-new_post {
                     margin-left: auto;
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: .2s;
+                    background-color: #D2C867;
+                    color: #000;
                 }
+            }
+
+            .feed__what-new_row {
+                display: flex;
+                opacity: 0;
+                visibility: hidden;
+                margin-top: -35px;
+            }
+
+            .row-wrapp {
+                position: absolute;
+                width: 100%;
+                left: 0;
+                padding: 0 20px;
             }
 
             textarea {
                 background-color: transparent;
                 color: #F8F6FF;
-                //opacity: 0.3;
                 font-size: 17px;
-                //height: 25px;
                 margin-right: auto;
+                transition: .3s;
+                transition-delay: .15s;
+                z-index: 1;
 
                 &:focus {
                     margin-top: 12px;
                 }
 
                 + div {
-                    margin-right: 20px;
+                    position: absolute;
+                    right: 80px;
+                    top: 19px;
+                    transition: .3s;
                 }
             }
 
@@ -1050,10 +1105,6 @@
         padding: 0 20px;
     }
 
-    //.feed__header_tabs {
-    //    position: absolute;
-    //    left: calc(50% - 65px);
-    //}
 
     .mobile-nav {
         position: sticky;
@@ -1145,6 +1196,7 @@
 
     .feed-tab {
         .tabcontent {
+            left: 0;
             margin: 0 -20px;
         }
     }

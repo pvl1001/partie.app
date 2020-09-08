@@ -26,13 +26,26 @@ function openTab(evt, Tab) {
 }
 
 function openTabModal(evt, Tab) {
-    // Declare all variables
     var i, tabcontent, tablinks;
+    let modal = document.querySelector('#levelProgress .modal')
 
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.querySelectorAll("#levelProgress .tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+        tabcontent[i].style.transition = ".3s";
+        tabcontent[i].style.opacity = "0";
+        tabcontent[i].style.transform = "scale(.95)";
+        tabcontent[i].style.position = "fixed";
+        if(window.innerWidth >= 1024) {
+            tabcontent[i].style.width = "464px"
+            modal.style.height = 263 + tabcontent[i].offsetHeight + 'px'
+        }
+        if(window.innerWidth <= 1023) {
+            modal.style.height = tabcontent[i].offsetHeight + 'px'
+            tabcontent[i].style.transition = ".3s";
+            tabcontent[i].style.opacity = "0";
+            tabcontent[i].style.transform = "scale(.95)";
+        }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
@@ -42,7 +55,17 @@ function openTabModal(evt, Tab) {
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(Tab).style.display = "block";
+    setTimeout(function () {
+        document.getElementById(Tab).style.opacity = "1";
+        document.getElementById(Tab).style.transform = "scale(1)";
+        document.getElementById(Tab).style.position = "relative";
+        if(window.innerWidth >= 1024)
+            modal.style.height = 263 + document.getElementById(Tab).offsetHeight + 'px'
+    },300)
+    if(window.innerWidth <= 1023) {
+        modal.style.height = 242 + document.getElementById(Tab).offsetHeight + 'px'
+        console.log(document.getElementById(Tab).offsetHeight, 'tab')
+    }
     evt.currentTarget.className += " active";
 
     let token = document.querySelectorAll( '.pop' )
@@ -90,10 +113,17 @@ function openFoll(evt, Tab) {
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.querySelectorAll(".followers .tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.transition = ".4s";
+        tabcontent[i].style.transition = ".3s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
-        tabcontent[i].style.height = "0";
+        tabcontent[i].style.position = "fixed";
+
+        if(window.innerWidth <= 1023) {
+            tabcontent[i].style.transition = "opacity .4s, transform .4s";
+            tabcontent[i].style.opacity = "0";
+            tabcontent[i].style.transform = "scale(.95)";
+            tabcontent[i].style.height = "0";
+        }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
@@ -106,7 +136,10 @@ function openFoll(evt, Tab) {
     setTimeout(function () {
         document.getElementById(Tab).style.opacity = "1";
         document.getElementById(Tab).style.transform = "scale(1)";
-        document.getElementById(Tab).style.height = "auto";
+        document.getElementById(Tab).style.position = "relative";
+        if(window.innerWidth <=1023) {
+            document.getElementById(Tab).style.height = "100%";
+        }
     },300)
     evt.currentTarget.className += " active";
 }
@@ -125,7 +158,7 @@ function showBtnPs() {
         showPs = !showPs
         let btn = document.querySelector( '#ps' )
         let show = document.querySelector( '.show-all' )
-        console.log(btn)
+
         if (showPs) {
             btn.style.height = '64px'
             show.innerHTML = 'Hide'
@@ -185,10 +218,16 @@ function openTabPatie(evt, Tab) {
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.querySelectorAll(".partie-tab .tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.transition = "opacity .4s, transform .4s";
+        tabcontent[i].style.transition = ".3s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
-        tabcontent[i].style.height = "0";
+        tabcontent[i].style.position = "fixed";
+        if(window.innerWidth <=1023) {
+            tabcontent[i].style.transition = "opacity .4s, transform .4s";
+            tabcontent[i].style.opacity = "0";
+            tabcontent[i].style.transform = "scale(.95)";
+            tabcontent[i].style.height = "0";
+        }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
@@ -201,17 +240,23 @@ function openTabPatie(evt, Tab) {
     setTimeout(function () {
         document.getElementById(Tab).style.opacity = "1";
         document.getElementById(Tab).style.transform = "scale(1)";
-        if(window.innerWidth <= 1023) { // mobile
+        document.getElementById(Tab).style.position = "relative";
+        if(window.innerWidth <=1023) {
             document.getElementById(Tab).style.height = "100%";
-        } else { // pc
-            document.getElementById(Tab).style.height = "calc(100% - 66px)";
         }
     },300)
+
     evt.currentTarget.className += " active";
 }
 
 let defaultOpenPartieTab = document.getElementById("defaultOpenPartieTab")
 if(defaultOpenPartieTab !== null) defaultOpenPartieTab.click()
+
+
+
+
+
+
 
 
 function openTabFeed(evt, Tab) {
@@ -220,11 +265,16 @@ function openTabFeed(evt, Tab) {
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.querySelectorAll(".feed-tab .tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.transition = "opacity .4s, transform .4s";
+        tabcontent[i].style.transition = ".3s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
-        tabcontent[i].style.height = "0";
-
+        tabcontent[i].style.position = "absolute";
+        if(window.innerWidth <= 1023) {
+            tabcontent[i].style.transition = "opacity .4s, transform .4s";
+            tabcontent[i].style.opacity = "0";
+            tabcontent[i].style.transform = "scale(.95)";
+            tabcontent[i].style.height = "0";
+        }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
@@ -237,14 +287,21 @@ function openTabFeed(evt, Tab) {
     setTimeout(function () {
         document.getElementById(Tab).style.opacity = "1";
         document.getElementById(Tab).style.transform = "scale(1)";
-        if(window.innerWidth <= 1023) { // mobile
+        document.getElementById(Tab).style.position = "relative";
+        if(window.innerWidth <=1023) {
             document.getElementById(Tab).style.height = "100%";
-        } else { // pc
-            document.getElementById(Tab).style.height = "calc(100% - 66px)";
         }
     },300)
     evt.currentTarget.className += " active";
 }
+
+
+
+
+
+
+
+
 
 let defaultOpenFeedTab = document.getElementById("defaultOpenFeedTab")
 if(defaultOpenFeedTab !== null) defaultOpenFeedTab.click()
@@ -256,10 +313,6 @@ let btnNext = el.parentElement.children[el.parentElement.children.length -1]
         btnNext.style.cssText = 'visibility: visible; opacity: 1;'
     } else btnNext.style.cssText = ''
 }
-
-
-
-
 
 
 let editPhoto = document.querySelector('#editPhoto')
@@ -302,7 +355,7 @@ window.onclick = function (e) {
 //     if(window.innerWidth <=1023) {
 //         el.onclick = function () {
 //             testSlide = i
-//             console.log(testSlide)
+//
 //         }
 //     }
 // }

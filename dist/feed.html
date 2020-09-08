@@ -2515,18 +2515,28 @@
 
             <div class="feed__what-new">
                 <div class="feed__what-new_head">
-                    <textarea oninput="auto_grow(this)" maxlength="500" id="whatNewHead"
+                    <textarea onkeyup="showBtnPost(this)" oninput="auto_grow(this)" maxlength="500" id="whatNewHead"
                               placeholder="What’s new?"></textarea>
                     <div>Select a Game (Optional)</div>
-                    <label for="photo-1"></label>
-                    <input id="photo-1" type="file" class="feed__what-new_photo">
+                    <div class="photo-wrapp">
+                        <label for="photo-1"></label>
+                        <input id="photo-1" type="file" class="feed__what-new_photo">
+                    </div>
                 </div>
-
-                <div class="feed__what-new_row">
-                    <label for="photo"></label>
-                    <input id="photo" type="file" class="feed__what-new_photo">
-                    <button class="bg-fiolet">Public post</button>
-                    <button class="feed__what-new_post disabled">Post</button>
+                <div class="row-wrapp">
+                    <div class="feed__what-new_row">
+                        <label for="photo"></label>
+                        <input id="photo" type="file" class="feed__what-new_photo">
+                        <button class="bg-fiolet">Public post</button>
+                        <button onclick="loading()" class="feed__what-new_post">Post</button>
+                    </div>
+                </div>
+                <div class="loading">
+                    <div class="round-wrapp">
+                        <div class="round-1"></div>
+                        <div class="round-2"></div>
+                    </div>
+                    <div>Posting</div>
                 </div>
             </div>
             <div class="feed__post_wrapp">
