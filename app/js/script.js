@@ -437,7 +437,7 @@ if (window.innerWidth <= 1023) {
 // for (let i = 0; i < reply.length; i++) {
 //     let el = reply[i]
 //     let el2 = commentReply[i]
-//     console.log(el, el2)
+//
 //     el.addEventListener('click', function () {
 //         el2.style.display = 'flex'
 //     })
@@ -445,7 +445,7 @@ if (window.innerWidth <= 1023) {
 
 // function reply(el) {
 //     let reply = el.parentNode.parentElement.parentElement.parentElement.children[4]
-//     console.log(reply)
+//
     // reply.style.display = 'flex'
 
     // let name = el.parentNode.parentElement.children[1].outerText

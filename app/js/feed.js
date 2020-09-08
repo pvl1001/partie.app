@@ -9,7 +9,7 @@ let peopleBtn = document.querySelector('.feed__people-btn')
         peopleBtn.style.transform = ''
     } else {
         if(window.innerWidth <= 1300) { // mobile
-            people.style.transform = 'translateX(180px)'
+            people.style.transform = 'translateX(140px)'
             feedHeader.style.opacity = '0'
             peopleBtn.style.transform = 'rotateY(180deg)'
         } else {
@@ -24,19 +24,53 @@ let peopleBtn = document.querySelector('.feed__people-btn')
 
 
 let textarea = document.querySelector( '#whatNewHead' )
+let textSelect = document.querySelector( '#whatNewHead + div' )
 let feedWhatNewRow = document.querySelector( '.feed__what-new_row' )
 let photo1 = document.querySelector( 'label[for=photo-1]' )
 let feedWhatNewHead = document.querySelector( '.feed__what-new_head' )
 
-if (textarea !== null)
-textarea.addEventListener( 'focus', function () {
-    feedWhatNewRow.style.display = 'flex'
-    photo1.style.display = 'none'
-    textarea.style.width = '100%'
-    textarea.style.order = '1'
-    textarea.style.marginTop = '12px'
-    feedWhatNewHead.style.flexWrap = 'wrap'
-} )
+
+
+if (textarea !== null) {
+    textarea.addEventListener( 'focus', function () {
+        textSelect.style.right = '65%'
+        photo1.style.cssText = 'opacity: 0; visibility: hidden;'
+        textarea.style.width = '100%'
+        textarea.style.marginTop = '34px'
+        textarea.style.marginBottom = '70px'
+        feedWhatNewHead.parentElement.style.backgroundColor = 'rgba(20,19,26,1)'
+        setTimeout(function () {
+            feedWhatNewRow.style.cssText = 'opacity: 1; visibility: visible;'
+        },350)
+        if(window.innerWidth <= 1300) textSelect.style.right = '51%'
+    } )
+    let newPostText
+    window.addEventListener( 'click', function (e) {
+        if (!feedWhatNewHead.parentNode.contains( e.target ) && !newPostText) {
+            textSelect.style.right = ''
+            feedWhatNewRow.style.cssText = ''
+            photo1.style.cssText = ''
+            textarea.style.cssText = ''
+            feedWhatNewHead.style.flexWrap = ''
+            feedWhatNewHead.parentElement.style.backgroundColor = ''
+        }
+    } )
+}
+
+
+function loading() {
+    let loading = document.querySelector('.loading')
+    loading.style.display = 'flex'
+}
+
+function showBtnPost(text) {
+    let btn = document.querySelector('.feed__what-new .feed__what-new_post')
+   if (text.value.length) {
+       btn.style.opacity = '1'
+       btn.style.visibility = 'visible'
+   } else btn.style.cssText = ''
+    newPostText = text.value.length
+}
 
 
 function isNewComment() {

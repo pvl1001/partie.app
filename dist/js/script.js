@@ -437,7 +437,7 @@ if (window.innerWidth <= 1023) {
 // for (let i = 0; i < reply.length; i++) {
 //     let el = reply[i]
 //     let el2 = commentReply[i]
-//     console.log(el, el2)
+//
 //     el.addEventListener('click', function () {
 //         el2.style.display = 'flex'
 //     })
@@ -445,7 +445,7 @@ if (window.innerWidth <= 1023) {
 
 // function reply(el) {
 //     let reply = el.parentNode.parentElement.parentElement.parentElement.children[4]
-//     console.log(reply)
+//
     // reply.style.display = 'flex'
 
     // let name = el.parentNode.parentElement.children[1].outerText
@@ -591,7 +591,7 @@ let peopleBtn = document.querySelector('.feed__people-btn')
         peopleBtn.style.transform = ''
     } else {
         if(window.innerWidth <= 1300) { // mobile
-            people.style.transform = 'translateX(180px)'
+            people.style.transform = 'translateX(140px)'
             feedHeader.style.opacity = '0'
             peopleBtn.style.transform = 'rotateY(180deg)'
         } else {
@@ -606,19 +606,53 @@ let peopleBtn = document.querySelector('.feed__people-btn')
 
 
 let textarea = document.querySelector( '#whatNewHead' )
+let textSelect = document.querySelector( '#whatNewHead + div' )
 let feedWhatNewRow = document.querySelector( '.feed__what-new_row' )
 let photo1 = document.querySelector( 'label[for=photo-1]' )
 let feedWhatNewHead = document.querySelector( '.feed__what-new_head' )
 
-if (textarea !== null)
-textarea.addEventListener( 'focus', function () {
-    feedWhatNewRow.style.display = 'flex'
-    photo1.style.display = 'none'
-    textarea.style.width = '100%'
-    textarea.style.order = '1'
-    textarea.style.marginTop = '12px'
-    feedWhatNewHead.style.flexWrap = 'wrap'
-} )
+
+
+if (textarea !== null) {
+    textarea.addEventListener( 'focus', function () {
+        textSelect.style.right = '65%'
+        photo1.style.cssText = 'opacity: 0; visibility: hidden;'
+        textarea.style.width = '100%'
+        textarea.style.marginTop = '34px'
+        textarea.style.marginBottom = '70px'
+        feedWhatNewHead.parentElement.style.backgroundColor = 'rgba(20,19,26,1)'
+        setTimeout(function () {
+            feedWhatNewRow.style.cssText = 'opacity: 1; visibility: visible;'
+        },350)
+        if(window.innerWidth <= 1300) textSelect.style.right = '51%'
+    } )
+    let newPostText
+    window.addEventListener( 'click', function (e) {
+        if (!feedWhatNewHead.parentNode.contains( e.target ) && !newPostText) {
+            textSelect.style.right = ''
+            feedWhatNewRow.style.cssText = ''
+            photo1.style.cssText = ''
+            textarea.style.cssText = ''
+            feedWhatNewHead.style.flexWrap = ''
+            feedWhatNewHead.parentElement.style.backgroundColor = ''
+        }
+    } )
+}
+
+
+function loading() {
+    let loading = document.querySelector('.loading')
+    loading.style.display = 'flex'
+}
+
+function showBtnPost(text) {
+    let btn = document.querySelector('.feed__what-new .feed__what-new_post')
+   if (text.value.length) {
+       btn.style.opacity = '1'
+       btn.style.visibility = 'visible'
+   } else btn.style.cssText = ''
+    newPostText = text.value.length
+}
 
 
 function isNewComment() {
@@ -776,13 +810,26 @@ function openTab(evt, Tab) {
 }
 
 function openTabModal(evt, Tab) {
-    // Declare all variables
     var i, tabcontent, tablinks;
+    let modal = document.querySelector('#levelProgress .modal')
 
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.querySelectorAll("#levelProgress .tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+        tabcontent[i].style.transition = ".3s";
+        tabcontent[i].style.opacity = "0";
+        tabcontent[i].style.transform = "scale(.95)";
+        tabcontent[i].style.position = "fixed";
+        if(window.innerWidth >= 1024) {
+            tabcontent[i].style.width = "464px"
+            modal.style.height = 263 + tabcontent[i].offsetHeight + 'px'
+        }
+        if(window.innerWidth <= 1023) {
+            modal.style.height = tabcontent[i].offsetHeight + 'px'
+            tabcontent[i].style.transition = ".3s";
+            tabcontent[i].style.opacity = "0";
+            tabcontent[i].style.transform = "scale(.95)";
+        }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
@@ -792,7 +839,17 @@ function openTabModal(evt, Tab) {
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(Tab).style.display = "block";
+    setTimeout(function () {
+        document.getElementById(Tab).style.opacity = "1";
+        document.getElementById(Tab).style.transform = "scale(1)";
+        document.getElementById(Tab).style.position = "relative";
+        if(window.innerWidth >= 1024)
+            modal.style.height = 263 + document.getElementById(Tab).offsetHeight + 'px'
+    },300)
+    if(window.innerWidth <= 1023) {
+        modal.style.height = 242 + document.getElementById(Tab).offsetHeight + 'px'
+        console.log(document.getElementById(Tab).offsetHeight, 'tab')
+    }
     evt.currentTarget.className += " active";
 
     let token = document.querySelectorAll( '.pop' )
@@ -840,10 +897,17 @@ function openFoll(evt, Tab) {
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.querySelectorAll(".followers .tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.transition = ".4s";
+        tabcontent[i].style.transition = ".3s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
-        tabcontent[i].style.height = "0";
+        tabcontent[i].style.position = "fixed";
+
+        if(window.innerWidth <= 1023) {
+            tabcontent[i].style.transition = "opacity .4s, transform .4s";
+            tabcontent[i].style.opacity = "0";
+            tabcontent[i].style.transform = "scale(.95)";
+            tabcontent[i].style.height = "0";
+        }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
@@ -856,7 +920,10 @@ function openFoll(evt, Tab) {
     setTimeout(function () {
         document.getElementById(Tab).style.opacity = "1";
         document.getElementById(Tab).style.transform = "scale(1)";
-        document.getElementById(Tab).style.height = "auto";
+        document.getElementById(Tab).style.position = "relative";
+        if(window.innerWidth <=1023) {
+            document.getElementById(Tab).style.height = "100%";
+        }
     },300)
     evt.currentTarget.className += " active";
 }
@@ -875,7 +942,7 @@ function showBtnPs() {
         showPs = !showPs
         let btn = document.querySelector( '#ps' )
         let show = document.querySelector( '.show-all' )
-        console.log(btn)
+
         if (showPs) {
             btn.style.height = '64px'
             show.innerHTML = 'Hide'
@@ -935,10 +1002,16 @@ function openTabPatie(evt, Tab) {
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.querySelectorAll(".partie-tab .tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.transition = "opacity .4s, transform .4s";
+        tabcontent[i].style.transition = ".3s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
-        tabcontent[i].style.height = "0";
+        tabcontent[i].style.position = "fixed";
+        if(window.innerWidth <=1023) {
+            tabcontent[i].style.transition = "opacity .4s, transform .4s";
+            tabcontent[i].style.opacity = "0";
+            tabcontent[i].style.transform = "scale(.95)";
+            tabcontent[i].style.height = "0";
+        }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
@@ -951,17 +1024,23 @@ function openTabPatie(evt, Tab) {
     setTimeout(function () {
         document.getElementById(Tab).style.opacity = "1";
         document.getElementById(Tab).style.transform = "scale(1)";
-        if(window.innerWidth <= 1023) { // mobile
+        document.getElementById(Tab).style.position = "relative";
+        if(window.innerWidth <=1023) {
             document.getElementById(Tab).style.height = "100%";
-        } else { // pc
-            document.getElementById(Tab).style.height = "calc(100% - 66px)";
         }
     },300)
+
     evt.currentTarget.className += " active";
 }
 
 let defaultOpenPartieTab = document.getElementById("defaultOpenPartieTab")
 if(defaultOpenPartieTab !== null) defaultOpenPartieTab.click()
+
+
+
+
+
+
 
 
 function openTabFeed(evt, Tab) {
@@ -970,11 +1049,16 @@ function openTabFeed(evt, Tab) {
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.querySelectorAll(".feed-tab .tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.transition = "opacity .4s, transform .4s";
+        tabcontent[i].style.transition = ".3s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
-        tabcontent[i].style.height = "0";
-
+        tabcontent[i].style.position = "absolute";
+        if(window.innerWidth <= 1023) {
+            tabcontent[i].style.transition = "opacity .4s, transform .4s";
+            tabcontent[i].style.opacity = "0";
+            tabcontent[i].style.transform = "scale(.95)";
+            tabcontent[i].style.height = "0";
+        }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
@@ -987,14 +1071,21 @@ function openTabFeed(evt, Tab) {
     setTimeout(function () {
         document.getElementById(Tab).style.opacity = "1";
         document.getElementById(Tab).style.transform = "scale(1)";
-        if(window.innerWidth <= 1023) { // mobile
+        document.getElementById(Tab).style.position = "relative";
+        if(window.innerWidth <=1023) {
             document.getElementById(Tab).style.height = "100%";
-        } else { // pc
-            document.getElementById(Tab).style.height = "calc(100% - 66px)";
         }
     },300)
     evt.currentTarget.className += " active";
 }
+
+
+
+
+
+
+
+
 
 let defaultOpenFeedTab = document.getElementById("defaultOpenFeedTab")
 if(defaultOpenFeedTab !== null) defaultOpenFeedTab.click()
@@ -1006,10 +1097,6 @@ let btnNext = el.parentElement.children[el.parentElement.children.length -1]
         btnNext.style.cssText = 'visibility: visible; opacity: 1;'
     } else btnNext.style.cssText = ''
 }
-
-
-
-
 
 
 let editPhoto = document.querySelector('#editPhoto')
@@ -1052,7 +1139,7 @@ window.onclick = function (e) {
 //     if(window.innerWidth <=1023) {
 //         el.onclick = function () {
 //             testSlide = i
-//             console.log(testSlide)
+//
 //         }
 //     }
 // }
@@ -2367,7 +2454,6 @@ if(window.innerWidth <= 1023) {
     let btnContainerWrapps = document.querySelectorAll( '.btn-container-wrapp' )
     for(let el of btnContainerWrapps) {
         if (el !== null) {
-            console.log(el)
             el.children[0].addEventListener( 'touchstart', handleTouchStart, false );
             el.children[0].addEventListener( 'touchmove', handleTouchMove, false );
         }
