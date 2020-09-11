@@ -130,7 +130,7 @@ for(let star of arrStar) {
             setTimeout(function () {
                 if (window.innerWidth >= 1024) {
                     ratingPartie.style.background = 'linear-gradient(0deg, rgba(60,28,32,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
-                    ratingPartieModal.style.height = '379px'
+                    ratingPartieModal.style.height = 216 + star2.offsetHeight + 'px'
                 } else {
                     ratingPartie.style.background = 'rgba(244, 83, 101,.5)'
                     ratingPartieModal.style.height = '490px'
@@ -150,7 +150,7 @@ for(let star of arrStar) {
             setTimeout(function () {
                 if (window.innerWidth >= 1024) {
                     ratingPartie.style.background = 'linear-gradient(0deg, rgba(42,24,45,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
-                    ratingPartieModal.style.height = '629px'
+                    ratingPartieModal.style.height = 216 + star3.offsetHeight + 'px'
                 } else {
                     ratingPartie.style.background = 'rgba(156, 66, 171,.5)'
                     ratingPartieModal.style.height = '490px'
@@ -170,7 +170,7 @@ for(let star of arrStar) {
             setTimeout(function () {
                 if (window.innerWidth >= 1024) {
                     ratingPartie.style.background = 'linear-gradient(0deg, rgba(33,26,61,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
-                    ratingPartieModal.style.height = '629px'
+                    ratingPartieModal.style.height = 216 + star4.offsetHeight + 'px'
                 } else {
                     ratingPartie.style.background = 'rgb(110, 74, 255,.5)'
                     ratingPartieModal.style.height = '490px'
@@ -190,7 +190,7 @@ for(let star of arrStar) {
             setTimeout(function () {
                 if (window.innerWidth >= 1024) {
                     ratingPartie.style.background = 'linear-gradient(0deg, rgba(61,58,36,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
-                    ratingPartieModal.style.height = '629px'
+                    ratingPartieModal.style.height = 216 + star5.offsetHeight + 'px'
                 } else {
                     ratingPartie.style.background = 'rgba(210, 200, 103,.6)'
                     ratingPartieModal.style.height = '490px'
@@ -206,13 +206,13 @@ for(let star of arrStar) {
 }
 
 
-function textareaWidth() {
-    let text = document.querySelector('.textarea')
-    if(text.value.length) {
-        text.style.width = '100%'
-    } else {
-        text.style.width = ''
-    }
+function textareaWidth(el) {
+    el.style.height = (el.scrollHeight) + "px"
+    ratingPartieModal.style.height = 216 + star2.offsetHeight + 'px'
+    if(el.value.length) {
+        el.style.width = '100%'
+    } else el.style.width = ''
+
 }
 
 
@@ -293,6 +293,17 @@ for(let shortcutsBox of arrShortcutsBox) {
         shortcutsBox.addEventListener("touchcancel", cancel);
     }
 }
+
+let tools = document.querySelectorAll('.round-btn.tool')
+    for(let el of tools) {
+        if(el !== null)
+        el.addEventListener('mouseover', function () {
+            let x = el.getBoundingClientRect().x
+            let y = el.getBoundingClientRect().y
+            console.log(x, y)
+        })
+    }
+
 
 
 

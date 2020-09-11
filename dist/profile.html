@@ -664,10 +664,12 @@
                     <label  for="photoAvatar"></label>
                     <input id="photoAvatar" type="file">
                 </div>
-                <div class="editProfile__description description">
-                    <div class="editProfile__title">Description</div>
-                    <div class="editProfile__text">Follow me if you want to play some skilled Apex Legends games!</div>
-                </div>
+                <div class="editProfile__title">Description</div>
+
+                <textarea oninput="auto_grow(this)"
+                          class="editProfile__description description"
+                          maxlength="500"
+                          placeholder="Add description"></textarea>
                 <div class="editProfile__website">
                     <div class="editProfile__title">Website</div>
                     <input type="text" placeholder="Add website">
@@ -713,7 +715,7 @@
                     </div>
                 </div>
                 <div class="share__copy">
-                    <input id="shareCopy" type="text" readonly value="https://app.partie.com/profile/02bab...">
+                    <input id="shareCopy" type="text" readonly value="https://app.partie.com/profile/02babsdfsdfasf">
                     <label for="shareCopy">copy</label>
                 </div>
             </div>
@@ -781,7 +783,7 @@
                             <div class="shortcuts__btn origin"></div>
                             <div class="shortcuts__btn pc"></div>
                             <div class="shortcuts__btn mic"></div>
-                            <button class="shortcuts__btn-limited">Limited...</button>
+                            <button class="shortcuts__btn-limited">Limited test</button>
                         </div>
                         <div class="shortcuts__box_menu">
                             <div class="menu-wrapper">
@@ -801,7 +803,7 @@
                             <div class="shortcuts__btn origin"></div>
                             <div class="shortcuts__btn pc"></div>
                             <div class="shortcuts__btn mic"></div>
-                            <button class="shortcuts__btn-limited">Limited...</button>
+                            <button class="shortcuts__btn-limited">Limited test</button>
                         </div>
                     </div>
                     <div class="shortcuts__create">
@@ -1153,7 +1155,7 @@
                     <label for="Other">Other</label>
                 </div>
 
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add a discription"></textarea>
+                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add a description"></textarea>
                 <button>Remove User</button>
             </div>
         </div>
@@ -1193,7 +1195,7 @@
                                     <div onclick="next(partieReport, titleModal)" class="more__win_row report">Report</div>
                                 </div>
                                 <div>
-                                    <div onclick="next(ratingPartie, titleModal)" class="more__win_row leave">Leave</div>
+                                    <div onclick="openModal(ratingPartie)" class="more__win_row leave">Leave</div>
                                 </div>
                             </div>
                             <div class="close-place"></div>
@@ -1394,7 +1396,7 @@
                     <input id="reportOther" name="partieReport" type="radio">
                     <label for="reportOther">Other</label>
                 </div>
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add a discription"></textarea>
+                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add a description"></textarea>
                 <button onclick="reportSubmitted()" disabled class="disabled">Send report</button>
             </div>
         </div>
@@ -1421,7 +1423,10 @@
 
                 <div class="star-2">
                     <hr>
-                    <textarea class="textarea" onkeyup="textareaWidth()" type="text" placeholder="What went wrong?"></textarea>
+                    <textarea onkeyup="textareaWidth(this)"
+                              maxlength="500"
+                              type="text"
+                              placeholder="What went wrong?"></textarea>
                     <button onclick="closeModal(ratingPartie)" class="bg-fiolet">Done</button>
                 </div>
 
@@ -1484,6 +1489,10 @@
                         <div class="token token-opacity">
                             <div class="token__img"></div>
                             <div class="token__name">All-Star</div>
+                        </div>
+                        <div class="token token-opacity">
+                            <div class="token__img"></div>
+                            <div class="token__name">Mission Accomplished</div>
                         </div>
                         <div class="token token-opacity">
                             <div class="token__img"></div>
@@ -1765,7 +1774,7 @@
             <div class="modal__content">
                 <div class="leaveChat__text">
                     Are you sure you want
-                    detete account?
+                    delete account?
                 </div>
                 <div class="leaveChat__btns">
                     <button onclick="closeModal(deleteAccount)">Cancel</button>

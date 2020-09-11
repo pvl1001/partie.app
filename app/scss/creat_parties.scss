@@ -152,11 +152,11 @@
                 line-height: 17px;
                 color: #D2C867;
                 font-weight: 400;
-                overflow: auto;
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 display: inline;
                 padding: 0 9px;
+                overflow: hidden;
             }
         }
 

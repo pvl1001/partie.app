@@ -173,6 +173,22 @@ if (window.innerWidth <= 1023) {
 }
 
 
+let publicPost = document.querySelector('button.public-post')
+let onPublicPost
+
+if(publicPost !== null)
+publicPost.onclick = function () {
+    onPublicPost = !onPublicPost
+    if(onPublicPost) {
+        publicPost.style.background = 'rgba(235,235,245,.1) url(../img/icon/lock.png) 12px 50%/9.2px no-repeat'
+        publicPost.style.paddingLeft = '30px'
+        publicPost.style.transition = 'background-color .3s'
+        publicPost.innerHTML = 'Followers only'
+    } else {
+        publicPost.style.background = ''
+        publicPost.innerHTML = 'Public post'
+    }
+}
 
 // })
 
