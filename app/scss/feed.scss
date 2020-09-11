@@ -400,7 +400,6 @@
 
             .feed__what-new_head {
                 display: flex;
-                //flex-wrap: wrap;
                 justify-content: space-between;
                 align-items: center;
             }
@@ -454,6 +453,10 @@
                     background-color: #D2C867;
                     color: #000;
                 }
+                
+                button.public-post {
+                    background-color: #6e4aff;
+                }
             }
 
             .feed__what-new_row {
@@ -488,6 +491,7 @@
                     right: 80px;
                     top: 19px;
                     transition: .3s;
+                    opacity: .6;
                 }
             }
 
@@ -1057,6 +1061,9 @@
 
         input {
             opacity: 0.3;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            padding-right: 70px;
         }
 
         input:focus {

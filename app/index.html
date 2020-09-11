@@ -194,7 +194,7 @@
                 <div class="logIn__code_description">Enter it below</div>
                 <form onsubmit="return false;">
                     <div class="logIn__code_code">
-                        <input autofocus placeholder="Enter code" type="number">
+                        <input oninput="enterCodeCenter(this)" autofocus placeholder="Enter code" maxlength="5" type="text">
                     </div>
                     <div class="logInCode__past">Paste</div>
                     <button id="btnCode" onclick="next(logInPlatforms, logInCode)" class="bg-fiolet">Continue</button>

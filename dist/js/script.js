@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         $(".card-number").mask("0000 0000 0000 0000");
         $(".add-credit-card__input-group .input-date").mask("00/00");
         $(".add-credit-card__input-group .input-CVC").mask("000");
+        $(".logIn__code_code input").mask("00000");
     });
 
     $( '.slider' ).slick( {
@@ -114,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 btnPlatforms.classList.add('animate__fadeOutDown')
                 setTimeout(function () {
                     btnPlatforms.style.cssText = ''
-                },500)
+                },300)
                 if(window.innerWidth > 1023) { //pc
                     btnPlatforms.style.zIndex = '-1'
                     bgRedBlue.style.cssText = ''
@@ -139,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 btnPlatformsGames.classList.remove('animate__fadeOutDown')
                 btnPlatformsGames.classList.add('animate__fadeInUp')
                 if(window.innerWidth > 1023) {
-                    btnPlatformsGames.style.zIndex = ''
+                    btnPlatformsGames.style.visibility = ''
                 }
 
             } else {
@@ -147,8 +148,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 btnPlatformsGames.classList.add('animate__fadeOutDown')
                 if(window.innerWidth > 1023) { //pc
                     setTimeout(function () {
-                        btnPlatformsGames.style.zIndex = '-1'
-                    },500)
+                        btnPlatformsGames.style.visibility = 'hidden'
+                    },300)
                 }
             }
         })
@@ -349,7 +350,7 @@ if(shortcuts !== null) {
             btnUp.style.transform = 'rotateX(190deg)'
             bgClick.style.zIndex = '1'
             if (window.innerWidth >= 1024) bgClick.style.opacity = '1'
-        } else shortcutsDown
+        } else shortcutsDown()
     }
     function shortcutsDown() {
         shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
@@ -498,6 +499,12 @@ if(window.innerWidth <=1023) {
             if(e.target === el) closeModal(el)
         })
     }
+}
+
+
+function enterCodeCenter(el) {
+    console.log(el.value.length)
+    el.value.length ? el.style.textAlign = 'center' : el.style.textAlign = ''
 }
 
 
@@ -755,6 +762,22 @@ if (window.innerWidth <= 1023) {
 }
 
 
+let publicPost = document.querySelector('button.public-post')
+let onPublicPost
+
+if(publicPost !== null)
+publicPost.onclick = function () {
+    onPublicPost = !onPublicPost
+    if(onPublicPost) {
+        publicPost.style.background = 'rgba(235,235,245,.1) url(../img/icon/lock.png) 12px 50%/9.2px no-repeat'
+        publicPost.style.paddingLeft = '30px'
+        publicPost.style.transition = 'background-color .3s'
+        publicPost.innerHTML = 'Followers only'
+    } else {
+        publicPost.style.background = ''
+        publicPost.innerHTML = 'Public post'
+    }
+}
 
 // })
 
@@ -1052,7 +1075,7 @@ function openTabFeed(evt, Tab) {
         tabcontent[i].style.transition = ".3s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
-        tabcontent[i].style.position = "absolute";
+        tabcontent[i].style.position = "fixed";
         if(window.innerWidth <= 1023) {
             tabcontent[i].style.transition = "opacity .4s, transform .4s";
             tabcontent[i].style.opacity = "0";
@@ -1318,7 +1341,7 @@ for(let star of arrStar) {
             setTimeout(function () {
                 if (window.innerWidth >= 1024) {
                     ratingPartie.style.background = 'linear-gradient(0deg, rgba(60,28,32,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
-                    ratingPartieModal.style.height = '379px'
+                    ratingPartieModal.style.height = 216 + star2.offsetHeight + 'px'
                 } else {
                     ratingPartie.style.background = 'rgba(244, 83, 101,.5)'
                     ratingPartieModal.style.height = '490px'
@@ -1338,7 +1361,7 @@ for(let star of arrStar) {
             setTimeout(function () {
                 if (window.innerWidth >= 1024) {
                     ratingPartie.style.background = 'linear-gradient(0deg, rgba(42,24,45,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
-                    ratingPartieModal.style.height = '629px'
+                    ratingPartieModal.style.height = 216 + star3.offsetHeight + 'px'
                 } else {
                     ratingPartie.style.background = 'rgba(156, 66, 171,.5)'
                     ratingPartieModal.style.height = '490px'
@@ -1358,7 +1381,7 @@ for(let star of arrStar) {
             setTimeout(function () {
                 if (window.innerWidth >= 1024) {
                     ratingPartie.style.background = 'linear-gradient(0deg, rgba(33,26,61,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
-                    ratingPartieModal.style.height = '629px'
+                    ratingPartieModal.style.height = 216 + star4.offsetHeight + 'px'
                 } else {
                     ratingPartie.style.background = 'rgb(110, 74, 255,.5)'
                     ratingPartieModal.style.height = '490px'
@@ -1378,7 +1401,7 @@ for(let star of arrStar) {
             setTimeout(function () {
                 if (window.innerWidth >= 1024) {
                     ratingPartie.style.background = 'linear-gradient(0deg, rgba(61,58,36,0.8) 0%, rgba(20,20,20,0.7091211484593838) 100%)'
-                    ratingPartieModal.style.height = '629px'
+                    ratingPartieModal.style.height = 216 + star5.offsetHeight + 'px'
                 } else {
                     ratingPartie.style.background = 'rgba(210, 200, 103,.6)'
                     ratingPartieModal.style.height = '490px'
@@ -1394,13 +1417,13 @@ for(let star of arrStar) {
 }
 
 
-function textareaWidth() {
-    let text = document.querySelector('.textarea')
-    if(text.value.length) {
-        text.style.width = '100%'
-    } else {
-        text.style.width = ''
-    }
+function textareaWidth(el) {
+    el.style.height = (el.scrollHeight) + "px"
+    ratingPartieModal.style.height = 216 + star2.offsetHeight + 'px'
+    if(el.value.length) {
+        el.style.width = '100%'
+    } else el.style.width = ''
+
 }
 
 
@@ -1481,6 +1504,17 @@ for(let shortcutsBox of arrShortcutsBox) {
         shortcutsBox.addEventListener("touchcancel", cancel);
     }
 }
+
+let tools = document.querySelectorAll('.round-btn.tool')
+    for(let el of tools) {
+        if(el !== null)
+        el.addEventListener('mouseover', function () {
+            let x = el.getBoundingClientRect().x
+            let y = el.getBoundingClientRect().y
+            console.log(x, y)
+        })
+    }
+
 
 
 

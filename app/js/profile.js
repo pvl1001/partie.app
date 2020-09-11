@@ -268,7 +268,7 @@ function openTabFeed(evt, Tab) {
         tabcontent[i].style.transition = ".3s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
-        tabcontent[i].style.position = "absolute";
+        tabcontent[i].style.position = "fixed";
         if(window.innerWidth <= 1023) {
             tabcontent[i].style.transition = "opacity .4s, transform .4s";
             tabcontent[i].style.opacity = "0";

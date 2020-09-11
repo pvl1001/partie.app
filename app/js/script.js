@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         $(".card-number").mask("0000 0000 0000 0000");
         $(".add-credit-card__input-group .input-date").mask("00/00");
         $(".add-credit-card__input-group .input-CVC").mask("000");
+        $(".logIn__code_code input").mask("00000");
     });
 
     $( '.slider' ).slick( {
@@ -114,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 btnPlatforms.classList.add('animate__fadeOutDown')
                 setTimeout(function () {
                     btnPlatforms.style.cssText = ''
-                },500)
+                },300)
                 if(window.innerWidth > 1023) { //pc
                     btnPlatforms.style.zIndex = '-1'
                     bgRedBlue.style.cssText = ''
@@ -139,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 btnPlatformsGames.classList.remove('animate__fadeOutDown')
                 btnPlatformsGames.classList.add('animate__fadeInUp')
                 if(window.innerWidth > 1023) {
-                    btnPlatformsGames.style.zIndex = ''
+                    btnPlatformsGames.style.visibility = ''
                 }
 
             } else {
@@ -147,8 +148,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 btnPlatformsGames.classList.add('animate__fadeOutDown')
                 if(window.innerWidth > 1023) { //pc
                     setTimeout(function () {
-                        btnPlatformsGames.style.zIndex = '-1'
-                    },500)
+                        btnPlatformsGames.style.visibility = 'hidden'
+                    },300)
                 }
             }
         })
@@ -349,7 +350,7 @@ if(shortcuts !== null) {
             btnUp.style.transform = 'rotateX(190deg)'
             bgClick.style.zIndex = '1'
             if (window.innerWidth >= 1024) bgClick.style.opacity = '1'
-        } else shortcutsDown
+        } else shortcutsDown()
     }
     function shortcutsDown() {
         shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
@@ -498,6 +499,12 @@ if(window.innerWidth <=1023) {
             if(e.target === el) closeModal(el)
         })
     }
+}
+
+
+function enterCodeCenter(el) {
+    console.log(el.value.length)
+    el.value.length ? el.style.textAlign = 'center' : el.style.textAlign = ''
 }
 
 
