@@ -984,6 +984,117 @@
     font-weight: 400;
 }
 
+.picture {
+    $this: &;
+
+    &-full-screen {
+        position: relative;
+
+        display: none;
+
+        &__header {
+            position: absolute;
+            top: 25px;
+            left: 0;
+            right: 0;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 0 25px;
+
+            @media (min-width: 1024px) {
+                padding: 0 50px;
+            }
+        }
+
+        &__body {
+            display: flex;
+            align-items: center;
+
+            height: 100vh;
+
+            padding: 0;
+
+            @media (min-width: 1024px) {
+                padding: 0 67px;
+            }
+        }
+
+        &__close {
+            position: relative;
+
+            width: 14px;
+            height: 14px;
+
+            background-image: url('../img/icon/close.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            transition: .25s transform;
+    
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+
+            &:before {
+                content: '';
+
+                position: absolute;
+                top: -10px;
+                left: -10px;
+                right: -10px;
+                bottom: -10px;
+            }
+        }
+
+        &__share {
+            position: relative;
+            width: 20px;
+            height: 19px;
+
+            background-image: url('../img/icon/share-w.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            cursor: pointer;
+
+            &:before {
+                content: '';
+
+                position: absolute;
+                top: -10px;
+                left: -10px;
+                right: -10px;
+                bottom: -10px;
+            }
+        }
+    }
+
+    &.-open {
+        #{$this} {
+            &-full-screen { 
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+
+                display: block;
+
+                background-color: rgba(0, 0, 0, .5);
+
+                z-index: 12;
+            }
+        }
+    }
+}
+
 .img-bg {
     position: fixed;
     top: 0;

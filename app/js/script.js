@@ -174,8 +174,8 @@ function next(open, close) {
             openModal(hostLiveShowMobile)
         }
         else {
-            openModal(open)
             closeModal(close)
+            openModal(open)
         }
 
         if(open === createShortcutMobile) closeModal(hostLiveShowMobile)
@@ -255,7 +255,16 @@ function back(close, open) {
     }
 }
 
+function lockBody() {
+    document.body.style.overflow = 'hidden';
+}
+
+function unLockBody() {
+    document.body.style.overflow = 'auto';
+}
+
 function openModal(modal) { // modal
+    lockBody();
     if (window.innerWidth > 1023) { //pc
         modal.style.opacity = '1'
         modal.style.zIndex = '13'
@@ -277,6 +286,7 @@ function openModal(modal) { // modal
 }
 
 function closeModal(modal) {
+    unLockBody();
     if (window.innerWidth <= 1023) { //mobile
         if(modal === gametrag) closeModal(gamertags)
         if(modal === levelProgressToken) {
@@ -370,51 +380,76 @@ function openBurger() {
     })
 }
 
+const pectureBlock = document.querySelector('.picture');
+const feedPostImg = document.querySelector('.picture img');
+const buttonClose = document.querySelector('.picture .picture-full-screen__close');
+const buttonShare = document.querySelector('.picture .picture-full-screen__share');
 
-let feedPostImg = document.querySelector('.post .feed__post_img img')
-if (feedPostImg !== null) {
-    feedPostImg.onclick = openImg
-    let bg = document.querySelector('.img-bg')
-    let bgBtn = document.querySelector('.img-bg__close')
-    let bgBtnShare = document.querySelector('.img-bg__share')
-    let img
-    function openImg() {
-        img = this
-        if (window.innerWidth >=1024) { // pc
-            this.style.cssText =
-                'top:0;' +
-                'right:0;' +
-                'bottom:0;' +
-                'left:0;' +
-                'position:fixed;' +
-                'z-index: 12;' +
-                'margin: auto;' +
-                'padding: 0 50px'
-        } else { // mobile
-            this.style.cssText =
-                'top:0;' +
-                'right:0;' +
-                'bottom:0;' +
-                'left:0;' +
-                'position:fixed;' +
-                'z-index: 12;' +
-                'margin: auto;'
-        }
-
-        bg.style.zIndex = '11'
-        bgBtn.style.display = 'block'
-        bgBtnShare.style.display = 'block'
-        bgBtn.onclick = function () {
-            img.style.cssText = ''
-            bg.style.zIndex = ''
-            bgBtn.style.cssText = ''
-            bgBtnShare.style.cssText = ''
-        }
-        bgBtnShare.onclick = function () {
-            openModal(share)
-        }
-    }
+const openImg = () => {
+    lockBody();
+    pectureBlock.classList.add('-open');
 }
+
+const closeImg = () => {
+    unLockBody();
+    pectureBlock.classList.remove('-open');
+}
+
+feedPostImg.addEventListener('click', openImg);
+buttonClose.addEventListener('click', closeImg);
+buttonShare.addEventListener('click', () => openModal(share))
+
+// const feedPostImgBlock = document.querySelector('.post .feed__post_img');
+// let feedPostImg = document.querySelector('.post .feed__post_img img')
+// if (feedPostImg !== null) {
+//     feedPostImg.onclick = openImg
+//     let bg = document.querySelector('.img-bg')
+//     let bgBtn = document.querySelector('.img-bg__close')
+//     let bgBtnShare = document.querySelector('.img-bg__share')
+//     let img
+//     function openImg() {
+//         lockBody();
+//         img = this;
+//         if (window.innerWidth >=1024) { // pc
+//             this.style.cssText =
+//                 'top:0;' +
+//                 'right:0;' +
+//                 'bottom:0;' +
+//                 'left:0;' +
+//                 'position:fixed;' +
+//                 'z-index: 12;' +
+//                 'margin: auto;' +
+//                 'padding: 0 50px'
+//         } else { // mobile
+//             this.style.cssText = 'z-index: 12;';
+//             feedPostImgBlock.style.cssText =
+//                 'top:0;' +
+//                 'right:0;' +
+//                 'bottom:0;' +
+//                 'left:0;' +
+//                 'position:fixed;' +
+//                 'z-index:12;' +
+//                 'margin:auto;' +
+//                 'display:flex;' +
+//                 'align-items:center;' +
+//                 'background-color: red'
+//         }
+
+//         //bgBtn.style.display = 'block'
+//         bgBtnShare.style.display = 'block'
+//         bgBtn.onclick = function () {
+//             unLockBody();
+//             feedPostImgBlock.style.cssText = '',
+//             img.style.cssText = ''
+//             bg.style.zIndex = ''
+//             bgBtn.style.cssText = ''
+//             bgBtnShare.style.cssText = ''
+//         }
+//         bgBtnShare.onclick = function () {
+//             openModal(share)
+//         }
+//     }
+// }
 
 
 function auto_grow(element) {

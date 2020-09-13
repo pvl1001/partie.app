@@ -417,6 +417,10 @@ input[type=date] {
     font-weight: 400;
 }
 
+.modal.overflow-hidden {
+    overflow: hidden;
+}
+
 .active-tab {
     color: #EBEBF5 !important;
 }
