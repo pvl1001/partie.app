@@ -31,6 +31,13 @@
     li {
         margin-bottom: 20px;
     }
+    ul:last-child {
+        position: fixed;
+        right: 40px;
+        top: 150px;
+        height: 500px;
+        overflow-y: auto;
+    }
 }
 
 
@@ -1211,6 +1218,15 @@ textarea {
     }
 }
 
+.open-modal {
+    opacity: 1 !important;
+    z-index: 13 !important;
+    background-color: rgba(20, 20, 20, 0.8) !important;
+
+    .modal {
+        opacity: 1 !important;
+    }
+}
 
 @media (max-width: 1023px) { // mobile
 
