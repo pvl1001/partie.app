@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="shortcut icon" type="image/png" href="img/icon/fiolet-logo.png"/>
     <title>Partie</title>
 </head>
 <body>
@@ -325,7 +326,7 @@
                               placeholder="What’s new?"></textarea>
                     <div>Select a Game (Optional)</div>
                     <div class="photo-wrapp">
-                        <label for="photo-1"></label>
+                        <label onclick="event.stopPropagation()" for="photo-1"></label>
                         <input id="photo-1" type="file" class="feed__what-new_photo">
                     </div>
                 </div>
