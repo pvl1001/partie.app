@@ -1,5 +1,6 @@
 <div class="feed">
     <div id="newPost" class="modal-wrapp">
+        <div onclick="closeModal(newPost)" class="modal__backdrop"></div>
         <div class="new-post modal center">
             <div class="modal__head">
                 New post
@@ -24,6 +25,7 @@
         </div>
     </div>
     <div id="chooseGame" class="modal-wrapp">
+        <div onclick="closeModal(chooseGame)" class="modal__backdrop"></div>
         <div class="choose-game modal center">
             <div class="modal__head">
                 <svg id="back" onclick="back(chooseGame, newPost)" class="btn-back" width="24" height="24" fill="none"
@@ -67,6 +69,7 @@
         </div>
     </div>
     <div id="profileProgress" class="modal-wrapp">
+        <div onclick="closeModal(profileProgress)" class="modal__backdrop"></div>
         <div class="profile-progress-modal modal center">
             <div class="modal__head">
                 Partner Progress
@@ -147,6 +150,7 @@
         </div>
     </div>
     <div id="applyPartner" class="modal-wrapp">
+        <div onclick="closeModal(applyPartner)" class="modal__backdrop"></div>
         <div class="partner modal center">
             <div class="modal__head">
                 <div onclick="closeModal(applyPartner)" class="modal__close"></div>
@@ -161,6 +165,7 @@
         </div>
     </div>
     <div id="levelProgress" class="modal-wrapp">
+        <div onclick="closeModal(levelProgress)" class="modal__backdrop"></div>
         <div class="level-progress modal center">
             <div class="modal__head">
                 Level Progress
@@ -509,6 +514,7 @@
         </div>
     </div>
     <div id="levelProgressToken" class="modal-wrapp">
+        <div onclick="closeModal(levelProgressToken)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="levelProgressSlider__head-title">
                 <span>Tokens</span>
@@ -545,6 +551,7 @@
         </div>
     </div>
     <div id="levelProgressAchivements" class="modal-wrapp">
+        <div onclick="closeModal(levelProgressAchivements)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="levelProgressSlider__head-title">
                 <span>Achivements</span>
@@ -635,6 +642,7 @@
         </div>
     </div>
     <div id="editProfile" class="modal-wrapp">
+        <div onclick="closeModal(editProfile)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 Edit Profile
@@ -667,6 +675,7 @@
 
 <!--Create parties-->
     <div id="hostPartie" class="modal-wrapp">
+        <div onclick="closeModal(hostPartie)" class="modal__backdrop"></div>
         <div class="choose-game modal center">
             <div class="modal__head">
                 Host partie
@@ -759,6 +768,7 @@
         </div>
     </div>
     <div id="gamertags" class="modal-wrapp">
+        <div onclick="closeModal(gamertags)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <svg id="back" onclick="closeModal(gamertags)" class="btn-back" width="24" height="24" fill="none"
@@ -775,6 +785,7 @@
         </div>
     </div>
     <div id="hostPlatform" class="platforms modal-wrapp">
+        <div onclick="closeModal(hostPlatform)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <svg id="back" onclick="back(hostPlatform, hostPartie)" class="btn-back" width="24" height="24"
@@ -797,6 +808,7 @@
         </div>
     </div>
     <div id="addGametrag" class="platforms modal-wrapp">
+        <div onclick="closeModal(addGametrag)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <svg id="back" onclick="back(addGametrag, gametragPlatform)" class="btn-back" width="24" height="24"
@@ -817,6 +829,7 @@
         </div>
     </div>
     <div id="hostLiveShow" class="hostLiveShow modal-wrapp">
+        <div onclick="closeModal(hostLiveShow)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <svg id="back" onclick="back(hostLiveShow, gametrag)" class="btn-back" width="24" height="24"
@@ -873,6 +886,7 @@
         </div>
     </div>
     <div id="additionalSettings" class="modal-wrapp">
+        <div onclick="closeModal(additionalSettings)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <svg id="back" onclick="back(additionalSettings, hostLiveShow)" class="btn-back" width="24" height="24"
@@ -913,6 +927,7 @@
         </div>
     </div>
     <div id="selectGame" class="modal-wrapp">
+        <div onclick="closeModal(selectGame)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <svg id="back" onclick="back(selectGame, additionalSettings)" class="btn-back" width="24" height="24"
@@ -940,6 +955,7 @@
         </div>
     </div>
     <div id="preferencesModal" class="modal-wrapp">
+        <div onclick="closeModal(preferencesModal)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 Preferences
@@ -975,6 +991,7 @@
 
 <!--Active partie-->
     <div id="inviteFriends" class="inviteFriends modal-wrapp">
+        <div onclick="closeModal(inviteFriends)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div onclick="closeModal(inviteFriends)" class="modal__close"></div>
@@ -1074,6 +1091,7 @@
         </div>
     </div>
     <div id="removeUser" class="removeUser modal-wrapp">
+        <div onclick="closeModal(removeUser)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div onclick="closeModal(removeUser)" class="modal__close"></div>
@@ -1104,6 +1122,7 @@
         </div>
     </div>
     <div id="titleModal" class="titleModal modal-wrapp">
+        <div onclick="closeModal(titleModal)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div onclick="next(editPartie, titleModal)" class="btn-edit">Edit</div>
@@ -1178,6 +1197,7 @@
         </div>
     </div>
     <div id="editPartie" class="hostLiveShow modal-wrapp">
+        <div onclick="closeModal(editPartie)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 Edit partie
@@ -1248,6 +1268,7 @@
         </div>
     </div>
     <div id="titleModalStart" class="titleModal modal-wrapp">
+        <div onclick="closeModal(titleModalStart)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div onclick="next(editPartie, titleModalStart)" class="btn-edit">Edit</div>
@@ -1316,6 +1337,7 @@
         </div>
     </div>
     <div id="partieReport" class="removeUser modal-wrapp">
+        <div onclick="closeModal(partieReport)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div onclick="closeModal(partieReport)" class="modal__close"></div>
@@ -1345,6 +1367,7 @@
         </div>
     </div>
     <div id="ratingPartie" class="ratingPartie modal-wrapp">
+        <div onclick="closeModal(ratingPartie)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__content">
                 <div class="avatar"></div>
@@ -1489,6 +1512,7 @@
 
 <!--Chats-->
     <div id="newChat" class="inviteFriends modal-wrapp">
+        <div onclick="closeModal(newChat)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div onclick="closeModal(newChat)" class="modal__close"></div>
@@ -1588,6 +1612,7 @@
         </div>
     </div>
     <div id="chatHead" class="titleModal modal-wrapp">
+        <div onclick="closeModal(chatHead)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div onclick="next(editChat, chatHead)" class="btn-edit">Edit</div>
@@ -1649,6 +1674,7 @@
         </div>
     </div>
     <div id="editChat" class="titleModal modal-wrapp">
+        <div onclick="closeModal(editChat)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div class="modal__head-title">Edit chat</div>
@@ -1674,6 +1700,7 @@
         </div>
     </div>
     <div id="leaveChat" class="leaveChat modal-wrapp">
+        <div onclick="closeModal(leaveChat)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__content">
                 <div class="leaveChat__text">
@@ -1690,6 +1717,7 @@
 
 <!--Settings-->
     <div id="inviteFriendsSetting" class="modal-wrapp">
+        <div onclick="closeModal(inviteFriendsSetting)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div onclick="closeModal(inviteFriendsSetting)" class="modal__close"></div>
@@ -1713,6 +1741,7 @@
         </div>
     </div>
     <div id="deleteAccount" class="leaveChat modal-wrapp">
+        <div onclick="closeModal(deleteAccount)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__content">
                 <div class="leaveChat__text">
@@ -1727,6 +1756,7 @@
         </div>
     </div>
     <div id="changePaymentMethod" class="modal-wrapp">
+        <div onclick="closeModal(changePaymentMethod)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <svg id="back" onclick="closeModal(changePaymentMethod)" class="btn-back mobile" width="24" height="24"
@@ -1798,6 +1828,7 @@
         </div>
     </div>
     <div id="addCreditCardSetting" class="modal-wrapp">
+        <div onclick="closeModal(addCreditCardSetting)" class="modal__backdrop"></div>
         <div class="add-credit-card center modal">
             <div class="modal__head">
                 <svg id="back" onclick="closeModal(addCreditCardSetting)" class="btn-back mobile" width="24" height="24"
@@ -1826,6 +1857,7 @@
         </div>
     </div>
     <div id="unfollow" class="leaveChat modal-wrapp">
+        <div onclick="closeModal(unfollow)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__content">
                 <div class="leaveChat__text">
@@ -1840,6 +1872,7 @@
         </div>
     </div>
     <div id="settingsPlatforms" class="platforms modal-wrapp">
+        <div onclick="closeModal(settingsPlatforms)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 Platforms
@@ -1866,8 +1899,8 @@
         </div>
     </div>
 
-
     <div id="share" class="modal-wrapp">
+        <div onclick="closeModal(share)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 Share

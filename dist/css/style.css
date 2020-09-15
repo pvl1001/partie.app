@@ -1839,10 +1839,6 @@
   background: url("../img/icon/dotted-post.png") center/14px no-repeat;
 }
 
-.feed .feed__col2 .feed__post:last-child {
-  margin-bottom: 0;
-}
-
 .feed .feed__col2 .feed__post .feed__post_head {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7479,10 +7475,6 @@
 
 .feed .feed__col2.search .feed__post:hover {
   background: #14131a;
-}
-
-.feed .feed__col2.search .feed__post:last-child {
-  margin-bottom: 0;
 }
 
 .feed .feed__col2.search .feed__post .feed__post_head {
