@@ -61,7 +61,32 @@ function openTabModal(evt, Tab) {
         document.getElementById(Tab).style.position = "relative";
         if(window.innerWidth >= 1024)
             modal.style.height = 263 + document.getElementById(Tab).offsetHeight + 'px'
+
+        setTimeout(function () {
+            let token = document.querySelectorAll( '.pop' )
+            let popovers = document.querySelectorAll( '.popover' )
+            for (let i = 0; i < token.length; i++) {
+                let el = token[i]
+                let popover = popovers[i]
+                let h = popover.getBoundingClientRect().height
+                let x = el.getBoundingClientRect().left - 92
+                let y = el.getBoundingClientRect().top - 20 - h
+                if (window.innerWidth >= 1024) {
+                    el.addEventListener( 'mouseover', function () {
+                        popover.style.opacity = '1'
+                        popover.style.visibility = 'visible'
+                        popover.style.left = x + 'px'
+                        popover.style.top = y + 'px'
+                    } )
+                    el.addEventListener( 'mouseout', function () {
+                        popover.style.cssText = ''
+                    } )
+                }
+            }
+        },350)
+
     },300)
+
     if(window.innerWidth <= 1023) {
         modal.style.height = 242 + document.getElementById(Tab).offsetHeight + 'px'
         console.log(document.getElementById(Tab).offsetHeight, 'tab')
@@ -69,30 +94,26 @@ function openTabModal(evt, Tab) {
     evt.currentTarget.className += " active";
 
 
-    console.log(Tab, Tab === 'Tokens')
-
-    if(Tab === 'Tokens') {
-        let token = document.querySelectorAll( '.pop' )
-        let popovers = document.querySelectorAll( '.popover' )
-        for (let i = 0; i < token.length; i++) {
-            let el = token[i]
-            let popover = popovers[i]
-            let h = popover.getBoundingClientRect().height
-            let x = el.getBoundingClientRect().left - 92
-            let y = el.getBoundingClientRect().top - 20 - h
-            if(window.innerWidth >=1024) {
-                el.addEventListener( 'mouseover', function () {
-                    popover.style.opacity = '1'
-                    popover.style.visibility = 'visible'
-                    popover.style.left = x + 'px'
-                    popover.style.top = y + 'px'
-                } )
-                el.addEventListener( 'mouseout', function () {
-                    popover.style.cssText = ''
-                } )
-            }
-        }
-    }
+    // let token = document.querySelectorAll( '.pop' )
+    // let popovers = document.querySelectorAll( '.popover' )
+    // for (let i = 0; i < token.length; i++) {
+    //     let el = token[i]
+    //     let popover = popovers[i]
+    //     let h = popover.getBoundingClientRect().height
+    //     let x = el.getBoundingClientRect().left - 92
+    //     let y = el.getBoundingClientRect().top - 20 - h
+    //     if (window.innerWidth >= 1024) {
+    //         el.addEventListener( 'mouseover', function () {
+    //             popover.style.opacity = '1'
+    //             popover.style.visibility = 'visible'
+    //             popover.style.left = x + 'px'
+    //             popover.style.top = y + 'px'
+    //         } )
+    //         el.addEventListener( 'mouseout', function () {
+    //             popover.style.cssText = ''
+    //         } )
+    //     }
+    // }
 
 
 

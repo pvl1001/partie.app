@@ -247,13 +247,13 @@
                     <div class="comments__new-comment">
                         <div class="avatar"></div>
                         <textarea onkeyup="isNewComment()"
-                                  id="newComment"
+                                  class="newComment"
                                   placeholder="Add comment..."
                                   oninput="auto_grow(this)"
                                   maxlength="500"
                                   ></textarea>
 
-                        <button id="newCommentBtn">Add</button>
+                        <button class="newCommentBtn">Add</button>
                         <div class="comments__new-comment_people people">
                             <div class="people__row">
                                 <div class="user">
@@ -312,43 +312,587 @@
                                 <div class="avatar"></div>
                                 <input type="text" autofocus>
                             </div>
-
-                            <div class="comments__comment comment-reply">
+                            <div class="comments__new-comment">
                                 <div class="avatar"></div>
-                                <div class="comment-reply__text">
-                                    <div class="comment-reply__to">to Psychoman</div>
-                                    <div class="avatar-name">KillershyGuy<span>now</span></div>
-                                    <div class="comment-text">Sounds kinda simpish tho my man. So looks like PSN
-                                        simp-o-meter is
-                                        going off to your posts cause 9/10 girls on here are looking to bag few simps daily.
-                                        <a href="#">#justfax</a>
+                                <textarea onkeyup="isNewComment()"
+                                          class="newComment"
+                                          placeholder="Add comment..."
+                                          oninput="auto_grow(this)"
+                                          maxlength="500"
+                                ></textarea>
+
+                                <button class="newCommentBtn" >Add</button>
+                                <div class="comments__new-comment_people people">
+                                    <div class="people__row">
+                                        <div class="user">
+                                            <div class="avatar"></div>
+                                            <div class="user__name">waaaattson</div>
+                                        </div>
+                                        <div class="people__creater">Post Creator</div>
                                     </div>
-                                    <div class="comments__comment_reply">
-                                        <div class="reply">Reply</div>
-                                        <div class="like">
-                                            <input id="like2" type="checkbox">
-                                            <label for="like2">
-                                                <div class="like__counter">42</div>
-                                                <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M17.4927 1.56581C16.5092 0.556101 15.1596 0 13.6923 0C12.5956 0 11.5912 0.328199 10.7069 0.975406C10.2607 1.3021 9.85645 1.70178 9.5 2.16828C9.14369 1.70192 8.73926 1.3021 8.29293 0.975406C7.40883 0.328199 6.40441 0 5.30766 0C3.84039 0 2.49068 0.556101 1.50713 1.56581C0.535332 2.56372 0 3.92701 0 5.40473C0 6.92567 0.598824 8.31791 1.88446 9.7863C3.03456 11.0998 4.68752 12.4332 6.6017 13.9772C7.25532 14.5044 7.9962 15.1021 8.7655 15.7388C8.96873 15.9072 9.22951 16 9.5 16C9.77035 16 10.0313 15.9072 10.2342 15.739C11.0035 15.1023 11.7448 14.5043 12.3987 13.9767C14.3126 12.433 15.9656 11.0998 17.1157 9.78616C18.4013 8.31791 19 6.92567 19 5.40459C19 3.92701 18.4647 2.56372 17.4927 1.56581Z"
-                                                          fill="#75757A"></path>
-                                                </svg>
-                                            </label>
+                                    <div class="people__row">
+                                        <div class="user">
+                                            <div class="avatar"></div>
+                                            <div class="user__name">MirinaAkhaviik</div>
                                         </div>
                                     </div>
+                                    <div class="people__row">
+                                        <div class="user">
+                                            <div class="avatar"></div>
+                                            <div class="user__name">Mandalorian5917</div>
+                                        </div>
+                                    </div>
+                                    <div class="people__row">
+                                        <div class="user">
+                                            <div class="avatar"></div>
+                                            <div class="user__name">gboy6827</div>
+                                        </div>
+                                    </div>
+                                    <div class="people__row">
+                                        <div class="user">
+                                            <div class="avatar"></div>
+                                            <div class="user__name">gboy6827</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="reply-box">
+                                <div class="comments__comment comment-reply">
+                                    <div class="avatar"></div>
+                                    <div class="comment-reply__text">
+                                        <div class="comment-reply__to">to Psychoman</div>
+                                        <div class="avatar-name">KillershyGuy<span>now</span></div>
+                                        <div class="comment-text">Sounds kinda simpish tho my man. So looks like PSN
+                                            simp-o-meter is
+                                            going off to your posts cause 9/10 girls on here are looking to bag few simps daily.
+                                            <a href="#">#justfax</a>
+                                        </div>
+                                        <div class="comments__comment_reply">
+                                            <div class="reply">Reply</div>
+                                            <div class="like">
+                                                <input id="like2" type="checkbox">
+                                                <label for="like2">
+                                                    <div class="like__counter">42</div>
+                                                    <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17.4927 1.56581C16.5092 0.556101 15.1596 0 13.6923 0C12.5956 0 11.5912 0.328199 10.7069 0.975406C10.2607 1.3021 9.85645 1.70178 9.5 2.16828C9.14369 1.70192 8.73926 1.3021 8.29293 0.975406C7.40883 0.328199 6.40441 0 5.30766 0C3.84039 0 2.49068 0.556101 1.50713 1.56581C0.535332 2.56372 0 3.92701 0 5.40473C0 6.92567 0.598824 8.31791 1.88446 9.7863C3.03456 11.0998 4.68752 12.4332 6.6017 13.9772C7.25532 14.5044 7.9962 15.1021 8.7655 15.7388C8.96873 15.9072 9.22951 16 9.5 16C9.77035 16 10.0313 15.9072 10.2342 15.739C11.0035 15.1023 11.7448 14.5043 12.3987 13.9767C14.3126 12.433 15.9656 11.0998 17.1157 9.78616C18.4013 8.31791 19 6.92567 19 5.40459C19 3.92701 18.4647 2.56372 17.4927 1.56581Z"
+                                                              fill="#75757A"></path>
+                                                    </svg>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comments__reply">
+                                    <div class="avatar"></div>
+                                    <input type="text" autofocus>
+                                </div>
+                                <div class="comments__new-comment">
+                                        <div class="avatar"></div>
+                                        <textarea onkeyup="isNewComment()"
+                                                  class="newComment"
+                                                  placeholder="Add comment..."
+                                                  oninput="auto_grow(this)"
+                                                  maxlength="500"
+                                        ></textarea>
+
+                                        <button class="newCommentBtn" >Add</button>
+                                        <div class="comments__new-comment_people people">
+                                            <div class="people__row">
+                                                <div class="user">
+                                                    <div class="avatar"></div>
+                                                    <div class="user__name">waaaattson</div>
+                                                </div>
+                                                <div class="people__creater">Post Creator</div>
+                                            </div>
+                                            <div class="people__row">
+                                                <div class="user">
+                                                    <div class="avatar"></div>
+                                                    <div class="user__name">MirinaAkhaviik</div>
+                                                </div>
+                                            </div>
+                                            <div class="people__row">
+                                                <div class="user">
+                                                    <div class="avatar"></div>
+                                                    <div class="user__name">Mandalorian5917</div>
+                                                </div>
+                                            </div>
+                                            <div class="people__row">
+                                                <div class="user">
+                                                    <div class="avatar"></div>
+                                                    <div class="user__name">gboy6827</div>
+                                                </div>
+                                            </div>
+                                            <div class="people__row">
+                                                <div class="user">
+                                                    <div class="avatar"></div>
+                                                    <div class="user__name">gboy6827</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="reply-box">
+                                <div class="comments__comment comment-reply">
+                                    <div class="avatar"></div>
+                                    <div class="comment-reply__text">
+                                        <div class="comment-reply__to">to Psychoman</div>
+                                        <div class="avatar-name">KillershyGuy<span>now</span></div>
+                                        <div class="comment-text">Sounds kinda simpish tho my man. So looks like PSN
+                                            simp-o-meter is
+                                            going off to your posts cause 9/10 girls on here are looking to bag few simps daily.
+                                            <a href="#">#justfax</a>
+                                        </div>
+                                        <div class="comments__comment_reply">
+                                            <div class="reply">Reply</div>
+                                            <div class="like">
+                                                <input id="like13" type="checkbox">
+                                                <label for="like13">
+                                                    <div class="like__counter">42</div>
+                                                    <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17.4927 1.56581C16.5092 0.556101 15.1596 0 13.6923 0C12.5956 0 11.5912 0.328199 10.7069 0.975406C10.2607 1.3021 9.85645 1.70178 9.5 2.16828C9.14369 1.70192 8.73926 1.3021 8.29293 0.975406C7.40883 0.328199 6.40441 0 5.30766 0C3.84039 0 2.49068 0.556101 1.50713 1.56581C0.535332 2.56372 0 3.92701 0 5.40473C0 6.92567 0.598824 8.31791 1.88446 9.7863C3.03456 11.0998 4.68752 12.4332 6.6017 13.9772C7.25532 14.5044 7.9962 15.1021 8.7655 15.7388C8.96873 15.9072 9.22951 16 9.5 16C9.77035 16 10.0313 15.9072 10.2342 15.739C11.0035 15.1023 11.7448 14.5043 12.3987 13.9767C14.3126 12.433 15.9656 11.0998 17.1157 9.78616C18.4013 8.31791 19 6.92567 19 5.40459C19 3.92701 18.4647 2.56372 17.4927 1.56581Z"
+                                                              fill="#75757A"></path>
+                                                    </svg>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comments__reply">
+                                    <div class="avatar"></div>
+                                    <input type="text" autofocus>
+                                </div>
+                                <div class="comments__new-comment">
+                                    <div class="avatar"></div>
+                                    <textarea onkeyup="isNewComment()"
+                                              class="newComment"
+                                              placeholder="Add comment..."
+                                              oninput="auto_grow(this)"
+                                              maxlength="500"
+                                    ></textarea>
+
+                                    <button class="newCommentBtn" >Add</button>
+                                    <div class="comments__new-comment_people people">
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">waaaattson</div>
+                                            </div>
+                                            <div class="people__creater">Post Creator</div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">MirinaAkhaviik</div>
+                                            </div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">Mandalorian5917</div>
+                                            </div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">gboy6827</div>
+                                            </div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">gboy6827</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reply-box">
+                                <div class="comments__comment comment-reply">
+                                    <div class="avatar"></div>
+                                    <div class="comment-reply__text">
+                                        <div class="comment-reply__to">to Psychoman</div>
+                                        <div class="avatar-name">KillershyGuy<span>now</span></div>
+                                        <div class="comment-text">Sounds kinda simpish tho my man. So looks like PSN
+                                            simp-o-meter is
+                                            going off to your posts cause 9/10 girls on here are looking to bag few simps daily.
+                                            <a href="#">#justfax</a>
+                                        </div>
+                                        <div class="comments__comment_reply">
+                                            <div class="reply">Reply</div>
+                                            <div class="like">
+                                                <input id="like3" type="checkbox">
+                                                <label for="like3">
+                                                    <div class="like__counter">42</div>
+                                                    <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17.4927 1.56581C16.5092 0.556101 15.1596 0 13.6923 0C12.5956 0 11.5912 0.328199 10.7069 0.975406C10.2607 1.3021 9.85645 1.70178 9.5 2.16828C9.14369 1.70192 8.73926 1.3021 8.29293 0.975406C7.40883 0.328199 6.40441 0 5.30766 0C3.84039 0 2.49068 0.556101 1.50713 1.56581C0.535332 2.56372 0 3.92701 0 5.40473C0 6.92567 0.598824 8.31791 1.88446 9.7863C3.03456 11.0998 4.68752 12.4332 6.6017 13.9772C7.25532 14.5044 7.9962 15.1021 8.7655 15.7388C8.96873 15.9072 9.22951 16 9.5 16C9.77035 16 10.0313 15.9072 10.2342 15.739C11.0035 15.1023 11.7448 14.5043 12.3987 13.9767C14.3126 12.433 15.9656 11.0998 17.1157 9.78616C18.4013 8.31791 19 6.92567 19 5.40459C19 3.92701 18.4647 2.56372 17.4927 1.56581Z"
+                                                              fill="#75757A"></path>
+                                                    </svg>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comments__reply">
+                                    <div class="avatar"></div>
+                                    <input type="text" autofocus>
+                                </div>
+                                <div class="comments__new-comment">
+                                    <div class="avatar"></div>
+                                    <textarea onkeyup="isNewComment()"
+                                              class="newComment"
+                                              placeholder="Add comment..."
+                                              oninput="auto_grow(this)"
+                                              maxlength="500"
+                                    ></textarea>
+
+                                    <button class="newCommentBtn" >Add</button>
+                                    <div class="comments__new-comment_people people">
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">waaaattson</div>
+                                            </div>
+                                            <div class="people__creater">Post Creator</div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">MirinaAkhaviik</div>
+                                            </div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">Mandalorian5917</div>
+                                            </div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">gboy6827</div>
+                                            </div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">gboy6827</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="comments__show-more">Show 2 more reply</button>
+
+                        </div>
+                    </div>
+                    <div class="comments__comment">
+                        <div class="avatar"></div>
+                        <div class="comments__comment_text">
+                            <div class="avatar-name">Psychoman <span>1m</span></div>
+                            <div class="comment-text">Sounds kinda simpish tho my man. So looks like PSN simp-o-meter is
+                                going off to your posts cause 9/10 girls on here are looking to bag few simps daily.
+                                <a href="#">#justfax</a>
+                            </div>
+                            <div class="comments__comment_reply mb10">
+                                <div class="reply">Reply</div>
+                                <div class="like">
+                                    <input id="like4" type="checkbox">
+                                    <label for="like4">
+                                        <div class="like__counter">42</div>
+                                        <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M17.4927 1.56581C16.5092 0.556101 15.1596 0 13.6923 0C12.5956 0 11.5912 0.328199 10.7069 0.975406C10.2607 1.3021 9.85645 1.70178 9.5 2.16828C9.14369 1.70192 8.73926 1.3021 8.29293 0.975406C7.40883 0.328199 6.40441 0 5.30766 0C3.84039 0 2.49068 0.556101 1.50713 1.56581C0.535332 2.56372 0 3.92701 0 5.40473C0 6.92567 0.598824 8.31791 1.88446 9.7863C3.03456 11.0998 4.68752 12.4332 6.6017 13.9772C7.25532 14.5044 7.9962 15.1021 8.7655 15.7388C8.96873 15.9072 9.22951 16 9.5 16C9.77035 16 10.0313 15.9072 10.2342 15.739C11.0035 15.1023 11.7448 14.5043 12.3987 13.9767C14.3126 12.433 15.9656 11.0998 17.1157 9.78616C18.4013 8.31791 19 6.92567 19 5.40459C19 3.92701 18.4647 2.56372 17.4927 1.56581Z" fill="#75757A"></path>
+                                        </svg>
+                                    </label>
                                 </div>
                             </div>
                             <div class="comments__reply">
                                 <div class="avatar"></div>
                                 <input type="text" autofocus>
                             </div>
+                            <div class="comments__new-comment">
+                                <div class="avatar"></div>
+                                <textarea onkeyup="isNewComment()"
+                                          class="newComment"
+                                          placeholder="Add comment..."
+                                          oninput="auto_grow(this)"
+                                          maxlength="500"
+                                ></textarea>
 
+                                <button class="newCommentBtn" >Add</button>
+                                <div class="comments__new-comment_people people">
+                                    <div class="people__row">
+                                        <div class="user">
+                                            <div class="avatar"></div>
+                                            <div class="user__name">waaaattson</div>
+                                        </div>
+                                        <div class="people__creater">Post Creator</div>
+                                    </div>
+                                    <div class="people__row">
+                                        <div class="user">
+                                            <div class="avatar"></div>
+                                            <div class="user__name">MirinaAkhaviik</div>
+                                        </div>
+                                    </div>
+                                    <div class="people__row">
+                                        <div class="user">
+                                            <div class="avatar"></div>
+                                            <div class="user__name">Mandalorian5917</div>
+                                        </div>
+                                    </div>
+                                    <div class="people__row">
+                                        <div class="user">
+                                            <div class="avatar"></div>
+                                            <div class="user__name">gboy6827</div>
+                                        </div>
+                                    </div>
+                                    <div class="people__row">
+                                        <div class="user">
+                                            <div class="avatar"></div>
+                                            <div class="user__name">gboy6827</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="reply-box">
+                                <div class="comments__comment comment-reply">
+                                    <div class="avatar"></div>
+                                    <div class="comment-reply__text">
+                                        <div class="comment-reply__to">to Psychoman</div>
+                                        <div class="avatar-name">KillershyGuy<span>now</span></div>
+                                        <div class="comment-text">Sounds kinda simpish tho my man. So looks like PSN
+                                            simp-o-meter is
+                                            going off to your posts cause 9/10 girls on here are looking to bag few simps daily.
+                                            <a href="#">#justfax</a>
+                                        </div>
+                                        <div class="comments__comment_reply">
+                                            <div class="reply">Reply</div>
+                                            <div class="like">
+                                                <input id="like5" type="checkbox">
+                                                <label for="like5">
+                                                    <div class="like__counter">42</div>
+                                                    <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17.4927 1.56581C16.5092 0.556101 15.1596 0 13.6923 0C12.5956 0 11.5912 0.328199 10.7069 0.975406C10.2607 1.3021 9.85645 1.70178 9.5 2.16828C9.14369 1.70192 8.73926 1.3021 8.29293 0.975406C7.40883 0.328199 6.40441 0 5.30766 0C3.84039 0 2.49068 0.556101 1.50713 1.56581C0.535332 2.56372 0 3.92701 0 5.40473C0 6.92567 0.598824 8.31791 1.88446 9.7863C3.03456 11.0998 4.68752 12.4332 6.6017 13.9772C7.25532 14.5044 7.9962 15.1021 8.7655 15.7388C8.96873 15.9072 9.22951 16 9.5 16C9.77035 16 10.0313 15.9072 10.2342 15.739C11.0035 15.1023 11.7448 14.5043 12.3987 13.9767C14.3126 12.433 15.9656 11.0998 17.1157 9.78616C18.4013 8.31791 19 6.92567 19 5.40459C19 3.92701 18.4647 2.56372 17.4927 1.56581Z"
+                                                              fill="#75757A"></path>
+                                                    </svg>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comments__reply">
+                                    <div class="avatar"></div>
+                                    <input type="text" autofocus>
+                                </div>
+                                <div class="comments__new-comment">
+                                    <div class="avatar"></div>
+                                    <textarea onkeyup="isNewComment()"
+                                              class="newComment"
+                                              placeholder="Add comment..."
+                                              oninput="auto_grow(this)"
+                                              maxlength="500"
+                                    ></textarea>
+
+                                    <button class="newCommentBtn" >Add</button>
+                                    <div class="comments__new-comment_people people">
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">waaaattson</div>
+                                            </div>
+                                            <div class="people__creater">Post Creator</div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">MirinaAkhaviik</div>
+                                            </div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">Mandalorian5917</div>
+                                            </div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">gboy6827</div>
+                                            </div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">gboy6827</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reply-box">
+                                <div class="comments__comment comment-reply">
+                                    <div class="avatar"></div>
+                                    <div class="comment-reply__text">
+                                        <div class="comment-reply__to">to Psychoman</div>
+                                        <div class="avatar-name">KillershyGuy<span>now</span></div>
+                                        <div class="comment-text">Sounds kinda simpish tho my man. So looks like PSN
+                                            simp-o-meter is
+                                            going off to your posts cause 9/10 girls on here are looking to bag few simps daily.
+                                            <a href="#">#justfax</a>
+                                        </div>
+                                        <div class="comments__comment_reply">
+                                            <div class="reply">Reply</div>
+                                            <div class="like">
+                                                <input id="like6" type="checkbox">
+                                                <label for="like6">
+                                                    <div class="like__counter">42</div>
+                                                    <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17.4927 1.56581C16.5092 0.556101 15.1596 0 13.6923 0C12.5956 0 11.5912 0.328199 10.7069 0.975406C10.2607 1.3021 9.85645 1.70178 9.5 2.16828C9.14369 1.70192 8.73926 1.3021 8.29293 0.975406C7.40883 0.328199 6.40441 0 5.30766 0C3.84039 0 2.49068 0.556101 1.50713 1.56581C0.535332 2.56372 0 3.92701 0 5.40473C0 6.92567 0.598824 8.31791 1.88446 9.7863C3.03456 11.0998 4.68752 12.4332 6.6017 13.9772C7.25532 14.5044 7.9962 15.1021 8.7655 15.7388C8.96873 15.9072 9.22951 16 9.5 16C9.77035 16 10.0313 15.9072 10.2342 15.739C11.0035 15.1023 11.7448 14.5043 12.3987 13.9767C14.3126 12.433 15.9656 11.0998 17.1157 9.78616C18.4013 8.31791 19 6.92567 19 5.40459C19 3.92701 18.4647 2.56372 17.4927 1.56581Z"
+                                                              fill="#75757A"></path>
+                                                    </svg>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comments__reply">
+                                    <div class="avatar"></div>
+                                    <input type="text" autofocus>
+                                </div>
+                                <div class="comments__new-comment">
+                                    <div class="avatar"></div>
+                                    <textarea onkeyup="isNewComment()"
+                                              class="newComment"
+                                              placeholder="Add comment..."
+                                              oninput="auto_grow(this)"
+                                              maxlength="500"
+                                    ></textarea>
+
+                                    <button class="newCommentBtn" >Add</button>
+                                    <div class="comments__new-comment_people people">
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">waaaattson</div>
+                                            </div>
+                                            <div class="people__creater">Post Creator</div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">MirinaAkhaviik</div>
+                                            </div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">Mandalorian5917</div>
+                                            </div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">gboy6827</div>
+                                            </div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">gboy6827</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reply-box">
+                                <div class="comments__comment comment-reply">
+                                    <div class="avatar"></div>
+                                    <div class="comment-reply__text">
+                                        <div class="comment-reply__to">to Psychoman</div>
+                                        <div class="avatar-name">KillershyGuy<span>now</span></div>
+                                        <div class="comment-text">Sounds kinda simpish tho my man. So looks like PSN
+                                            simp-o-meter is
+                                            going off to your posts cause 9/10 girls on here are looking to bag few simps daily.
+                                            <a href="#">#justfax</a>
+                                        </div>
+                                        <div class="comments__comment_reply">
+                                            <div class="reply">Reply</div>
+                                            <div class="like">
+                                                <input id="like7" type="checkbox">
+                                                <label for="like7">
+                                                    <div class="like__counter">42</div>
+                                                    <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17.4927 1.56581C16.5092 0.556101 15.1596 0 13.6923 0C12.5956 0 11.5912 0.328199 10.7069 0.975406C10.2607 1.3021 9.85645 1.70178 9.5 2.16828C9.14369 1.70192 8.73926 1.3021 8.29293 0.975406C7.40883 0.328199 6.40441 0 5.30766 0C3.84039 0 2.49068 0.556101 1.50713 1.56581C0.535332 2.56372 0 3.92701 0 5.40473C0 6.92567 0.598824 8.31791 1.88446 9.7863C3.03456 11.0998 4.68752 12.4332 6.6017 13.9772C7.25532 14.5044 7.9962 15.1021 8.7655 15.7388C8.96873 15.9072 9.22951 16 9.5 16C9.77035 16 10.0313 15.9072 10.2342 15.739C11.0035 15.1023 11.7448 14.5043 12.3987 13.9767C14.3126 12.433 15.9656 11.0998 17.1157 9.78616C18.4013 8.31791 19 6.92567 19 5.40459C19 3.92701 18.4647 2.56372 17.4927 1.56581Z"
+                                                              fill="#75757A"></path>
+                                                    </svg>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comments__reply">
+                                    <div class="avatar"></div>
+                                    <input type="text" autofocus>
+                                </div>
+                                <div class="comments__new-comment">
+                                    <div class="avatar"></div>
+                                    <textarea onkeyup="isNewComment()"
+                                              class="newComment"
+                                              placeholder="Add comment..."
+                                              oninput="auto_grow(this)"
+                                              maxlength="500"
+                                    ></textarea>
+
+                                    <button class="newCommentBtn" >Add</button>
+                                    <div class="comments__new-comment_people people">
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">waaaattson</div>
+                                            </div>
+                                            <div class="people__creater">Post Creator</div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">MirinaAkhaviik</div>
+                                            </div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">Mandalorian5917</div>
+                                            </div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">gboy6827</div>
+                                            </div>
+                                        </div>
+                                        <div class="people__row">
+                                            <div class="user">
+                                                <div class="avatar"></div>
+                                                <div class="user__name">gboy6827</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <button class="comments__show-more">Show 2 more reply</button>
 
                         </div>
                     </div>
+
                 </div>
 
             </div>
