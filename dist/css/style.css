@@ -1634,7 +1634,11 @@
   -ms-flex-align: center;
   align-items: center;
   margin-bottom: 6px;
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #000;
+  z-index: 1;
 }
 
 .feed .feed__col2 .feed__header .feed__header_params {
@@ -2020,6 +2024,7 @@
 
 .feed .feed__col3 .feed__friends .feed__friend .avatar {
   width: 50px;
+  min-width: 50px;
   height: 50px;
   border-radius: 50%;
   background: url("../img/pic/ava.png") center/cover no-repeat;
@@ -2093,12 +2098,27 @@
   cursor: pointer;
 }
 
+.feed.post .feed__comments .comments__comment .comments__new-comment {
+  margin-bottom: 0;
+}
+
+.feed.post .feed__comments .comments__comment .comments__new-comment .avatar {
+  margin-right: 0;
+}
+
+.feed.post .feed__comments .comments__comment .comments__new-comment textarea {
+  font-size: 14px;
+}
+
 .feed.post .feed__comments .comments__new-comment {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 30px;
   position: relative;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
 }
 
 .feed.post .feed__comments .comments__new-comment textarea {
@@ -2280,6 +2300,12 @@
   line-height: 20px;
   opacity: 0.5;
   margin-right: 8px;
+}
+
+.feed.post .feed__comments .comments__comment .comments__comment_text .reply-box {
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
 }
 
 .feed.post .feed__comments .comments__comment .comments__comment_text .comment-reply {
@@ -2719,6 +2745,7 @@
 
 #profile .profile__info .avatar {
   width: 140px;
+  min-width: 140px;
   height: 140px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3061,6 +3088,7 @@
 
 #profile .followers .followers-content .followers__row .followers__user .avatar {
   width: 50px;
+  min-width: 50px;
   height: 50px;
   margin-right: 16px;
 }
@@ -3772,6 +3800,8 @@
 #partie .partie__post_footer .footer__row2 .users-active .avatar-wrapp .avatar {
   height: 32px;
   width: 32px;
+  min-width: 32px;
+  min-width: 32px;
   border: 3px solid #14131A;
   position: absolute;
 }
@@ -4097,6 +4127,7 @@
 
 .feed__col2.new-active-partie .new-active-partie__messages .message .message__user .user-window .user-window__user .avatar {
   width: 64px;
+  min-width: 64px;
   height: 64px;
   margin-right: 20px;
 }
@@ -4224,6 +4255,7 @@
 
 .feed__col3 .feed__request .feed__friend .avatar {
   width: 50px;
+  min-width: 50px;
   height: 50px;
   border-radius: 50%;
   background: url("../img/pic/ava.png") center/cover no-repeat;
@@ -4257,6 +4289,7 @@
 .feed__col3 .feed__request .feed__request_check {
   margin-left: auto;
   width: 32px;
+  min-width: 32px;
   height: 32px;
   border-radius: 50%;
   background: #6E4AFF url("../img/icon/ok-w.png") center/15px no-repeat;
@@ -4366,6 +4399,7 @@
 
 .inviteFriends .suggested label .avatar {
   width: 50px;
+  min-width: 50px;
   height: 50px;
   margin-right: 16px;
 }
@@ -4688,6 +4722,7 @@
 
 .titleModal .titleModal__active .user .avatar {
   width: 50px;
+  min-width: 50px;
   height: 50px;
   margin-right: 15px;
 }
@@ -4744,6 +4779,7 @@
 
 #ratingPartie.ratingPartie .modal__content .avatar {
   width: 60px;
+  min-width: 60px;
   height: 60px;
   margin-bottom: 20px;
 }
@@ -5261,6 +5297,7 @@
 
 #profile.profiles .followers .followers-content .followers__row .followers__user .avatar {
   width: 50px;
+  min-width: 50px;
   height: 50px;
   margin-right: 16px;
 }
@@ -6023,6 +6060,7 @@
 .chats .avatar-container .avatar-small {
   height: 35px;
   width: 35px;
+  min-width: 35px;
   border: 3px solid #000;
   min-width: auto;
   position: absolute;
@@ -6108,6 +6146,7 @@
 
 #chatHead.titleModal .titleModal__users_avatar .avatar {
   width: 73px;
+  min-width: 73px;
   height: 73px;
   border: 5.87999px solid #000000;
   right: 0;
@@ -6154,6 +6193,7 @@
 
 #editChat.titleModal .titleModal__users_avatar .avatar {
   width: 73px;
+  min-width: 73px;
   height: 73px;
   border: 5.87999px solid #000000;
   right: 0;
@@ -7622,6 +7662,7 @@
 .feed .feed__col2.search .partie__post_footer .footer__row2 .users-active .avatar-wrapp .avatar {
   height: 32px;
   width: 32px;
+  min-width: 32px;
   border: 3px solid #14131A;
   position: absolute;
 }
@@ -7661,6 +7702,7 @@
 
 .feed .feed__col2.search .followers__container .followers__row .followers__user .avatar {
   width: 50px;
+  min-width: 50px;
   height: 50px;
   margin-right: 16px;
 }
@@ -7885,6 +7927,7 @@
 
 .notifications .feed__col2 .notifications__content .notifications__row .avatar {
   width: 50px;
+  min-width: 50px;
   height: 50px;
   margin-right: 16px;
 }
@@ -9051,6 +9094,7 @@ svg circle {
 .partie__post_footer .footer__row2 .users-active .avatar-wrapp .avatar {
   height: 32px;
   width: 32px;
+  min-width: 32px;
   border: 3px solid #14131A;
   position: absolute;
 }
@@ -9063,6 +9107,7 @@ svg circle {
 
 .avatar {
   width: 32px;
+  min-width: 32px;
   height: 32px;
   min-width: 32px;
   border-radius: 50%;
@@ -9084,6 +9129,7 @@ svg circle {
 .avatar .avatar__star {
   height: 16px;
   width: 16px;
+  min-width: 16px;
   border-radius: 6px;
   position: absolute;
   top: 0;
@@ -9690,6 +9736,10 @@ svg circle {
   .feed .feed__col2 {
     max-width: 480px;
   }
+
+  #partie__id .feed__header.scroll {
+    width: 480px;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -10273,6 +10323,7 @@ svg circle {
 
   .mobile-users .avatar {
     width: 50px;
+    min-width: 50px;
     height: 50px;
     margin-right: 16px;
   }
@@ -11192,6 +11243,7 @@ svg circle {
 
   #partie .feed__col2.chats .user .avatar:not(.avatar-small) {
     width: 50px;
+    min-width: 50px;
     height: 50px;
     margin-right: 15px;
     cursor: pointer;
@@ -11691,6 +11743,7 @@ svg circle {
 
   .settings .feed__col3 #PrivacySafety .user .avatar {
     width: 50px;
+    min-width: 50px;
     height: 50px;
     margin-right: 15px;
     cursor: pointer;

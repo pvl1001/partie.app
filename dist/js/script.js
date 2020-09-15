@@ -588,16 +588,16 @@ function showBtns(el) {
 
 
 function hiddenPeople() {
-let people = document.querySelector('.feed__col3 > div')
-let feedHeader = document.querySelector('.feed__col3 .feed__header')
-let peopleBtn = document.querySelector('.feed__people-btn')
+    let people = document.querySelector( '.feed__col3 > div' )
+    let feedHeader = document.querySelector( '.feed__col3 .feed__header' )
+    let peopleBtn = document.querySelector( '.feed__people-btn' )
 
-    if(people.style.transform !== '') {
+    if (people.style.transform !== '') {
         people.style.transform = ''
         feedHeader.style.opacity = ''
         peopleBtn.style.transform = ''
     } else {
-        if(window.innerWidth <= 1300) { // mobile
+        if (window.innerWidth <= 1300) { // mobile
             people.style.transform = 'translateX(140px)'
             feedHeader.style.opacity = '0'
             peopleBtn.style.transform = 'rotateY(180deg)'
@@ -613,29 +613,34 @@ let peopleBtn = document.querySelector('.feed__people-btn')
 
 
 let textarea = document.querySelector( '#whatNewHead' )
+let feedWhatNew = document.querySelector( '.feed__what-new' )
 let textSelect = document.querySelector( '#whatNewHead + div' )
 let feedWhatNewRow = document.querySelector( '.feed__what-new_row' )
 let photo1 = document.querySelector( 'label[for=photo-1]' )
 let feedWhatNewHead = document.querySelector( '.feed__what-new_head' )
 
 
-
-if (textarea !== null) {
-    textarea.addEventListener( 'focus', function () {
-        textSelect.style.right = '65%'
-        photo1.style.cssText = 'opacity: 0; visibility: hidden;'
-        textarea.style.width = '100%'
-        textarea.style.marginTop = '34px'
-        textarea.style.marginBottom = '70px'
-        feedWhatNewHead.parentElement.style.backgroundColor = 'rgba(20,19,26,1)'
-        setTimeout(function () {
-            feedWhatNewRow.style.cssText = 'opacity: 1; visibility: visible;'
-        },350)
-        if(window.innerWidth <= 1300) textSelect.style.right = '51%'
+if (feedWhatNew !== null) {
+    feedWhatNew.addEventListener( 'click', function (e) {
+        if (e.target === photo1.parentElement.children[1]) {
+            e.stopPropagation()
+        } else {
+            console.log( e.target === photo1.parentElement.children[1] )
+            textSelect.style.right = '65%'
+            photo1.style.cssText = 'opacity: 0; visibility: hidden;'
+            textarea.style.width = '100%'
+            textarea.style.marginTop = '34px'
+            textarea.style.marginBottom = '70px'
+            feedWhatNewHead.parentElement.style.backgroundColor = 'rgba(20,19,26,1)'
+            setTimeout( function () {
+                feedWhatNewRow.style.cssText = 'opacity: 1; visibility: visible;'
+            }, 350 )
+            if (window.innerWidth <= 1300) textSelect.style.right = '51%'
+        }
     } )
-    let newPostText
+
     window.addEventListener( 'click', function (e) {
-        if (!feedWhatNewHead.parentNode.contains( e.target ) && !newPostText) {
+        if (!feedWhatNewHead.parentNode.contains( e.target )) {
             textSelect.style.right = ''
             feedWhatNewRow.style.cssText = ''
             photo1.style.cssText = ''
@@ -648,40 +653,74 @@ if (textarea !== null) {
 
 
 function loading() {
-    let loading = document.querySelector('.loading')
+    let loading = document.querySelector( '.loading' )
     loading.style.display = 'flex'
 }
 
 function showBtnPost(text) {
-    let btn = document.querySelector('.feed__what-new .feed__what-new_post')
-   if (text.value.length) {
-       btn.style.opacity = '1'
-       btn.style.visibility = 'visible'
-   } else btn.style.cssText = ''
+    let btn = document.querySelector( '.feed__what-new .feed__what-new_post' )
+    if (text.value.length) {
+        btn.style.opacity = '1'
+        btn.style.visibility = 'visible'
+    } else btn.style.cssText = ''
     newPostText = text.value.length
 }
 
 
 function isNewComment() {
-    let newCommentPeople = document.querySelector('.comments__new-comment_people')
-    let newComment = document.querySelector('#newComment')
-    let newCommentBtn = document.querySelector('#newCommentBtn')
-    if (newComment.value.length) {
-        newCommentBtn.style.visibility = 'visible'
-    } else {
-        newCommentBtn.style.visibility = ''
+    let newCommentPeoples = document.querySelectorAll( '.comments__new-comment_people' )
+    let newComments = document.querySelectorAll( '.newComment' )
+    let newCommentBtns = document.querySelectorAll( '.newCommentBtn' )
+    for (let i = 0; i < newCommentPeoples.length; i++ ) {
+        let newCommentPeople = newCommentPeoples[i]
+        let newComment = newComments[i]
+        let newCommentBtn = newCommentBtns[i]
+
+        if (newComment.value.length) {
+            newCommentBtn.style.visibility = 'visible'
+        } else {
+            newCommentBtn.style.visibility = ''
+        }
+
+        if (newComment.value === '@') {
+            newCommentPeople.style.display = 'flex'
+        } else {
+            newCommentPeople.style.display = ''
+        }
+
+        if(window.innerWidth < 1300) {
+            newCommentBtn.innerHTML = ''
+        }
     }
-    if(newComment.value === '@') {
-        newCommentPeople.style.display = 'flex'
-    } else {
-        newCommentPeople.style.display = ''
+
+}
+
+
+let replyBtns = document.querySelectorAll( '.reply' )
+let replyNewComments = document.querySelectorAll( '.comments__comment .comments__new-comment' )
+
+for (let i = 0; i < replyBtns.length; i++) {
+    let replyBtn = replyBtns[i]
+    let replyNewComment = replyNewComments[i]
+
+    if (replyNewComment) {
+        replyNewComment.style.overflow = 'hidden'
+        replyNewComment.style.opacity = '0'
+        replyNewComment.style.height = '0'
+        replyNewComment.style.margin = '0'
+
+        replyBtn.onclick = function () {
+            replyNewComment.style.cssText = ''
+        }
     }
 }
 
 
+
+
 let partieTab = document.querySelector( '.feed__col2.partie-tab' )
 let newActivePartie = document.querySelector( '.new-active-partie' )
-let mobileNav  = document.querySelector( '.mobile-nav.mobile' )
+let mobileNav = document.querySelector( '.mobile-nav.mobile' )
 
 function openActivePartie() {
     partieTab.style.display = 'none'
@@ -706,21 +745,20 @@ function clickTab(open, close) {
     }, 100 )
 
 
+    $( '.slider' ).slick( 'unslick' )
+    $( '.slider' ).slick( {
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        infinite: true,
+        swipeToSlide: true,
+    } )
 
-        $( '.slider' ).slick('unslick')
-        $( '.slider' ).slick( {
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            infinite: true,
-            swipeToSlide: true,
-        } )
-
-    }
+}
 
 function openChat() {
     let newChatPage = document.querySelector( '.new-active-partie.chat' )
     let chatPage = document.querySelector( '.chats' )
-    closeModal(newChat)
+    closeModal( newChat )
     chatPage.style.display = 'none'
     newChatPage.style.display = 'flex'
 }
@@ -738,10 +776,10 @@ $( '.share__btns' ).slick( {
             }
         }
     ]
-})
-let closePlaceMobile = document.querySelector('.close-place.post-menu.mobile')
+} )
+let closePlaceMobile = document.querySelector( '.close-place.post-menu.mobile' )
 if (window.innerWidth <= 1023) {
-    let commBtn =  document.querySelector('.feed__comments .comments__new-comment button')
+    let commBtn = document.querySelector( '.feed__comments .comments__new-comment button' )
     if (commBtn !== null) commBtn.innerHTML = ''
 
     for (let feedHeaderMenu of arrFeedHeaderMenu) {
@@ -751,55 +789,63 @@ if (window.innerWidth <= 1023) {
             closePlaceMobile.children[0].style.bottom = '0'
         }
         if (closePlaceMobile !== null)
-        closePlaceMobile.onclick = function (e) {
-            if (e.target === closePlaceMobile) {
-                closePlaceMobile.style.cssText = ''
-                closePlaceMobile.children[0].style.bottom = ''
-            }
+            closePlaceMobile.onclick = function (e) {
+                if (e.target === closePlaceMobile) {
+                    closePlaceMobile.style.cssText = ''
+                    closePlaceMobile.children[0].style.bottom = ''
+                }
 
-        }
+            }
     }
 }
 
 
-let publicPost = document.querySelector('button.public-post')
+let publicPost = document.querySelector( 'button.public-post' )
 let onPublicPost
 
-if(publicPost !== null)
-publicPost.onclick = function () {
-    onPublicPost = !onPublicPost
-    if(onPublicPost) {
-        publicPost.style.background = 'rgba(235,235,245,.1) url(../img/icon/lock.png) 12px 50%/9.2px no-repeat'
-        publicPost.style.paddingLeft = '30px'
-        publicPost.style.transition = 'background-color .3s'
-        publicPost.innerHTML = 'Followers only'
-    } else {
-        publicPost.style.background = ''
-        publicPost.innerHTML = 'Public post'
+if (publicPost !== null)
+    publicPost.onclick = function () {
+        onPublicPost = !onPublicPost
+        if (onPublicPost) {
+            publicPost.style.background = 'rgba(235,235,245,.1) url(../img/icon/lock.png) 12px 50%/9.2px no-repeat'
+            publicPost.style.paddingLeft = '30px'
+            publicPost.style.transition = 'background-color .3s'
+            publicPost.innerHTML = 'Followers only'
+        } else {
+            publicPost.style.background = ''
+            publicPost.innerHTML = 'Public post'
+        }
+    }
+
+
+let comments = document.querySelectorAll('.comments > .comments__comment')
+let btnComments = document.querySelectorAll('.comments__show-more')
+
+
+for (let i = 0; i < comments.length; i++) {
+    let comment = comments[i]
+    let btnComment = btnComments[i]
+
+    let replyBoxs = comment.querySelectorAll('.reply-box')
+    for(let replyBox of replyBoxs) {
+        replyBox.style.opacity= '0'
+        replyBox.style.height= '0'
+        replyBox.style.overflow= 'hidden'
+        replyBoxs[0].style.cssText = ''
+    }
+
+    btnComment.onclick = function () {
+        this.style.display = 'none'
+        for(let replyBox of replyBoxs)
+            replyBox.style.cssText = ''
     }
 }
 
-// })
+// newCommentBtn
 
+if(window.innerWidth < 1300) {
 
-// show comments
-// let comment = document.querySelectorAll('.comments > .comments__comment')
-// let arrcommentsCommentReply = document.querySelectorAll('.comment-reply')
-// if (arrcommentsCommentReply.length !== 1) {
-//     for (let commentsCommentReply of arrcommentsCommentReply) {
-//         commentsCommentReply.style.display = 'none'
-//         arrcommentsCommentReply[0].style.display = ''
-//
-//         let arrCommentsShowMore = document.querySelectorAll('.comments__show-more')
-//         arrCommentsShowMore.forEach( function (commentsShowMore)  {
-//             commentsShowMore.onclick = showComments
-//         })
-//         function showComments() {
-//             this.style.display = 'none'
-//             for (let commentsCommentReply of arrcommentsCommentReply)
-//             commentsCommentReply.style.display = ''
-//         }
-//     }
+}
 
 
 
@@ -864,37 +910,64 @@ function openTabModal(evt, Tab) {
     // Show the current tab, and add an "active" class to the button that opened the tab
     setTimeout(function () {
         document.getElementById(Tab).style.opacity = "1";
-        document.getElementById(Tab).style.transform = "scale(1)";
+        document.getElementById(Tab).style.transform = "";
         document.getElementById(Tab).style.position = "relative";
         if(window.innerWidth >= 1024)
             modal.style.height = 263 + document.getElementById(Tab).offsetHeight + 'px'
+
+        setTimeout(function () {
+            let token = document.querySelectorAll( '.pop' )
+            let popovers = document.querySelectorAll( '.popover' )
+            for (let i = 0; i < token.length; i++) {
+                let el = token[i]
+                let popover = popovers[i]
+                let h = popover.getBoundingClientRect().height
+                let x = el.getBoundingClientRect().left - 92
+                let y = el.getBoundingClientRect().top - 20 - h
+                if (window.innerWidth >= 1024) {
+                    el.addEventListener( 'mouseover', function () {
+                        popover.style.opacity = '1'
+                        popover.style.visibility = 'visible'
+                        popover.style.left = x + 'px'
+                        popover.style.top = y + 'px'
+                    } )
+                    el.addEventListener( 'mouseout', function () {
+                        popover.style.cssText = ''
+                    } )
+                }
+            }
+        },350)
+
     },300)
+
     if(window.innerWidth <= 1023) {
         modal.style.height = 242 + document.getElementById(Tab).offsetHeight + 'px'
         console.log(document.getElementById(Tab).offsetHeight, 'tab')
     }
     evt.currentTarget.className += " active";
 
-    let token = document.querySelectorAll( '.pop' )
-    let popovers = document.querySelectorAll( '.popover' )
-    for (let i = 0; i < token.length; i++) {
-        let el = token[i]
-        let popover = popovers[i]
-        let h = popover.getBoundingClientRect().height
-        let x = el.getBoundingClientRect().left - 92
-        let y = el.getBoundingClientRect().top - 20 - h
-        if(window.innerWidth >=1024) {
-            el.addEventListener( 'mouseover', function () {
-                popover.style.opacity = '1'
-                popover.style.visibility = 'visible'
-                popover.style.left = x + 'px'
-                popover.style.top = y + 'px'
-            } )
-            el.addEventListener( 'mouseout', function () {
-                popover.style.cssText = ''
-            } )
-        }
-    }
+
+    // let token = document.querySelectorAll( '.pop' )
+    // let popovers = document.querySelectorAll( '.popover' )
+    // for (let i = 0; i < token.length; i++) {
+    //     let el = token[i]
+    //     let popover = popovers[i]
+    //     let h = popover.getBoundingClientRect().height
+    //     let x = el.getBoundingClientRect().left - 92
+    //     let y = el.getBoundingClientRect().top - 20 - h
+    //     if (window.innerWidth >= 1024) {
+    //         el.addEventListener( 'mouseover', function () {
+    //             popover.style.opacity = '1'
+    //             popover.style.visibility = 'visible'
+    //             popover.style.left = x + 'px'
+    //             popover.style.top = y + 'px'
+    //         } )
+    //         el.addEventListener( 'mouseout', function () {
+    //             popover.style.cssText = ''
+    //         } )
+    //     }
+    // }
+
 
 
 

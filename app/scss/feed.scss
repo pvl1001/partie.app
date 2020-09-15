@@ -739,10 +739,23 @@
             }
         }
 
+        .comments__comment .comments__new-comment {
+            margin-bottom: 0;
+
+            .avatar {
+                margin-right: 0;
+            }
+
+            textarea {
+                font-size: 14px;
+            }
+        }
+
         .comments__new-comment {
             display: flex;
             margin-bottom: 30px;
             position: relative;
+            transition: .3s;
 
             textarea {
                 height: auto;
@@ -882,6 +895,10 @@
                     line-height: 20px;
                     opacity: 0.5;
                     margin-right: 8px;
+                }
+
+                .reply-box {
+                    transition: .5s;
                 }
 
                 .comment-reply {
