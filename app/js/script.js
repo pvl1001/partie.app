@@ -54,6 +54,7 @@ let createShortcutMobile = document.querySelector( '#createShortcutMobile' )
 let editShortcutMobile = document.querySelector( '#editShortcutMobile' )
 let levelProgressToken = document.querySelector( '#levelProgressToken' )
 let levelProgressAchivements = document.querySelector( '#levelProgressAchivements' )
+let settingsPlatforms = document.querySelector( '#settingsPlatforms' )
 
 document.addEventListener('DOMContentLoaded', function () {
 
