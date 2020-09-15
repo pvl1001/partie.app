@@ -193,6 +193,8 @@ $( '.share__btns' ).slick( {
         }
     ]
 } )
+
+
 let closePlaceMobile = document.querySelector( '.close-place.post-menu.mobile' )
 if (window.innerWidth <= 1023) {
     let commBtn = document.querySelector( '.feed__comments .comments__new-comment button' )

@@ -979,6 +979,17 @@
             line-height: 150%;
             color: rgba(235, 235, 245, 0.5);
             margin-bottom: 20px;
+
+            textarea {
+                width: 100%;
+                min-height: 42px;
+                font-size: 14px;
+                line-height: 150%;
+                color: rgba(235, 235, 245, 0.5);
+                &::-webkit-scrollbar { width: 0; }
+                -ms-overflow-style: none;
+                overflow: -moz-scrollbars-none;
+            }
         }
 
         .titleModal__text_btns {
