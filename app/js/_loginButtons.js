@@ -37,11 +37,14 @@ for (let i = 0; i < arrShowAll.length; i++) {
         btnSocial.classList.remove('animate__fadeInUp')
     }
 
-    btnContainerWrapp.addEventListener( 'mousemove', function(e) {
-        if (e.target === btnContainerWrapp) {
-            showAllBtnsOff(this)
-        }
-    })
+    btnContainerWrapp.addEventListener( 'click', handlerShowAllBtnsOff)
+    btnContainerWrapp.addEventListener( 'touchstart', handlerShowAllBtnsOff)
+}
+
+function handlerShowAllBtnsOff(e) {
+    if (e.target.classList.contains('btn-container-wrapp')) {
+        showAllBtnsOff(this)
+    }
 }
 
 
