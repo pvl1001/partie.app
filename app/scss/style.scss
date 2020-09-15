@@ -187,7 +187,6 @@ input {
     border-radius: 20px;
     background-color: #000;
     font-size: 17px;
-    line-height: 100%;
     color: #F8F6FF;
     transition: .5s easy;
     letter-spacing: normal;
@@ -199,8 +198,7 @@ input:focus {
 
 input::placeholder {
     color: #2F2F31;
-    font-size: 17px;
-    line-height: 52px;
+    font-size: 17px;    
 }
 
 input[type=password] {
@@ -210,6 +208,11 @@ input[type=password] {
     &::placeholder {
         letter-spacing: normal;
     }
+}
+
+input[type=date] {
+    min-width: 100%;  
+    background: none;  
 }
 
 .bg-fiolet {
@@ -421,6 +424,10 @@ input[type=password] {
     font-weight: 400;
 }
 
+.modal.overflow-hidden {
+    overflow: hidden;
+}
+
 .active-tab {
     color: #EBEBF5 !important;
 }
@@ -540,6 +547,16 @@ input[type=password] {
         height: 100%;
         background: transparent;
     }
+}
+
+.modal__backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: rgba(0,0,0,.2);
 }
 
 .modal {

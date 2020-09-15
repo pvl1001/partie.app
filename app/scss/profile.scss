@@ -904,17 +904,23 @@
     #gamertags {
 
         .gamertags__add {
+            position: absolute;
+            top: -5px;
+            right: 0;
+
             width: 68px;
             height: 32px;
-            line-height: 32px;
-            text-align: center;
-            background: #FFFFFF;
+
             border-radius: 20px;
-            color: #000;
+            background: #FFFFFF;
+
+            text-align: center;
+
             font-weight: bold;
+            line-height: 32px;
             font-size: 13px;
-            position: absolute;
-            right: 0;
+            
+            color: #000;
         }
 
         button {
@@ -1025,8 +1031,16 @@
 
         .modal__content {
             height: calc(50vh - 60px);
-            transition: .5s;
+
+            margin: 0 -20px;
+            padding: 0 20px;
+
             overflow: hidden;
+            overflow-y: auto;
+
+            box-sizing: inherit;
+
+            transition: .5s;
 
             .info_avatar__progress-bar:nth-last-child(2) {
                 padding-bottom: 60px;
@@ -1284,6 +1298,7 @@
         .btn-create {
             position: absolute;
             right: 0;
+            top: -5px;
             background: #6E4AFF;
             border-radius: 20px;
             width: 59px;
