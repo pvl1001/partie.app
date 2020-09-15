@@ -673,8 +673,11 @@ textarea {
 
 .tabcontent {
     //height: 0;
-    overflow: hidden;
+    //overflow: hidden;
     //transition: height 0s;
+    //transform-origin: -100% 50%;
+    //-webkit-backface-visibility: hidden;
+    //backface-visibility: hidden;
 }
 
 //.feed__post {

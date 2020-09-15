@@ -25,6 +25,44 @@ function openTab(evt, Tab) {
     evt.currentTarget.className += " active";
 }
 
+function updatePositionPopovers() {
+    let token = $( '.pop' )
+
+    if (window.innerWidth >= 1024) {
+        for (let i = 0; i < token.length; i++) {
+            $(token[i]).off('mouseover')
+            $(token[i]).off('mouseout')
+        }
+    }
+
+    setTimeout(function () {
+        let token = $( '.pop:visible' )
+
+        for (let i = 0; i < token.length; i++) {
+            let el = $(token[i])
+
+            if (window.innerWidth >= 1024) {
+                el.off('mouseover').on( 'mouseover', function () {
+                    let popover = $(this).find('.popover')
+                    let h = popover.outerHeight()
+                    let x = $(this).offset().left - 92
+                    let y = $(this).offset().top - 20 - h
+                    popover.css({
+                        opacity: '1',
+                        visibility: 'visible',
+                        left: x + 'px',
+                        top: y + 'px'
+                    })
+                } )
+
+                el.off('mouseout').on( 'mouseout', function () {
+                    $(this).find('.popover').attr('style', '')
+                } )
+            }
+        }
+    },350)
+}
+
 function openTabModal(evt, Tab) {
     var i, tabcontent, tablinks;
     let modal = document.querySelector('#levelProgress .modal')
@@ -55,37 +93,15 @@ function openTabModal(evt, Tab) {
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    setTimeout(function () {
+    // setTimeout(function () {
         document.getElementById(Tab).style.opacity = "1";
         document.getElementById(Tab).style.transform = "";
         document.getElementById(Tab).style.position = "relative";
         if(window.innerWidth >= 1024)
             modal.style.height = 263 + document.getElementById(Tab).offsetHeight + 'px'
 
-        setTimeout(function () {
-            let token = document.querySelectorAll( '.pop' )
-            let popovers = document.querySelectorAll( '.popover' )
-            for (let i = 0; i < token.length; i++) {
-                let el = token[i]
-                let popover = popovers[i]
-                let h = popover.getBoundingClientRect().height
-                let x = el.getBoundingClientRect().left - 92
-                let y = el.getBoundingClientRect().top - 20 - h
-                if (window.innerWidth >= 1024) {
-                    el.addEventListener( 'mouseover', function () {
-                        popover.style.opacity = '1'
-                        popover.style.visibility = 'visible'
-                        popover.style.left = x + 'px'
-                        popover.style.top = y + 'px'
-                    } )
-                    el.addEventListener( 'mouseout', function () {
-                        popover.style.cssText = ''
-                    } )
-                }
-            }
-        },350)
-
-    },300)
+        updatePositionPopovers()
+    // },300)
 
     if(window.innerWidth <= 1023) {
         modal.style.height = 242 + document.getElementById(Tab).offsetHeight + 'px'
