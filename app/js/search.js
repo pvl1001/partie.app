@@ -18,6 +18,10 @@ for(let i = 0; i < inputSearchs.length; i++) {
             }
         })
 
+        inputSearch.addEventListener('blur', function () {
+            searchWinBox.style.cssText = ''
+        })
+
         function closeSearch() {
             inputSearch.style.cssText = ''
             inputSearch.parentElement.style.marginTop = ''
@@ -25,9 +29,6 @@ for(let i = 0; i < inputSearchs.length; i++) {
             searchWinBox.style.cssText = ''
         }
 
-        // inputSearch.addEventListener('blur', function () {
-        //     searchWinBox.style.cssText = ''
-        // })
 
         inputSearch.addEventListener('keyup', function () {
             if (inputSearch.value.length) {
