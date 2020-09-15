@@ -36,7 +36,7 @@ for (let i = 0; i < arrShowAll.length; i++) {
         btnSocial.classList.remove('animate__fadeInUp')
     }
 
-    btnContainerWrapp.addEventListener( 'mouseenter', function(e) {
+    btnContainerWrapp.addEventListener( 'click', function(e) {
         if (e.target === btnContainerWrapp) {
             showAllBtnsOff()
         }
