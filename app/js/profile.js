@@ -93,15 +93,15 @@ function openTabModal(evt, Tab) {
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    // setTimeout(function () {
+    setTimeout(function () {
         document.getElementById(Tab).style.opacity = "1";
         document.getElementById(Tab).style.transform = "";
         document.getElementById(Tab).style.position = "relative";
         if(window.innerWidth >= 1024)
             modal.style.height = 263 + document.getElementById(Tab).offsetHeight + 'px'
+    },300)
 
-        updatePositionPopovers()
-    // },300)
+    updatePositionPopovers()
 
     if(window.innerWidth <= 1023) {
         modal.style.height = 242 + document.getElementById(Tab).offsetHeight + 'px'
