@@ -31,6 +31,7 @@
         .avatar-small {
             height: 35px;
             width: 35px;
+            min-width: 35px;
             border: 3px solid #000;
             min-width: auto;
             position: absolute;
@@ -111,6 +112,7 @@
 
         .avatar {
             width: 73px;
+            min-width: 73px;
             height: 73px;
             border: 5.87999px solid #000000;
             right: 0;
@@ -161,6 +163,7 @@
 
         .avatar {
             width: 73px;
+            min-width: 73px;
             height: 73px;
             border: 5.87999px solid #000000;
             right: 0;

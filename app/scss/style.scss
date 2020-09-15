@@ -872,6 +872,7 @@ textarea {
                 .avatar {
                     height: 32px;
                     width: 32px;
+                    min-width: 32px;
                     border: 3px solid #14131A;
                     position: absolute;
                 }
@@ -890,6 +891,7 @@ textarea {
 
 .avatar {
     width: 32px;
+    min-width: 32px;
     height: 32px;
     min-width: 32px;
     border-radius: 50%;
@@ -910,6 +912,7 @@ textarea {
     .avatar__star {
         height: 16px;
         width: 16px;
+        min-width: 16px;
         border-radius: 6px;
         position: absolute;
         top: 0;

@@ -57,7 +57,7 @@ function openTabModal(evt, Tab) {
     // Show the current tab, and add an "active" class to the button that opened the tab
     setTimeout(function () {
         document.getElementById(Tab).style.opacity = "1";
-        document.getElementById(Tab).style.transform = "scale(1)";
+        document.getElementById(Tab).style.transform = "";
         document.getElementById(Tab).style.position = "relative";
         if(window.innerWidth >= 1024)
             modal.style.height = 263 + document.getElementById(Tab).offsetHeight + 'px'
@@ -68,26 +68,32 @@ function openTabModal(evt, Tab) {
     }
     evt.currentTarget.className += " active";
 
-    let token = document.querySelectorAll( '.pop' )
-    let popovers = document.querySelectorAll( '.popover' )
-    for (let i = 0; i < token.length; i++) {
-        let el = token[i]
-        let popover = popovers[i]
-        let h = popover.getBoundingClientRect().height
-        let x = el.getBoundingClientRect().left - 92
-        let y = el.getBoundingClientRect().top - 20 - h
-        if(window.innerWidth >=1024) {
-            el.addEventListener( 'mouseover', function () {
-                popover.style.opacity = '1'
-                popover.style.visibility = 'visible'
-                popover.style.left = x + 'px'
-                popover.style.top = y + 'px'
-            } )
-            el.addEventListener( 'mouseout', function () {
-                popover.style.cssText = ''
-            } )
+
+    console.log(Tab, Tab === 'Tokens')
+
+    if(Tab === 'Tokens') {
+        let token = document.querySelectorAll( '.pop' )
+        let popovers = document.querySelectorAll( '.popover' )
+        for (let i = 0; i < token.length; i++) {
+            let el = token[i]
+            let popover = popovers[i]
+            let h = popover.getBoundingClientRect().height
+            let x = el.getBoundingClientRect().left - 92
+            let y = el.getBoundingClientRect().top - 20 - h
+            if(window.innerWidth >=1024) {
+                el.addEventListener( 'mouseover', function () {
+                    popover.style.opacity = '1'
+                    popover.style.visibility = 'visible'
+                    popover.style.left = x + 'px'
+                    popover.style.top = y + 'px'
+                } )
+                el.addEventListener( 'mouseout', function () {
+                    popover.style.cssText = ''
+                } )
+            }
         }
     }
+
 
 
 

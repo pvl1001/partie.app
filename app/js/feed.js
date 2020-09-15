@@ -24,29 +24,34 @@ let peopleBtn = document.querySelector('.feed__people-btn')
 
 
 let textarea = document.querySelector( '#whatNewHead' )
+let feedWhatNew = document.querySelector( '.feed__what-new' )
 let textSelect = document.querySelector( '#whatNewHead + div' )
 let feedWhatNewRow = document.querySelector( '.feed__what-new_row' )
 let photo1 = document.querySelector( 'label[for=photo-1]' )
 let feedWhatNewHead = document.querySelector( '.feed__what-new_head' )
 
 
-
-if (textarea !== null) {
-    textarea.addEventListener( 'focus', function () {
-        textSelect.style.right = '65%'
-        photo1.style.cssText = 'opacity: 0; visibility: hidden;'
-        textarea.style.width = '100%'
-        textarea.style.marginTop = '34px'
-        textarea.style.marginBottom = '70px'
-        feedWhatNewHead.parentElement.style.backgroundColor = 'rgba(20,19,26,1)'
-        setTimeout(function () {
-            feedWhatNewRow.style.cssText = 'opacity: 1; visibility: visible;'
-        },350)
-        if(window.innerWidth <= 1300) textSelect.style.right = '51%'
+if (feedWhatNew !== null) {
+    feedWhatNew.addEventListener( 'click', function (e) {
+        if (e.target === photo1.parentElement.children[1]) {
+            e.stopPropagation()
+        } else {
+            console.log( e.target === photo1.parentElement.children[1] )
+            textSelect.style.right = '65%'
+            photo1.style.cssText = 'opacity: 0; visibility: hidden;'
+            textarea.style.width = '100%'
+            textarea.style.marginTop = '34px'
+            textarea.style.marginBottom = '70px'
+            feedWhatNewHead.parentElement.style.backgroundColor = 'rgba(20,19,26,1)'
+            setTimeout( function () {
+                feedWhatNewRow.style.cssText = 'opacity: 1; visibility: visible;'
+            }, 350 )
+            if (window.innerWidth <= 1300) textSelect.style.right = '51%'
+        }
     } )
-    let newPostText
+
     window.addEventListener( 'click', function (e) {
-        if (!feedWhatNewHead.parentNode.contains( e.target ) && !newPostText) {
+        if (!feedWhatNewHead.parentNode.contains( e.target )) {
             textSelect.style.right = ''
             feedWhatNewRow.style.cssText = ''
             photo1.style.cssText = ''
