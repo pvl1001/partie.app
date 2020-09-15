@@ -260,6 +260,7 @@ function openModal(modal) { // modal
     if (window.innerWidth > 1023) { //pc
         modal.style.opacity = '1'
         modal.style.zIndex = '13'
+        modal.children[0].style.zIndex = '1'
         modal.children[0].style.opacity = '1'
         modal.style.backgroundColor = 'rgba(20,20,20,0.8)'
 

@@ -555,8 +555,8 @@ input[type=date] {
     left: 0;
     right: 0;
     bottom: 0;
-
-    background-color: rgba(0,0,0,.2);
+    z-index: 0;
+    //background-color: rgba(20,20,20,.6);
 }
 
 .modal {
@@ -1177,7 +1177,7 @@ textarea {
         border-radius: 20px;
         width: 280px;
         font-weight: 700;
-        z-index: 11;
+        z-index: 12;
         opacity: 0;
         visibility: hidden;
         transition: opacity .3s ease;
@@ -1350,7 +1350,7 @@ textarea {
         border-radius: 0;
         width: 100%;
         font-weight: 700;
-        z-index: 11;
+        z-index: 12;
         opacity: 1;
         visibility: visible;
         transition: .3s ease;
@@ -1407,7 +1407,8 @@ textarea {
         }
     }
 
-    .close-place {
+    .close-place,
+    .modal__backdrop{
         position: fixed;
         top: 0;
         right: 0;
@@ -1416,6 +1417,8 @@ textarea {
         z-index: -1;
         background-color: rgba(20,20,20,.6);
     }
+
+
 }
 
 
