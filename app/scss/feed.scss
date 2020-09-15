@@ -91,6 +91,11 @@
                 padding-right: 12px;
                 color: #F8F6FF;
             }
+
+            button.public-post-popup {
+                transition: background-color .2s ease;
+                white-space: nowrap;
+            }
         }
 
         .empty-select {

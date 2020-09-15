@@ -223,8 +223,24 @@ if (publicPost !== null)
             publicPost.style.transition = 'background-color .3s'
             publicPost.innerHTML = 'Followers only'
         } else {
+            publicPost.style.paddingLeft = ''
             publicPost.style.background = ''
             publicPost.innerHTML = 'Public post'
+        }
+    }
+
+let publicPostPopup = document.querySelector( 'button.public-post-popup' )
+let onPublicPostPopup
+
+if (publicPostPopup !== null)
+    publicPostPopup.onclick = function () {
+        onPublicPostPopup = !onPublicPostPopup
+        if (onPublicPostPopup) {
+            publicPostPopup.className = 'public-post-popup followers-only-btn'
+            publicPostPopup.innerHTML = 'Followers only'
+        } else {
+            publicPostPopup.className = 'public-post-popup bg-fiolet'
+            publicPostPopup.innerHTML = 'Public post'
         }
     }
 
