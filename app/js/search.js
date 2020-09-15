@@ -43,7 +43,7 @@ for(let i = 0; i < inputSearchs.length; i++) {
 }
 
 document.addEventListener('click', function (e) {
-    if (e.path[0].closest('.search-win') === null) {
+    if (e.target.closest('.search-win') === null) {
         let searchWinBox = document.querySelector('.search-win__box')
 
         if (searchWinBox !== null) {

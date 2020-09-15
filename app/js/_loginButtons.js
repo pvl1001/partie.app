@@ -30,15 +30,16 @@ for (let i = 0; i < arrShowAll.length; i++) {
         }
     }
 
-    function showAllBtnsOff() {
+    function showAllBtnsOff(btnContainerWrapp) {
         btnContainerWrapp.style.top = ''
+        let btnSocial = btnContainerWrapp.querySelector('.btn-container-show')
         btnSocial.classList.add('animate__fadeOutDownBig')
         btnSocial.classList.remove('animate__fadeInUp')
     }
 
     btnContainerWrapp.addEventListener( 'click', function(e) {
         if (e.target === btnContainerWrapp) {
-            showAllBtnsOff()
+            showAllBtnsOff(this)
         }
     })
 }
