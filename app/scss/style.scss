@@ -1021,6 +1021,14 @@ textarea {
     align-items: center;
     cursor: pointer;
 
+    &:hover svg path {
+        opacity: .9;
+    }
+
+    path {
+        transition: .2s;
+    }
+
     svg {
         margin-right: 10px;
     }
@@ -1042,6 +1050,14 @@ textarea {
 
 .share {
     cursor: pointer;
+
+    &:hover path {
+        opacity: .9;
+    }
+
+    path {
+        transition: .2s;
+    }
 }
 
 .popover {

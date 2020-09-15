@@ -29,9 +29,6 @@ for(let i = 0; i < inputSearchs.length; i++) {
             searchWinBox.style.cssText = ''
         }
 
-        // inputSearch.addEventListener('blur', function () {
-        //     searchWinBox.style.cssText = ''
-        // })
 
         inputSearch.addEventListener('keyup', function () {
             if (inputSearch.value.length) {
