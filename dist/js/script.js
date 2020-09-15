@@ -1703,6 +1703,7 @@ for (let platform of platforms) {
         if (platform.value === 'PC') btnPlatform.classList.add( 'host-pc' )
         if (platform.value === 'Switch') btnPlatform.classList.add( 'host-sw' )
         if (platform.value === 'Mobile') btnPlatform.classList.add( 'host-mob' )
+    }
 }
 
 
