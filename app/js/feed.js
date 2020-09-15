@@ -36,7 +36,6 @@ if (feedWhatNew !== null) {
         if (e.target === photo1.parentElement.children[1]) {
             e.stopPropagation()
         } else {
-            console.log( e.target === photo1.parentElement.children[1] )
             textSelect.style.right = '65%'
             photo1.style.cssText = 'opacity: 0; visibility: hidden;'
             textarea.style.width = '100%'
@@ -46,6 +45,9 @@ if (feedWhatNew !== null) {
             setTimeout( function () {
                 feedWhatNewRow.style.cssText = 'opacity: 1; visibility: visible;'
             }, 350 )
+
+            auto_grow(textarea)
+
             if (window.innerWidth <= 1300) textSelect.style.right = '51%'
         }
     } )
