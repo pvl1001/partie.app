@@ -105,7 +105,6 @@ function openTabModal(evt, Tab) {
 
     if(window.innerWidth <= 1023) {
         modal.style.height = 242 + document.getElementById(Tab).offsetHeight + 'px'
-        console.log(document.getElementById(Tab).offsetHeight, 'tab')
     }
     evt.currentTarget.className += " active";
 
@@ -295,13 +294,6 @@ function openTabPatie(evt, Tab) {
 let defaultOpenPartieTab = document.getElementById("defaultOpenPartieTab")
 if(defaultOpenPartieTab !== null) defaultOpenPartieTab.click()
 
-
-
-
-
-
-
-
 function openTabFeed(evt, Tab) {
     var i, tabcontent, tablinks;
 
@@ -336,6 +328,31 @@ function openTabFeed(evt, Tab) {
         }
     },300)
     evt.currentTarget.className += " active";
+
+    // if ($('.slider.slick-initialized').length) {
+        setTimeout(function () {
+            try {
+                $('.slider').slick('unslick')
+            } catch (e) {
+
+            }
+
+            $('.slider').slick({
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                infinite: true,
+                swipeToSlide: true,
+                responsive: [
+                    {
+                        breakpoint: 1023,
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    }
+                ]
+            })
+        }, 300)
+    // }
 }
 
 

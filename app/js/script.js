@@ -65,20 +65,20 @@ document.addEventListener('DOMContentLoaded', function () {
         $(".logIn__code_code input").mask("00000");
     });
 
-    $( '.slider' ).slick( {
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        infinite: true,
-        swipeToSlide: true,
-        responsive: [
-            {
-                breakpoint: 1023,
-                settings: {
-                    slidesToShow: 3
-                }
-            }
-        ]
-    } )
+    // $( '.slider' ).slick( {
+    //     slidesToShow: 5,
+    //     slidesToScroll: 1,
+    //     infinite: true,
+    //     swipeToSlide: true,
+    //     responsive: [
+    //         {
+    //             breakpoint: 1023,
+    //             settings: {
+    //                 slidesToShow: 3
+    //             }
+    //         }
+    //     ]
+    // } )
 
     function logoAnimate() { // анимицаия лого
         let arrBgAnimate = document.querySelectorAll( '.bg-animate' )

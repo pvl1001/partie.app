@@ -157,15 +157,18 @@ function clickTab(open, close) {
         close.children[1].style.display = 'none'
     }, 100 )
 
+    try {
+        $('.slider').slick('unslick')
+    } catch (e) {
 
-    $( '.slider' ).slick( 'unslick' )
+    }
+
     $( '.slider' ).slick( {
         slidesToShow: 5,
         slidesToScroll: 1,
         infinite: true,
         swipeToSlide: true,
     } )
-
 }
 
 function openChat() {
