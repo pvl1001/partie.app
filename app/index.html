@@ -220,7 +220,7 @@
                     </div>
                 </form>
             </div>
-
+            <div onclick="closeModal(signUpPage)" class="modal__backdrop"></div>
         </div>
         <!--logIn__code-->
         <div id="logInCode" class="modal-wrapp">
@@ -466,6 +466,7 @@
                 <button onclick="next(checkEmail, resetPass)" class="bg-fiolet">Reset Password</button>
                 <div class="need-help">Need help? Contact Us</div>
             </div>
+            <div onclick="closeModal(resetPass)" class="modal__backdrop"></div>
         </div>
 <!--logIn__check-email-->
         <div id="checkEmail" class="modal-wrapp">
@@ -498,7 +499,6 @@
         </div>
 <!--logInIn-->
         <div id="logInIn" class="modal-wrapp">
-            <div class="modal__backdrop" onclick="closeModal(logInIn)"></div>
             <div class="logIn__in center modal">
                 <div class="sign-up__tab">
                     <div class="sign-up__tab_sign-up">
@@ -563,6 +563,7 @@
                 @@include('_loginButtons.html')
 
             </div>
+            <div class="modal__backdrop" onclick="closeModal(logInIn)"></div>
         </div>
 
     </div>
