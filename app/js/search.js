@@ -57,7 +57,13 @@ function openTabSearch(evt, Tab) {
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.querySelectorAll(".search .profile__tabs .tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+        tabcontent[i].style.transition = ".3s";
+        tabcontent[i].style.opacity = "0";
+        tabcontent[i].style.transform = "scale(.95)";
+        tabcontent[i].style.position = "fixed";
+        if(window.innerWidth <= 1023) {
+            tabcontent[i].style.width = window.innerWidth - 40 + 'px'
+        }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
@@ -67,7 +73,11 @@ function openTabSearch(evt, Tab) {
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(Tab).style.display = "block";
+    setTimeout(function () {
+        document.getElementById(Tab).style.opacity = "1";
+        document.getElementById(Tab).style.transform = "scale(1)";
+        document.getElementById(Tab).style.position = "relative";
+    },300)
     evt.currentTarget.className += " active";
 
 }

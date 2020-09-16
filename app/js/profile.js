@@ -8,6 +8,9 @@ function openTab(evt, Tab) {
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.height = "0";
+        if(window.innerWidth <= 1023) {
+            tabcontent[i].style.width = window.innerWidth - 40 + 'px'
+        }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
@@ -108,31 +111,6 @@ function openTabModal(evt, Tab) {
     }
     evt.currentTarget.className += " active";
 
-
-    // let token = document.querySelectorAll( '.pop' )
-    // let popovers = document.querySelectorAll( '.popover' )
-    // for (let i = 0; i < token.length; i++) {
-    //     let el = token[i]
-    //     let popover = popovers[i]
-    //     let h = popover.getBoundingClientRect().height
-    //     let x = el.getBoundingClientRect().left - 92
-    //     let y = el.getBoundingClientRect().top - 20 - h
-    //     if (window.innerWidth >= 1024) {
-    //         el.addEventListener( 'mouseover', function () {
-    //             popover.style.opacity = '1'
-    //             popover.style.visibility = 'visible'
-    //             popover.style.left = x + 'px'
-    //             popover.style.top = y + 'px'
-    //         } )
-    //         el.addEventListener( 'mouseout', function () {
-    //             popover.style.cssText = ''
-    //         } )
-    //     }
-    // }
-
-
-
-
     let progressbar = document.querySelector( '.progressbar div' )
     let tokens = document.querySelectorAll( '.level-progress__tab .tokens' )
     for (let el of tokens) {
@@ -142,8 +120,6 @@ function openTabModal(evt, Tab) {
             progressbar.style.width = bar + '%'
         }
     }
-
-
 
 }
 
@@ -264,11 +240,8 @@ function openTabPatie(evt, Tab) {
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.position = "fixed";
-        if(window.innerWidth <=1023) {
-            tabcontent[i].style.transition = "opacity .4s, transform .4s";
-            tabcontent[i].style.opacity = "0";
-            tabcontent[i].style.transform = "scale(.95)";
-            tabcontent[i].style.height = "0";
+        if(window.innerWidth <= 1023) {
+            tabcontent[i].style.width = window.innerWidth - 40 + 'px'
         }
     }
 
@@ -283,9 +256,6 @@ function openTabPatie(evt, Tab) {
         document.getElementById(Tab).style.opacity = "1";
         document.getElementById(Tab).style.transform = "scale(1)";
         document.getElementById(Tab).style.position = "relative";
-        if(window.innerWidth <=1023) {
-            document.getElementById(Tab).style.height = "100%";
-        }
     },300)
 
     evt.currentTarget.className += " active";
@@ -305,10 +275,7 @@ function openTabFeed(evt, Tab) {
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.position = "fixed";
         if(window.innerWidth <= 1023) {
-            tabcontent[i].style.transition = "opacity .4s, transform .4s";
-            tabcontent[i].style.opacity = "0";
-            tabcontent[i].style.transform = "scale(.95)";
-            tabcontent[i].style.height = "0";
+            tabcontent[i].style.width = window.innerWidth + 'px'
         }
     }
 
@@ -323,9 +290,6 @@ function openTabFeed(evt, Tab) {
         document.getElementById(Tab).style.opacity = "1";
         document.getElementById(Tab).style.transform = "scale(1)";
         document.getElementById(Tab).style.position = "relative";
-        if(window.innerWidth <=1023) {
-            document.getElementById(Tab).style.height = "100%";
-        }
     },300)
     evt.currentTarget.className += " active";
 
@@ -392,33 +356,6 @@ window.onclick = function (e) {
 }
 
 
-//
-// let token = document.querySelectorAll( '.pop' )
-// let popovers = document.querySelectorAll( '.popover' )
-// for (let i = 0; i < token.length; i++) {
-//     let el = token[i]
-//     let popover = popovers[i]
-//     let h = popover.getBoundingClientRect().height
-//     let x = el.getBoundingClientRect().left - 92
-//     let y = el.getBoundingClientRect().top - 20 - h
-//     if(window.innerWidth >=1024) {
-//         el.addEventListener( 'mouseover', function () {
-//             popover.style.opacity = '1'
-//             popover.style.visibility = 'visible'
-//             popover.style.left = x + 'px'
-//             popover.style.top = y + 'px'
-//         } )
-//         el.addEventListener( 'mouseout', function () {
-//             popover.style.cssText = ''
-//         } )
-//     }
-//     if(window.innerWidth <=1023) {
-//         el.onclick = function () {
-//             testSlide = i
-//
-//         }
-//     }
-// }
 
 let indexToken
 let tokenMobiles = document.querySelectorAll( '#Tokens .tokens-mobile .token' )

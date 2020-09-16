@@ -509,6 +509,21 @@ function enterCodeCenter(el) {
 }
 
 
+let onChangeBtnPublic
+function changeBtnPublic(el) {
+    onChangeBtnPublic = !onChangeBtnPublic
+    if(onChangeBtnPublic) {
+        el.innerHTML = 'Private partie'
+        el.style.background = '#14131a url(../img/icon/lock.svg) 12px 50%/11px 12px no-repeat'
+        el.style.paddingLeft = '30px'
+        el.style.color = '#fff'
+    } else {
+        el.innerHTML = 'Public partie'
+        el.style.cssText = ''
+    }
+}
+
+
 
 
 @@include( 'slick.min.js' )

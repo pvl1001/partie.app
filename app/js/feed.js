@@ -225,7 +225,7 @@ if (publicPost !== null)
     publicPost.onclick = function () {
         onPublicPost = !onPublicPost
         if (onPublicPost) {
-            publicPost.style.background = 'rgba(235,235,245,.1) url(../img/icon/lock.png) 12px 50%/9.2px no-repeat'
+            publicPost.style.background = 'rgba(235,235,245,.1) url(../img/icon/lock.svg) 12px 50%/11px 12px no-repeat'
             publicPost.style.paddingLeft = '30px'
             publicPost.style.transition = 'background-color .3s'
             publicPost.innerHTML = 'Followers only'

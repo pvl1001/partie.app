@@ -526,7 +526,7 @@
 
         .btn-public {
             height: 32px;
-            width: 109px;
+            padding: 0 12px;
             background: #D2C867;
             border-radius: 40px;
             font-weight: bold;
@@ -534,11 +534,13 @@
             line-height: 17px;
             color: #000000;
             margin-right: 8px;
+            transition: background-color .3s;
         }
 
         .btn-round {
             height: 32px;
             width: 32px;
+            min-width: 32px;
             border-radius: 50%;
             margin-right: 8px;
             cursor: pointer;

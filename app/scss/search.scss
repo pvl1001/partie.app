@@ -174,7 +174,15 @@
         }
 
         .tabcontent {
-            display: none;
+            width: 680px;
+
+            @media (max-width: 1300px) and (min-width: 1024px) {
+                width: 480px;
+            }
+
+            @media (max-width: 1023px) {
+                width: auto;
+            }
         }
 
         .tablinks.active:last-child svg path:first-child {
