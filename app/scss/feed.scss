@@ -76,11 +76,13 @@
 
             label[for=photo2] {
                 width: 32px;
+                min-width: 32px;
                 height: 32px;
                 border-radius: 50%;
                 background: #F8F6FF url('../img/icon/photo.png') center / 14px no-repeat;
                 cursor: pointer;
                 margin-right: 8px;
+                display: block;
             }
 
             button.followers-only-btn {
@@ -435,6 +437,7 @@
             label[for=photo-1],
             label[for=photo] {
                 width: 32px;
+                min-width: 32px;
                 height: 32px;
                 border-radius: 50%;
                 background: #F8F6FF url('../img/icon/photo.png') center / 14px no-repeat;
