@@ -1248,6 +1248,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
   /* хром, сафари */
   /* ie 10+ */
   /* фф (свойство больше не работает, других способов тоже нет)*/
@@ -1334,11 +1335,13 @@
 
 .feed .new-post.modal .new-post__row label[for=photo2] {
   width: 32px;
+  min-width: 32px;
   height: 32px;
   border-radius: 50%;
   background: #F8F6FF url("../img/icon/photo.png") center/14px no-repeat;
   cursor: pointer;
   margin-right: 8px;
+  display: block;
 }
 
 .feed .new-post.modal .new-post__row button.followers-only-btn {
@@ -1348,6 +1351,13 @@
   height: 32px;
   padding-right: 12px;
   color: #F8F6FF;
+}
+
+.feed .new-post.modal .new-post__row button.public-post-popup {
+  -webkit-transition: background-color .2s ease;
+  -o-transition: background-color .2s ease;
+  transition: background-color .2s ease;
+  white-space: nowrap;
 }
 
 .feed .new-post.modal .empty-select {
@@ -1638,7 +1648,7 @@
   position: sticky;
   top: 0;
   background-color: #000;
-  z-index: 1;
+  z-index: 11;
 }
 
 .feed .feed__col2 .feed__header .feed__header_params {
@@ -1714,7 +1724,7 @@
   display: flex;
   position: absolute;
   right: 20px;
-  top: 15px;
+  top: 16px;
 }
 
 .feed .feed__col2 .feed__what-new label:not(label[for=photo]) {
@@ -1731,6 +1741,7 @@
 .feed .feed__col2 .feed__what-new label[for=photo-1],
 .feed .feed__col2 .feed__what-new label[for=photo] {
   width: 32px;
+  min-width: 32px;
   height: 32px;
   border-radius: 50%;
   background: #F8F6FF url("../img/icon/photo.png") center/14px no-repeat;
@@ -1812,7 +1823,7 @@
 .feed .feed__col2 .feed__what-new textarea + div {
   position: absolute;
   right: 80px;
-  top: 19px;
+  top: 21px;
   -webkit-transition: .3s;
   -o-transition: .3s;
   transition: .3s;
@@ -2394,6 +2405,7 @@
   line-height: 120%;
   letter-spacing: -0.408px;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .single-post button {
@@ -2404,6 +2416,7 @@
   background-color: #D2C867;
   width: 81px;
   height: 32px;
+  position: relative;
 }
 
 .mb10 {
@@ -2412,6 +2425,99 @@
 
 .user__cd {
   font-weight: 400;
+}
+
+.picture-full-screen {
+  position: relative;
+  display: none;
+}
+
+.picture-full-screen__header {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 25px;
+}
+
+.picture-full-screen__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0;
+}
+
+.picture-full-screen__close {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  background-image: url("../img/icon/close.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-transition: .25s transform;
+  -o-transition: .25s transform;
+  transition: .25s transform;
+  cursor: pointer;
+}
+
+.picture-full-screen__close:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.picture-full-screen__close:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+}
+
+.picture-full-screen__share {
+  position: relative;
+  width: 20px;
+  height: 19px;
+  background-image: url("../img/icon/share-w.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.picture-full-screen__share:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+}
+
+.picture.-open .picture-full-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 12;
 }
 
 .img-bg {
@@ -4656,6 +4762,20 @@
   margin-bottom: 20px;
 }
 
+.titleModal .titleModal__text .titleModal__text_text textarea {
+  width: 100%;
+  min-height: 42px;
+  font-size: 14px;
+  line-height: 150%;
+  color: rgba(235, 235, 245, 0.5);
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+.titleModal .titleModal__text .titleModal__text_text textarea::-webkit-scrollbar {
+  width: 0;
+}
+
 .titleModal .titleModal__text .titleModal__text_btns {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5417,6 +5537,7 @@
   padding: 16px 20px;
   margin-bottom: 10px;
   position: relative;
+  cursor: pointer;
 }
 
 #hostPartie .shortcuts .shortcuts__box .shortcuts__box_menu {
@@ -5463,6 +5584,7 @@
 }
 
 #hostPartie .shortcuts .shortcuts__box .shortcuts__btn {
+  position: relative;
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -5480,6 +5602,49 @@
 
 #hostPartie .shortcuts .shortcuts__box .shortcuts__btn.mic {
   background: rgba(50, 47, 66, 0.4) url("../img/icon/mic.png") center/10px no-repeat;
+}
+
+#hostPartie .shortcuts .shortcuts__box .tooltip {
+  padding: 13px 20px;
+  border-radius: 20px;
+  height: auto;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  bottom: calc(100% + 20px);
+  left: -49px;
+  text-align: center;
+  width: 132px;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+#hostPartie .shortcuts .shortcuts__box .tooltip .popover__name {
+  margin-bottom: 0;
+}
+
+#hostPartie .shortcuts .shortcuts__box .tooltip:before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  bottom: -8px;
+  left: calc(50% - 8px);
+}
+
+#hostPartie .shortcuts .shortcuts__box .shortcuts__btn:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+#hostPartie .shortcuts .shortcuts__box .tooltip,
+#hostPartie .shortcuts .shortcuts__box .tooltip:before {
+  background: #1E1D24;
+  border: 0;
 }
 
 #hostPartie .shortcuts .shortcuts__box .shortcuts__btn-limited {
@@ -5813,11 +5978,13 @@
 
 .hostLiveShow .hostLiveShow__btns input[type=file] + label {
   width: 32px;
+  min-width: 32px;
   height: 32px;
   border-radius: 50%;
   background: #F8F6FF url("../img/icon/photo.png") center/14px no-repeat;
   cursor: pointer;
   margin-right: 8px;
+  display: block;
 }
 
 .hostLiveShow .hostLiveShow__btns .btn-public {
@@ -6033,6 +6200,7 @@
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .chats .user {
@@ -8243,7 +8411,6 @@ input {
   border-radius: 20px;
   background-color: #000;
   font-size: 17px;
-  line-height: 100%;
   color: #F8F6FF;
   -webkit-transition: .5s easy;
   -o-transition: .5s easy;
@@ -8258,31 +8425,26 @@ input:focus {
 input::-webkit-input-placeholder {
   color: #2F2F31;
   font-size: 17px;
-  line-height: 52px;
 }
 
 input::-moz-placeholder {
   color: #2F2F31;
   font-size: 17px;
-  line-height: 52px;
 }
 
 input:-ms-input-placeholder {
   color: #2F2F31;
   font-size: 17px;
-  line-height: 52px;
 }
 
 input::-ms-input-placeholder {
   color: #2F2F31;
   font-size: 17px;
-  line-height: 52px;
 }
 
 input::placeholder {
   color: #2F2F31;
   font-size: 17px;
-  line-height: 52px;
 }
 
 input[type=password] {
@@ -8308,6 +8470,11 @@ input[type=password]::-ms-input-placeholder {
 
 input[type=password]::placeholder {
   letter-spacing: normal;
+}
+
+input[type=date] {
+  min-width: 100%;
+  background: none;
 }
 
 .bg-fiolet {
@@ -8533,6 +8700,10 @@ input[type=password]::placeholder {
   font-weight: 400;
 }
 
+.modal.overflow-hidden {
+  overflow: hidden;
+}
+
 .active-tab {
   color: #EBEBF5 !important;
 }
@@ -8664,6 +8835,15 @@ input[type=password]::placeholder {
   width: 1px;
   height: 100%;
   background: transparent;
+}
+
+.modal__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
 }
 
 .modal {
@@ -8808,10 +8988,6 @@ svg circle {
 
 .partie-tab .tab .tablinks.active {
   color: #EBEBF5;
-}
-
-.tabcontent {
-  overflow: hidden;
 }
 
 .loading {
@@ -9251,6 +9427,16 @@ svg circle {
   cursor: pointer;
 }
 
+.comment:hover svg path {
+  opacity: .9;
+}
+
+.comment path {
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+}
+
 .comment svg {
   margin-right: 10px;
 }
@@ -9274,6 +9460,16 @@ svg circle {
 
 .share {
   cursor: pointer;
+}
+
+.share:hover path {
+  opacity: .9;
+}
+
+.share path {
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
 }
 
 .popover {
@@ -9597,6 +9793,14 @@ svg circle {
     display: none;
   }
 
+  .picture-full-screen__header {
+    padding: 0 50px;
+  }
+
+  .picture-full-screen__body {
+    padding: 0 67px;
+  }
+
   body {
     background: #2e2e49 -webkit-gradient(linear, left top, left bottom, color-stop(22.4%, #141423), to(rgba(20, 20, 35, 0)));
     background: #2e2e49 -o-linear-gradient(top, #141423 22.4%, rgba(20, 20, 35, 0) 100%);
@@ -9698,7 +9902,7 @@ svg circle {
     border-radius: 20px;
     width: 280px;
     font-weight: 700;
-    z-index: 11;
+    z-index: 12;
     opacity: 0;
     visibility: hidden;
     -webkit-transition: opacity .3s ease;
@@ -10701,17 +10905,18 @@ svg circle {
   }
 
   #gamertags .gamertags__add {
+    position: absolute;
+    top: -5px;
+    right: 0;
     width: 68px;
     height: 32px;
-    line-height: 32px;
-    text-align: center;
-    background: #FFFFFF;
     border-radius: 20px;
-    color: #000;
+    background: #FFFFFF;
+    text-align: center;
     font-weight: bold;
+    line-height: 32px;
     font-size: 13px;
-    position: absolute;
-    right: 0;
+    color: #000;
   }
 
   #gamertags button {
@@ -10829,10 +11034,15 @@ svg circle {
 
   #profileProgress .modal__content {
     height: calc(50vh - 60px);
+    margin: 0 -20px;
+    padding: 0 20px;
+    overflow: hidden;
+    overflow-y: auto;
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
     -webkit-transition: .5s;
     -o-transition: .5s;
     transition: .5s;
-    overflow: hidden;
   }
 
   #profileProgress .modal__content .info_avatar__progress-bar:nth-last-child(2) {
@@ -11107,6 +11317,7 @@ svg circle {
   #editShortcutMobile .btn-create {
     position: absolute;
     right: 0;
+    top: -5px;
     background: #6E4AFF;
     border-radius: 20px;
     width: 59px;
@@ -12039,7 +12250,7 @@ svg circle {
     border-radius: 0;
     width: 100%;
     font-weight: 700;
-    z-index: 11;
+    z-index: 12;
     opacity: 1;
     visibility: visible;
     -webkit-transition: .3s ease;
@@ -12103,7 +12314,8 @@ svg circle {
     transition: .5s;
   }
 
-  .close-place {
+  .close-place,
+  .modal__backdrop {
     position: fixed;
     top: 0;
     right: 0;

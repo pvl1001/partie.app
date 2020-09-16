@@ -65,20 +65,20 @@ document.addEventListener('DOMContentLoaded', function () {
         $(".logIn__code_code input").mask("00000");
     });
 
-    $( '.slider' ).slick( {
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        infinite: true,
-        swipeToSlide: true,
-        responsive: [
-            {
-                breakpoint: 1023,
-                settings: {
-                    slidesToShow: 3
-                }
-            }
-        ]
-    } )
+    // $( '.slider' ).slick( {
+    //     slidesToShow: 5,
+    //     slidesToScroll: 1,
+    //     infinite: true,
+    //     swipeToSlide: true,
+    //     responsive: [
+    //         {
+    //             breakpoint: 1023,
+    //             settings: {
+    //                 slidesToShow: 3
+    //             }
+    //         }
+    //     ]
+    // } )
 
     function logoAnimate() { // анимицаия лого
         let arrBgAnimate = document.querySelectorAll( '.bg-animate' )
@@ -260,6 +260,7 @@ function openModal(modal) { // modal
     if (window.innerWidth > 1023) { //pc
         modal.style.opacity = '1'
         modal.style.zIndex = '13'
+        modal.children[0].style.zIndex = '1'
         modal.children[0].style.opacity = '1'
         modal.style.backgroundColor = 'rgba(20,20,20,0.8)'
 
@@ -419,7 +420,6 @@ if (feedPostImg !== null) {
 
 
 function auto_grow(element) {
-    element.style.height = "5px";
     element.style.height = (element.scrollHeight)+"px";
 }
 
@@ -545,17 +545,21 @@ for (let i = 0; i < arrShowAll.length; i++) {
         }
     }
 
-    function showAllBtnsOff() {
+    function showAllBtnsOff(btnContainerWrapp) {
         btnContainerWrapp.style.top = ''
+        let btnSocial = btnContainerWrapp.querySelector('.btn-container-show')
         btnSocial.classList.add('animate__fadeOutDownBig')
         btnSocial.classList.remove('animate__fadeInUp')
     }
 
-    btnContainerWrapp.addEventListener( 'click', function(e) {
-        if (e.target === btnContainerWrapp) {
-            showAllBtnsOff()
-        }
-    })
+    btnContainerWrapp.addEventListener( 'click', handlerShowAllBtnsOff)
+    btnContainerWrapp.addEventListener( 'touchstart', handlerShowAllBtnsOff)
+}
+
+function handlerShowAllBtnsOff(e) {
+    if (e.target.classList.contains('btn-container-wrapp')) {
+        showAllBtnsOff(this)
+    }
 }
 
 
@@ -626,7 +630,6 @@ if (feedWhatNew !== null) {
         if (e.target === photo1.parentElement.children[1]) {
             e.stopPropagation()
         } else {
-            console.log( e.target === photo1.parentElement.children[1] )
             textSelect.style.right = '65%'
             photo1.style.cssText = 'opacity: 0; visibility: hidden;'
             textarea.style.width = '100%'
@@ -636,6 +639,9 @@ if (feedWhatNew !== null) {
             setTimeout( function () {
                 feedWhatNewRow.style.cssText = 'opacity: 1; visibility: visible;'
             }, 350 )
+
+            auto_grow(textarea)
+
             if (window.innerWidth <= 1300) textSelect.style.right = '51%'
         }
     } )
@@ -745,15 +751,18 @@ function clickTab(open, close) {
         close.children[1].style.display = 'none'
     }, 100 )
 
+    try {
+        $('.slider').slick('unslick')
+    } catch (e) {
 
-    $( '.slider' ).slick( 'unslick' )
+    }
+
     $( '.slider' ).slick( {
         slidesToShow: 5,
         slidesToScroll: 1,
         infinite: true,
         swipeToSlide: true,
     } )
-
 }
 
 function openChat() {
@@ -778,6 +787,8 @@ $( '.share__btns' ).slick( {
         }
     ]
 } )
+
+
 let closePlaceMobile = document.querySelector( '.close-place.post-menu.mobile' )
 if (window.innerWidth <= 1023) {
     let commBtn = document.querySelector( '.feed__comments .comments__new-comment button' )
@@ -813,8 +824,24 @@ if (publicPost !== null)
             publicPost.style.transition = 'background-color .3s'
             publicPost.innerHTML = 'Followers only'
         } else {
+            publicPost.style.paddingLeft = ''
             publicPost.style.background = ''
             publicPost.innerHTML = 'Public post'
+        }
+    }
+
+let publicPostPopup = document.querySelector( 'button.public-post-popup' )
+let onPublicPostPopup
+
+if (publicPostPopup !== null)
+    publicPostPopup.onclick = function () {
+        onPublicPostPopup = !onPublicPostPopup
+        if (onPublicPostPopup) {
+            publicPostPopup.className = 'public-post-popup followers-only-btn'
+            publicPostPopup.innerHTML = 'Followers only'
+        } else {
+            publicPostPopup.className = 'public-post-popup bg-fiolet'
+            publicPostPopup.innerHTML = 'Public post'
         }
     }
 
@@ -879,6 +906,44 @@ function openTab(evt, Tab) {
     evt.currentTarget.className += " active";
 }
 
+function updatePositionPopovers() {
+    let token = $( '.pop' )
+
+    if (window.innerWidth >= 1024) {
+        for (let i = 0; i < token.length; i++) {
+            $(token[i]).off('mouseover')
+            $(token[i]).off('mouseout')
+        }
+    }
+
+    setTimeout(function () {
+        let token = $( '.pop:visible' )
+
+        for (let i = 0; i < token.length; i++) {
+            let el = $(token[i])
+
+            if (window.innerWidth >= 1024) {
+                el.off('mouseover').on( 'mouseover', function () {
+                    let popover = $(this).find('.popover')
+                    let h = popover.outerHeight()
+                    let x = $(this).offset().left - 92
+                    let y = $(this).offset().top - 20 - h
+                    popover.css({
+                        opacity: '1',
+                        visibility: 'visible',
+                        left: x + 'px',
+                        top: y + 'px'
+                    })
+                } )
+
+                el.off('mouseout').on( 'mouseout', function () {
+                    $(this).find('.popover').attr('style', '')
+                } )
+            }
+        }
+    },350)
+}
+
 function openTabModal(evt, Tab) {
     var i, tabcontent, tablinks;
     let modal = document.querySelector('#levelProgress .modal')
@@ -915,35 +980,12 @@ function openTabModal(evt, Tab) {
         document.getElementById(Tab).style.position = "relative";
         if(window.innerWidth >= 1024)
             modal.style.height = 263 + document.getElementById(Tab).offsetHeight + 'px'
-
-        setTimeout(function () {
-            let token = document.querySelectorAll( '.pop' )
-            let popovers = document.querySelectorAll( '.popover' )
-            for (let i = 0; i < token.length; i++) {
-                let el = token[i]
-                let popover = popovers[i]
-                let h = popover.getBoundingClientRect().height
-                let x = el.getBoundingClientRect().left - 92
-                let y = el.getBoundingClientRect().top - 20 - h
-                if (window.innerWidth >= 1024) {
-                    el.addEventListener( 'mouseover', function () {
-                        popover.style.opacity = '1'
-                        popover.style.visibility = 'visible'
-                        popover.style.left = x + 'px'
-                        popover.style.top = y + 'px'
-                    } )
-                    el.addEventListener( 'mouseout', function () {
-                        popover.style.cssText = ''
-                    } )
-                }
-            }
-        },350)
-
     },300)
+
+    updatePositionPopovers()
 
     if(window.innerWidth <= 1023) {
         modal.style.height = 242 + document.getElementById(Tab).offsetHeight + 'px'
-        console.log(document.getElementById(Tab).offsetHeight, 'tab')
     }
     evt.currentTarget.className += " active";
 
@@ -1133,13 +1175,6 @@ function openTabPatie(evt, Tab) {
 let defaultOpenPartieTab = document.getElementById("defaultOpenPartieTab")
 if(defaultOpenPartieTab !== null) defaultOpenPartieTab.click()
 
-
-
-
-
-
-
-
 function openTabFeed(evt, Tab) {
     var i, tabcontent, tablinks;
 
@@ -1174,6 +1209,31 @@ function openTabFeed(evt, Tab) {
         }
     },300)
     evt.currentTarget.className += " active";
+
+    // if ($('.slider.slick-initialized').length) {
+        setTimeout(function () {
+            try {
+                $('.slider').slick('unslick')
+            } catch (e) {
+
+            }
+
+            $('.slider').slick({
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                infinite: true,
+                swipeToSlide: true,
+                responsive: [
+                    {
+                        breakpoint: 1023,
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    }
+                ]
+            })
+        }, 300)
+    // }
 }
 
 
@@ -1757,9 +1817,6 @@ for(let i = 0; i < inputSearchs.length; i++) {
             searchWinBox.style.cssText = ''
         }
 
-        // inputSearch.addEventListener('blur', function () {
-        //     searchWinBox.style.cssText = ''
-        // })
 
         inputSearch.addEventListener('keyup', function () {
             if (inputSearch.value.length) {
@@ -1771,8 +1828,18 @@ for(let i = 0; i < inputSearchs.length; i++) {
             }
         })
     }
-
 }
+
+document.addEventListener('click', function (e) {
+    if (e.target.closest('.search-win') === null) {
+        let searchWinBox = document.querySelector('.search-win__box')
+
+        if (searchWinBox !== null) {
+            searchWinBox.style.opacity = '0'
+            searchWinBox.style.visibility = 'hidden'
+        }
+    }
+})
 
 
 function openTabSearch(evt, Tab) {

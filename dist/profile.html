@@ -14,7 +14,6 @@
 <!--modals-->
 <div class="feed">
     <div id="newPost" class="modal-wrapp">
-        <div onclick="closeModal(newPost)" class="modal__backdrop"></div>
         <div class="new-post modal center">
             <div class="modal__head">
                 New post
@@ -31,15 +30,14 @@
                 <div class="new-post__row">
                     <label for="photo2"></label>
                     <input id="photo2" type="file" class="feed__what-new_photo">
-                    <button class="bg-fiolet">Public post</button>
-                    <button class="followers-only-btn">Followers only</button>
+                    <button class="public-post-popup bg-fiolet">Public post</button>
                     <button class="feed__what-new_post disabled">Post</button>
                 </div>
             </div>
         </div>
+        <div onclick="closeModal(newPost)" class="modal__backdrop"></div>
     </div>
     <div id="chooseGame" class="modal-wrapp">
-        <div onclick="closeModal(chooseGame)" class="modal__backdrop"></div>
         <div class="choose-game modal center">
             <div class="modal__head">
                 <svg id="back" onclick="back(chooseGame, newPost)" class="btn-back" width="24" height="24" fill="none"
@@ -81,9 +79,9 @@
             </div>
 
         </div>
+        <div onclick="closeModal(chooseGame)" class="modal__backdrop"></div>
     </div>
     <div id="profileProgress" class="modal-wrapp">
-        <div onclick="closeModal(profileProgress)" class="modal__backdrop"></div>
         <div class="profile-progress-modal modal center">
             <div class="modal__head">
                 Partner Progress
@@ -162,9 +160,9 @@
 
             </div>
         </div>
+        <div onclick="closeModal(profileProgress)" class="modal__backdrop"></div>
     </div>
     <div id="applyPartner" class="modal-wrapp">
-        <div onclick="closeModal(applyPartner)" class="modal__backdrop"></div>
         <div class="partner modal center">
             <div class="modal__head">
                 <div onclick="closeModal(applyPartner)" class="modal__close"></div>
@@ -177,9 +175,9 @@
                 <div class="partner__about">About Partnership</div>
             </div>
         </div>
+        <div onclick="closeModal(applyPartner)" class="modal__backdrop"></div>
     </div>
     <div id="levelProgress" class="modal-wrapp">
-        <div onclick="closeModal(levelProgress)" class="modal__backdrop"></div>
         <div class="level-progress modal center">
             <div class="modal__head">
                 Level Progress
@@ -526,10 +524,10 @@
                 </div>
             </div>
         </div>
+        <div onclick="closeModal(levelProgress)" class="modal__backdrop"></div>
     </div>
     <div id="levelProgressToken" class="modal-wrapp">
-        <div onclick="closeModal(levelProgressToken)" class="modal__backdrop"></div>
-        <div class="modal center">
+        <div class="modal center overflow-hidden">
             <div class="levelProgressSlider__head-title">
                 <span>Tokens</span>
             </div>
@@ -563,9 +561,9 @@
                 </div>
             </div>
         </div>
+        <div onclick="closeModal(levelProgressToken)" class="modal__backdrop"></div>
     </div>
     <div id="levelProgressAchivements" class="modal-wrapp">
-        <div onclick="closeModal(levelProgressAchivements)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="levelProgressSlider__head-title">
                 <span>Achivements</span>
@@ -654,9 +652,9 @@
                 </div>
             </div>
         </div>
+        <div onclick="closeModal(levelProgressAchivements)" class="modal__backdrop"></div>
     </div>
     <div id="editProfile" class="modal-wrapp">
-        <div onclick="closeModal(editProfile)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 Edit Profile
@@ -685,11 +683,11 @@
                 <button class="bg-fiolet">Save</button>
             </div>
         </div>
+        <div onclick="closeModal(editProfile)" class="modal__backdrop"></div>
     </div>
 
 <!--Create parties-->
     <div id="hostPartie" class="modal-wrapp">
-        <div onclick="closeModal(hostPartie)" class="modal__backdrop"></div>
         <div class="choose-game modal center">
             <div class="modal__head">
                 Host partie
@@ -746,9 +744,21 @@
                     <div class="shortcuts__box">
                         <div class="shortcuts__box_name">Apex Legends</div>
                         <div class="shortcuts__box_btns">
-                            <div class="shortcuts__btn origin"></div>
-                            <div class="shortcuts__btn pc"></div>
-                            <div class="shortcuts__btn mic"></div>
+                            <div class="shortcuts__btn origin">
+                                <div class="tooltip">
+                                    <div class="popover__name">Platform: PC</div>
+                                </div>
+                            </div>
+                            <div class="shortcuts__btn pc">
+                                <div class="tooltip">
+                                    <div class="popover__name">Platform: PC</div>
+                                </div>
+                            </div>
+                            <div class="shortcuts__btn mic">
+                                <div class="tooltip">
+                                    <div class="popover__name">Platform: PC</div>
+                                </div>
+                            </div>
                             <button class="shortcuts__btn-limited">Limited test</button>
                         </div>
                         <div class="shortcuts__box_menu">
@@ -766,9 +776,21 @@
                     <div class="shortcuts__box">
                         <div class="shortcuts__box_name">Apex Legends</div>
                         <div class="shortcuts__box_btns">
-                            <div class="shortcuts__btn origin"></div>
-                            <div class="shortcuts__btn pc"></div>
-                            <div class="shortcuts__btn mic"></div>
+                            <div class="shortcuts__btn origin">
+                                <div class="tooltip">
+                                    <div class="popover__name">Platform: PC</div>
+                                </div>
+                            </div>
+                            <div class="shortcuts__btn pc">
+                                <div class="tooltip">
+                                    <div class="popover__name">Platform: PC</div>
+                                </div>
+                            </div>
+                            <div class="shortcuts__btn mic">
+                                <div class="tooltip">
+                                    <div class="popover__name">Platform: PC</div>
+                                </div>
+                            </div>
                             <button class="shortcuts__btn-limited">Limited test</button>
                         </div>
                     </div>
@@ -780,9 +802,9 @@
             </div>
 
         </div>
+        <div onclick="closeModal(hostPartie)" class="modal__backdrop"></div>
     </div>
     <div id="gamertags" class="modal-wrapp">
-        <div onclick="closeModal(gamertags)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <svg id="back" onclick="closeModal(gamertags)" class="btn-back" width="24" height="24" fill="none"
@@ -797,9 +819,9 @@
             <button class="origin bg-orange">GameLiveShow</button>
             <button class="ps-mobile">GameLiveShow</button>
         </div>
+        <div onclick="closeModal(gamertags)" class="modal__backdrop"></div>
     </div>
     <div id="hostPlatform" class="platforms modal-wrapp">
-        <div onclick="closeModal(hostPlatform)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <svg id="back" onclick="back(hostPlatform, hostPartie)" class="btn-back" width="24" height="24"
@@ -820,9 +842,9 @@
                 <button onclick="next(gametrag, hostPlatform)" class="host-mob">Mobile</button>
             </div>
         </div>
+        <div class="modal__backdrop" onclick="closeModal(hostPlatform)"></div>
     </div>
     <div id="addGametrag" class="platforms modal-wrapp">
-        <div onclick="closeModal(addGametrag)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <svg id="back" onclick="back(addGametrag, gametragPlatform)" class="btn-back" width="24" height="24"
@@ -841,9 +863,9 @@
                 <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Text"></textarea>
             </div>
         </div>
+        <div onclick="closeModal(addGametrag)" class="modal__backdrop"></div>
     </div>
     <div id="hostLiveShow" class="hostLiveShow modal-wrapp">
-        <div onclick="closeModal(hostLiveShow)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <svg id="back" onclick="back(hostLiveShow, gametrag)" class="btn-back" width="24" height="24"
@@ -878,8 +900,12 @@
                         <div class="epic btn-round">
                             <div class="btn-round__hover">GameLiveShow</div>
                         </div>
-                        <div class="pc btn-round"></div>
-                        <div class="mic btn-round"></div>
+                        <div class="pc btn-round">
+                            <div class="btn-round__hover">GameLiveShow</div>
+                        </div>
+                        <div class="mic btn-round">
+                            <div class="btn-round__hover">GameLiveShow</div>
+                        </div>
                         <div class="other btn-round">
                             <div class="other__counter">2</div>
                         </div>
@@ -898,9 +924,9 @@
                 </div>
             </div>
         </div>
+        <div onclick="closeModal(hostLiveShow)" class="modal__backdrop"></div>
     </div>
     <div id="additionalSettings" class="modal-wrapp">
-        <div onclick="closeModal(additionalSettings)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <svg id="back" onclick="back(additionalSettings, hostLiveShow)" class="btn-back" width="24" height="24"
@@ -939,9 +965,9 @@
                 </div>
             </div>
         </div>
+        <div onclick="closeModal(additionalSettings)" class="modal__backdrop"></div>
     </div>
     <div id="selectGame" class="modal-wrapp">
-        <div onclick="closeModal(selectGame)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <svg id="back" onclick="back(selectGame, additionalSettings)" class="btn-back" width="24" height="24"
@@ -967,9 +993,9 @@
                 <label for="public" class="selectGame__btn">Public</label>
             </div>
         </div>
+        <div onclick="closeModal(selectGame)" class="modal__backdrop"></div>
     </div>
     <div id="preferencesModal" class="modal-wrapp">
-        <div onclick="closeModal(preferencesModal)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 Preferences
@@ -1001,11 +1027,11 @@
                 </div>
             </div>
         </div>
+        <div onclick="closeModal(preferencesModal)" class="modal__backdrop"></div>
     </div>
 
 <!--Active partie-->
     <div id="inviteFriends" class="inviteFriends modal-wrapp">
-        <div onclick="closeModal(inviteFriends)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div onclick="closeModal(inviteFriends)" class="modal__close"></div>
@@ -1103,9 +1129,9 @@
 
             </div>
         </div>
+        <div onclick="closeModal(inviteFriends)" class="modal__backdrop"></div>
     </div>
     <div id="removeUser" class="removeUser modal-wrapp">
-        <div onclick="closeModal(removeUser)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div onclick="closeModal(removeUser)" class="modal__close"></div>
@@ -1134,9 +1160,9 @@
                 <button>Remove User</button>
             </div>
         </div>
+        <div onclick="closeModal(removeUser)" class="modal__backdrop"></div>
     </div>
     <div id="titleModal" class="titleModal modal-wrapp">
-        <div onclick="closeModal(titleModal)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div onclick="next(editPartie, titleModal)" class="btn-edit">Edit</div>
@@ -1181,7 +1207,8 @@
                 </div>
                 <div class="titleModal__text">
                     <div class="titleModal__text_text">
-                        You hate to play with people who never played the game before?
+                        <textarea oninput="auto_grow(this)"
+                                  maxlength="500">You hate to play with people who never played the game before?</textarea>
                     </div>
                     <div class="titleModal__text_btns">
                         <div class="round-btn xbox"></div>
@@ -1209,9 +1236,9 @@
 
             </div>
         </div>
+        <div onclick="closeModal(titleModal)" class="modal__backdrop"></div>
     </div>
     <div id="editPartie" class="hostLiveShow modal-wrapp">
-        <div onclick="closeModal(editPartie)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 Edit partie
@@ -1225,7 +1252,7 @@
                 </button>
                 <div class="platform__title">Partie name</div>
                 <input type="text" placeholder="Add name">
-                <input type="text" placeholder="Add description">
+                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add description"></textarea>
                 <div class="hostLiveShow__img">
                     <img src="img/pic/Image (2).png"/>
                     <div class="delete-img"></div>
@@ -1240,8 +1267,12 @@
                         <div class="epic btn-round">
                             <div class="btn-round__hover">GameLiveShow</div>
                         </div>
-                        <div class="pc btn-round"></div>
-                        <div class="mic btn-round"></div>
+                        <div class="pc btn-round">
+                            <div class="btn-round__hover">GameLiveShow</div>
+                        </div>
+                        <div class="mic btn-round">
+                            <div class="btn-round__hover">GameLiveShow</div>
+                        </div>
                         <div class="other btn-round">
                             <div class="other__counter">2</div>
                         </div>
@@ -1280,9 +1311,9 @@
                 </div>
             </div>
         </div>
+        <div onclick="closeModal(editPartie)" class="modal__backdrop"></div>
     </div>
     <div id="titleModalStart" class="titleModal modal-wrapp">
-        <div onclick="closeModal(titleModalStart)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div onclick="next(editPartie, titleModalStart)" class="btn-edit">Edit</div>
@@ -1309,7 +1340,8 @@
                 </div>
                 <div class="titleModal__text">
                     <div class="titleModal__text_text">
-                        You hate to play with people who never played the game before?
+                        <textarea oninput="auto_grow(this)"
+                                  maxlength="500">You hate to play with people who never played the game before?</textarea>
                     </div>
                     <div class="titleModal__text_btns">
                         <div class="round-btn xbox"></div>
@@ -1317,7 +1349,7 @@
                         <div class="ranked-btn">Ranked</div>
                     </div>
                 </div>
-                <div class="titleModal__active requests">
+                <div class="titleModal__active requests mobile">
                     <div class="requests__title">Requests (1)</div>
                     <div class="user">
                         <div class="avatar"></div>
@@ -1325,7 +1357,7 @@
                             <div class="user__name">GameLiveShow</div>
                             <div class="user__level">54 level</div>
                         </div>
-                        <button>Accept</button>
+                        <button >Accept</button>
                     </div>
                 </div>
                 <div class="titleModal__active">
@@ -1349,9 +1381,9 @@
 
             </div>
         </div>
+        <div onclick="closeModal(titleModalStart)" class="modal__backdrop"></div>
     </div>
     <div id="partieReport" class="removeUser modal-wrapp">
-        <div onclick="closeModal(partieReport)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div onclick="closeModal(partieReport)" class="modal__close"></div>
@@ -1379,9 +1411,9 @@
                 <button onclick="reportSubmitted()" disabled class="disabled">Send report</button>
             </div>
         </div>
+        <div onclick="closeModal(partieReport)" class="modal__backdrop"></div>
     </div>
     <div id="ratingPartie" class="ratingPartie modal-wrapp">
-        <div onclick="closeModal(ratingPartie)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__content">
                 <div class="avatar"></div>
@@ -1522,11 +1554,11 @@
                 </div>
             </div>
         </div>
+        <div onclick="closeModal(ratingPartie)" class="modal__backdrop"></div>
     </div>
 
 <!--Chats-->
     <div id="newChat" class="inviteFriends modal-wrapp">
-        <div onclick="closeModal(newChat)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div onclick="closeModal(newChat)" class="modal__close"></div>
@@ -1624,9 +1656,9 @@
 
             </div>
         </div>
+        <div onclick="closeModal(newChat)" class="modal__backdrop"></div>
     </div>
     <div id="chatHead" class="titleModal modal-wrapp">
-        <div onclick="closeModal(chatHead)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div onclick="next(editChat, chatHead)" class="btn-edit">Edit</div>
@@ -1686,9 +1718,9 @@
 
             </div>
         </div>
+        <div onclick="closeModal(chatHead)" class="modal__backdrop"></div>
     </div>
     <div id="editChat" class="titleModal modal-wrapp">
-        <div onclick="closeModal(editChat)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div class="modal__head-title">Edit chat</div>
@@ -1712,9 +1744,9 @@
                 <button class="bg-fiolet">Save</button>
             </div>
         </div>
+        <div onclick="closeModal(editChat)" class="modal__backdrop"></div>
     </div>
     <div id="leaveChat" class="leaveChat modal-wrapp">
-        <div onclick="closeModal(leaveChat)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__content">
                 <div class="leaveChat__text">
@@ -1727,11 +1759,11 @@
                 </div>
             </div>
         </div>
+        <div onclick="closeModal(leaveChat)" class="modal__backdrop"></div>
     </div>
 
 <!--Settings-->
     <div id="inviteFriendsSetting" class="modal-wrapp">
-        <div onclick="closeModal(inviteFriendsSetting)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <div onclick="closeModal(inviteFriendsSetting)" class="modal__close"></div>
@@ -1753,9 +1785,9 @@
                 </div>
             </div>
         </div>
+        <div onclick="closeModal(inviteFriendsSetting)" class="modal__backdrop"></div>
     </div>
     <div id="deleteAccount" class="leaveChat modal-wrapp">
-        <div onclick="closeModal(deleteAccount)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__content">
                 <div class="leaveChat__text">
@@ -1768,9 +1800,9 @@
                 </div>
             </div>
         </div>
+        <div onclick="closeModal(deleteAccount)" class="modal__backdrop"></div>
     </div>
     <div id="changePaymentMethod" class="modal-wrapp">
-        <div onclick="closeModal(changePaymentMethod)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 <svg id="back" onclick="closeModal(changePaymentMethod)" class="btn-back mobile" width="24" height="24"
@@ -1840,9 +1872,9 @@
                 <button class="bg-fiolet">Yes, cancel my subscription</button>
             </div>
         </div>
+        <div onclick="closeModal(changePaymentMethod)" class="modal__backdrop"></div>
     </div>
     <div id="addCreditCardSetting" class="modal-wrapp">
-        <div onclick="closeModal(addCreditCardSetting)" class="modal__backdrop"></div>
         <div class="add-credit-card center modal">
             <div class="modal__head">
                 <svg id="back" onclick="closeModal(addCreditCardSetting)" class="btn-back mobile" width="24" height="24"
@@ -1869,9 +1901,9 @@
                 End-User License Agreement and Privacy Policy.
             </div>
         </div>
+        <div onclick="closeModal(addCreditCardSetting)" class="modal__backdrop"></div>
     </div>
     <div id="unfollow" class="leaveChat modal-wrapp">
-        <div onclick="closeModal(unfollow)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__content">
                 <div class="leaveChat__text">
@@ -1884,9 +1916,9 @@
                 </div>
             </div>
         </div>
+        <div onclick="closeModal(unfollow)" class="modal__backdrop"></div>
     </div>
     <div id="settingsPlatforms" class="platforms modal-wrapp">
-        <div onclick="closeModal(settingsPlatforms)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 Platforms
@@ -1911,10 +1943,10 @@
                 <label for="settingsPlatformMobile" onclick="closeModal(settingsPlatforms)" class="btn host-mob">Mobile</label>
             </div>
         </div>
+        <div onclick="closeModal(settingsPlatforms)" class="modal__backdrop"></div>
     </div>
 
     <div id="share" class="modal-wrapp">
-        <div onclick="closeModal(share)" class="modal__backdrop"></div>
         <div class="modal center">
             <div class="modal__head">
                 Share
@@ -1953,6 +1985,7 @@
                 </div>
             </div>
         </div>
+        <div onclick="closeModal(share)" class="modal__backdrop"></div>
     </div>
 
 
