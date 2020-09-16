@@ -81,6 +81,11 @@
             align-items: center;
             margin-bottom: 20px;
 
+            > * {
+                position: relative;
+                z-index: 1;
+            }
+
             .round-btn {
                 height: 32px;
                 width: 32px;
@@ -159,6 +164,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            > * {
+                position: relative;
+                z-index: 1;
+            }
 
             button {
                 width: 77px;
@@ -559,18 +569,15 @@
 
     .new-active-partie__message {
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         margin-top: 28px;
 
         .avatar {
             margin-right: 15px;
         }
 
-        input {
-            border: 0;
-            border-radius: 0;
-            padding: 0;
-            height: auto;
+        textarea {
+            width: 100%;
         }
     }
 }

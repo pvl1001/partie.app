@@ -93,6 +93,11 @@ textarea {
 
 textarea {
     resize: none;
+    //&::-webkit-scrollbar { width: 0; }
+    //-ms-overflow-style: none;
+    //overflow: -moz-scrollbars-none;
+    //min-height: 35px;
+    //margin-bottom: -10px;
 }
 
 input::-ms-clear {
@@ -829,6 +834,11 @@ textarea {
         align-items: center;
         margin-bottom: 20px;
 
+        > * {
+            position: relative;
+            z-index: 1;
+        }
+
         .round-btn {
             height: 32px;
             width: 32px;
@@ -907,6 +917,11 @@ textarea {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        > * {
+            position: relative;
+            z-index: 1;
+        }
 
         button {
             width: 77px;
@@ -993,6 +1008,7 @@ textarea {
     position: relative;
     align-items: center;
     margin-right: 20px;
+    z-index: 1;
 
     label {
         display: flex;
@@ -1020,6 +1036,8 @@ textarea {
     display: flex;
     align-items: center;
     cursor: pointer;
+    position: relative;
+    z-index: 1;
 
     &:hover svg path {
         opacity: .9;
@@ -1046,9 +1064,13 @@ textarea {
     opacity: 0.5;
     margin-right: 8px;
     transition: .2s;
+    position: relative;
+    z-index: 1;
 }
 
 .share {
+    position: relative;
+    z-index: 1;
     cursor: pointer;
 
     &:hover path {

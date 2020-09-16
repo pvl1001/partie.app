@@ -419,8 +419,23 @@ if (feedPostImg !== null) {
 }
 
 
-function auto_grow(element) {
-    element.style.height = (element.scrollHeight)+"px";
+// function auto_grow(element) {
+//     // element.style.overflow = 'scroll'
+//     element.style.height = (element.scrollHeight) + 'px';
+//     if(element.value.length === 0) element.style.height = ''
+//     console.log(element.value.length)
+// }
+
+
+const tx = document.getElementsByTagName('textarea');
+for (let i = 0; i < tx.length; i++) {
+    tx[i].setAttribute('style', 'height:' + (tx[i].scrollHeight) + 'px;overflow-y:hidden;');
+    tx[i].addEventListener("input", OnInput, false);
+}
+
+function OnInput() {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
 }
 
 if (window.innerWidth <= 1023) {

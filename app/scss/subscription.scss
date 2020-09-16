@@ -73,7 +73,7 @@
 
             input[type=radio]:checked + label {
                 color: #000000 !important;
-                background: #D2C867 url('../img/icon/ok-black.png') 25px center no-repeat;
+                background: #D2C867 url('../img/icon/ok-black.svg') 25px center no-repeat;
                 transition: 0s background;
 
                 .checkbox-round {
@@ -296,7 +296,7 @@
 
                 input[type=radio]:checked + label {
                     color: #000000 !important;
-                    background: #D2C867 url('../img/icon/ok-black.png') 25px center no-repeat;
+                    background: #D2C867 url('../img/icon/ok-black.svg') 25px center no-repeat;
                     transition: 0s background;
 
                     .checkbox-round {

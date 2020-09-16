@@ -53,7 +53,7 @@ if (feedWhatNew !== null) {
     } )
 
     window.addEventListener( 'click', function (e) {
-        if (!feedWhatNewHead.parentNode.contains( e.target )) {
+        if (!feedWhatNewHead.parentNode.contains( e.target ) && !feedWhatNewHead.children[0].value.length) {
             textSelect.style.right = ''
             feedWhatNewRow.style.cssText = ''
             photo1.style.cssText = ''

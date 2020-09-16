@@ -347,16 +347,23 @@
     }
 
     .feed__col2 {
+        padding-top: 66px;
         .feed__header {
             height: 60px;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 6px;
-            position: sticky;
+            position: fixed;
             top: 0;
             background-color: #000;
             z-index: 11;
+            width: 680px;
+
+            @media (min-width: 1024px) and (max-width: 1300px) {
+                width: 480px;
+
+            }
 
 
             .feed__header_params {
@@ -518,6 +525,7 @@
             margin-bottom: 20px;
             display: block;
             transition: .2s;
+            position: relative;
 
             &:hover {
                 background: rgba(20, 19, 26, 1);
@@ -525,6 +533,8 @@
 
             .feed__header_menu {
                 background: url('../img/icon/dotted-post.png') center / 14px no-repeat;
+                position: relative;
+                z-index: 1;
             }
 
             .feed__post_head {
@@ -536,6 +546,8 @@
                 .user__content {
                     display: flex;
                     align-items: center;
+                    position: relative;
+                    z-index: 1;
 
                     .avatar {
                         margin-right: 15px;
@@ -589,6 +601,15 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+            }
+
+            .feed__post_link {
+                position: absolute;
+                z-index: 0;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
             }
 
             input[type=checkbox] {

@@ -78,7 +78,7 @@ function openTabModal(evt, Tab) {
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.position = "fixed";
         if(window.innerWidth >= 1024) {
-            tabcontent[i].style.width = "464px"
+            tabcontent[i].style.width = "424px"
             modal.style.height = 263 + tabcontent[i].offsetHeight + 'px'
         }
         if(window.innerWidth <= 1023) {

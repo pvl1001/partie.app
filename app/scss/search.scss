@@ -307,6 +307,11 @@
             align-items: center;
             margin-bottom: 20px;
 
+            > * {
+                position: relative;
+                z-index: 1;
+            }
+
             .round-btn {
                 height: 32px;
                 width: 32px;
@@ -369,6 +374,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            > * {
+                position: relative;
+                z-index: 1;
+            }
 
             button {
                 width: 77px;
