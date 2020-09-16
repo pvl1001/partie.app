@@ -135,12 +135,8 @@ function openFoll(evt, Tab) {
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.position = "fixed";
-
         if(window.innerWidth <= 1023) {
-            tabcontent[i].style.transition = "opacity .4s, transform .4s";
-            tabcontent[i].style.opacity = "0";
-            tabcontent[i].style.transform = "scale(.95)";
-            tabcontent[i].style.height = "0";
+            tabcontent[i].style.width = window.innerWidth - 40 + 'px'
         }
     }
 
@@ -155,9 +151,6 @@ function openFoll(evt, Tab) {
         document.getElementById(Tab).style.opacity = "1";
         document.getElementById(Tab).style.transform = "scale(1)";
         document.getElementById(Tab).style.position = "relative";
-        if(window.innerWidth <=1023) {
-            document.getElementById(Tab).style.height = "100%";
-        }
     },300)
     evt.currentTarget.className += " active";
 }
