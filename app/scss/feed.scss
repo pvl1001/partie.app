@@ -1534,6 +1534,6 @@
 
 @supports (-webkit-touch-callout: none) { // iOS
     .feed__col2 {
-        padding-bottom: 83px;
+        padding-bottom: 83px !important;
     }
 }
