@@ -655,7 +655,7 @@
     .feed__col3 {
         right: 0;
         padding: 0 20px 0 0;
-        //overflow: hidden;
+        overflow-y: auto;
 
         > div {
             transition: .5s ease;
