@@ -274,6 +274,10 @@
 
         &::placeholder {
             line-height: 40px;
+
+            @supports (-webkit-touch-callout: none) {
+                line-height: 40px;
+            }
         }
     }
 
@@ -802,6 +806,10 @@
                 &::placeholder {
                     line-height: 20px;
                     opacity: .3;
+
+                    @supports (-webkit-touch-callout: none) {
+                        line-height: 20px;
+                    }
                 }
             }
 
@@ -1339,6 +1347,10 @@
 
             &::placeholder {
                 line-height: 40px;
+
+                @supports (-webkit-touch-callout: none) {
+                    line-height: 40px;
+                }
             }
         }
     }
