@@ -1,8 +1,11 @@
+let col2 = document.querySelector('.col2-settings-wrapp')
+
 function openSetting(evt, cityName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName( "tabcontent-setting" );
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
+        col2.style.opacity = '0'
     }
     tablinks = document.getElementsByClassName( "tablinks-setting" );
     for (i = 0; i < tablinks.length; i++) {
