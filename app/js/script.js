@@ -358,6 +358,7 @@ if(shortcuts !== null) {
                 if (window.innerWidth >= 1024) bgClick.style.opacity = '1'
             } else shortcutsDown()
         } else {
+            hostPartie.children[0].style.overflow = 'hidden'
             shortcuts.style.bottom = '0'
             btnUp.style.transform = 'rotateX(190deg)'
             bgClick.style.zIndex = '1'
@@ -368,6 +369,7 @@ if(shortcuts !== null) {
         shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
         btnUp.style.transform = ''
         bgClick.style.cssText = ''
+        hostPartie.children[0].style.overflow = ''
     }
 }
 
