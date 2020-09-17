@@ -2,23 +2,23 @@
 #feed {
     min-height: 100%;
 }
-
-#feed .feed__col2,
-#partie .feed__col2,
-.feed.post .feed__col2 {
-    padding-top: 66px;
-
-    .feed__header {
-        position: fixed;
-        top: 0;
-    }
-}
+//
+//#feed .feed__col2,
+//#partie .feed__col2,
+//.feed.post .feed__col2 {
+//    padding-top: 66px;
+//
+//    .feed__header {
+//        position: fixed;
+//        top: 0;
+//    }
+//}
 
 .feed {
     width: 100%;
     background-color: #000;
     display: flex;
-    overflow: hidden;
+    //overflow: hidden;
     //overflow: auto;
 
     /* хром, сафари */
@@ -242,8 +242,8 @@
 
     .feed__col1,
     .feed__col3 {
-        width: 336px;
-        min-width: 336px;
+        width: 260px;
+        min-width: 260px;
         position: fixed;
         z-index: 10;
 
@@ -372,7 +372,7 @@
             top: 0;
             background-color: #000;
             z-index: 11;
-            width: 680px;
+            //width: 680px;
 
             @media (min-width: 1024px) and (max-width: 1300px) {
                 width: 480px;
@@ -654,7 +654,7 @@
 
     .feed__col3 {
         right: 0;
-        padding: 0 20px 0 56px;
+        padding: 0 20px 0 0;
         overflow: hidden;
 
         > div {
@@ -783,6 +783,7 @@
 
             @media (max-width: 1023px) {
                 margin-bottom: 0;
+                align-items: flex-end;
             }
 
             .avatar {

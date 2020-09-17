@@ -54,6 +54,10 @@
                 align-items: center;
                 font-weight: bold;
 
+                .notifications__text {
+                    width: calc(100% - 150px);
+                }
+
                 .avatar {
                     width: 50px;
                     min-width: 50px;
@@ -179,7 +183,7 @@
        }
 
         .notifications__content.follow-requests {
-            z-index: 1;
+            z-index: 2;
         }
     }
 }

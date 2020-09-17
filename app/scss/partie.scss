@@ -1,5 +1,23 @@
 #partie {
     min-height: 100%;
+    overflow: hidden;
+
+    .feed__col2 {
+        padding-top: 66px;
+
+        .feed__header {
+            position: fixed;
+            width: 680px;
+
+            @media (max-width: 1299px) {
+                width: 480px;
+            }
+
+            @media (max-width: 1023px) {
+                width: 100%;
+            }
+        }
+    }
 
     .feed__header_post {
         background-color: #6E4AFF;
@@ -591,6 +609,7 @@
             font-size: 13px;
             opacity: 0.5;
             margin-bottom: 20px;
+            transition: .3s;
         }
 
         .feed__friend {

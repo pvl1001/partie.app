@@ -2,23 +2,19 @@ function hiddenPeople() {
     let people = document.querySelector( '.feed__col3 > div' )
     let feedHeader = document.querySelector( '.feed__col3 .feed__header' )
     let peopleBtn = document.querySelector( '.feed__people-btn' )
+    let feedRequestTitle = document.querySelector( '.feed__request_title' )
 
     if (people.style.transform !== '') {
         people.style.transform = ''
         feedHeader.style.opacity = ''
         peopleBtn.style.transform = ''
+        if(feedRequestTitle) feedRequestTitle.style.transform = ''
+
     } else {
-        if (window.innerWidth <= 1300) { // mobile
-            people.style.transform = 'translateX(140px)'
-            feedHeader.style.opacity = '0'
-            peopleBtn.style.transform = 'rotateY(180deg)'
-        } else {
-            people.style.transform = 'translateX(220px)'
-            feedHeader.style.opacity = '0'
-            peopleBtn.style.transform = 'rotateY(180deg)'
-        }
-
-
+        if(feedRequestTitle) feedRequestTitle.style.transform = 'translateX(-25px)'
+        people.style.transform = 'translateX(196px)'
+        feedHeader.style.opacity = '0'
+        peopleBtn.style.transform = 'rotateY(180deg)'
     }
 }
 
@@ -82,7 +78,7 @@ function isNewComment() {
     let newCommentPeoples = document.querySelectorAll( '.comments__new-comment_people' )
     let newComments = document.querySelectorAll( '.newComment' )
     let newCommentBtns = document.querySelectorAll( '.newCommentBtn' )
-    for (let i = 0; i < newCommentPeoples.length; i++ ) {
+    for (let i = 0; i < newCommentPeoples.length; i++) {
         let newCommentPeople = newCommentPeoples[i]
         let newComment = newComments[i]
         let newCommentBtn = newCommentBtns[i]
@@ -99,7 +95,7 @@ function isNewComment() {
             newCommentPeople.style.display = ''
         }
 
-        if(window.innerWidth < 1300) {
+        if (window.innerWidth < 1300) {
             newCommentBtn.innerHTML = ''
         }
     }
@@ -125,8 +121,6 @@ for (let i = 0; i < replyBtns.length; i++) {
         }
     }
 }
-
-
 
 
 let partieTab = document.querySelector( '.feed__col2.partie-tab' )
@@ -156,7 +150,7 @@ function clickTab(open, close) {
     }, 100 )
 
     try {
-        $('.slider').slick('unslick')
+        $( '.slider' ).slick( 'unslick' )
     } catch (e) {
 
     }
@@ -250,32 +244,32 @@ if (publicPostPopup !== null)
     }
 
 
-let comments = document.querySelectorAll('.comments > .comments__comment')
-let btnComments = document.querySelectorAll('.comments__show-more')
+let comments = document.querySelectorAll( '.comments > .comments__comment' )
+let btnComments = document.querySelectorAll( '.comments__show-more' )
 
 
 for (let i = 0; i < comments.length; i++) {
     let comment = comments[i]
     let btnComment = btnComments[i]
 
-    let replyBoxs = comment.querySelectorAll('.reply-box')
-    for(let replyBox of replyBoxs) {
-        replyBox.style.opacity= '0'
-        replyBox.style.height= '0'
-        replyBox.style.overflow= 'hidden'
+    let replyBoxs = comment.querySelectorAll( '.reply-box' )
+    for (let replyBox of replyBoxs) {
+        replyBox.style.opacity = '0'
+        replyBox.style.height = '0'
+        replyBox.style.overflow = 'hidden'
         replyBoxs[0].style.cssText = ''
     }
 
     btnComment.onclick = function () {
         this.style.display = 'none'
-        for(let replyBox of replyBoxs)
+        for (let replyBox of replyBoxs)
             replyBox.style.cssText = ''
     }
 }
 
 // newCommentBtn
 
-if(window.innerWidth < 1300) {
+if (window.innerWidth < 1300) {
 
 }
 
