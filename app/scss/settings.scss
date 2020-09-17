@@ -852,9 +852,6 @@
             padding: 0;
 
             .col2-settings {
-               .col2-settings-wrapp {
-                   z-index: -1;
-               }
 
                 .feed__col3 {
                     display: block !important;
@@ -867,10 +864,6 @@
                     background-color: #000;
                     padding: 0 20px;
                     transition: .5s;
-
-                    .feed__col3 > div {
-                        z-index: 5;
-                    }
 
 
                     .delete-account__wrapp {
@@ -1063,8 +1056,8 @@
     #Notifications,
     .email-notifications-page,
     #PrivacySafety {
-        overflow-x: hidden;
-        overflow-y: auto;
+        //overflow-x: hidden;
+        //overflow-y: auto;
     }
 
     .account-wrapp,
