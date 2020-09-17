@@ -852,6 +852,7 @@
             padding: 0;
 
             .col2-settings {
+                z-index: 0;
 
                 .feed__col3 {
                     display: block !important;
@@ -933,6 +934,11 @@
 
             }
         }
+    }
+
+    .col2-settings .col2-settings-wrapp {
+        border-left: 0;
+        border-right: 0;
     }
 
     #addCreditCardSetting {
