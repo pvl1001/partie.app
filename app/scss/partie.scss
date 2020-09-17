@@ -779,13 +779,22 @@
     }
 }
 
+
 .removeUser {
     //top: 0;
+
+    .removeUser__title.mobile {
+        display: none;
+    }
 
     .removeUser__title {
         font-size: 13px;
         opacity: 0.5;
         margin-bottom: 18px;
+
+        @media (max-width: 1023px) {
+            display: none;
+        }
     }
 
     input[type=radio] {
@@ -1466,6 +1475,10 @@
 }
 
 @media (max-width: 1023px) { // mobile
+
+    .removeUser__title.mobile {
+        display: block !important;
+    }
 
     #partie .feed__col2 {
         padding-top: 127px;

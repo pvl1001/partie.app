@@ -307,6 +307,14 @@ function closeModal(modal) {
 }
 
 
+function backPartieReport(close) {
+    if(window.innerWidth <=1024) {
+        closeModal(close)
+        document.querySelector('.feed__header_menu').click()
+    }
+}
+
+
 
 
 
@@ -330,9 +338,12 @@ if (window.innerWidth >=1024) {
 
 
 let arrHeaderMenu = document.querySelectorAll('.header__menu_menu')
+
 for(let headerMenu of  arrHeaderMenu) {
+    let links = headerMenu.querySelectorAll('a')
+    for(let link of links)
     window.addEventListener('click', function (e) {
-        if(e.target === headerMenu.children[0]) {
+        if(e.target === headerMenu.children[0] || e.target === link ) {
             headerMenu.style.cssText = ''
             headerMenu.parentNode.style.cssText = ''
         }
