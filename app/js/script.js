@@ -564,3 +564,4 @@ function changeBtnPublic(el) {
 @@include( 'notifications.js' )
 @@include( 'jquery.mask.js' )
 @@include( 'swipeMobile.js' )
+@@include( 'jquery.touchSwipe.min.js' )
