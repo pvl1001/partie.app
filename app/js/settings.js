@@ -18,7 +18,6 @@ function openSetting(evt, cityName) {
 
 
 
-let Preferences = document.querySelector( '#Preferences' )
 let subscriptionManage = document.querySelector( '.settings .subscription__manage' )
 let mutedAccountsPage = document.querySelector( '.settings .muted-accounts-page' )
 let blockedAccountsPage = document.querySelector( '.settings .blocked-accounts-page' )
