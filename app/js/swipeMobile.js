@@ -55,9 +55,6 @@ if(window.innerWidth <= 1023) {
         xDown = null;
         yDown = null;
     }
-
-
-
 }
 
 

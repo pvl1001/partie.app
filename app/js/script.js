@@ -352,13 +352,13 @@ if(shortcuts !== null) {
         if (window.innerWidth >= 1024) {
             onShortcuts = !onShortcuts
             if(onShortcuts) {
-                shortcuts.style.bottom = '5px'
+                shortcuts.style.bottom = '0'
                 btnUp.style.transform = 'rotateX(190deg)'
                 bgClick.style.zIndex = '1'
                 if (window.innerWidth >= 1024) bgClick.style.opacity = '1'
             } else shortcutsDown()
         } else {
-            shortcuts.style.bottom = '5px'
+            shortcuts.style.bottom = '0'
             btnUp.style.transform = 'rotateX(190deg)'
             bgClick.style.zIndex = '1'
             if (window.innerWidth >= 1024) bgClick.style.opacity = '1'
