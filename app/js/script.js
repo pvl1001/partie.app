@@ -257,6 +257,8 @@ function back(close, open) {
 }
 
 function openModal(modal) { // modal
+    body.style.overflow = 'hidden'
+
     if (window.innerWidth > 1023) { //pc
         modal.style.opacity = '1'
         modal.style.zIndex = '13'
@@ -289,6 +291,7 @@ function closeModal(modal) {
         }
     }
 
+    body.style.overflow = ''
     modal.style.cssText = ''
     modal.children[0].style.cssText = ''
     if (headerLogo !== null) headerLogo.style.zIndex = ''
@@ -346,13 +349,20 @@ if(shortcuts !== null) {
     shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
 
     function shortcutsUp() {
-        onShortcuts = !onShortcuts
-        if(onShortcuts) {
+        if (window.innerWidth >= 1024) {
+            onShortcuts = !onShortcuts
+            if(onShortcuts) {
+                shortcuts.style.bottom = '5px'
+                btnUp.style.transform = 'rotateX(190deg)'
+                bgClick.style.zIndex = '1'
+                if (window.innerWidth >= 1024) bgClick.style.opacity = '1'
+            } else shortcutsDown()
+        } else {
             shortcuts.style.bottom = '5px'
             btnUp.style.transform = 'rotateX(190deg)'
             bgClick.style.zIndex = '1'
             if (window.innerWidth >= 1024) bgClick.style.opacity = '1'
-        } else shortcutsDown()
+        }
     }
     function shortcutsDown() {
         shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
@@ -434,7 +444,9 @@ for (let i = 0; i < tx.length; i++) {
 }
 
 function OnInput() {
-    this.style.height = 'auto';
+    this.style.transitionDelay = '0s';
+    this.style.transition = '0s';
+    this.style.height = '25px';
     this.style.height = (this.scrollHeight) + 'px';
 }
 

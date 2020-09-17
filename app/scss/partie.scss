@@ -216,7 +216,7 @@
         background-color: #000;
         width: 680px;
         transition: .5s;
-        z-index: 9;
+        z-index: 11;
 
         @media (max-width: 1300px) {
             width: 480px;
@@ -1493,6 +1493,7 @@
 
     #partie__id .creat-partie .creat-partie__img {
         width: 126px;
+        min-width: 126px;
     }
 
 

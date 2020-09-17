@@ -1,6 +1,10 @@
 #profile {
     min-height: 100%;
 
+    .profile-col2 {
+        padding-top: 0;
+    }
+
     .feed__header_params {
         font-weight: bold;
         font-size: 17px;
@@ -877,16 +881,16 @@
         height: auto;
         padding-top: 40px;
 
-        &:before {
-            content: '';
-            position: absolute;
-            height: 6px;
-            width: 36px;
-            top: 7px;
-            left: calc(50% - 18px);
-            background-color: #2B2A33;
-            border-radius: 20px;
-        }
+        //&:before {
+        //    content: '';
+        //    position: absolute;
+        //    height: 6px;
+        //    width: 36px;
+        //    top: 7px;
+        //    left: calc(50% - 18px);
+        //    background-color: #2B2A33;
+        //    border-radius: 20px;
+        //}
 
         .modal__head {
             display: none;
@@ -1554,6 +1558,10 @@
     #levelProgressAchivements {
         //z-index: 14;
         //opacity: 1;
+
+        .modal__backdrop {
+            background-color: transparent;
+        }
 
         .modal {
             background-color: rgba(40, 26, 92, .89);

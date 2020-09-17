@@ -236,62 +236,35 @@ for (let i = 0; i < arrPostFooterBtn.length; i++) {
 
 let arrShortcutsBox = document.querySelectorAll('.shortcuts__box')
 let box = document.querySelector('.shortcuts__box_menu')
-for(let shortcutsBox of arrShortcutsBox) {
+for(let i = 0; i < arrShortcutsBox.length; i++ ) {
+    let shortcutsBox = arrShortcutsBox[i]
+
     if(shortcutsBox !== null && window.innerWidth >= 1024)
         shortcutsBox.onclick = function (e) {
-        if(e.target === shortcutsBox) {
+        if(e.target === shortcutsBox ) {
             box.style.top = e.pageY + 'px'
             box.style.left = e.pageX + 'px'
             box.style.display= 'block'
         }
         else box.style.display= ''
     }
-    if (window.innerWidth <= 1023) {
-        var longpress = false;
-        var presstimer = null;
-
-        var cancel = function(e) {
-            if (presstimer !== null) {
-                clearTimeout(presstimer)
-                presstimer = null
-            }
+    if(shortcutsBox !== null && window.innerWidth <= 1023) {
+        let closeBox = document.querySelector('.shortcuts__box .close-place')
+        let closeTap = document.querySelector('.shortcuts__box .close-tap')
+        shortcutsBox.onclick = function (e) {
+            box.style.opacity= '1'
+            box.style.visibility= 'visible'
+            box.style.bottom= '0'
         }
-        var click = function(e) {
-            let closePlace = document.querySelector('.close-place')
-            let span = document.querySelectorAll('.menu-wrapper span')
-            if (e.target === closePlace || e.target === span[0] || e.target === span[1]) box.style.display= ''
-
-            if (presstimer !== null) {
-                clearTimeout(presstimer)
-                presstimer = null
-            }
-            if (longpress) {
-                return false
-            }
+        closeBox.onclick = function(e) {
+            setTimeout(function () {box.style.cssText= ''})
         }
-        var start = function(e) {
-            if (e.type === "click" && e.button !== 0) {
-                return
-            }
-            longpress = false
-            presstimer = setTimeout(function() {
-                box.style.top = e.pageY + 'px'
-                box.style.left = e.pageX + 'px'
-                box.style.display= 'block'
-                longpress = true
-            }, 1000)
-
-            return false
+        closeTap.onclick = function() {
+            setTimeout(function () {box.style.cssText= ''})
         }
-
-        shortcutsBox.addEventListener("mousedown", start);
-        shortcutsBox.addEventListener("touchstart", start);
-        shortcutsBox.addEventListener("click", click);
-        shortcutsBox.addEventListener("mouseout", cancel);
-        shortcutsBox.addEventListener("touchend", cancel);
-        shortcutsBox.addEventListener("touchleave", cancel);
-        shortcutsBox.addEventListener("touchcancel", cancel);
     }
+
+
 }
 
 let tools = document.querySelectorAll('.round-btn.tool')

@@ -12,7 +12,7 @@
                     Apex Legends
                 </button>
 
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="What’s new?"></textarea>
+                <textarea maxlength="500" placeholder="What’s new?"></textarea>
                 <div class="new-post__row">
                     <label for="photo2"></label>
                     <input id="photo2" type="file" class="feed__what-new_photo">
@@ -145,11 +145,12 @@
                 </div>
 
             </div>
+            <div onclick="closeModal(profileProgress)" class="close-tap mobile"></div>
         </div>
-        <div onclick="closeModal(profileProgress)" class="modal__backdrop"></div>
     </div>
     <div id="applyPartner" class="modal-wrapp">
         <div class="partner modal center">
+            <div onclick="closeModal(applyPartner)" class="close-tap mobile"></div>
             <div class="modal__head">
                 <div onclick="closeModal(applyPartner)" class="modal__close"></div>
             </div>
@@ -165,6 +166,7 @@
     </div>
     <div id="levelProgress" class="modal-wrapp">
         <div class="level-progress modal center">
+            <div onclick="closeModal(levelProgress)" class="close-tap mobile"></div>
             <div class="modal__head">
                 Level Progress
                 <div onclick="closeModal(levelProgress)" class="modal__close"></div>
@@ -546,8 +548,9 @@
                     </div>
                 </div>
             </div>
+            <div onclick="closeModal(levelProgressToken)" class="modal__backdrop"></div>
+
         </div>
-        <div onclick="closeModal(levelProgressToken)" class="modal__backdrop"></div>
     </div>
     <div id="levelProgressAchivements" class="modal-wrapp">
         <div class="modal center">
@@ -637,8 +640,8 @@
                     </div>
                 </div>
             </div>
+            <div onclick="closeModal(levelProgressAchivements)" class="modal__backdrop"></div>
         </div>
-        <div onclick="closeModal(levelProgressAchivements)" class="modal__backdrop"></div>
     </div>
     <div id="editProfile" class="modal-wrapp">
         <div class="modal center">
@@ -655,8 +658,7 @@
                 </div>
                 <div class="editProfile__title">Description</div>
 
-                <textarea oninput="auto_grow(this)"
-                          class="editProfile__description description"
+                <textarea class="editProfile__description description"
                           maxlength="500"
                           placeholder="Add description"></textarea>
                 <div class="editProfile__website">
@@ -682,6 +684,15 @@
             <div class="modal__content">
                 <input type="text" placeholder="Search">
                 <div class="choose-game__game game">
+                    <a href="#" onclick="next(hostPlatform, hostPartie)" class="game-cont">
+                        <div class="game__img">
+                            <div class="card__partie">
+                                <img src="img/icon/partie.png"/>
+                                424
+                            </div>
+                        </div>
+                        <div class="game__name">Fortnite</div>
+                    </a>
                     <a href="#" onclick="next(hostPlatform, hostPartie)" class="game-cont">
                         <div class="game__img">
                             <div class="card__partie">
@@ -756,6 +767,8 @@
                                     <span>Delete</span>
                                 </div>
                                 <div class="close-place"></div>
+                                <div class="close-tap mobile"></div>
+
                             </div>
                         </div>
                     </div>
@@ -783,7 +796,7 @@
                     <div class="shortcuts__create">
                         <span>Create</span>
                     </div>
-
+                    <div onclick="shortcutsDown()" class="close-tap mobile"></div>
                 </div>
             </div>
 
@@ -809,6 +822,7 @@
     </div>
     <div id="hostPlatform" class="platforms modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(hostPlatform)" class="close-tap mobile"></div>
             <div class="modal__head">
                 <svg id="back" onclick="back(hostPlatform, hostPartie)" class="btn-back" width="24" height="24"
                      fill="none"
@@ -846,7 +860,7 @@
                 <div class="platform__title">Select a platform</div>
                 <button class="host-xb">Xbox</button>
                 <div class="platform__title platform__title_gametrag">Gametrag</div>
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Text"></textarea>
+                <textarea maxlength="500" placeholder="Text"></textarea>
             </div>
         </div>
         <div onclick="closeModal(addGametrag)" class="modal__backdrop"></div>
@@ -871,7 +885,7 @@
                 </button>
                 <div class="platform__title">Partie name</div>
                 <input type="text" placeholder="Add name">
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add description"></textarea>
+                <textarea maxlength="500" placeholder="Add description"></textarea>
 
                 <div class="hostLiveShow__img">
                     <img src="img/pic/Image (2).png"/>
@@ -1119,6 +1133,7 @@
     </div>
     <div id="removeUser" class="removeUser modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(removeUser)" class="close-tap mobile"></div>
             <div class="modal__head">
                 <div onclick="closeModal(removeUser)" class="modal__close"></div>
                 Remove user
@@ -1142,7 +1157,7 @@
                     <label for="Other">Other</label>
                 </div>
 
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add a description"></textarea>
+                <textarea maxlength="500" placeholder="Add a description"></textarea>
                 <button>Remove User</button>
             </div>
         </div>
@@ -1193,8 +1208,7 @@
                 </div>
                 <div class="titleModal__text">
                     <div class="titleModal__text_text">
-                        <textarea oninput="auto_grow(this)"
-                                  maxlength="500">You hate to play with people who never played the game before?</textarea>
+                        <textarea maxlength="500">You hate to play with people who never played the game before?</textarea>
                     </div>
                     <div class="titleModal__text_btns">
                         <div class="round-btn xbox"></div>
@@ -1238,7 +1252,7 @@
                 </button>
                 <div class="platform__title">Partie name</div>
                 <input type="text" placeholder="Add name">
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add description"></textarea>
+                <textarea maxlength="500" placeholder="Add description"></textarea>
                 <div class="hostLiveShow__img">
                     <img src="img/pic/Image (2).png"/>
                     <div class="delete-img"></div>
@@ -1326,8 +1340,7 @@
                 </div>
                 <div class="titleModal__text">
                     <div class="titleModal__text_text">
-                        <textarea oninput="auto_grow(this)"
-                                  maxlength="500">You hate to play with people who never played the game before?</textarea>
+                        <textarea maxlength="500">You hate to play with people who never played the game before?</textarea>
                     </div>
                     <div class="titleModal__text_btns">
                         <div class="round-btn xbox"></div>
@@ -1371,6 +1384,7 @@
     </div>
     <div id="partieReport" class="removeUser modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(partieReport)" class="close-tap mobile"></div>
             <div class="modal__head">
                 <div onclick="closeModal(partieReport)" class="modal__close"></div>
                 Partie Report
@@ -1393,7 +1407,7 @@
                     <input id="reportOther" name="partieReport" type="radio">
                     <label for="reportOther">Other</label>
                 </div>
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add a description"></textarea>
+                <textarea maxlength="500" placeholder="Add a description"></textarea>
                 <button onclick="reportSubmitted()" disabled class="disabled">Send report</button>
             </div>
         </div>
@@ -1734,6 +1748,7 @@
     </div>
     <div id="leaveChat" class="leaveChat modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(leaveChat)" class="close-tap mobile"></div>
             <div class="modal__content">
                 <div class="leaveChat__text">
                     Are you sure you want
@@ -1751,6 +1766,7 @@
 <!--Settings-->
     <div id="inviteFriendsSetting" class="modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(inviteFriendsSetting)" class="close-tap mobile"></div>
             <div class="modal__head">
                 <div onclick="closeModal(inviteFriendsSetting)" class="modal__close"></div>
             </div>
@@ -1775,6 +1791,7 @@
     </div>
     <div id="deleteAccount" class="leaveChat modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(deleteAccount)" class="close-tap mobile"></div>
             <div class="modal__content">
                 <div class="leaveChat__text">
                     Are you sure you want
@@ -1854,7 +1871,7 @@
                     </div>
 
                 </div>
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add a description"></textarea>
+                <textarea maxlength="500" placeholder="Add a description"></textarea>
                 <button class="bg-fiolet">Yes, cancel my subscription</button>
             </div>
         </div>
@@ -1891,6 +1908,7 @@
     </div>
     <div id="unfollow" class="leaveChat modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(unfollow)" class="close-tap mobile"></div>
             <div class="modal__content">
                 <div class="leaveChat__text">
                     Are you sure you want
@@ -1934,6 +1952,7 @@
 
     <div id="share" class="modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(share)" class="close-tap mobile"></div>
             <div class="modal__head">
                 Share
                 <div onclick="closeModal(share)" class="modal__close"></div>
@@ -1992,7 +2011,7 @@
                 </button>
                 <div class="platform__title">Partie name</div>
                 <input readonly onclick="openModal(gametragName)" type="text" placeholder="Add name">
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add description"></textarea>
+                <textarea maxlength="500" placeholder="Add description"></textarea>
 
                 <div class="hostLiveShow__img">
                     <img src="img/pic/Image (2).png"/>
@@ -2053,6 +2072,7 @@
     </div>
     <div id="gametragPlatform" class="platforms modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(gametragPlatform)" class="close-tap mobile"></div>
             <div class="modal__head">
                 <svg id="back" onclick="back(gametragPlatform, gametrag)" class="btn-back" width="24" height="24"
                      fill="none"
@@ -2086,6 +2106,7 @@
     </div>
     <div id="gametrag" class="modal-wrapp gametrag-modal">
         <div class="modal center">
+            <div onclick="closeModal(gametrag)" class="close-tap mobile"></div>
             <div class="modal__head">
                 <svg id="back" onclick="back(gametrag, hostPlatform)" class="btn-back" width="24" height="24"
                      fill="none"
@@ -2115,6 +2136,7 @@
     </div>
     <div id="gametragName" class="modal-wrapp gametrag-modal mobile">
         <div class="modal center">
+            <div onclick="closeModal(gametragName)" class="close-tap mobile"></div>
             <div class="modal__head">
                 <svg id="back" onclick="back(gametrag, hostPlatform)" class="btn-back" width="24" height="24"
                      fill="none"
@@ -2156,7 +2178,7 @@
                 </button>
                 <div class="platform__title">Partie name</div>
                 <input readonly onclick="openModal(gametragName)" type="text" placeholder="Add name">
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add description"></textarea>
+                <textarea maxlength="500" placeholder="Add description"></textarea>
 
                 <div class="hostLiveShow__img">
                     <img src="img/pic/Image (2).png"/>
@@ -2230,7 +2252,7 @@
                 </button>
                 <div class="platform__title">Partie name</div>
                 <input readonly onclick="openModal(gametragName)" type="text" placeholder="Add name">
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add description"></textarea>
+                <textarea maxlength="500" placeholder="Add description"></textarea>
 
                 <div class="hostLiveShow__img">
                     <img src="img/pic/Image (2).png"/>

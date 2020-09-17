@@ -3,6 +3,17 @@
     min-height: 100%;
 }
 
+#feed .feed__col2,
+#partie .feed__col2,
+.feed.post .feed__col2 {
+    padding-top: 66px;
+
+    .feed__header {
+        position: fixed;
+        top: 0;
+    }
+}
+
 .feed {
     width: 100%;
     background-color: #000;
@@ -347,14 +358,13 @@
     }
 
     .feed__col2 {
-        padding-top: 66px;
         .feed__header {
             height: 60px;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 6px;
-            position: fixed;
+            position: sticky;
             top: 0;
             background-color: #000;
             z-index: 11;
@@ -362,7 +372,6 @@
 
             @media (min-width: 1024px) and (max-width: 1300px) {
                 width: 480px;
-
             }
 
 
@@ -766,7 +775,7 @@
         }
 
         .comments__comment .comments__new-comment {
-            margin-bottom: 0;
+            margin-bottom: 20px;
 
             .avatar {
                 margin-right: 0;
@@ -784,7 +793,6 @@
             transition: .3s;
 
             textarea {
-                height: auto;
                 width: auto;
                 flex-grow: 1;
                 border: 0;
@@ -1522,4 +1530,10 @@
         }
     }
 
+}
+
+@supports (-webkit-touch-callout: none) { // iOS
+    #feed .feed__col2 {
+        padding-bottom: 83px;
+    }
 }

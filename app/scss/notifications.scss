@@ -4,6 +4,7 @@
     .feed__col2 {
         position: relative;
         overflow: hidden;
+        padding-top: 0 !important;
 
         .feed__header {
             justify-content: center;
@@ -11,6 +12,7 @@
             font-size: 17px;
             line-height: 22px;
             letter-spacing: -0.408px;
+            position: sticky !important;
         }
 
         .notifications__content {

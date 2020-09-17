@@ -46,8 +46,6 @@ if (feedWhatNew !== null) {
                 feedWhatNewRow.style.cssText = 'opacity: 1; visibility: visible;'
             }, 350 )
 
-            auto_grow(textarea)
-
             if (window.innerWidth <= 1300) textSelect.style.right = '51%'
         }
     } )
@@ -76,7 +74,7 @@ function showBtnPost(text) {
         btn.style.opacity = '1'
         btn.style.visibility = 'visible'
     } else btn.style.cssText = ''
-    newPostText = text.value.length
+    // newPostText = text.value.length
 }
 
 
@@ -208,7 +206,7 @@ if (window.innerWidth <= 1023) {
         }
         if (closePlaceMobile !== null)
             closePlaceMobile.onclick = function (e) {
-                if (e.target === closePlaceMobile) {
+                if (e.target === closePlaceMobile || e.target === closePlaceMobile.children[0].children[1]) {
                     closePlaceMobile.style.cssText = ''
                     closePlaceMobile.children[0].style.bottom = ''
                 }

@@ -396,7 +396,7 @@
                 width: 100%;
                 left: 100%;
                 display: flex;
-                flex-direction: column;
+                flex-wrap: wrap;
 
                 a.btn {
                     transition: .3s;
