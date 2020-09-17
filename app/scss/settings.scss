@@ -868,6 +868,11 @@
                     padding: 0 20px;
                     transition: .5s;
 
+                    .feed__col3 > div {
+                        z-index: 5;
+                    }
+
+
                     .delete-account__wrapp {
                         //position: absolute;
                         //bottom: 50px;
