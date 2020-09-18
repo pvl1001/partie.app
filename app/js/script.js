@@ -353,11 +353,12 @@ for(let headerMenu of  arrHeaderMenu) {
 
 
 let shortcuts = document.querySelector('.shortcuts')
+let heightShortcuts = 0
 if(shortcuts !== null) {
     let onShortcuts
     let btnUp = document.querySelector('.btn-up')
     let bgClick = document.querySelector('.bg-click')
-    let heightShortcuts = Number(shortcuts.offsetHeight)
+    heightShortcuts = shortcuts.offsetHeight
     shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
 
     function shortcutsUp() {
