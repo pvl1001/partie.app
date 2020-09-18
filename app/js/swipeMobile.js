@@ -300,10 +300,7 @@ $(function() {
                 if(direction === 'up') {
                     shortcutsUp()
                 } else if (direction === 'down') {
-                    setTimeout(function () {
                         shortcutsDown()
-
-                    },200)
                 }
             }
         }
