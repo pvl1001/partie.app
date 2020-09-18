@@ -292,11 +292,9 @@ if(window.innerWidth <= 1023) {
 window.checkSwipe = true
 
 $(function() {
-    $("#hostPartie .modal__content").swipe( {
+    $("#hostPartie .shortcuts").swipe( {
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
             if (window.checkSwipe) {
-                // alert(window.checkSwipe + ' ___ ' + direction)
-
                 window.checkSwipe = false
 
                 if(direction === 'up') {
