@@ -303,7 +303,7 @@ $(function() {
             if(direction === 'down') {
                 // alert('y')
                 setTimeout(function () {
-                    shortcutsUp()
+                    shortcutsDown()
                 },500)
             }
         }
