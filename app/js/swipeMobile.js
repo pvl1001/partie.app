@@ -297,6 +297,8 @@ $(function() {
             if (window.checkSwipe) {
                 window.checkSwipe = false
 
+                alert(direction)
+
                 if(direction === 'up') {
                     shortcutsUp()
                 } else if (direction === 'down') {
