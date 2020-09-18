@@ -55,6 +55,7 @@ let editShortcutMobile = document.querySelector( '#editShortcutMobile' )
 let levelProgressToken = document.querySelector( '#levelProgressToken' )
 let levelProgressAchivements = document.querySelector( '#levelProgressAchivements' )
 let settingsPlatforms = document.querySelector( '#settingsPlatforms' )
+let photoAvatar = document.querySelector( '#photoAvatar' )
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -257,6 +258,8 @@ function back(close, open) {
 }
 
 function openModal(modal) { // modal
+    body.style.overflow = 'hidden'
+
     if (window.innerWidth > 1023) { //pc
         modal.style.opacity = '1'
         modal.style.zIndex = '13'
@@ -289,6 +292,7 @@ function closeModal(modal) {
         }
     }
 
+    body.style.overflow = ''
     modal.style.cssText = ''
     modal.children[0].style.cssText = ''
     if (headerLogo !== null) headerLogo.style.zIndex = ''
@@ -301,6 +305,14 @@ function closeModal(modal) {
         modal.style.cssText = ''
     }, 300 )
 
+}
+
+
+function backPartieReport(close) {
+    if(window.innerWidth <=1024) {
+        closeModal(close)
+        document.querySelector('.feed__header_menu').click()
+    }
 }
 
 
@@ -327,9 +339,12 @@ if (window.innerWidth >=1024) {
 
 
 let arrHeaderMenu = document.querySelectorAll('.header__menu_menu')
+
 for(let headerMenu of  arrHeaderMenu) {
+    let links = headerMenu.querySelectorAll('a')
+    for(let link of links)
     window.addEventListener('click', function (e) {
-        if(e.target === headerMenu.children[0]) {
+        if(e.target === headerMenu.children[0] || e.target === link ) {
             headerMenu.style.cssText = ''
             headerMenu.parentNode.style.cssText = ''
         }
@@ -346,18 +361,30 @@ if(shortcuts !== null) {
     shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
 
     function shortcutsUp() {
-        onShortcuts = !onShortcuts
-        if(onShortcuts) {
-            shortcuts.style.bottom = '5px'
+        if (window.innerWidth >= 1024) {
+            onShortcuts = !onShortcuts
+            if(onShortcuts) {
+                shortcuts.style.bottom = '0'
+                btnUp.style.transform = 'rotateX(190deg)'
+                bgClick.style.zIndex = '1'
+                if (window.innerWidth >= 1024) bgClick.style.opacity = '1'
+            } else {
+                shortcutsDown()
+            }
+        } else {
+            hostPartie.children[0].style.overflow = 'hidden'
+            shortcuts.style.bottom = '0'
             btnUp.style.transform = 'rotateX(190deg)'
             bgClick.style.zIndex = '1'
             if (window.innerWidth >= 1024) bgClick.style.opacity = '1'
-        } else shortcutsDown()
+        }
     }
     function shortcutsDown() {
+        alert()
         shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
         btnUp.style.transform = ''
         bgClick.style.cssText = ''
+        hostPartie.children[0].style.overflow = ''
     }
 }
 
@@ -419,8 +446,25 @@ if (feedPostImg !== null) {
 }
 
 
-function auto_grow(element) {
-    element.style.height = (element.scrollHeight)+"px";
+// function auto_grow(element) {
+//     // element.style.overflow = 'scroll'
+//     element.style.height = (element.scrollHeight) + 'px';
+//     if(element.value.length === 0) element.style.height = ''
+//     console.log(element.value.length)
+// }
+
+
+const tx = document.getElementsByTagName('textarea');
+for (let i = 0; i < tx.length; i++) {
+    tx[i].setAttribute('style', 'height:' + (tx[i].scrollHeight) + 'px;overflow-y:hidden;');
+    tx[i].addEventListener("input", OnInput, false);
+}
+
+function OnInput() {
+    this.style.transitionDelay = '0s';
+    this.style.transition = '0s';
+    this.style.height = '25px';
+    this.style.height = (this.scrollHeight) + 'px';
 }
 
 if (window.innerWidth <= 1023) {
@@ -506,6 +550,21 @@ if(window.innerWidth <=1023) {
 function enterCodeCenter(el) {
     console.log(el.value.length)
     el.value.length ? el.style.textAlign = 'center' : el.style.textAlign = ''
+}
+
+
+let onChangeBtnPublic
+function changeBtnPublic(el) {
+    onChangeBtnPublic = !onChangeBtnPublic
+    if(onChangeBtnPublic) {
+        el.innerHTML = 'Private partie'
+        el.style.background = '#14131a url(../img/icon/lock.svg) 12px 50%/11px 12px no-repeat'
+        el.style.paddingLeft = '30px'
+        el.style.color = '#fff'
+    } else {
+        el.innerHTML = 'Public partie'
+        el.style.cssText = ''
+    }
 }
 
 
@@ -596,23 +655,19 @@ function hiddenPeople() {
     let people = document.querySelector( '.feed__col3 > div' )
     let feedHeader = document.querySelector( '.feed__col3 .feed__header' )
     let peopleBtn = document.querySelector( '.feed__people-btn' )
+    let feedRequestTitle = document.querySelector( '.feed__request_title' )
 
     if (people.style.transform !== '') {
         people.style.transform = ''
         feedHeader.style.opacity = ''
         peopleBtn.style.transform = ''
+        if(feedRequestTitle) feedRequestTitle.style.transform = ''
+
     } else {
-        if (window.innerWidth <= 1300) { // mobile
-            people.style.transform = 'translateX(140px)'
-            feedHeader.style.opacity = '0'
-            peopleBtn.style.transform = 'rotateY(180deg)'
-        } else {
-            people.style.transform = 'translateX(220px)'
-            feedHeader.style.opacity = '0'
-            peopleBtn.style.transform = 'rotateY(180deg)'
-        }
-
-
+        if(feedRequestTitle) feedRequestTitle.style.transform = 'translateX(-25px)'
+        people.style.transform = 'translateX(196px)'
+        feedHeader.style.opacity = '0'
+        peopleBtn.style.transform = 'rotateY(180deg)'
     }
 }
 
@@ -640,14 +695,12 @@ if (feedWhatNew !== null) {
                 feedWhatNewRow.style.cssText = 'opacity: 1; visibility: visible;'
             }, 350 )
 
-            auto_grow(textarea)
-
             if (window.innerWidth <= 1300) textSelect.style.right = '51%'
         }
     } )
 
     window.addEventListener( 'click', function (e) {
-        if (!feedWhatNewHead.parentNode.contains( e.target )) {
+        if (!feedWhatNewHead.parentNode.contains( e.target ) && !feedWhatNewHead.children[0].value.length) {
             textSelect.style.right = ''
             feedWhatNewRow.style.cssText = ''
             photo1.style.cssText = ''
@@ -666,11 +719,10 @@ function loading() {
 
 function showBtnPost(text) {
     let btn = document.querySelector( '.feed__what-new .feed__what-new_post' )
-    if (text.value.length) {
+    if (text.value) {
         btn.style.opacity = '1'
         btn.style.visibility = 'visible'
     } else btn.style.cssText = ''
-    newPostText = text.value.length
 }
 
 
@@ -678,7 +730,7 @@ function isNewComment() {
     let newCommentPeoples = document.querySelectorAll( '.comments__new-comment_people' )
     let newComments = document.querySelectorAll( '.newComment' )
     let newCommentBtns = document.querySelectorAll( '.newCommentBtn' )
-    for (let i = 0; i < newCommentPeoples.length; i++ ) {
+    for (let i = 0; i < newCommentPeoples.length; i++) {
         let newCommentPeople = newCommentPeoples[i]
         let newComment = newComments[i]
         let newCommentBtn = newCommentBtns[i]
@@ -695,7 +747,7 @@ function isNewComment() {
             newCommentPeople.style.display = ''
         }
 
-        if(window.innerWidth < 1300) {
+        if (window.innerWidth < 1300) {
             newCommentBtn.innerHTML = ''
         }
     }
@@ -721,8 +773,6 @@ for (let i = 0; i < replyBtns.length; i++) {
         }
     }
 }
-
-
 
 
 let partieTab = document.querySelector( '.feed__col2.partie-tab' )
@@ -752,7 +802,7 @@ function clickTab(open, close) {
     }, 100 )
 
     try {
-        $('.slider').slick('unslick')
+        $( '.slider' ).slick( 'unslick' )
     } catch (e) {
 
     }
@@ -802,7 +852,7 @@ if (window.innerWidth <= 1023) {
         }
         if (closePlaceMobile !== null)
             closePlaceMobile.onclick = function (e) {
-                if (e.target === closePlaceMobile) {
+                if (e.target === closePlaceMobile || e.target === closePlaceMobile.children[0].children[1]) {
                     closePlaceMobile.style.cssText = ''
                     closePlaceMobile.children[0].style.bottom = ''
                 }
@@ -819,7 +869,7 @@ if (publicPost !== null)
     publicPost.onclick = function () {
         onPublicPost = !onPublicPost
         if (onPublicPost) {
-            publicPost.style.background = 'rgba(235,235,245,.1) url(../img/icon/lock.png) 12px 50%/9.2px no-repeat'
+            publicPost.style.background = 'rgba(235,235,245,.1) url(../img/icon/lock.svg) 12px 50%/11px 12px no-repeat'
             publicPost.style.paddingLeft = '30px'
             publicPost.style.transition = 'background-color .3s'
             publicPost.innerHTML = 'Followers only'
@@ -846,33 +896,37 @@ if (publicPostPopup !== null)
     }
 
 
-let comments = document.querySelectorAll('.comments > .comments__comment')
-let btnComments = document.querySelectorAll('.comments__show-more')
+let comments = document.querySelectorAll( '.comments > .comments__comment' )
+let btnComments = document.querySelectorAll( '.comments__show-more' )
 
 
 for (let i = 0; i < comments.length; i++) {
     let comment = comments[i]
     let btnComment = btnComments[i]
 
-    let replyBoxs = comment.querySelectorAll('.reply-box')
-    for(let replyBox of replyBoxs) {
-        replyBox.style.opacity= '0'
-        replyBox.style.height= '0'
-        replyBox.style.overflow= 'hidden'
+    let replyBoxs = comment.querySelectorAll( '.reply-box' )
+    for (let replyBox of replyBoxs) {
+        replyBox.style.opacity = '0'
+        replyBox.style.height = '0'
+        replyBox.style.overflow = 'hidden'
         replyBoxs[0].style.cssText = ''
     }
 
     btnComment.onclick = function () {
         this.style.display = 'none'
-        for(let replyBox of replyBoxs)
+        for (let replyBox of replyBoxs)
             replyBox.style.cssText = ''
     }
 }
 
 // newCommentBtn
 
-if(window.innerWidth < 1300) {
-
+function newMessChat(text) {
+    let btnSend = text.parentElement.children[2]
+    if (text.value) {
+        btnSend.style.opacity = '1'
+        btnSend.style.visibility = 'visible'
+    } else btnSend.style.cssText = ''
 }
 
 
@@ -883,26 +937,29 @@ function openTab(evt, Tab) {
     var i, tabcontent, tablinks;
 
     // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.querySelectorAll(".profile__tabs .tabcontent");
+    tabcontent = document.querySelectorAll( ".profile__tabs .tabcontent" );
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.transition = ".4s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.height = "0";
+        if (window.innerWidth <= 1023) {
+            tabcontent[i].style.width = window.innerWidth - 40 + 'px'
+        }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.querySelectorAll(".profile__tabs .tablinks");
+    tablinks = document.querySelectorAll( ".profile__tabs .tablinks" );
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace( " active", "" );
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    setTimeout(function () {
-        document.getElementById(Tab).style.opacity = "1";
-        document.getElementById(Tab).style.transform = "scale(1)";
-        document.getElementById(Tab).style.height = "100%";
-    },300)
+    setTimeout( function () {
+        document.getElementById( Tab ).style.opacity = "1";
+        document.getElementById( Tab ).style.transform = "scale(1)";
+        document.getElementById( Tab ).style.height = "100%";
+    }, 300 )
     evt.currentTarget.className += " active";
 }
 
@@ -911,55 +968,55 @@ function updatePositionPopovers() {
 
     if (window.innerWidth >= 1024) {
         for (let i = 0; i < token.length; i++) {
-            $(token[i]).off('mouseover')
-            $(token[i]).off('mouseout')
+            $( token[i] ).off( 'mouseover' )
+            $( token[i] ).off( 'mouseout' )
         }
     }
 
-    setTimeout(function () {
+    setTimeout( function () {
         let token = $( '.pop:visible' )
 
         for (let i = 0; i < token.length; i++) {
-            let el = $(token[i])
+            let el = $( token[i] )
 
             if (window.innerWidth >= 1024) {
-                el.off('mouseover').on( 'mouseover', function () {
-                    let popover = $(this).find('.popover')
+                el.off( 'mouseover' ).on( 'mouseover', function () {
+                    let popover = $( this ).find( '.popover' )
                     let h = popover.outerHeight()
-                    let x = $(this).offset().left - 92
-                    let y = $(this).offset().top - 20 - h
-                    popover.css({
+                    let x = $( this ).offset().left - 92
+                    let y = $( this ).offset().top - 20 - h
+                    popover.css( {
                         opacity: '1',
                         visibility: 'visible',
                         left: x + 'px',
                         top: y + 'px'
-                    })
+                    } )
                 } )
 
-                el.off('mouseout').on( 'mouseout', function () {
-                    $(this).find('.popover').attr('style', '')
+                el.off( 'mouseout' ).on( 'mouseout', function () {
+                    $( this ).find( '.popover' ).attr( 'style', '' )
                 } )
             }
         }
-    },350)
+    }, 350 )
 }
 
 function openTabModal(evt, Tab) {
     var i, tabcontent, tablinks;
-    let modal = document.querySelector('#levelProgress .modal')
+    let modal = document.querySelector( '#levelProgress .modal' )
 
     // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.querySelectorAll("#levelProgress .tabcontent");
+    tabcontent = document.querySelectorAll( "#levelProgress .tabcontent" );
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.transition = ".3s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.position = "fixed";
-        if(window.innerWidth >= 1024) {
-            tabcontent[i].style.width = "464px"
+        if (window.innerWidth >= 1024) {
+            tabcontent[i].style.width = "424px"
             modal.style.height = 263 + tabcontent[i].offsetHeight + 'px'
         }
-        if(window.innerWidth <= 1023) {
+        if (window.innerWidth <= 1023) {
             modal.style.height = tabcontent[i].offsetHeight + 'px'
             tabcontent[i].style.transition = ".3s";
             tabcontent[i].style.opacity = "0";
@@ -968,63 +1025,36 @@ function openTabModal(evt, Tab) {
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.querySelectorAll("#levelProgress .tablinks");
+    tablinks = document.querySelectorAll( "#levelProgress .tablinks" );
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace( " active", "" );
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    setTimeout(function () {
-        document.getElementById(Tab).style.opacity = "1";
-        document.getElementById(Tab).style.transform = "";
-        document.getElementById(Tab).style.position = "relative";
-        if(window.innerWidth >= 1024)
-            modal.style.height = 263 + document.getElementById(Tab).offsetHeight + 'px'
-    },300)
+    setTimeout( function () {
+        document.getElementById( Tab ).style.opacity = "1";
+        document.getElementById( Tab ).style.transform = "";
+        document.getElementById( Tab ).style.position = "relative";
+        if (window.innerWidth >= 1024)
+            modal.style.height = 263 + document.getElementById( Tab ).offsetHeight + 'px'
+    }, 300 )
 
     updatePositionPopovers()
 
-    if(window.innerWidth <= 1023) {
-        modal.style.height = 242 + document.getElementById(Tab).offsetHeight + 'px'
+    if (window.innerWidth <= 1023) {
+        modal.style.height = 242 + document.getElementById( Tab ).offsetHeight + 'px'
     }
     evt.currentTarget.className += " active";
-
-
-    // let token = document.querySelectorAll( '.pop' )
-    // let popovers = document.querySelectorAll( '.popover' )
-    // for (let i = 0; i < token.length; i++) {
-    //     let el = token[i]
-    //     let popover = popovers[i]
-    //     let h = popover.getBoundingClientRect().height
-    //     let x = el.getBoundingClientRect().left - 92
-    //     let y = el.getBoundingClientRect().top - 20 - h
-    //     if (window.innerWidth >= 1024) {
-    //         el.addEventListener( 'mouseover', function () {
-    //             popover.style.opacity = '1'
-    //             popover.style.visibility = 'visible'
-    //             popover.style.left = x + 'px'
-    //             popover.style.top = y + 'px'
-    //         } )
-    //         el.addEventListener( 'mouseout', function () {
-    //             popover.style.cssText = ''
-    //         } )
-    //     }
-    // }
-
-
-
 
     let progressbar = document.querySelector( '.progressbar div' )
     let tokens = document.querySelectorAll( '.level-progress__tab .tokens' )
     for (let el of tokens) {
         el.onscroll = function () {
-            let winWidth = el.children[1].offsetWidth - el.offsetWidth +20
-            let bar = el.scrollLeft / winWidth  * 100
+            let winWidth = el.children[1].offsetWidth - el.offsetWidth + 20
+            let bar = el.scrollLeft / winWidth * 100
             progressbar.style.width = bar + '%'
         }
     }
-
-
 
 }
 
@@ -1034,50 +1064,44 @@ function openFoll(evt, Tab) {
     var i, tabcontent, tablinks;
 
     // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.querySelectorAll(".followers .tabcontent");
+    tabcontent = document.querySelectorAll( ".followers .tabcontent" );
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.transition = ".3s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.position = "fixed";
-
-        if(window.innerWidth <= 1023) {
-            tabcontent[i].style.transition = "opacity .4s, transform .4s";
-            tabcontent[i].style.opacity = "0";
-            tabcontent[i].style.transform = "scale(.95)";
-            tabcontent[i].style.height = "0";
+        if (window.innerWidth <= 1023) {
+            tabcontent[i].style.width = window.innerWidth - 40 + 'px'
         }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.querySelectorAll(".followers .tablinks");
+    tablinks = document.querySelectorAll( ".followers .tablinks" );
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace( " active", "" );
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    setTimeout(function () {
-        document.getElementById(Tab).style.opacity = "1";
-        document.getElementById(Tab).style.transform = "scale(1)";
-        document.getElementById(Tab).style.position = "relative";
-        if(window.innerWidth <=1023) {
-            document.getElementById(Tab).style.height = "100%";
-        }
-    },300)
+    setTimeout( function () {
+        document.getElementById( Tab ).style.opacity = "1";
+        document.getElementById( Tab ).style.transform = "scale(1)";
+        document.getElementById( Tab ).style.position = "relative";
+    }, 300 )
     evt.currentTarget.className += " active";
 }
 
-let defaultOpen = document.getElementById("defaultOpen")
-if(defaultOpen !== null) defaultOpen.click()
+let defaultOpen = document.getElementById( "defaultOpen" )
+if (defaultOpen !== null) defaultOpen.click()
 
 
-let defaultOpen2 = document.getElementById("defaultOpen2")
-if(defaultOpen2 !== null) defaultOpen2.click()
+let defaultOpen2 = document.getElementById( "defaultOpen2" )
+if (defaultOpen2 !== null) defaultOpen2.click()
 
 
 let showPs = false
+
 function showBtnPs() {
-    if (window.innerWidth >=1024) { // pc
+    if (window.innerWidth >= 1024) { // pc
         showPs = !showPs
         let btn = document.querySelector( '#ps' )
         let show = document.querySelector( '.show-all' )
@@ -1092,30 +1116,31 @@ function showBtnPs() {
             show.style.opacity = ''
         }
     } else { // mobile
-        openModal(gamertags)
+        openModal( gamertags )
     }
 }
 
-let arrBtnFollowers = document.querySelectorAll('.followers__btn')
+let arrBtnFollowers = document.querySelectorAll( '.followers__btn' )
 let onBtnFollowers = []
-for(let i = 0; i < arrBtnFollowers.length; i++) {
+for (let i = 0; i < arrBtnFollowers.length; i++) {
     let btnFollowers = arrBtnFollowers[i]
-    btnFollowers.addEventListener('click', function () {
+    btnFollowers.addEventListener( 'click', function () {
         onBtnFollowers[i] = !onBtnFollowers[i]
-        if(onBtnFollowers[i]) {
+        if (onBtnFollowers[i]) {
             arrBtnFollowers[i].style.backgroundColor = '#100F15'
             arrBtnFollowers[i].innerHTML = 'Following'
         } else {
             arrBtnFollowers[i].style.backgroundColor = ''
             arrBtnFollowers[i].innerHTML = 'Follow'
         }
-    })
+    } )
 }
 
-let  followersTab = document.querySelector('#followersTab')
-let  followingTab = document.querySelector('#followingTab')
-let followers = document.querySelector('.followers')
-let profile = document.querySelector('.profile-col2')
+let followersTab = document.querySelector( '#followersTab' )
+let followingTab = document.querySelector( '#followingTab' )
+let followers = document.querySelector( '.followers' )
+let profile = document.querySelector( '.profile-col2' )
+
 function followPage(x) {
     body.style.background = '#000'
     body.style.transition = '0s'
@@ -1131,175 +1156,130 @@ function backProfile() {
 }
 
 
-
-
-
-
 function openTabPatie(evt, Tab) {
     var i, tabcontent, tablinks;
 
     // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.querySelectorAll(".partie-tab .tabcontent");
+    tabcontent = document.querySelectorAll( ".partie-tab .tabcontent" );
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.transition = ".3s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.position = "fixed";
-        if(window.innerWidth <=1023) {
-            tabcontent[i].style.transition = "opacity .4s, transform .4s";
-            tabcontent[i].style.opacity = "0";
-            tabcontent[i].style.transform = "scale(.95)";
-            tabcontent[i].style.height = "0";
+        if (window.innerWidth <= 1023) {
+            tabcontent[i].style.width = window.innerWidth - 40 + 'px'
         }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.querySelectorAll(".partie-tab .tablinks");
+    tablinks = document.querySelectorAll( ".partie-tab .tablinks" );
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace( " active", "" );
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    setTimeout(function () {
-        document.getElementById(Tab).style.opacity = "1";
-        document.getElementById(Tab).style.transform = "scale(1)";
-        document.getElementById(Tab).style.position = "relative";
-        if(window.innerWidth <=1023) {
-            document.getElementById(Tab).style.height = "100%";
-        }
-    },300)
+    setTimeout( function () {
+        document.getElementById( Tab ).style.opacity = "1";
+        document.getElementById( Tab ).style.transform = "scale(1)";
+        document.getElementById( Tab ).style.position = "relative";
+    }, 300 )
 
     evt.currentTarget.className += " active";
 }
 
-let defaultOpenPartieTab = document.getElementById("defaultOpenPartieTab")
-if(defaultOpenPartieTab !== null) defaultOpenPartieTab.click()
+let defaultOpenPartieTab = document.getElementById( "defaultOpenPartieTab" )
+if (defaultOpenPartieTab !== null) defaultOpenPartieTab.click()
 
 function openTabFeed(evt, Tab) {
     var i, tabcontent, tablinks;
 
     // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.querySelectorAll(".feed-tab .tabcontent");
+    tabcontent = document.querySelectorAll( ".feed-tab .tabcontent" );
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.transition = ".3s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.position = "fixed";
-        if(window.innerWidth <= 1023) {
-            tabcontent[i].style.transition = "opacity .4s, transform .4s";
-            tabcontent[i].style.opacity = "0";
-            tabcontent[i].style.transform = "scale(.95)";
-            tabcontent[i].style.height = "0";
+        if (window.innerWidth <= 1023) {
+            tabcontent[i].style.width = window.innerWidth + 'px'
         }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.querySelectorAll(".feed-tab .tablinks");
+    tablinks = document.querySelectorAll( ".feed-tab .tablinks" );
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace( " active", "" );
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    setTimeout(function () {
-        document.getElementById(Tab).style.opacity = "1";
-        document.getElementById(Tab).style.transform = "scale(1)";
-        document.getElementById(Tab).style.position = "relative";
-        if(window.innerWidth <=1023) {
-            document.getElementById(Tab).style.height = "100%";
-        }
-    },300)
+    setTimeout( function () {
+        document.getElementById( Tab ).style.opacity = "1";
+        document.getElementById( Tab ).style.transform = "scale(1)";
+        document.getElementById( Tab ).style.position = "relative";
+    }, 300 )
     evt.currentTarget.className += " active";
 
     // if ($('.slider.slick-initialized').length) {
-        setTimeout(function () {
-            try {
-                $('.slider').slick('unslick')
-            } catch (e) {
+    setTimeout( function () {
+        try {
+            $( '.slider' ).slick( 'unslick' )
+        } catch (e) {
 
-            }
+        }
 
-            $('.slider').slick({
-                slidesToShow: 5,
-                slidesToScroll: 1,
-                infinite: true,
-                swipeToSlide: true,
-                responsive: [
-                    {
-                        breakpoint: 1023,
-                        settings: {
-                            slidesToShow: 3
-                        }
+        $( '.slider' ).slick( {
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            infinite: true,
+            swipeToSlide: true,
+            responsive: [
+                {
+                    breakpoint: 1023,
+                    settings: {
+                        slidesToShow: 3
                     }
-                ]
-            })
-        }, 300)
+                }
+            ]
+        } )
+    }, 300 )
     // }
 }
 
 
-
-
-
-
-
-
-
-let defaultOpenFeedTab = document.getElementById("defaultOpenFeedTab")
-if(defaultOpenFeedTab !== null) defaultOpenFeedTab.click()
+let defaultOpenFeedTab = document.getElementById( "defaultOpenFeedTab" )
+if (defaultOpenFeedTab !== null) defaultOpenFeedTab.click()
 
 
 function showBtnGametrag(el) {
-let btnNext = el.parentElement.children[el.parentElement.children.length -1]
-    if(el.value.length) {
+    let btnNext = el.parentElement.children[el.parentElement.children.length - 1]
+    if (el.value.length) {
         btnNext.style.cssText = 'visibility: visible; opacity: 1;'
     } else btnNext.style.cssText = ''
 }
 
 
-let editPhoto = document.querySelector('#editPhoto')
-let photoAvatar = document.querySelector('#photoAvatar')
-if(photoAvatar !== null)
-photoAvatar.onclick = function () {
-    event.preventDefault()
-    editPhoto.style.zIndex = '2'
-    editPhoto.style.opacity = '1'
-    editPhoto.children[0].style.bottom = '0'
-}
-window.onclick = function (e) {
-    if (e.target === editPhoto) {
-        editPhoto.style.cssText = ''
-        editPhoto.children[0].style.bottom = ''
+if (window.innerWidth <= 1023) {
+    let onPhoto = false
+    let editPhoto = document.querySelector( '#editPhoto' )
+    let photoAvatar = document.querySelector( '#photoAvatar' )
+    if (photoAvatar !== null)
+        photoAvatar.onclick = function () {
+            event.preventDefault()
+            onPhoto = !onPhoto
+            if (onPhoto) event.preventDefault()
+            editPhoto.style.zIndex = '2'
+            editPhoto.style.opacity = '1'
+            editPhoto.children[0].style.bottom = '0'
+
+        }
+    window.onclick = function (e) {
+        if (e.target === editPhoto) {
+            editPhoto.style.cssText = ''
+            editPhoto.children[0].style.bottom = ''
+        }
     }
 }
 
-
-//
-// let token = document.querySelectorAll( '.pop' )
-// let popovers = document.querySelectorAll( '.popover' )
-// for (let i = 0; i < token.length; i++) {
-//     let el = token[i]
-//     let popover = popovers[i]
-//     let h = popover.getBoundingClientRect().height
-//     let x = el.getBoundingClientRect().left - 92
-//     let y = el.getBoundingClientRect().top - 20 - h
-//     if(window.innerWidth >=1024) {
-//         el.addEventListener( 'mouseover', function () {
-//             popover.style.opacity = '1'
-//             popover.style.visibility = 'visible'
-//             popover.style.left = x + 'px'
-//             popover.style.top = y + 'px'
-//         } )
-//         el.addEventListener( 'mouseout', function () {
-//             popover.style.cssText = ''
-//         } )
-//     }
-//     if(window.innerWidth <=1023) {
-//         el.onclick = function () {
-//             testSlide = i
-//
-//         }
-//     }
-// }
 
 let indexToken
 let tokenMobiles = document.querySelectorAll( '#Tokens .tokens-mobile .token' )
@@ -1335,6 +1315,12 @@ for (let i = 0; i < achivementsMobiles.length; i++) {
         } );
         $( '#levelProgressAchivements .modal__content' ).slick( 'slickGoTo', indexAchivements, true );
     }
+}
+
+
+function showProgress(el) {
+    el.style.display = 'none'
+    el.parentElement.children[2].style.display = 'block'
 }
 
 
@@ -1581,62 +1567,35 @@ for (let i = 0; i < arrPostFooterBtn.length; i++) {
 
 let arrShortcutsBox = document.querySelectorAll('.shortcuts__box')
 let box = document.querySelector('.shortcuts__box_menu')
-for(let shortcutsBox of arrShortcutsBox) {
+for(let i = 0; i < arrShortcutsBox.length; i++ ) {
+    let shortcutsBox = arrShortcutsBox[i]
+
     if(shortcutsBox !== null && window.innerWidth >= 1024)
         shortcutsBox.onclick = function (e) {
-        if(e.target === shortcutsBox) {
+        if(e.target === shortcutsBox ) {
             box.style.top = e.pageY + 'px'
             box.style.left = e.pageX + 'px'
             box.style.display= 'block'
         }
         else box.style.display= ''
     }
-    if (window.innerWidth <= 1023) {
-        var longpress = false;
-        var presstimer = null;
-
-        var cancel = function(e) {
-            if (presstimer !== null) {
-                clearTimeout(presstimer)
-                presstimer = null
-            }
+    if(shortcutsBox !== null && window.innerWidth <= 1023) {
+        let closeBox = document.querySelector('.shortcuts__box .close-place')
+        let closeTap = document.querySelector('.shortcuts__box .close-tap')
+        shortcutsBox.onclick = function (e) {
+            box.style.opacity= '1'
+            box.style.visibility= 'visible'
+            box.style.bottom= '0'
         }
-        var click = function(e) {
-            let closePlace = document.querySelector('.close-place')
-            let span = document.querySelectorAll('.menu-wrapper span')
-            if (e.target === closePlace || e.target === span[0] || e.target === span[1]) box.style.display= ''
-
-            if (presstimer !== null) {
-                clearTimeout(presstimer)
-                presstimer = null
-            }
-            if (longpress) {
-                return false
-            }
+        closeBox.onclick = function(e) {
+            setTimeout(function () {box.style.cssText= ''})
         }
-        var start = function(e) {
-            if (e.type === "click" && e.button !== 0) {
-                return
-            }
-            longpress = false
-            presstimer = setTimeout(function() {
-                box.style.top = e.pageY + 'px'
-                box.style.left = e.pageX + 'px'
-                box.style.display= 'block'
-                longpress = true
-            }, 1000)
-
-            return false
+        closeTap.onclick = function() {
+            setTimeout(function () {box.style.cssText= ''})
         }
-
-        shortcutsBox.addEventListener("mousedown", start);
-        shortcutsBox.addEventListener("touchstart", start);
-        shortcutsBox.addEventListener("click", click);
-        shortcutsBox.addEventListener("mouseout", cancel);
-        shortcutsBox.addEventListener("touchend", cancel);
-        shortcutsBox.addEventListener("touchleave", cancel);
-        shortcutsBox.addEventListener("touchcancel", cancel);
     }
+
+
 }
 
 let tools = document.querySelectorAll('.round-btn.tool')
@@ -1668,6 +1627,7 @@ function openSetting(evt, cityName) {
     evt.currentTarget.className += " active";
     if (window.innerWidth <= 1023) tabContent.style.left = '0'
 }
+
 
 
 let subscriptionManage = document.querySelector( '.settings .subscription__manage' )
@@ -1849,7 +1809,13 @@ function openTabSearch(evt, Tab) {
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.querySelectorAll(".search .profile__tabs .tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+        tabcontent[i].style.transition = ".3s";
+        tabcontent[i].style.opacity = "0";
+        tabcontent[i].style.transform = "scale(.95)";
+        tabcontent[i].style.position = "fixed";
+        if(window.innerWidth <= 1023) {
+            tabcontent[i].style.width = window.innerWidth - 40 + 'px'
+        }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
@@ -1859,7 +1825,11 @@ function openTabSearch(evt, Tab) {
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(Tab).style.display = "block";
+    setTimeout(function () {
+        document.getElementById(Tab).style.opacity = "1";
+        document.getElementById(Tab).style.transform = "scale(1)";
+        document.getElementById(Tab).style.position = "relative";
+    },300)
     evt.currentTarget.className += " active";
 
 }
@@ -2511,19 +2481,19 @@ if(window.innerWidth <= 1023) {
         } else {
             if ( yDiff > 0 ) {
                 /* up swipe */
-                profileProgressModal.children[1].style.height = 'calc(100vh - 60px)'
+                profileProgressModal.children[2].style.height = 'calc(100vh - 154px)'
                 profileProgressModal.style.backgroundColor = '#17171a'
                 profileProgressModal.classList.add( 'modal-arrow' )
                 setTimeout( function () {
-                    profileProgressModal.children[1].style.overflow = 'auto'
+                    profileProgressModal.children[2].style.overflow = 'auto'
                 }, 500 )
 
             } else {
                 /* down swipe */
                 if (profileProgressModal.offsetTop !== 0) closeModal(profileProgress)
                 if(window.innerWidth <= 1023) {
-                    if (profileProgressModal.children[1].scrollTop === 0) {
-                        profileProgressModal.children[1].style.cssText = ''
+                    if (profileProgressModal.children[2].scrollTop === 0) {
+                        profileProgressModal.children[2].style.cssText = ''
                         profileProgressModal.style.backgroundColor = ''
                         profileProgressModal.classList.remove('modal-arrow')
                     }
@@ -2534,9 +2504,6 @@ if(window.innerWidth <= 1023) {
         xDown = null;
         yDown = null;
     }
-
-
-
 }
 
 
@@ -2544,54 +2511,54 @@ if(window.innerWidth <= 1023) {
 if(window.innerWidth <= 1023) {
 
 
-    let shortcutsMobile = document.querySelector( '#hostPartie .shortcuts' )
-
-    if (shortcutsMobile !== null) {
-        shortcutsMobile.addEventListener( 'touchstart', handleTouchStart, false );
-        shortcutsMobile.addEventListener( 'touchmove', handleTouchMove, false );
-    }
-
-    var xDown = null;
-    var yDown = null;
-
-    function getTouches(evt) {
-        return evt.touches ||             // browser API
-            evt.originalEvent.touches; // jQuery
-    }
-
-    function handleTouchStart(evt) {
-        const firstTouch = getTouches( evt )[0];
-        xDown = firstTouch.clientX;
-        yDown = firstTouch.clientY;
-    }
-
-    function handleTouchMove(evt) {
-        if (!xDown || !yDown) {
-            return;
-        }
-        var xUp = evt.touches[0].clientX;
-        var yUp = evt.touches[0].clientY;
-        var xDiff = xDown - xUp;
-        var yDiff = yDown - yUp;
-
-        if (Math.abs( xDiff ) > Math.abs( yDiff )) {/*most significant*/
-            if (xDiff > 0) { /* left swipe */
-            } else {/* right swipe */
-            }
-        } else {
-            if (yDiff > 0) {
-                /* up swipe */
-                shortcutsUp()
-            } else {
-                /* down swipe */
-                shortcutsDown()
-            }
-        }
-        /* reset values */
-        xDown = null;
-        yDown = null;
-    }
-
+    // let shortcutsMobile = document.querySelector( '#hostPartie .shortcuts' )
+    //
+    // if (shortcutsMobile !== null) {
+    //     shortcutsMobile.addEventListener( 'touchstart', handleTouchStart, false );
+    //     shortcutsMobile.addEventListener( 'touchmove', handleTouchMove, false );
+    // }
+    //
+    // var xDown = null;
+    // var yDown = null;
+    //
+    // function getTouches(evt) {
+    //     return evt.touches ||             // browser API
+    //         evt.originalEvent.touches; // jQuery
+    // }
+    //
+    // function handleTouchStart(evt) {
+    //     const firstTouch = getTouches( evt )[0];
+    //     xDown = firstTouch.clientX;
+    //     yDown = firstTouch.clientY;
+    // }
+    //
+    // function handleTouchMove(evt) {
+    //     if (!xDown || !yDown) {
+    //         return;
+    //     }
+    //     var xUp = evt.touches[0].clientX;
+    //     var yUp = evt.touches[0].clientY;
+    //     var xDiff = xDown - xUp;
+    //     var yDiff = yDown - yUp;
+    //
+    //     if (Math.abs( xDiff ) > Math.abs( yDiff )) {/*most significant*/
+    //         if (xDiff > 0) { /* left swipe */
+    //         } else {/* right swipe */
+    //         }
+    //     } else {
+    //         if (yDiff > 0) {
+    //             /* up swipe */
+    //             shortcutsUp()
+    //         } else {
+    //             /* down swipe */
+    //             shortcutsDown()
+    //         }
+    //     }
+    //     /* reset values */
+    //     xDown = null;
+    //     yDown = null;
+    // }
+    //
 
 
 
@@ -2769,3 +2736,484 @@ if(window.innerWidth <= 1023) {
         }
     }
 }
+
+
+let checkSwipe = true
+
+$(function() {
+    $("#hostPartie .shortcuts").swipe( {
+        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+            if(direction === 'up') {
+                // alert('x')
+                // setTimeout(function () {
+                    shortcutsUp()
+                // },100)
+            }
+            if(direction === 'down') {
+                // alert('y')
+                setTimeout(function () {
+                    shortcutsDown()
+                },200)
+            }
+        }
+    });
+
+});
+/*!
+ * @fileOverview TouchSwipe - jQuery Plugin
+ * @version 1.6.18
+ *
+ * @author Matt Bryson http://www.github.com/mattbryson
+ * @see https://github.com/mattbryson/TouchSwipe-Jquery-Plugin
+ * @see http://labs.rampinteractive.co.uk/touchSwipe/
+ * @see http://plugins.jquery.com/project/touchSwipe
+ * @license
+ * Copyright (c) 2010-2015 Matt Bryson
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ *
+ */
+!function (factory) {
+    "function" == typeof define && define.amd && define.amd.jQuery ? define( ["jquery"], factory ) : factory( "undefined" != typeof module && module.exports ? require( "jquery" ) : jQuery )
+}( function ($) {
+    "use strict";
+
+    function init(options) {
+        return !options || void 0 !== options.allowPageScroll || void 0 === options.swipe && void 0 === options.swipeStatus || (options.allowPageScroll = NONE), void 0 !== options.click && void 0 === options.tap && (options.tap = options.click), options || (options = {}), options = $.extend( {}, $.fn.swipe.defaults, options ), this.each( function () {
+            var $this = $( this ), plugin = $this.data( PLUGIN_NS );
+            plugin || (plugin = new TouchSwipe( this, options ), $this.data( PLUGIN_NS, plugin ))
+        } )
+    }
+
+    function TouchSwipe(element, options) {
+        function touchStart(jqEvent) {
+            if (!(getTouchInProgress() || $( jqEvent.target ).closest( options.excludedElements, $element ).length > 0)) {
+                var event = jqEvent.originalEvent ? jqEvent.originalEvent : jqEvent;
+                if (!event.pointerType || "mouse" != event.pointerType || 0 != options.fallbackToMouseEvents) {
+                    var ret, touches = event.touches, evt = touches ? touches[0] : event;
+                    return phase = PHASE_START, touches ? fingerCount = touches.length : options.preventDefaultEvents !== !1 && jqEvent.preventDefault(), distance = 0, direction = null, currentDirection = null, pinchDirection = null, duration = 0, startTouchesDistance = 0, endTouchesDistance = 0, pinchZoom = 1, pinchDistance = 0, maximumsMap = createMaximumsData(), cancelMultiFingerRelease(), createFingerData( 0, evt ), !touches || fingerCount === options.fingers || options.fingers === ALL_FINGERS || hasPinches() ? (startTime = getTimeStamp(), 2 == fingerCount && (createFingerData( 1, touches[1] ), startTouchesDistance = endTouchesDistance = calculateTouchesDistance( fingerData[0].start, fingerData[1].start )), (options.swipeStatus || options.pinchStatus) && (ret = triggerHandler( event, phase ))) : ret = !1, ret === !1 ? (phase = PHASE_CANCEL, triggerHandler( event, phase ), ret) : (options.hold && (holdTimeout = setTimeout( $.proxy( function () {
+                        $element.trigger( "hold", [event.target] ), options.hold && (ret = options.hold.call( $element, event, event.target ))
+                    }, this ), options.longTapThreshold )), setTouchInProgress( !0 ), null)
+                }
+            }
+        }
+
+        function touchMove(jqEvent) {
+            var event = jqEvent.originalEvent ? jqEvent.originalEvent : jqEvent;
+            if (phase !== PHASE_END && phase !== PHASE_CANCEL && !inMultiFingerRelease()) {
+                var ret, touches = event.touches, evt = touches ? touches[0] : event,
+                    currentFinger = updateFingerData( evt );
+                if (endTime = getTimeStamp(), touches && (fingerCount = touches.length), options.hold && clearTimeout( holdTimeout ), phase = PHASE_MOVE, 2 == fingerCount && (0 == startTouchesDistance ? (createFingerData( 1, touches[1] ), startTouchesDistance = endTouchesDistance = calculateTouchesDistance( fingerData[0].start, fingerData[1].start )) : (updateFingerData( touches[1] ), endTouchesDistance = calculateTouchesDistance( fingerData[0].end, fingerData[1].end ), pinchDirection = calculatePinchDirection( fingerData[0].end, fingerData[1].end )), pinchZoom = calculatePinchZoom( startTouchesDistance, endTouchesDistance ), pinchDistance = Math.abs( startTouchesDistance - endTouchesDistance )), fingerCount === options.fingers || options.fingers === ALL_FINGERS || !touches || hasPinches()) {
+                    if (direction = calculateDirection( currentFinger.start, currentFinger.end ), currentDirection = calculateDirection( currentFinger.last, currentFinger.end ), validateDefaultEvent( jqEvent, currentDirection ), distance = calculateDistance( currentFinger.start, currentFinger.end ), duration = calculateDuration(), setMaxDistance( direction, distance ), ret = triggerHandler( event, phase ), !options.triggerOnTouchEnd || options.triggerOnTouchLeave) {
+                        var inBounds = !0;
+                        if (options.triggerOnTouchLeave) {
+                            var bounds = getbounds( this );
+                            inBounds = isInBounds( currentFinger.end, bounds )
+                        }
+                        !options.triggerOnTouchEnd && inBounds ? phase = getNextPhase( PHASE_MOVE ) : options.triggerOnTouchLeave && !inBounds && (phase = getNextPhase( PHASE_END )), phase != PHASE_CANCEL && phase != PHASE_END || triggerHandler( event, phase )
+                    }
+                } else phase = PHASE_CANCEL, triggerHandler( event, phase );
+                ret === !1 && (phase = PHASE_CANCEL, triggerHandler( event, phase ))
+            }
+        }
+
+        function touchEnd(jqEvent) {
+            var event = jqEvent.originalEvent ? jqEvent.originalEvent : jqEvent, touches = event.touches;
+            if (touches) {
+                if (touches.length && !inMultiFingerRelease()) return startMultiFingerRelease( event ), !0;
+                if (touches.length && inMultiFingerRelease()) return !0
+            }
+            return inMultiFingerRelease() && (fingerCount = fingerCountAtRelease), endTime = getTimeStamp(), duration = calculateDuration(), didSwipeBackToCancel() || !validateSwipeDistance() ? (phase = PHASE_CANCEL, triggerHandler( event, phase )) : options.triggerOnTouchEnd || options.triggerOnTouchEnd === !1 && phase === PHASE_MOVE ? (options.preventDefaultEvents !== !1 && jqEvent.cancelable !== !1 && jqEvent.preventDefault(), phase = PHASE_END, triggerHandler( event, phase )) : !options.triggerOnTouchEnd && hasTap() ? (phase = PHASE_END, triggerHandlerForGesture( event, phase, TAP )) : phase === PHASE_MOVE && (phase = PHASE_CANCEL, triggerHandler( event, phase )), setTouchInProgress( !1 ), null
+        }
+
+        function touchCancel() {
+            fingerCount = 0, endTime = 0, startTime = 0, startTouchesDistance = 0, endTouchesDistance = 0, pinchZoom = 1, cancelMultiFingerRelease(), setTouchInProgress( !1 )
+        }
+
+        function touchLeave(jqEvent) {
+            var event = jqEvent.originalEvent ? jqEvent.originalEvent : jqEvent;
+            options.triggerOnTouchLeave && (phase = getNextPhase( PHASE_END ), triggerHandler( event, phase ))
+        }
+
+        function removeListeners() {
+            $element.off( START_EV, touchStart ), $element.off( CANCEL_EV, touchCancel ), $element.off( MOVE_EV, touchMove ), $element.off( END_EV, touchEnd ), LEAVE_EV && $element.off( LEAVE_EV, touchLeave ), setTouchInProgress( !1 )
+        }
+
+        function getNextPhase(currentPhase) {
+            var nextPhase = currentPhase, validTime = validateSwipeTime(), validDistance = validateSwipeDistance(),
+                didCancel = didSwipeBackToCancel();
+            return !validTime || didCancel ? nextPhase = PHASE_CANCEL : !validDistance || currentPhase != PHASE_MOVE || options.triggerOnTouchEnd && !options.triggerOnTouchLeave ? !validDistance && currentPhase == PHASE_END && options.triggerOnTouchLeave && (nextPhase = PHASE_CANCEL) : nextPhase = PHASE_END, nextPhase
+        }
+
+        function triggerHandler(event, phase) {
+            var ret, touches = event.touches;
+            return (didSwipe() || hasSwipes()) && (ret = triggerHandlerForGesture( event, phase, SWIPE )), (didPinch() || hasPinches()) && ret !== !1 && (ret = triggerHandlerForGesture( event, phase, PINCH )), didDoubleTap() && ret !== !1 ? ret = triggerHandlerForGesture( event, phase, DOUBLE_TAP ) : didLongTap() && ret !== !1 ? ret = triggerHandlerForGesture( event, phase, LONG_TAP ) : didTap() && ret !== !1 && (ret = triggerHandlerForGesture( event, phase, TAP )), phase === PHASE_CANCEL && touchCancel( event ), phase === PHASE_END && (touches ? touches.length || touchCancel( event ) : touchCancel( event )), ret
+        }
+
+        function triggerHandlerForGesture(event, phase, gesture) {
+            var ret;
+            if (gesture == SWIPE) {
+                if ($element.trigger( "swipeStatus", [phase, direction || null, distance || 0, duration || 0, fingerCount, fingerData, currentDirection] ), options.swipeStatus && (ret = options.swipeStatus.call( $element, event, phase, direction || null, distance || 0, duration || 0, fingerCount, fingerData, currentDirection ), ret === !1)) return !1;
+                if (phase == PHASE_END && validateSwipe()) {
+                    if (clearTimeout( singleTapTimeout ), clearTimeout( holdTimeout ), $element.trigger( "swipe", [direction, distance, duration, fingerCount, fingerData, currentDirection] ), options.swipe && (ret = options.swipe.call( $element, event, direction, distance, duration, fingerCount, fingerData, currentDirection ), ret === !1)) return !1;
+                    switch (direction) {
+                        case LEFT:
+                            $element.trigger( "swipeLeft", [direction, distance, duration, fingerCount, fingerData, currentDirection] ), options.swipeLeft && (ret = options.swipeLeft.call( $element, event, direction, distance, duration, fingerCount, fingerData, currentDirection ));
+                            break;
+                        case RIGHT:
+                            $element.trigger( "swipeRight", [direction, distance, duration, fingerCount, fingerData, currentDirection] ), options.swipeRight && (ret = options.swipeRight.call( $element, event, direction, distance, duration, fingerCount, fingerData, currentDirection ));
+                            break;
+                        case UP:
+                            $element.trigger( "swipeUp", [direction, distance, duration, fingerCount, fingerData, currentDirection] ), options.swipeUp && (ret = options.swipeUp.call( $element, event, direction, distance, duration, fingerCount, fingerData, currentDirection ));
+                            break;
+                        case DOWN:
+                            $element.trigger( "swipeDown", [direction, distance, duration, fingerCount, fingerData, currentDirection] ), options.swipeDown && (ret = options.swipeDown.call( $element, event, direction, distance, duration, fingerCount, fingerData, currentDirection ))
+                    }
+                }
+            }
+            if (gesture == PINCH) {
+                if ($element.trigger( "pinchStatus", [phase, pinchDirection || null, pinchDistance || 0, duration || 0, fingerCount, pinchZoom, fingerData] ), options.pinchStatus && (ret = options.pinchStatus.call( $element, event, phase, pinchDirection || null, pinchDistance || 0, duration || 0, fingerCount, pinchZoom, fingerData ), ret === !1)) return !1;
+                if (phase == PHASE_END && validatePinch()) switch (pinchDirection) {
+                    case IN:
+                        $element.trigger( "pinchIn", [pinchDirection || null, pinchDistance || 0, duration || 0, fingerCount, pinchZoom, fingerData] ), options.pinchIn && (ret = options.pinchIn.call( $element, event, pinchDirection || null, pinchDistance || 0, duration || 0, fingerCount, pinchZoom, fingerData ));
+                        break;
+                    case OUT:
+                        $element.trigger( "pinchOut", [pinchDirection || null, pinchDistance || 0, duration || 0, fingerCount, pinchZoom, fingerData] ), options.pinchOut && (ret = options.pinchOut.call( $element, event, pinchDirection || null, pinchDistance || 0, duration || 0, fingerCount, pinchZoom, fingerData ))
+                }
+            }
+            return gesture == TAP ? phase !== PHASE_CANCEL && phase !== PHASE_END || (clearTimeout( singleTapTimeout ), clearTimeout( holdTimeout ), hasDoubleTap() && !inDoubleTap() ? (doubleTapStartTime = getTimeStamp(), singleTapTimeout = setTimeout( $.proxy( function () {
+                doubleTapStartTime = null, $element.trigger( "tap", [event.target] ), options.tap && (ret = options.tap.call( $element, event, event.target ))
+            }, this ), options.doubleTapThreshold )) : (doubleTapStartTime = null, $element.trigger( "tap", [event.target] ), options.tap && (ret = options.tap.call( $element, event, event.target )))) : gesture == DOUBLE_TAP ? phase !== PHASE_CANCEL && phase !== PHASE_END || (clearTimeout( singleTapTimeout ), clearTimeout( holdTimeout ), doubleTapStartTime = null, $element.trigger( "doubletap", [event.target] ), options.doubleTap && (ret = options.doubleTap.call( $element, event, event.target ))) : gesture == LONG_TAP && (phase !== PHASE_CANCEL && phase !== PHASE_END || (clearTimeout( singleTapTimeout ), doubleTapStartTime = null, $element.trigger( "longtap", [event.target] ), options.longTap && (ret = options.longTap.call( $element, event, event.target )))), ret
+        }
+
+        function validateSwipeDistance() {
+            var valid = !0;
+            return null !== options.threshold && (valid = distance >= options.threshold), valid
+        }
+
+        function didSwipeBackToCancel() {
+            var cancelled = !1;
+            return null !== options.cancelThreshold && null !== direction && (cancelled = getMaxDistance( direction ) - distance >= options.cancelThreshold), cancelled
+        }
+
+        function validatePinchDistance() {
+            return null !== options.pinchThreshold ? pinchDistance >= options.pinchThreshold : !0
+        }
+
+        function validateSwipeTime() {
+            var result;
+            return result = options.maxTimeThreshold ? !(duration >= options.maxTimeThreshold) : !0
+        }
+
+        function validateDefaultEvent(jqEvent, direction) {
+            if (options.preventDefaultEvents !== !1) if (options.allowPageScroll === NONE) jqEvent.preventDefault(); else {
+                var auto = options.allowPageScroll === AUTO;
+                switch (direction) {
+                    case LEFT:
+                        (options.swipeLeft && auto || !auto && options.allowPageScroll != HORIZONTAL) && jqEvent.preventDefault();
+                        break;
+                    case RIGHT:
+                        (options.swipeRight && auto || !auto && options.allowPageScroll != HORIZONTAL) && jqEvent.preventDefault();
+                        break;
+                    case UP:
+                        (options.swipeUp && auto || !auto && options.allowPageScroll != VERTICAL) && jqEvent.preventDefault();
+                        break;
+                    case DOWN:
+                        (options.swipeDown && auto || !auto && options.allowPageScroll != VERTICAL) && jqEvent.preventDefault();
+                        break;
+                    case NONE:
+                }
+            }
+        }
+
+        function validatePinch() {
+            var hasCorrectFingerCount = validateFingers(), hasEndPoint = validateEndPoint(),
+                hasCorrectDistance = validatePinchDistance();
+            return hasCorrectFingerCount && hasEndPoint && hasCorrectDistance
+        }
+
+        function hasPinches() {
+            return !!(options.pinchStatus || options.pinchIn || options.pinchOut)
+        }
+
+        function didPinch() {
+            return !(!validatePinch() || !hasPinches())
+        }
+
+        function validateSwipe() {
+            var hasValidTime = validateSwipeTime(), hasValidDistance = validateSwipeDistance(),
+                hasCorrectFingerCount = validateFingers(), hasEndPoint = validateEndPoint(),
+                didCancel = didSwipeBackToCancel(),
+                valid = !didCancel && hasEndPoint && hasCorrectFingerCount && hasValidDistance && hasValidTime;
+            return valid
+        }
+
+        function hasSwipes() {
+            return !!(options.swipe || options.swipeStatus || options.swipeLeft || options.swipeRight || options.swipeUp || options.swipeDown)
+        }
+
+        function didSwipe() {
+            return !(!validateSwipe() || !hasSwipes())
+        }
+
+        function validateFingers() {
+            return fingerCount === options.fingers || options.fingers === ALL_FINGERS || !SUPPORTS_TOUCH
+        }
+
+        function validateEndPoint() {
+            return 0 !== fingerData[0].end.x
+        }
+
+        function hasTap() {
+            return !!options.tap
+        }
+
+        function hasDoubleTap() {
+            return !!options.doubleTap
+        }
+
+        function hasLongTap() {
+            return !!options.longTap
+        }
+
+        function validateDoubleTap() {
+            if (null == doubleTapStartTime) return !1;
+            var now = getTimeStamp();
+            return hasDoubleTap() && now - doubleTapStartTime <= options.doubleTapThreshold
+        }
+
+        function inDoubleTap() {
+            return validateDoubleTap()
+        }
+
+        function validateTap() {
+            return (1 === fingerCount || !SUPPORTS_TOUCH) && (isNaN( distance ) || distance < options.threshold)
+        }
+
+        function validateLongTap() {
+            return duration > options.longTapThreshold && DOUBLE_TAP_THRESHOLD > distance
+        }
+
+        function didTap() {
+            return !(!validateTap() || !hasTap())
+        }
+
+        function didDoubleTap() {
+            return !(!validateDoubleTap() || !hasDoubleTap())
+        }
+
+        function didLongTap() {
+            return !(!validateLongTap() || !hasLongTap())
+        }
+
+        function startMultiFingerRelease(event) {
+            previousTouchEndTime = getTimeStamp(), fingerCountAtRelease = event.touches.length + 1
+        }
+
+        function cancelMultiFingerRelease() {
+            previousTouchEndTime = 0, fingerCountAtRelease = 0
+        }
+
+        function inMultiFingerRelease() {
+            var withinThreshold = !1;
+            if (previousTouchEndTime) {
+                var diff = getTimeStamp() - previousTouchEndTime;
+                diff <= options.fingerReleaseThreshold && (withinThreshold = !0)
+            }
+            return withinThreshold
+        }
+
+        function getTouchInProgress() {
+            return !($element.data( PLUGIN_NS + "_intouch" ) !== !0)
+        }
+
+        function setTouchInProgress(val) {
+            $element && (val === !0 ? ($element.on( MOVE_EV, touchMove ), $element.on( END_EV, touchEnd ), LEAVE_EV && $element.on( LEAVE_EV, touchLeave )) : ($element.off( MOVE_EV, touchMove, !1 ), $element.off( END_EV, touchEnd, !1 ), LEAVE_EV && $element.off( LEAVE_EV, touchLeave, !1 )), $element.data( PLUGIN_NS + "_intouch", val === !0 ))
+        }
+
+        function createFingerData(id, evt) {
+            var f = {start: {x: 0, y: 0}, last: {x: 0, y: 0}, end: {x: 0, y: 0}};
+            return f.start.x = f.last.x = f.end.x = evt.pageX || evt.clientX, f.start.y = f.last.y = f.end.y = evt.pageY || evt.clientY, fingerData[id] = f, f
+        }
+
+        function updateFingerData(evt) {
+            var id = void 0 !== evt.identifier ? evt.identifier : 0, f = getFingerData( id );
+            return null === f && (f = createFingerData( id, evt )), f.last.x = f.end.x, f.last.y = f.end.y, f.end.x = evt.pageX || evt.clientX, f.end.y = evt.pageY || evt.clientY, f
+        }
+
+        function getFingerData(id) {
+            return fingerData[id] || null
+        }
+
+        function setMaxDistance(direction, distance) {
+            direction != NONE && (distance = Math.max( distance, getMaxDistance( direction ) ), maximumsMap[direction].distance = distance)
+        }
+
+        function getMaxDistance(direction) {
+            return maximumsMap[direction] ? maximumsMap[direction].distance : void 0
+        }
+
+        function createMaximumsData() {
+            var maxData = {};
+            return maxData[LEFT] = createMaximumVO( LEFT ), maxData[RIGHT] = createMaximumVO( RIGHT ), maxData[UP] = createMaximumVO( UP ), maxData[DOWN] = createMaximumVO( DOWN ), maxData
+        }
+
+        function createMaximumVO(dir) {
+            return {direction: dir, distance: 0}
+        }
+
+        function calculateDuration() {
+            return endTime - startTime
+        }
+
+        function calculateTouchesDistance(startPoint, endPoint) {
+            var diffX = Math.abs( startPoint.x - endPoint.x ), diffY = Math.abs( startPoint.y - endPoint.y );
+            return Math.round( Math.sqrt( diffX * diffX + diffY * diffY ) )
+        }
+
+        function calculatePinchZoom(startDistance, endDistance) {
+            var percent = endDistance / startDistance * 1;
+            return percent.toFixed( 2 )
+        }
+
+        function calculatePinchDirection() {
+            return 1 > pinchZoom ? OUT : IN
+        }
+
+        function calculateDistance(startPoint, endPoint) {
+            return Math.round( Math.sqrt( Math.pow( endPoint.x - startPoint.x, 2 ) + Math.pow( endPoint.y - startPoint.y, 2 ) ) )
+        }
+
+        function calculateAngle(startPoint, endPoint) {
+            var x = startPoint.x - endPoint.x, y = endPoint.y - startPoint.y, r = Math.atan2( y, x ),
+                angle = Math.round( 180 * r / Math.PI );
+            return 0 > angle && (angle = 360 - Math.abs( angle )), angle
+        }
+
+        function calculateDirection(startPoint, endPoint) {
+            if (comparePoints( startPoint, endPoint )) return NONE;
+            var angle = calculateAngle( startPoint, endPoint );
+            return 45 >= angle && angle >= 0 ? LEFT : 360 >= angle && angle >= 315 ? LEFT : angle >= 135 && 225 >= angle ? RIGHT : angle > 45 && 135 > angle ? DOWN : UP
+        }
+
+        function getTimeStamp() {
+            var now = new Date;
+            return now.getTime()
+        }
+
+        function getbounds(el) {
+            el = $( el );
+            var offset = el.offset(), bounds = {
+                left: offset.left,
+                right: offset.left + el.outerWidth(),
+                top: offset.top,
+                bottom: offset.top + el.outerHeight()
+            };
+            return bounds
+        }
+
+        function isInBounds(point, bounds) {
+            return point.x > bounds.left && point.x < bounds.right && point.y > bounds.top && point.y < bounds.bottom
+        }
+
+        function comparePoints(pointA, pointB) {
+            return pointA.x == pointB.x && pointA.y == pointB.y
+        }
+
+        var options = $.extend( {}, options ),
+            useTouchEvents = SUPPORTS_TOUCH || SUPPORTS_POINTER || !options.fallbackToMouseEvents,
+            START_EV = useTouchEvents ? SUPPORTS_POINTER ? SUPPORTS_POINTER_IE10 ? "MSPointerDown" : "pointerdown" : "touchstart" : "mousedown",
+            MOVE_EV = useTouchEvents ? SUPPORTS_POINTER ? SUPPORTS_POINTER_IE10 ? "MSPointerMove" : "pointermove" : "touchmove" : "mousemove",
+            END_EV = useTouchEvents ? SUPPORTS_POINTER ? SUPPORTS_POINTER_IE10 ? "MSPointerUp" : "pointerup" : "touchend" : "mouseup",
+            LEAVE_EV = useTouchEvents ? SUPPORTS_POINTER ? "mouseleave" : null : "mouseleave",
+            CANCEL_EV = SUPPORTS_POINTER ? SUPPORTS_POINTER_IE10 ? "MSPointerCancel" : "pointercancel" : "touchcancel",
+            distance = 0, direction = null, currentDirection = null, duration = 0, startTouchesDistance = 0,
+            endTouchesDistance = 0, pinchZoom = 1, pinchDistance = 0, pinchDirection = 0, maximumsMap = null,
+            $element = $( element ), phase = "start", fingerCount = 0, fingerData = {}, startTime = 0, endTime = 0,
+            previousTouchEndTime = 0, fingerCountAtRelease = 0, doubleTapStartTime = 0, singleTapTimeout = null,
+            holdTimeout = null;
+        try {
+            $element.on( START_EV, touchStart ), $element.on( CANCEL_EV, touchCancel )
+        } catch (e) {
+            $.error( "events not supported " + START_EV + "," + CANCEL_EV + " on jQuery.swipe" )
+        }
+        this.enable = function () {
+            return this.disable(), $element.on( START_EV, touchStart ), $element.on( CANCEL_EV, touchCancel ), $element
+        }, this.disable = function () {
+            return removeListeners(), $element
+        }, this.destroy = function () {
+            removeListeners(), $element.data( PLUGIN_NS, null ), $element = null
+        }, this.option = function (property, value) {
+            if ("object" == typeof property) options = $.extend( options, property ); else if (void 0 !== options[property]) {
+                if (void 0 === value) return options[property];
+                options[property] = value
+            } else {
+                if (!property) return options;
+                $.error( "Option " + property + " does not exist on jQuery.swipe.options" )
+            }
+            return null
+        }
+    }
+
+    var VERSION = "1.6.18", LEFT = "left", RIGHT = "right", UP = "up", DOWN = "down", IN = "in", OUT = "out",
+        NONE = "none", AUTO = "auto", SWIPE = "swipe", PINCH = "pinch", TAP = "tap", DOUBLE_TAP = "doubletap",
+        LONG_TAP = "longtap", HORIZONTAL = "horizontal", VERTICAL = "vertical", ALL_FINGERS = "all",
+        DOUBLE_TAP_THRESHOLD = 10, PHASE_START = "start", PHASE_MOVE = "move", PHASE_END = "end",
+        PHASE_CANCEL = "cancel", SUPPORTS_TOUCH = "ontouchstart" in window,
+        SUPPORTS_POINTER_IE10 = window.navigator.msPointerEnabled && !window.PointerEvent && !SUPPORTS_TOUCH,
+        SUPPORTS_POINTER = (window.PointerEvent || window.navigator.msPointerEnabled) && !SUPPORTS_TOUCH,
+        PLUGIN_NS = "TouchSwipe", defaults = {
+            fingers: 1,
+            threshold: 75,
+            cancelThreshold: null,
+            pinchThreshold: 20,
+            maxTimeThreshold: null,
+            fingerReleaseThreshold: 250,
+            longTapThreshold: 500,
+            doubleTapThreshold: 200,
+            swipe: null,
+            swipeLeft: null,
+            swipeRight: null,
+            swipeUp: null,
+            swipeDown: null,
+            swipeStatus: null,
+            pinchIn: null,
+            pinchOut: null,
+            pinchStatus: null,
+            click: null,
+            tap: null,
+            doubleTap: null,
+            longTap: null,
+            hold: null,
+            triggerOnTouchEnd: !0,
+            triggerOnTouchLeave: !1,
+            allowPageScroll: "auto",
+            fallbackToMouseEvents: !0,
+            excludedElements: ".noSwipe",
+            preventDefaultEvents: !0
+        };
+    $.fn.swipe = function (method) {
+        var $this = $( this ), plugin = $this.data( PLUGIN_NS );
+        if (plugin && "string" == typeof method) {
+            if (plugin[method]) return plugin[method].apply( plugin, Array.prototype.slice.call( arguments, 1 ) );
+            $.error( "Method " + method + " does not exist on jQuery.swipe" )
+        } else if (plugin && "object" == typeof method) plugin.option.apply( plugin, arguments ); else if (!(plugin || "object" != typeof method && method)) return init.apply( this, arguments );
+        return $this
+    }, $.fn.swipe.version = VERSION, $.fn.swipe.defaults = defaults, $.fn.swipe.phases = {
+        PHASE_START: PHASE_START,
+        PHASE_MOVE: PHASE_MOVE,
+        PHASE_END: PHASE_END,
+        PHASE_CANCEL: PHASE_CANCEL
+    }, $.fn.swipe.directions = {
+        LEFT: LEFT,
+        RIGHT: RIGHT,
+        UP: UP,
+        DOWN: DOWN,
+        IN: IN,
+        OUT: OUT
+    }, $.fn.swipe.pageScroll = {
+        NONE: NONE,
+        HORIZONTAL: HORIZONTAL,
+        VERTICAL: VERTICAL,
+        AUTO: AUTO
+    }, $.fn.swipe.fingers = {ONE: 1, TWO: 2, THREE: 3, FOUR: 4, FIVE: 5, ALL: ALL_FINGERS}
+} );

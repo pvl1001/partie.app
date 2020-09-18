@@ -25,7 +25,7 @@
                     Apex Legends
                 </button>
 
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="What’s new?"></textarea>
+                <textarea maxlength="500" placeholder="What’s new?"></textarea>
                 <div class="new-post__row">
                     <label for="photo2"></label>
                     <input id="photo2" type="file" class="feed__what-new_photo">
@@ -86,7 +86,7 @@
                 Partner Progress
                 <div onclick="closeModal(profileProgress)" class="modal__close"></div>
             </div>
-            <div class="modal__content">
+            <div class="info_avatar__progress-wrapp">
                 <div onclick="next(applyPartner, profileProgress)" class="info_avatar__progress">
                     <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.8499 8.3887V12.3823C15.8499 12.3823 15.843 12.7838 15.4485 12.7838H10.8389V16.369C10.8389 16.369 10.8389 16.7705 10.4374 16.7705H5.82779V20.3558C5.82779 20.5772 5.64092 20.7572 5.42635 20.7572H0.40836C0.186877 20.7572 0.00692074 20.5703 0.00692074 20.3558V16.3621C0.00692074 16.3621 0.0207637 15.9607 0.40836 15.9607H5.01799V12.7838H0.40836C0.40836 12.7838 0.048449 12.7976 0.00692074 12.3823V8.3887C0.00692074 8.3887 0.00692093 7.98727 0.40836 7.98727C0.8098 7.98727 5.01799 7.98727 5.01799 7.98727V4.78959H0.394518C0.00692117 4.78959 0 4.39507 0 4.39507V0.40144C0 0.0069216 0.40144 0 0.40144 0H5.41251C5.80703 0 5.81395 0.40144 5.81395 0.40144V3.98671H10.4236C10.4236 3.98671 10.825 4.0144 10.825 4.38815V7.97342H15.4347C15.4416 7.98726 15.8499 7.99419 15.8499 8.3887ZM10.0221 11.974V8.79706H5.81395V11.974H10.0221Z"
@@ -97,6 +97,9 @@
                         <div>23%</div>
                     </div>
                 </div>
+            </div>
+
+            <div class="modal__content">
                 <div class="info_avatar__progress-bar">
                     <div class="progress-bar__text">
                         Host 25 Successful Parties
@@ -153,16 +156,18 @@
                     </div>
                     <div class="progress-bar__progress"></div>
                 </div>
-                <div class="info_avatar__about">
-                    <span>About Partnership</span>
-                </div>
-
             </div>
+            <div class="info_avatar__about">
+                <span>About Partnership</span>
+            </div>
+
+            <div onclick="closeModal(profileProgress)" class="close-tap mobile"></div>
         </div>
         <div onclick="closeModal(profileProgress)" class="modal__backdrop"></div>
     </div>
     <div id="applyPartner" class="modal-wrapp">
         <div class="partner modal center">
+            <div onclick="closeModal(applyPartner)" class="close-tap mobile"></div>
             <div class="modal__head">
                 <div onclick="closeModal(applyPartner)" class="modal__close"></div>
             </div>
@@ -178,6 +183,7 @@
     </div>
     <div id="levelProgress" class="modal-wrapp">
         <div class="level-progress modal center">
+            <div onclick="closeModal(levelProgress)" class="close-tap mobile"></div>
             <div class="modal__head">
                 Level Progress
                 <div onclick="closeModal(levelProgress)" class="modal__close"></div>
@@ -559,8 +565,9 @@
                     </div>
                 </div>
             </div>
+            <div onclick="closeModal(levelProgressToken)" class="modal__backdrop"></div>
+
         </div>
-        <div onclick="closeModal(levelProgressToken)" class="modal__backdrop"></div>
     </div>
     <div id="levelProgressAchivements" class="modal-wrapp">
         <div class="modal center">
@@ -650,8 +657,8 @@
                     </div>
                 </div>
             </div>
+            <div onclick="closeModal(levelProgressAchivements)" class="modal__backdrop"></div>
         </div>
-        <div onclick="closeModal(levelProgressAchivements)" class="modal__backdrop"></div>
     </div>
     <div id="editProfile" class="modal-wrapp">
         <div class="modal center">
@@ -668,8 +675,7 @@
                 </div>
                 <div class="editProfile__title">Description</div>
 
-                <textarea oninput="auto_grow(this)"
-                          class="editProfile__description description"
+                <textarea class="editProfile__description description"
                           maxlength="500"
                           placeholder="Add description"></textarea>
                 <div class="editProfile__website">
@@ -695,6 +701,15 @@
             <div class="modal__content">
                 <input type="text" placeholder="Search">
                 <div class="choose-game__game game">
+                    <a href="#" onclick="next(hostPlatform, hostPartie)" class="game-cont">
+                        <div class="game__img">
+                            <div class="card__partie">
+                                <img src="img/icon/partie.png"/>
+                                424
+                            </div>
+                        </div>
+                        <div class="game__name">Fortnite</div>
+                    </a>
                     <a href="#" onclick="next(hostPlatform, hostPartie)" class="game-cont">
                         <div class="game__img">
                             <div class="card__partie">
@@ -769,6 +784,8 @@
                                     <span>Delete</span>
                                 </div>
                                 <div class="close-place"></div>
+                                <div class="close-tap mobile"></div>
+
                             </div>
                         </div>
                     </div>
@@ -796,7 +813,7 @@
                     <div class="shortcuts__create">
                         <span>Create</span>
                     </div>
-
+                    <div onclick="shortcutsDown()" class="close-tap mobile"></div>
                 </div>
             </div>
 
@@ -822,6 +839,7 @@
     </div>
     <div id="hostPlatform" class="platforms modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(hostPlatform)" class="close-tap mobile"></div>
             <div class="modal__head">
                 <svg id="back" onclick="back(hostPlatform, hostPartie)" class="btn-back" width="24" height="24"
                      fill="none"
@@ -859,7 +877,7 @@
                 <div class="platform__title">Select a platform</div>
                 <button class="host-xb">Xbox</button>
                 <div class="platform__title platform__title_gametrag">Gametrag</div>
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Text"></textarea>
+                <textarea maxlength="500" placeholder="Text"></textarea>
             </div>
         </div>
         <div onclick="closeModal(addGametrag)" class="modal__backdrop"></div>
@@ -884,7 +902,7 @@
                 </button>
                 <div class="platform__title">Partie name</div>
                 <input type="text" placeholder="Add name">
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add description"></textarea>
+                <textarea maxlength="500" placeholder="Add description"></textarea>
 
                 <div class="hostLiveShow__img">
                     <img src="img/pic/Image (2).png"/>
@@ -895,7 +913,7 @@
                     <div class="d-flex">
                         <input id="hostLiveShowPhoto" type="file">
                         <label for="hostLiveShowPhoto"></label>
-                        <button class="btn-public">Public partie</button>
+                        <button onclick="changeBtnPublic(this)" class="btn-public">Public partie</button>
                         <div class="epic btn-round">
                             <div class="btn-round__hover">GameLiveShow</div>
                         </div>
@@ -1132,6 +1150,7 @@
     </div>
     <div id="removeUser" class="removeUser modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(removeUser)" class="close-tap mobile"></div>
             <div class="modal__head">
                 <div onclick="closeModal(removeUser)" class="modal__close"></div>
                 Remove user
@@ -1155,7 +1174,7 @@
                     <label for="Other">Other</label>
                 </div>
 
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add a description"></textarea>
+                <textarea maxlength="500" placeholder="Add a description"></textarea>
                 <button>Remove User</button>
             </div>
         </div>
@@ -1206,8 +1225,7 @@
                 </div>
                 <div class="titleModal__text">
                     <div class="titleModal__text_text">
-                        <textarea oninput="auto_grow(this)"
-                                  maxlength="500">You hate to play with people who never played the game before?</textarea>
+                        <textarea maxlength="500">You hate to play with people who never played the game before?</textarea>
                     </div>
                     <div class="titleModal__text_btns">
                         <div class="round-btn xbox"></div>
@@ -1251,7 +1269,7 @@
                 </button>
                 <div class="platform__title">Partie name</div>
                 <input type="text" placeholder="Add name">
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add description"></textarea>
+                <textarea maxlength="500" placeholder="Add description"></textarea>
                 <div class="hostLiveShow__img">
                     <img src="img/pic/Image (2).png"/>
                     <div class="delete-img"></div>
@@ -1262,7 +1280,7 @@
                             <input id="hostLiveShowPhoto" type="file">
                             <label for="hostLiveShowPhoto"></label>
                         </div>
-                        <button class="btn-public">Public partie</button>
+                        <button onclick="changeBtnPublic(this)" class="btn-public">Public partie</button>
                         <div class="epic btn-round">
                             <div class="btn-round__hover">GameLiveShow</div>
                         </div>
@@ -1339,8 +1357,7 @@
                 </div>
                 <div class="titleModal__text">
                     <div class="titleModal__text_text">
-                        <textarea oninput="auto_grow(this)"
-                                  maxlength="500">You hate to play with people who never played the game before?</textarea>
+                        <textarea maxlength="500">You hate to play with people who never played the game before?</textarea>
                     </div>
                     <div class="titleModal__text_btns">
                         <div class="round-btn xbox"></div>
@@ -1384,13 +1401,17 @@
     </div>
     <div id="partieReport" class="removeUser modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(partieReport)" class="close-tap mobile"></div>
             <div class="modal__head">
                 <div onclick="closeModal(partieReport)" class="modal__close"></div>
                 Partie Report
             </div>
 
             <div class="modal__content">
-                <div class="removeUser__title">
+                <div class="removeUser__title only-pc">
+                    Reason for report
+                </div>
+                <div onclick="backPartieReport(partieReport)" class="removeUser__title mobile">
                     Reason for report
                 </div>
                 <div class="removeUser-mobile">
@@ -1406,7 +1427,7 @@
                     <input id="reportOther" name="partieReport" type="radio">
                     <label for="reportOther">Other</label>
                 </div>
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add a description"></textarea>
+                <textarea maxlength="500" placeholder="Add a description"></textarea>
                 <button onclick="reportSubmitted()" disabled class="disabled">Send report</button>
             </div>
         </div>
@@ -1747,6 +1768,7 @@
     </div>
     <div id="leaveChat" class="leaveChat modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(leaveChat)" class="close-tap mobile"></div>
             <div class="modal__content">
                 <div class="leaveChat__text">
                     Are you sure you want
@@ -1764,6 +1786,7 @@
 <!--Settings-->
     <div id="inviteFriendsSetting" class="modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(inviteFriendsSetting)" class="close-tap mobile"></div>
             <div class="modal__head">
                 <div onclick="closeModal(inviteFriendsSetting)" class="modal__close"></div>
             </div>
@@ -1788,6 +1811,7 @@
     </div>
     <div id="deleteAccount" class="leaveChat modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(deleteAccount)" class="close-tap mobile"></div>
             <div class="modal__content">
                 <div class="leaveChat__text">
                     Are you sure you want
@@ -1867,7 +1891,7 @@
                     </div>
 
                 </div>
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add a description"></textarea>
+                <textarea maxlength="500" placeholder="Add a description"></textarea>
                 <button class="bg-fiolet">Yes, cancel my subscription</button>
             </div>
         </div>
@@ -1904,6 +1928,7 @@
     </div>
     <div id="unfollow" class="leaveChat modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(unfollow)" class="close-tap mobile"></div>
             <div class="modal__content">
                 <div class="leaveChat__text">
                     Are you sure you want
@@ -1947,6 +1972,7 @@
 
     <div id="share" class="modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(share)" class="close-tap mobile"></div>
             <div class="modal__head">
                 Share
                 <div onclick="closeModal(share)" class="modal__close"></div>
@@ -2005,7 +2031,7 @@
                 </button>
                 <div class="platform__title">Partie name</div>
                 <input readonly onclick="openModal(gametragName)" type="text" placeholder="Add name">
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add description"></textarea>
+                <textarea maxlength="500" placeholder="Add description"></textarea>
 
                 <div class="hostLiveShow__img">
                     <img src="img/pic/Image (2).png"/>
@@ -2016,7 +2042,7 @@
                     <div class="d-flex">
                         <input id="hostLiveShowPhoto" type="file">
                         <label for="hostLiveShowPhoto"></label>
-                        <button class="btn-public">Public partie</button>
+                        <button onclick="changeBtnPublic(this)" class="btn-public">Public partie</button>
                     </div>
                 </div>
                 <div class="hostLiveShow__save">
@@ -2066,6 +2092,7 @@
     </div>
     <div id="gametragPlatform" class="platforms modal-wrapp">
         <div class="modal center">
+            <div onclick="closeModal(gametragPlatform)" class="close-tap mobile"></div>
             <div class="modal__head">
                 <svg id="back" onclick="back(gametragPlatform, gametrag)" class="btn-back" width="24" height="24"
                      fill="none"
@@ -2099,6 +2126,7 @@
     </div>
     <div id="gametrag" class="modal-wrapp gametrag-modal">
         <div class="modal center">
+            <div onclick="closeModal(gametrag)" class="close-tap mobile"></div>
             <div class="modal__head">
                 <svg id="back" onclick="back(gametrag, hostPlatform)" class="btn-back" width="24" height="24"
                      fill="none"
@@ -2128,6 +2156,7 @@
     </div>
     <div id="gametragName" class="modal-wrapp gametrag-modal mobile">
         <div class="modal center">
+            <div onclick="closeModal(gametragName)" class="close-tap mobile"></div>
             <div class="modal__head">
                 <svg id="back" onclick="back(gametrag, hostPlatform)" class="btn-back" width="24" height="24"
                      fill="none"
@@ -2169,7 +2198,7 @@
                 </button>
                 <div class="platform__title">Partie name</div>
                 <input readonly onclick="openModal(gametragName)" type="text" placeholder="Add name">
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add description"></textarea>
+                <textarea maxlength="500" placeholder="Add description"></textarea>
 
                 <div class="hostLiveShow__img">
                     <img src="img/pic/Image (2).png"/>
@@ -2180,7 +2209,7 @@
                     <div class="d-flex">
                         <input id="hostLiveShowPhoto" type="file">
                         <label for="hostLiveShowPhoto"></label>
-                        <button class="btn-public">Public partie</button>
+                        <button onclick="changeBtnPublic(this)" class="btn-public">Public partie</button>
                     </div>
                 </div>
                 <div class="hostLiveShow__save">
@@ -2243,7 +2272,7 @@
                 </button>
                 <div class="platform__title">Partie name</div>
                 <input readonly onclick="openModal(gametragName)" type="text" placeholder="Add name">
-                <textarea oninput="auto_grow(this)" maxlength="500" placeholder="Add description"></textarea>
+                <textarea maxlength="500" placeholder="Add description"></textarea>
 
                 <div class="hostLiveShow__img">
                     <img src="img/pic/Image (2).png"/>
@@ -2254,7 +2283,7 @@
                     <div class="d-flex">
                         <input id="hostLiveShowPhoto" type="file">
                         <label for="hostLiveShowPhoto"></label>
-                        <button class="btn-public">Public partie</button>
+                        <button onclick="changeBtnPublic(this)" class="btn-public">Public partie</button>
                     </div>
                 </div>
                 <div class="hostLiveShow__save">
@@ -2616,7 +2645,7 @@
 
             <div class="feed__what-new">
                 <div class="feed__what-new_head">
-                    <textarea onkeyup="showBtnPost(this)" oninput="auto_grow(this)" maxlength="500" id="whatNewHead"
+                    <textarea oninput="showBtnPost(this)" maxlength="500" id="whatNewHead"
                               placeholder="What’s new?"></textarea>
                     <div>Select a Game (Optional)</div>
                     <div class="photo-wrapp">
@@ -2642,78 +2671,76 @@
             </div>
             <div class="feed__post_wrapp">
                 <div class="feed__post">
-                    <div class="feed__post_head user">
-                        <a href="/profiles.html" class="user__content">
-                            <div class="avatar">
-                                <div class="avatar__star"></div>
-                            </div>
-                            <div class="user__name">
-                                <div>HungryDima</div>
-                                <div class="user__cd">CD: Warzone <span>1h</span></div>
-                            </div>
-                        </a>
-                        <div class="feed__header_menu">
-<!--                            <div class="header__menu_menu">-->
-<!--                                <div class="close-place"></div>-->
-<!--                                <ul>-->
-<!--                                    <li><a href="#">-->
-<!--                                        <img src="img/icon/mute-r.png" width="16"/>-->
-<!--                                        Mute</a></li>-->
-<!--                                    <li><a href="#" onclick="openModal(partieReport)">-->
-<!--                                        <img src="img/icon/report-r.png" width="16"/>-->
-<!--                                        Report</a></li>-->
-<!--                                    <li><a href="#">-->
-<!--                                        <img src="img/icon/folow-f.png" width="16"/>-->
-<!--                                        Follow gboy6827</a></li>-->
-<!--                                    <li><a href="#">-->
-<!--                                        <img src="img/icon/copy-f.png" width="16"/>-->
-<!--                                        Copy link</a></li>-->
-<!--                                    <li><a href="#" onclick="openModal(share)">-->
-<!--                                        <img src="img/icon/share-f.png" width="16"/>-->
-<!--                                        Share</a></li>-->
-<!--                                </ul>-->
-<!--                            </div>-->
-
-                        </div>
-                    </div>
-                    <div class="feed__post_text">
-                        I want to play MW with others on the platform but hardly anyone here is online. It's such a pain in
-                        the butt ;(
-                    </div>
-                    <a href="/post_id.html" class="feed__post_img">
-                        <img src="img/pic/Rectangle 78.png" width="100%"/>
-                    </a>
-                    <div class="feed__post_footer">
-                        <div class="footer-social">
-                            <div class="like">
-                                <input id="like0" type="checkbox">
-                                <label for="like0">
-                                    <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M17.4927 1.56581C16.5092 0.556101 15.1596 0 13.6923 0C12.5956 0 11.5912 0.328199 10.7069 0.975406C10.2607 1.3021 9.85645 1.70178 9.5 2.16828C9.14369 1.70192 8.73926 1.3021 8.29293 0.975406C7.40883 0.328199 6.40441 0 5.30766 0C3.84039 0 2.49068 0.556101 1.50713 1.56581C0.535332 2.56372 0 3.92701 0 5.40473C0 6.92567 0.598824 8.31791 1.88446 9.7863C3.03456 11.0998 4.68752 12.4332 6.6017 13.9772C7.25532 14.5044 7.9962 15.1021 8.7655 15.7388C8.96873 15.9072 9.22951 16 9.5 16C9.77035 16 10.0313 15.9072 10.2342 15.739C11.0035 15.1023 11.7448 14.5043 12.3987 13.9767C14.3126 12.433 15.9656 11.0998 17.1157 9.78616C18.4013 8.31791 19 6.92567 19 5.40459C19 3.92701 18.4647 2.56372 17.4927 1.56581Z"
-                                              fill="#75757A"/>
-                                    </svg>
-                                    <div class="like__counter">42</div>
-                                </label>
-                            </div>
-                            <a href="/post_id.html" class="comment">
-                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path opacity="0.5"
-                                          d="M2.91194 18.6432H1.49483L2.49687 17.5864C3.03716 17.0166 3.37455 16.2755 3.46526 15.4715C1.15153 13.8701 0 11.5503 0 9.11825C0 4.63143 3.91015 0.0717773 10.0339 0.0717773C16.5213 0.0717773 20 4.26752 20 8.72516C20 13.2122 16.4846 17.4051 10.0339 17.4051C8.90388 17.4051 7.72473 17.246 6.67198 16.9541C5.67541 18.0321 4.32514 18.6432 2.91194 18.6432Z"
-                                          fill="#EBEBF5"/>
-                                </svg>
-                                <div class="comment__counter">492</div>
+                        <div class="feed__post_head user">
+                            <a href="/profiles.html" class="user__content">
+                                <div class="avatar">
+                                    <div class="avatar__star"></div>
+                                </div>
+                                <div class="user__name">
+                                    <div>HungryDima</div>
+                                    <div class="user__cd">CD: Warzone <span>1h</span></div>
+                                </div>
                             </a>
+                            <div class="feed__header_menu">
+    <!--                            <div class="header__menu_menu">-->
+    <!--                                <div class="close-place"></div>-->
+    <!--                                <ul>-->
+    <!--                                    <li><a href="#">-->
+    <!--                                        <img src="img/icon/mute-r.png" width="16"/>-->
+    <!--                                        Mute</a></li>-->
+    <!--                                    <li><a href="#" onclick="openModal(partieReport)">-->
+    <!--                                        <img src="img/icon/report-r.png" width="16"/>-->
+    <!--                                        Report</a></li>-->
+    <!--                                    <li><a href="#">-->
+    <!--                                        <img src="img/icon/folow-f.png" width="16"/>-->
+    <!--                                        Follow gboy6827</a></li>-->
+    <!--                                    <li><a href="#">-->
+    <!--                                        <img src="img/icon/copy-f.png" width="16"/>-->
+    <!--                                        Copy link</a></li>-->
+    <!--                                    <li><a href="#" onclick="openModal(share)">-->
+    <!--                                        <img src="img/icon/share-f.png" width="16"/>-->
+    <!--                                        Share</a></li>-->
+    <!--                                </ul>-->
+    <!--                            </div>-->
+
+                            </div>
                         </div>
-                        <svg onclick="openModal(share)" class="share" width="21" height="19" viewBox="0 0 21 19" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path opacity="0.5"
-                                  d="M20.8328 9.49356L12.1751 0V5.66403H10.3344C4.62678 5.66403 0 10.2908 0 15.9984V19L0.817594 18.104C3.59732 15.0584 7.53048 13.3231 11.6541 13.3231H12.1751V18.9871L20.8328 9.49356Z"
-                                  fill="#EBEBF5"/>
-                        </svg>
+                        <div class="feed__post_text">
+                            I want to play MW with others on the platform but hardly anyone here is online. It's such a pain in
+                            the butt ;(
+                        </div>
+                        <div class="feed__post_footer">
+                            <div class="footer-social">
+                                <div class="like">
+                                    <input id="like01" type="checkbox">
+                                    <label for="like01">
+                                        <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M17.4927 1.56581C16.5092 0.556101 15.1596 0 13.6923 0C12.5956 0 11.5912 0.328199 10.7069 0.975406C10.2607 1.3021 9.85645 1.70178 9.5 2.16828C9.14369 1.70192 8.73926 1.3021 8.29293 0.975406C7.40883 0.328199 6.40441 0 5.30766 0C3.84039 0 2.49068 0.556101 1.50713 1.56581C0.535332 2.56372 0 3.92701 0 5.40473C0 6.92567 0.598824 8.31791 1.88446 9.7863C3.03456 11.0998 4.68752 12.4332 6.6017 13.9772C7.25532 14.5044 7.9962 15.1021 8.7655 15.7388C8.96873 15.9072 9.22951 16 9.5 16C9.77035 16 10.0313 15.9072 10.2342 15.739C11.0035 15.1023 11.7448 14.5043 12.3987 13.9767C14.3126 12.433 15.9656 11.0998 17.1157 9.78616C18.4013 8.31791 19 6.92567 19 5.40459C19 3.92701 18.4647 2.56372 17.4927 1.56581Z"
+                                                  fill="#75757A"/>
+                                        </svg>
+                                        <div class="like__counter">42</div>
+                                    </label>
+                                </div>
+                                <a href="/post_id.html" class="comment">
+                                    <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.5"
+                                              d="M2.91194 18.6432H1.49483L2.49687 17.5864C3.03716 17.0166 3.37455 16.2755 3.46526 15.4715C1.15153 13.8701 0 11.5503 0 9.11825C0 4.63143 3.91015 0.0717773 10.0339 0.0717773C16.5213 0.0717773 20 4.26752 20 8.72516C20 13.2122 16.4846 17.4051 10.0339 17.4051C8.90388 17.4051 7.72473 17.246 6.67198 16.9541C5.67541 18.0321 4.32514 18.6432 2.91194 18.6432Z"
+                                              fill="#EBEBF5"/>
+                                    </svg>
+                                    <div class="comment__counter">492</div>
+                                </a>
+                            </div>
+                            <svg onclick="openModal(share)" class="share" width="21" height="19" viewBox="0 0 21 19" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path opacity="0.5"
+                                      d="M20.8328 9.49356L12.1751 0V5.66403H10.3344C4.62678 5.66403 0 10.2908 0 15.9984V19L0.817594 18.104C3.59732 15.0584 7.53048 13.3231 11.6541 13.3231H12.1751V18.9871L20.8328 9.49356Z"
+                                      fill="#EBEBF5"/>
+                            </svg>
+                        </div>
+                    <a href="/post_id.html" class="feed__post_link"></a>
                     </div>
-                </div>
                 <div class="feed__post">
                     <div class="feed__post_head user">
                         <a href="/profiles.html" class="user__content">
@@ -2753,14 +2780,14 @@
                         I want to play MW with others on the platform but hardly anyone here is online. It's such a pain in
                         the butt ;(
                     </div>
-                    <a href="/post_id.html" class="feed__post_img">
+                    <div class="feed__post_img">
                         <img src="img/pic/Rectangle 78.png" width="100%"/>
-                    </a>
+                    </div>
                     <div class="feed__post_footer">
                         <div class="footer-social">
                             <div class="like">
-                                <input id="like0" type="checkbox">
-                                <label for="like0">
+                                <input id="like02" type="checkbox">
+                                <label for="like02">
                                     <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path d="M17.4927 1.56581C16.5092 0.556101 15.1596 0 13.6923 0C12.5956 0 11.5912 0.328199 10.7069 0.975406C10.2607 1.3021 9.85645 1.70178 9.5 2.16828C9.14369 1.70192 8.73926 1.3021 8.29293 0.975406C7.40883 0.328199 6.40441 0 5.30766 0C3.84039 0 2.49068 0.556101 1.50713 1.56581C0.535332 2.56372 0 3.92701 0 5.40473C0 6.92567 0.598824 8.31791 1.88446 9.7863C3.03456 11.0998 4.68752 12.4332 6.6017 13.9772C7.25532 14.5044 7.9962 15.1021 8.7655 15.7388C8.96873 15.9072 9.22951 16 9.5 16C9.77035 16 10.0313 15.9072 10.2342 15.739C11.0035 15.1023 11.7448 14.5043 12.3987 13.9767C14.3126 12.433 15.9656 11.0998 17.1157 9.78616C18.4013 8.31791 19 6.92567 19 5.40459C19 3.92701 18.4647 2.56372 17.4927 1.56581Z"
@@ -2786,6 +2813,7 @@
                                   fill="#EBEBF5"/>
                         </svg>
                     </div>
+                    <a href="/post_id.html" class="feed__post_link"></a>
                 </div>
                 <div class="feed__post">
                     <div class="feed__post_head user">
@@ -2799,26 +2827,26 @@
                             </div>
                         </a>
                         <div class="feed__header_menu">
-<!--                            <div class="header__menu_menu">-->
-<!--                                <div class="close-place"></div>-->
-<!--                                <ul>-->
-<!--                                    <li><a href="#">-->
-<!--                                        <img src="img/icon/mute-r.png" width="16"/>-->
-<!--                                        Mute</a></li>-->
-<!--                                    <li><a href="#" onclick="openModal(partieReport)">-->
-<!--                                        <img src="img/icon/report-r.png" width="16"/>-->
-<!--                                        Report</a></li>-->
-<!--                                    <li><a href="#">-->
-<!--                                        <img src="img/icon/folow-f.png" width="16"/>-->
-<!--                                        Follow gboy6827</a></li>-->
-<!--                                    <li><a href="#">-->
-<!--                                        <img src="img/icon/copy-f.png" width="16"/>-->
-<!--                                        Copy link</a></li>-->
-<!--                                    <li><a href="#" onclick="openModal(share)">-->
-<!--                                        <img src="img/icon/share-f.png" width="16"/>-->
-<!--                                        Share</a></li>-->
-<!--                                </ul>-->
-<!--                            </div>-->
+                            <!--                            <div class="header__menu_menu">-->
+                            <!--                                <div class="close-place"></div>-->
+                            <!--                                <ul>-->
+                            <!--                                    <li><a href="#">-->
+                            <!--                                        <img src="img/icon/mute-r.png" width="16"/>-->
+                            <!--                                        Mute</a></li>-->
+                            <!--                                    <li><a href="#" onclick="openModal(partieReport)">-->
+                            <!--                                        <img src="img/icon/report-r.png" width="16"/>-->
+                            <!--                                        Report</a></li>-->
+                            <!--                                    <li><a href="#">-->
+                            <!--                                        <img src="img/icon/folow-f.png" width="16"/>-->
+                            <!--                                        Follow gboy6827</a></li>-->
+                            <!--                                    <li><a href="#">-->
+                            <!--                                        <img src="img/icon/copy-f.png" width="16"/>-->
+                            <!--                                        Copy link</a></li>-->
+                            <!--                                    <li><a href="#" onclick="openModal(share)">-->
+                            <!--                                        <img src="img/icon/share-f.png" width="16"/>-->
+                            <!--                                        Share</a></li>-->
+                            <!--                                </ul>-->
+                            <!--                            </div>-->
 
                         </div>
                     </div>
@@ -2826,9 +2854,9 @@
                         I want to play MW with others on the platform but hardly anyone here is online. It's such a pain in
                         the butt ;(
                     </div>
-                    <a href="/post_id.html" class="feed__post_img">
+                    <div class="feed__post_img">
                         <img src="img/pic/Rectangle 78.png" width="100%"/>
-                    </a>
+                    </div>
                     <div class="feed__post_footer">
                         <div class="footer-social">
                             <div class="like">
@@ -2859,45 +2887,46 @@
                                   fill="#EBEBF5"/>
                         </svg>
                     </div>
+                    <a href="/post_id.html" class="feed__post_link"></a>
                 </div>
             </div>
 
         </div>
         <div id="GlobalTab" class="tabcontent global">
             <div class="slider">
-                <div class="slider__item">
+                <a href="/partie_id.html" class="slider__item">
                     <img src="img/pic/slide1.png"/>
-                </div>
-                <div class="slider__item">
+                </a>
+                <a href="/partie_id.html" class="slider__item">
                     <img src="img/pic/slide1.png"/>
-                </div>
-                <div class="slider__item">
+                </a>
+                <a href="/partie_id.html" class="slider__item">
                     <img src="img/pic/slide2.png"/>
-                </div>
-                <div class="slider__item">
+                </a>
+                <a href="/partie_id.html" class="slider__item">
                     <img src="img/pic/slide3.png"/>
-                </div>
-                <div class="slider__item">
+                </a>
+                <a href="/partie_id.html" class="slider__item">
                     <img src="img/pic/slide4.png"/>
-                </div>
-                <div class="slider__item">
+                </a>
+                <a href="/partie_id.html" class="slider__item">
                     <img src="img/pic/slide2.png"/>
-                </div>
-                <div class="slider__item">
+                </a>
+                <a href="/partie_id.html" class="slider__item">
                     <img src="img/pic/slide2.png"/>
-                </div>
-                <div class="slider__item">
+                </a>
+                <a href="/partie_id.html" class="slider__item">
                     <img src="img/pic/slide2.png"/>
-                </div>
-                <div class="slider__item">
+                </a>
+                <a href="/partie_id.html" class="slider__item">
                     <img src="img/pic/Rectangle%2078.png"/>
-                </div>
-                <div class="slider__item">
+                </a>
+                <a href="/partie_id.html" class="slider__item">
                     <img src="img/pic/checkemail.png"/>
-                </div>
-                <div class="slider__item">
+                </a>
+                <a href="/partie_id.html" class="slider__item">
                     <img src="img/pic/ava.png"/>
-                </div>
+                </a>
             </div>
             <div class="feed__post_wrapp">
                 <div class="single-post">
@@ -3161,6 +3190,7 @@
                 <img src="img/icon/share-f.png" width="16"/>
                 Share</a></li>
         </ul>
+        <div class="close-tap mobile"></div>
     </div>
 </div>
 
