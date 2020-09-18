@@ -289,18 +289,17 @@ if(window.innerWidth <= 1023) {
 }
 
 
-let checkSwipe = true
+window.checkSwipe = true
 
 $(function() {
     $("#hostPartie .shortcuts").swipe( {
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-            if (checkSwipe) {
-                checkSwipe = false
-                alert(direction)
+            if (window.checkSwipe) {
+                window.checkSwipe = false
+
                 if(direction === 'up') {
                     shortcutsUp()
-                }
-                if (direction === 'down') {
+                } else if (direction === 'down') {
                     shortcutsDown()
                 }
             }
