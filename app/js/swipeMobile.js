@@ -296,7 +296,7 @@ $(function() {
                 shortcutsUp()
             }
             if(direction === 'down') {
-                shortcutsDown()
+                // shortcutsDown()
                 alert()
             }
         }
