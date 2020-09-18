@@ -361,9 +361,9 @@ if(shortcuts !== null) {
     shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
 
     function shortcutsUp() {
-        setTimeout(function () {
-            window.checkSwipe = true
-        }, 500);
+        // setTimeout(function () {
+        //     window.checkSwipe = true
+        // }, 500);
 
         try {
             if (window.innerWidth >= 1024) { // PC
@@ -377,23 +377,20 @@ if(shortcuts !== null) {
                     shortcutsDown()
                 }
             } else { // mobile
-                hostPartie.children[0].style.overflow = 'hidden'
+                // hostPartie.children[0].style.overflow = 'hidden'
                 shortcuts.style.bottom = '0'
-                // btnUp.style.transform = 'rotateX(190deg)'
                 bgClick.style.zIndex = '1'
-                // if (window.innerWidth >= 1024) bgClick.style.opacity = '1'
             }
         } catch (e) {
             alert(e.message)
         }
     }
     function shortcutsDown() {
-        setTimeout(function () {
-            window.checkSwipe = true
-        }, 500);
+        // setTimeout(function () {
+        //     window.checkSwipe = true
+        // }, 500);
 
         shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
-        // btnUp.style.transform = ''
         bgClick.style.cssText = ''
         hostPartie.children[0].style.overflow = ''
     }
