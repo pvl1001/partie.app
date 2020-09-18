@@ -378,7 +378,8 @@ if(shortcuts !== null) {
         }
     }
     function shortcutsDown() {
-        shortcuts.style.bottom =  '30px'
+        shortcuts.style.opacity = '0'
+        shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
         btnUp.style.transform = ''
         bgClick.style.cssText = ''
         hostPartie.children[0].style.overflow = ''
