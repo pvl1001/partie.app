@@ -390,9 +390,13 @@ if(shortcuts !== null) {
             window.checkSwipe = true
         }, 500);
 
-        shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
-        // bgClick.style.cssText = ''
-        hostPartie.children[0].style.overflow = ''
+        try {
+            shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
+            // bgClick.style.cssText = ''
+            hostPartie.children[0].style.overflow = ''
+        } catch (e) {
+            alert(e.message)
+        }
     }
 }
 
