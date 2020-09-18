@@ -296,15 +296,15 @@ $(function() {
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
             if(direction === 'up') {
                 // alert('x')
-                setTimeout(function () {
+                // setTimeout(function () {
                     shortcutsUp()
-                },100)
+                // },100)
             }
             if(direction === 'down') {
                 // alert('y')
                 setTimeout(function () {
                     shortcutsDown()
-                },100)
+                },200)
             }
         }
     });
