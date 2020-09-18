@@ -357,7 +357,7 @@ if(shortcuts !== null) {
     let onShortcuts
     let btnUp = document.querySelector('.btn-up')
     let bgClick = document.querySelector('.bg-click')
-    let heightShortcuts = shortcuts.offsetHeight
+    let heightShortcuts = Number(shortcuts.offsetHeight)
     shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
 
     function shortcutsUp() {
@@ -390,10 +390,8 @@ if(shortcuts !== null) {
             window.checkSwipe = true
         }, 500);
 
-        alert(heightShortcuts)
-
         try {
-            shortcuts.style.bottom = (0-heightShortcuts +40 +87) + 'px'
+            shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
             // bgClick.style.cssText = ''
             hostPartie.children[0].style.overflow = ''
         } catch (e) {
