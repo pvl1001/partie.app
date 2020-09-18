@@ -66,13 +66,10 @@ function loading() {
 
 function showBtnPost(text) {
     let btn = document.querySelector( '.feed__what-new .feed__what-new_post' )
-    console.log(text)
-    alert()
     if (text.value) {
         btn.style.opacity = '1'
         btn.style.visibility = 'visible'
     } else btn.style.cssText = ''
-    newPostText = text.value.length
 }
 
 
