@@ -294,7 +294,7 @@ $(function() {
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
             if(direction === 'up') {
                 alert('x')
-                shortcutsUp()
+                // shortcutsUp()
             }
             if(direction === 'down') {
                 alert('y')
