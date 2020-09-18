@@ -292,10 +292,10 @@ if(window.innerWidth <= 1023) {
 window.checkSwipe = true
 
 $(function() {
-    $("#hostPartie .shortcuts").swipe( {
+    $("#hostPartie .modal__content").swipe( {
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
             if (window.checkSwipe) {
-                alert(window.checkSwipe + ' ___ ' + direction)
+                // alert(window.checkSwipe + ' ___ ' + direction)
 
                 window.checkSwipe = false
 
