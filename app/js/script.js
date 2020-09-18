@@ -371,6 +371,8 @@ if(shortcuts !== null) {
             } else {
                 shortcutsDown()
             }
+            setTimeout(function () { checkSwipe = true }, 500);
+
         } else {
             hostPartie.children[0].style.overflow = 'hidden'
             shortcuts.style.bottom = '0'
@@ -380,11 +382,13 @@ if(shortcuts !== null) {
         }
     }
     function shortcutsDown() {
-        alert()
         shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
         btnUp.style.transform = ''
         bgClick.style.cssText = ''
         hostPartie.children[0].style.overflow = ''
+        setTimeout(function () {
+            checkSwipe = true
+        }, 500);
     }
 }
 

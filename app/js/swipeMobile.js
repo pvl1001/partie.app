@@ -294,17 +294,14 @@ let checkSwipe = true
 $(function() {
     $("#hostPartie .shortcuts").swipe( {
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-            if(direction === 'up') {
-                // alert('x')
-                // setTimeout(function () {
+            if (checkSwipe) {
+                checkSwipe = false
+                if(direction === 'up') {
                     shortcutsUp()
-                // },100)
-            }
-            if(direction === 'down') {
-                // alert('y')
-                setTimeout(function () {
+                }
+                if (direction === 'down') {
                     shortcutsDown()
-                },200)
+                }
             }
         }
     });
