@@ -876,8 +876,12 @@
 
         <div class="new-active-partie__message">
             <div class="avatar"></div>
-            <textarea placeholder="Add message..." maxlength="500"></textarea>
-<!--            <input type="text" placeholder="Add message...">-->
+            <textarea onkeyup="newMessChat(this)"
+                      class="newComment"
+                      placeholder="Add comment..."
+                      maxlength="500"
+            ></textarea>
+            <button class="newCommentBtn"></button>
         </div>
     </div>
     <div class="feed__col3">

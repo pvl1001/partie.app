@@ -66,11 +66,13 @@ function loading() {
 
 function showBtnPost(text) {
     let btn = document.querySelector( '.feed__what-new .feed__what-new_post' )
-    if (text.value.length) {
+    console.log(text)
+    alert()
+    if (text.value) {
         btn.style.opacity = '1'
         btn.style.visibility = 'visible'
     } else btn.style.cssText = ''
-    // newPostText = text.value.length
+    newPostText = text.value.length
 }
 
 
@@ -269,8 +271,12 @@ for (let i = 0; i < comments.length; i++) {
 
 // newCommentBtn
 
-if (window.innerWidth < 1300) {
-
+function newMessChat(text) {
+    let btnSend = text.parentElement.children[2]
+    if (text.value) {
+        btnSend.style.opacity = '1'
+        btnSend.style.visibility = 'visible'
+    } else btnSend.style.cssText = ''
 }
 
 

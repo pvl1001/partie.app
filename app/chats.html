@@ -549,7 +549,13 @@
         </div>
         <div class="new-active-partie__message">
             <div class="avatar"></div>
-            <textarea placeholder="Add message..." maxlength="500" style="height:25px;overflow-y:hidden;"></textarea>
+<!--            <textarea placeholder="Add message..." maxlength="500" style="height:25px;overflow-y:hidden;"></textarea>-->
+            <textarea onkeyup="newMessChat(this)"
+                      class="newComment"
+                      placeholder="Add comment..."
+                      maxlength="500"
+            ></textarea>
+            <button class="newCommentBtn"></button>
         </div>
 
 <!--        <div class="new-active-partie__messages">-->

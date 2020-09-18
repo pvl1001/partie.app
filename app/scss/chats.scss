@@ -87,6 +87,18 @@
     display: none;
 }
 
+.new-active-partie__message {
+    .newCommentBtn {
+        height: 32px;
+        width: 32px;
+        min-width: 32px;
+        background: #6E4AFF url('../img/icon/Vector.png') center / 14px no-repeat;
+        visibility: hidden;
+        opacity: 0;
+        transition: .2s;
+    }
+}
+
 //modals
 #newChat.inviteFriends {
     //top: 0;
@@ -272,4 +284,7 @@
 
 @media (max-width: 1023px) { // mobile
 
+    .new-active-partie.chat {
+        z-index: 1;
+    }
 }
