@@ -32,19 +32,19 @@ if(window.innerWidth <= 1023) {
         } else {
             if ( yDiff > 0 ) {
                 /* up swipe */
-                profileProgressModal.children[1].style.height = 'calc(100vh - 60px)'
+                profileProgressModal.children[2].style.height = 'calc(100vh - 154px)'
                 profileProgressModal.style.backgroundColor = '#17171a'
                 profileProgressModal.classList.add( 'modal-arrow' )
                 setTimeout( function () {
-                    profileProgressModal.children[1].style.overflow = 'auto'
+                    profileProgressModal.children[2].style.overflow = 'auto'
                 }, 500 )
 
             } else {
                 /* down swipe */
                 if (profileProgressModal.offsetTop !== 0) closeModal(profileProgress)
                 if(window.innerWidth <= 1023) {
-                    if (profileProgressModal.children[1].scrollTop === 0) {
-                        profileProgressModal.children[1].style.cssText = ''
+                    if (profileProgressModal.children[2].scrollTop === 0) {
+                        profileProgressModal.children[2].style.cssText = ''
                         profileProgressModal.style.backgroundColor = ''
                         profileProgressModal.classList.remove('modal-arrow')
                     }

@@ -2,29 +2,29 @@ function openTab(evt, Tab) {
     var i, tabcontent, tablinks;
 
     // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.querySelectorAll(".profile__tabs .tabcontent");
+    tabcontent = document.querySelectorAll( ".profile__tabs .tabcontent" );
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.transition = ".4s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.height = "0";
-        if(window.innerWidth <= 1023) {
+        if (window.innerWidth <= 1023) {
             tabcontent[i].style.width = window.innerWidth - 40 + 'px'
         }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.querySelectorAll(".profile__tabs .tablinks");
+    tablinks = document.querySelectorAll( ".profile__tabs .tablinks" );
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace( " active", "" );
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    setTimeout(function () {
-        document.getElementById(Tab).style.opacity = "1";
-        document.getElementById(Tab).style.transform = "scale(1)";
-        document.getElementById(Tab).style.height = "100%";
-    },300)
+    setTimeout( function () {
+        document.getElementById( Tab ).style.opacity = "1";
+        document.getElementById( Tab ).style.transform = "scale(1)";
+        document.getElementById( Tab ).style.height = "100%";
+    }, 300 )
     evt.currentTarget.className += " active";
 }
 
@@ -33,55 +33,55 @@ function updatePositionPopovers() {
 
     if (window.innerWidth >= 1024) {
         for (let i = 0; i < token.length; i++) {
-            $(token[i]).off('mouseover')
-            $(token[i]).off('mouseout')
+            $( token[i] ).off( 'mouseover' )
+            $( token[i] ).off( 'mouseout' )
         }
     }
 
-    setTimeout(function () {
+    setTimeout( function () {
         let token = $( '.pop:visible' )
 
         for (let i = 0; i < token.length; i++) {
-            let el = $(token[i])
+            let el = $( token[i] )
 
             if (window.innerWidth >= 1024) {
-                el.off('mouseover').on( 'mouseover', function () {
-                    let popover = $(this).find('.popover')
+                el.off( 'mouseover' ).on( 'mouseover', function () {
+                    let popover = $( this ).find( '.popover' )
                     let h = popover.outerHeight()
-                    let x = $(this).offset().left - 92
-                    let y = $(this).offset().top - 20 - h
-                    popover.css({
+                    let x = $( this ).offset().left - 92
+                    let y = $( this ).offset().top - 20 - h
+                    popover.css( {
                         opacity: '1',
                         visibility: 'visible',
                         left: x + 'px',
                         top: y + 'px'
-                    })
+                    } )
                 } )
 
-                el.off('mouseout').on( 'mouseout', function () {
-                    $(this).find('.popover').attr('style', '')
+                el.off( 'mouseout' ).on( 'mouseout', function () {
+                    $( this ).find( '.popover' ).attr( 'style', '' )
                 } )
             }
         }
-    },350)
+    }, 350 )
 }
 
 function openTabModal(evt, Tab) {
     var i, tabcontent, tablinks;
-    let modal = document.querySelector('#levelProgress .modal')
+    let modal = document.querySelector( '#levelProgress .modal' )
 
     // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.querySelectorAll("#levelProgress .tabcontent");
+    tabcontent = document.querySelectorAll( "#levelProgress .tabcontent" );
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.transition = ".3s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.position = "fixed";
-        if(window.innerWidth >= 1024) {
+        if (window.innerWidth >= 1024) {
             tabcontent[i].style.width = "424px"
             modal.style.height = 263 + tabcontent[i].offsetHeight + 'px'
         }
-        if(window.innerWidth <= 1023) {
+        if (window.innerWidth <= 1023) {
             modal.style.height = tabcontent[i].offsetHeight + 'px'
             tabcontent[i].style.transition = ".3s";
             tabcontent[i].style.opacity = "0";
@@ -90,24 +90,24 @@ function openTabModal(evt, Tab) {
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.querySelectorAll("#levelProgress .tablinks");
+    tablinks = document.querySelectorAll( "#levelProgress .tablinks" );
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace( " active", "" );
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    setTimeout(function () {
-        document.getElementById(Tab).style.opacity = "1";
-        document.getElementById(Tab).style.transform = "";
-        document.getElementById(Tab).style.position = "relative";
-        if(window.innerWidth >= 1024)
-            modal.style.height = 263 + document.getElementById(Tab).offsetHeight + 'px'
-    },300)
+    setTimeout( function () {
+        document.getElementById( Tab ).style.opacity = "1";
+        document.getElementById( Tab ).style.transform = "";
+        document.getElementById( Tab ).style.position = "relative";
+        if (window.innerWidth >= 1024)
+            modal.style.height = 263 + document.getElementById( Tab ).offsetHeight + 'px'
+    }, 300 )
 
     updatePositionPopovers()
 
-    if(window.innerWidth <= 1023) {
-        modal.style.height = 242 + document.getElementById(Tab).offsetHeight + 'px'
+    if (window.innerWidth <= 1023) {
+        modal.style.height = 242 + document.getElementById( Tab ).offsetHeight + 'px'
     }
     evt.currentTarget.className += " active";
 
@@ -115,8 +115,8 @@ function openTabModal(evt, Tab) {
     let tokens = document.querySelectorAll( '.level-progress__tab .tokens' )
     for (let el of tokens) {
         el.onscroll = function () {
-            let winWidth = el.children[1].offsetWidth - el.offsetWidth +20
-            let bar = el.scrollLeft / winWidth  * 100
+            let winWidth = el.children[1].offsetWidth - el.offsetWidth + 20
+            let bar = el.scrollLeft / winWidth * 100
             progressbar.style.width = bar + '%'
         }
     }
@@ -129,43 +129,44 @@ function openFoll(evt, Tab) {
     var i, tabcontent, tablinks;
 
     // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.querySelectorAll(".followers .tabcontent");
+    tabcontent = document.querySelectorAll( ".followers .tabcontent" );
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.transition = ".3s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.position = "fixed";
-        if(window.innerWidth <= 1023) {
+        if (window.innerWidth <= 1023) {
             tabcontent[i].style.width = window.innerWidth - 40 + 'px'
         }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.querySelectorAll(".followers .tablinks");
+    tablinks = document.querySelectorAll( ".followers .tablinks" );
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace( " active", "" );
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    setTimeout(function () {
-        document.getElementById(Tab).style.opacity = "1";
-        document.getElementById(Tab).style.transform = "scale(1)";
-        document.getElementById(Tab).style.position = "relative";
-    },300)
+    setTimeout( function () {
+        document.getElementById( Tab ).style.opacity = "1";
+        document.getElementById( Tab ).style.transform = "scale(1)";
+        document.getElementById( Tab ).style.position = "relative";
+    }, 300 )
     evt.currentTarget.className += " active";
 }
 
-let defaultOpen = document.getElementById("defaultOpen")
-if(defaultOpen !== null) defaultOpen.click()
+let defaultOpen = document.getElementById( "defaultOpen" )
+if (defaultOpen !== null) defaultOpen.click()
 
 
-let defaultOpen2 = document.getElementById("defaultOpen2")
-if(defaultOpen2 !== null) defaultOpen2.click()
+let defaultOpen2 = document.getElementById( "defaultOpen2" )
+if (defaultOpen2 !== null) defaultOpen2.click()
 
 
 let showPs = false
+
 function showBtnPs() {
-    if (window.innerWidth >=1024) { // pc
+    if (window.innerWidth >= 1024) { // pc
         showPs = !showPs
         let btn = document.querySelector( '#ps' )
         let show = document.querySelector( '.show-all' )
@@ -180,30 +181,31 @@ function showBtnPs() {
             show.style.opacity = ''
         }
     } else { // mobile
-        openModal(gamertags)
+        openModal( gamertags )
     }
 }
 
-let arrBtnFollowers = document.querySelectorAll('.followers__btn')
+let arrBtnFollowers = document.querySelectorAll( '.followers__btn' )
 let onBtnFollowers = []
-for(let i = 0; i < arrBtnFollowers.length; i++) {
+for (let i = 0; i < arrBtnFollowers.length; i++) {
     let btnFollowers = arrBtnFollowers[i]
-    btnFollowers.addEventListener('click', function () {
+    btnFollowers.addEventListener( 'click', function () {
         onBtnFollowers[i] = !onBtnFollowers[i]
-        if(onBtnFollowers[i]) {
+        if (onBtnFollowers[i]) {
             arrBtnFollowers[i].style.backgroundColor = '#100F15'
             arrBtnFollowers[i].innerHTML = 'Following'
         } else {
             arrBtnFollowers[i].style.backgroundColor = ''
             arrBtnFollowers[i].innerHTML = 'Follow'
         }
-    })
+    } )
 }
 
-let  followersTab = document.querySelector('#followersTab')
-let  followingTab = document.querySelector('#followingTab')
-let followers = document.querySelector('.followers')
-let profile = document.querySelector('.profile-col2')
+let followersTab = document.querySelector( '#followersTab' )
+let followingTab = document.querySelector( '#followingTab' )
+let followers = document.querySelector( '.followers' )
+let profile = document.querySelector( '.profile-col2' )
+
 function followPage(x) {
     body.style.background = '#000'
     body.style.transition = '0s'
@@ -219,135 +221,129 @@ function backProfile() {
 }
 
 
-
-
-
-
 function openTabPatie(evt, Tab) {
     var i, tabcontent, tablinks;
 
     // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.querySelectorAll(".partie-tab .tabcontent");
+    tabcontent = document.querySelectorAll( ".partie-tab .tabcontent" );
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.transition = ".3s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.position = "fixed";
-        if(window.innerWidth <= 1023) {
+        if (window.innerWidth <= 1023) {
             tabcontent[i].style.width = window.innerWidth - 40 + 'px'
         }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.querySelectorAll(".partie-tab .tablinks");
+    tablinks = document.querySelectorAll( ".partie-tab .tablinks" );
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace( " active", "" );
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    setTimeout(function () {
-        document.getElementById(Tab).style.opacity = "1";
-        document.getElementById(Tab).style.transform = "scale(1)";
-        document.getElementById(Tab).style.position = "relative";
-    },300)
+    setTimeout( function () {
+        document.getElementById( Tab ).style.opacity = "1";
+        document.getElementById( Tab ).style.transform = "scale(1)";
+        document.getElementById( Tab ).style.position = "relative";
+    }, 300 )
 
     evt.currentTarget.className += " active";
 }
 
-let defaultOpenPartieTab = document.getElementById("defaultOpenPartieTab")
-if(defaultOpenPartieTab !== null) defaultOpenPartieTab.click()
+let defaultOpenPartieTab = document.getElementById( "defaultOpenPartieTab" )
+if (defaultOpenPartieTab !== null) defaultOpenPartieTab.click()
 
 function openTabFeed(evt, Tab) {
     var i, tabcontent, tablinks;
 
     // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.querySelectorAll(".feed-tab .tabcontent");
+    tabcontent = document.querySelectorAll( ".feed-tab .tabcontent" );
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.transition = ".3s";
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.position = "fixed";
-        if(window.innerWidth <= 1023) {
+        if (window.innerWidth <= 1023) {
             tabcontent[i].style.width = window.innerWidth + 'px'
         }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.querySelectorAll(".feed-tab .tablinks");
+    tablinks = document.querySelectorAll( ".feed-tab .tablinks" );
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace( " active", "" );
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    setTimeout(function () {
-        document.getElementById(Tab).style.opacity = "1";
-        document.getElementById(Tab).style.transform = "scale(1)";
-        document.getElementById(Tab).style.position = "relative";
-    },300)
+    setTimeout( function () {
+        document.getElementById( Tab ).style.opacity = "1";
+        document.getElementById( Tab ).style.transform = "scale(1)";
+        document.getElementById( Tab ).style.position = "relative";
+    }, 300 )
     evt.currentTarget.className += " active";
 
     // if ($('.slider.slick-initialized').length) {
-        setTimeout(function () {
-            try {
-                $('.slider').slick('unslick')
-            } catch (e) {
+    setTimeout( function () {
+        try {
+            $( '.slider' ).slick( 'unslick' )
+        } catch (e) {
 
-            }
+        }
 
-            $('.slider').slick({
-                slidesToShow: 5,
-                slidesToScroll: 1,
-                infinite: true,
-                swipeToSlide: true,
-                responsive: [
-                    {
-                        breakpoint: 1023,
-                        settings: {
-                            slidesToShow: 3
-                        }
+        $( '.slider' ).slick( {
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            infinite: true,
+            swipeToSlide: true,
+            responsive: [
+                {
+                    breakpoint: 1023,
+                    settings: {
+                        slidesToShow: 3
                     }
-                ]
-            })
-        }, 300)
+                }
+            ]
+        } )
+    }, 300 )
     // }
 }
 
 
-
-
-
-
-
-
-
-let defaultOpenFeedTab = document.getElementById("defaultOpenFeedTab")
-if(defaultOpenFeedTab !== null) defaultOpenFeedTab.click()
+let defaultOpenFeedTab = document.getElementById( "defaultOpenFeedTab" )
+if (defaultOpenFeedTab !== null) defaultOpenFeedTab.click()
 
 
 function showBtnGametrag(el) {
-let btnNext = el.parentElement.children[el.parentElement.children.length -1]
-    if(el.value.length) {
+    let btnNext = el.parentElement.children[el.parentElement.children.length - 1]
+    if (el.value.length) {
         btnNext.style.cssText = 'visibility: visible; opacity: 1;'
     } else btnNext.style.cssText = ''
 }
 
 
-let editPhoto = document.querySelector('#editPhoto')
-let photoAvatar = document.querySelector('#photoAvatar')
-if(photoAvatar !== null)
-photoAvatar.onclick = function () {
-    event.preventDefault()
-    editPhoto.style.zIndex = '2'
-    editPhoto.style.opacity = '1'
-    editPhoto.children[0].style.bottom = '0'
-}
-window.onclick = function (e) {
-    if (e.target === editPhoto) {
-        editPhoto.style.cssText = ''
-        editPhoto.children[0].style.bottom = ''
+if (window.innerWidth <= 1023) {
+    let onPhoto = false
+    let editPhoto = document.querySelector( '#editPhoto' )
+    let photoAvatar = document.querySelector( '#photoAvatar' )
+    if (photoAvatar !== null)
+        photoAvatar.onclick = function () {
+            event.preventDefault()
+            onPhoto = !onPhoto
+            if (onPhoto) event.preventDefault()
+            editPhoto.style.zIndex = '2'
+            editPhoto.style.opacity = '1'
+            editPhoto.children[0].style.bottom = '0'
+
+        }
+    window.onclick = function (e) {
+        if (e.target === editPhoto) {
+            editPhoto.style.cssText = ''
+            editPhoto.children[0].style.bottom = ''
+        }
     }
 }
-
 
 
 let indexToken
