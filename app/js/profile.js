@@ -387,6 +387,12 @@ for (let i = 0; i < achivementsMobiles.length; i++) {
 }
 
 
+function showProgress(el) {
+    el.style.display = 'none'
+    el.parentElement.children[2].style.display = 'block'
+}
+
+
 
 
 
