@@ -298,13 +298,13 @@ $(function() {
                 // alert('x')
                 setTimeout(function () {
                     shortcutsUp()
-                },500)
+                },100)
             }
             if(direction === 'down') {
                 // alert('y')
                 setTimeout(function () {
                     shortcutsDown()
-                },500)
+                },100)
             }
         }
     });
