@@ -357,7 +357,7 @@ if(shortcuts !== null) {
     let onShortcuts
     let btnUp = document.querySelector('.btn-up')
     let bgClick = document.querySelector('.bg-click')
-    let heightShortcuts = shortcuts.offsetHeight
+    let heightShortcuts = shortcuts.clientHeight
     shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
 
     function shortcutsUp() {
