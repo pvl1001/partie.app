@@ -1551,6 +1551,24 @@
         }
     }
 
+
+    .feed.post .feed__comments .comments__new-comment textarea {
+        padding-top: 10px;
+    }
+
+    .comments__new-comment_to {
+        position: absolute;
+        top: 0;
+        left: 67px;
+        color: rgba(248, 246, 255,.3);
+        font-size: 11px;
+        padding: 4px 0;
+
+        span {
+            color: rgba(110,74,255,.9);
+        }
+    }
+
 }
 
 @supports (-webkit-touch-callout: none) { // iOS
