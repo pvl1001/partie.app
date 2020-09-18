@@ -293,11 +293,11 @@ $(function() {
     $("#hostPartie .shortcuts").swipe( {
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
             if(direction === 'up') {
-                alert()
+                alert('x')
                 shortcutsUp()
             }
             if(direction === 'down') {
-                alert()
+                alert('y')
             }
         }
     });
