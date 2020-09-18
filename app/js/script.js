@@ -390,8 +390,10 @@ if(shortcuts !== null) {
             window.checkSwipe = true
         }, 500);
 
+        alert(heightShortcuts)
+
         try {
-            shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
+            shortcuts.style.bottom = (0-heightShortcuts +40 +87) + 'px'
             // bgClick.style.cssText = ''
             hostPartie.children[0].style.overflow = ''
         } catch (e) {
