@@ -292,8 +292,14 @@ if(window.innerWidth <= 1023) {
 $(function() {
     $("#hostPartie .shortcuts").swipe( {
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-            if(direction === 'up') shortcutsUp()
-            if(direction === 'down') shortcutsDown()
+            if(direction === 'up') {
+                alert()
+                shortcutsUp()
+            }
+            if(direction === 'down') {
+                alert()
+                shortcutsDown()
+            }
         }
     });
 
