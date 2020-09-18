@@ -293,10 +293,10 @@ $(function() {
     $("#hostPartie .shortcuts").swipe( {
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
             if(direction === 'up') {
+                alert()
                 shortcutsUp()
             }
             if(direction === 'down') {
-                // shortcutsDown()
                 alert()
             }
         }
