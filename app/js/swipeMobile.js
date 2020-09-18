@@ -289,13 +289,13 @@ if(window.innerWidth <= 1023) {
 }
 
 
-// window.checkSwipe = true
+window.checkSwipe = true
 
 $(function() {
     $("#hostPartie .shortcuts").swipe( {
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-            // if (window.checkSwipe) {
-                // window.checkSwipe = false
+            if (window.checkSwipe) {
+                window.checkSwipe = false
 
                 if(direction === 'up') {
                     shortcutsUp()
@@ -303,7 +303,7 @@ $(function() {
                         shortcutsDown()
                 }
             }
-        // }
+        }
     });
 
 });

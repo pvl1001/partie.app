@@ -361,9 +361,9 @@ if(shortcuts !== null) {
     shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
 
     function shortcutsUp() {
-        // setTimeout(function () {
-        //     window.checkSwipe = true
-        // }, 500);
+        setTimeout(function () {
+            window.checkSwipe = true
+        }, 500);
 
         try {
             if (window.innerWidth >= 1024) { // PC
@@ -386,9 +386,9 @@ if(shortcuts !== null) {
         }
     }
     function shortcutsDown() {
-        // setTimeout(function () {
-        //     window.checkSwipe = true
-        // }, 500);
+        setTimeout(function () {
+            window.checkSwipe = true
+        }, 500);
 
         shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
         // bgClick.style.cssText = ''
