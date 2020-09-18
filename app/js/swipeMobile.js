@@ -296,15 +296,7 @@ $(function() {
                 shortcutsUp()
             }
             if(direction === 'down') {
-                let btnUp = document.querySelector('.btn-up')
-                let bgClick = document.querySelector('.bg-click')
-                let heightShortcuts = shortcuts.offsetHeight
-                // shortcutsDown()
-                shortcuts.style.opacity = '0'
-                shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
-                btnUp.style.transform = ''
-                bgClick.style.cssText = ''
-                hostPartie.children[0].style.overflow = ''
+                shortcutsDown()
             }
         }
     });
