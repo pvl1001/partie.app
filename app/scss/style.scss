@@ -1138,6 +1138,10 @@ textarea {
         display: none;
     }
 
+    .pc-only {
+        display: block;
+    }
+
     .modal-wrapp {
         position: fixed;
         width: 100% !important;
@@ -1324,6 +1328,10 @@ textarea {
 }
 
 @media (max-width: 1023px) { // mobile
+
+    .pc-only {
+        display: none;
+    }
 
     .links,
     .header__menu_menu {

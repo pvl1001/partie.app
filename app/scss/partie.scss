@@ -251,8 +251,8 @@
         align-items: center;
 
         .creat-partie__img {
-            display: flex;
-            justify-content: center;
+            display: block;
+            //justify-content: center;
             width: 30%;
             box-shadow: 11px 6px 132px -36px #FCDF92;
             border-radius: 50%;
