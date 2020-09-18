@@ -377,9 +377,9 @@ if(shortcuts !== null) {
                     shortcutsDown()
                 }
             } else { // mobile
-                // hostPartie.children[0].style.overflow = 'hidden'
+                hostPartie.children[0].style.overflow = 'hidden'
                 shortcuts.style.bottom = '0'
-                bgClick.style.zIndex = '1'
+                // bgClick.style.zIndex = '1'
             }
         } catch (e) {
             alert(e.message)
@@ -391,7 +391,7 @@ if(shortcuts !== null) {
         // }, 500);
 
         shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
-        bgClick.style.cssText = ''
+        // bgClick.style.cssText = ''
         hostPartie.children[0].style.overflow = ''
     }
 }
