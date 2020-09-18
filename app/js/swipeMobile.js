@@ -296,6 +296,7 @@ $(function() {
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
             if (checkSwipe) {
                 checkSwipe = false
+                alert(direction)
                 if(direction === 'up') {
                     shortcutsUp()
                 }
