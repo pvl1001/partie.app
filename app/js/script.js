@@ -379,16 +379,14 @@ if(shortcuts !== null) {
             if (window.innerWidth >= 1024) bgClick.style.opacity = '1'
         }
     }
-
-}
-
-function shortcutsDown() {
-    alert()
-    // shortcuts.style.opacity = '0'
-    // shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
-    // btnUp.style.transform = ''
-    // bgClick.style.cssText = ''
-    // hostPartie.children[0].style.overflow = ''
+    function shortcutsDown() {
+        alert()
+        shortcuts.style.opacity = '0'
+        shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
+        btnUp.style.transform = ''
+        bgClick.style.cssText = ''
+        hostPartie.children[0].style.overflow = ''
+    }
 }
 
 
