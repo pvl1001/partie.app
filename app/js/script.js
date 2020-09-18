@@ -378,6 +378,7 @@ if(shortcuts !== null) {
         }
     }
     function shortcutsDown() {
+        alert()
         shortcuts.style.opacity = '0'
         shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
         btnUp.style.transform = ''
