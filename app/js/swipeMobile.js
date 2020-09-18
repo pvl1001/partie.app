@@ -297,6 +297,7 @@ $(function() {
             }
             if(direction === 'down') {
                 shortcutsDown()
+                alert()
             }
         }
     });
