@@ -294,8 +294,9 @@ window.checkSwipe = true
 $(function() {
     $("#hostPartie .shortcuts").swipe( {
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-            alert(window.checkSwipe)
             if (window.checkSwipe) {
+                alert(window.checkSwipe + ' ___ ' + direction)
+
                 window.checkSwipe = false
 
                 if(direction === 'up') {
