@@ -371,7 +371,6 @@ if(shortcuts !== null) {
             } else {
                 shortcutsDown()
             }
-
         } else {
             hostPartie.children[0].style.overflow = 'hidden'
             shortcuts.style.bottom = '0'
