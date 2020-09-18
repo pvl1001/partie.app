@@ -378,8 +378,9 @@ if(shortcuts !== null) {
             btnUp.style.transform = 'rotateX(190deg)'
             bgClick.style.zIndex = '1'
             if (window.innerWidth >= 1024) bgClick.style.opacity = '1'
-            setTimeout(function () { checkSwipe = true }, 500);
         }
+
+        setTimeout(function () { checkSwipe = true }, 500);
     }
     function shortcutsDown() {
         shortcuts.style.bottom = -heightShortcuts +40 +87 + 'px'
