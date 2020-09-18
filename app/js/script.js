@@ -359,10 +359,6 @@ if (shortcuts !== null) {
     shortcuts.style.bottom = -heightShortcuts + 40 + 87 + 'px'
 
     function shortcutsUp() {
-        // setTimeout(function () {
-        //     window.checkSwipe = true
-        // }, 500);
-
         if (window.innerWidth >= 1024) { // PC
             onShortcuts = !onShortcuts
             if (onShortcuts) {
@@ -376,20 +372,12 @@ if (shortcuts !== null) {
         } else { // mobile
             hostPartie.children[0].style.overflow = 'hidden'
             shortcuts.style.bottom = '0'
-            // bgClick.style.zIndex = '1'
         }
-
     }
 
     function shortcutsDown() {
-        // setTimeout(function () {
-        //     window.checkSwipe = true
-        // }, 500);
-
         shortcuts.style.bottom = -heightShortcuts + 40 + 87 + 'px'
-        // bgClick.style.cssText = ''
         hostPartie.children[0].style.overflow = ''
-
     }
 }
 

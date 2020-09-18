@@ -1,24 +1,27 @@
-if(window.innerWidth <= 1023) {
+if (window.innerWidth <= 1023) {
 
-    let profileProgressModal = document.querySelector('#profileProgress .modal')
-    if(profileProgressModal !== null) {
-        profileProgressModal.addEventListener('touchstart', handleTouchStart, false);
-        profileProgressModal.addEventListener('touchmove', handleTouchMove, false);
+    let profileProgressModal = document.querySelector( '#profileProgress .modal' )
+    if (profileProgressModal !== null) {
+        profileProgressModal.addEventListener( 'touchstart', handleTouchStart, false );
+        profileProgressModal.addEventListener( 'touchmove', handleTouchMove, false );
     }
 
     var xDown = null;
     var yDown = null;
+
     function getTouches(evt) {
         return evt.touches ||             // browser API
             evt.originalEvent.touches; // jQuery
     }
+
     function handleTouchStart(evt) {
-        const firstTouch = getTouches(evt)[0];
+        const firstTouch = getTouches( evt )[0];
         xDown = firstTouch.clientX;
         yDown = firstTouch.clientY;
     }
+
     function handleTouchMove(evt) {
-        if ( ! xDown || ! yDown ) {
+        if (!xDown || !yDown) {
             return;
         }
         var xUp = evt.touches[0].clientX;
@@ -26,11 +29,12 @@ if(window.innerWidth <= 1023) {
         var xDiff = xDown - xUp;
         var yDiff = yDown - yUp;
 
-        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-            if ( xDiff > 0 ) { /* left swipe */
-            } else {/* right swipe */}
+        if (Math.abs( xDiff ) > Math.abs( yDiff )) {/*most significant*/
+            if (xDiff > 0) { /* left swipe */
+            } else {/* right swipe */
+            }
         } else {
-            if ( yDiff > 0 ) {
+            if (yDiff > 0) {
                 /* up swipe */
                 profileProgressModal.children[2].style.height = 'calc(100vh - 154px)'
                 profileProgressModal.style.backgroundColor = '#17171a'
@@ -41,12 +45,12 @@ if(window.innerWidth <= 1023) {
 
             } else {
                 /* down swipe */
-                if (profileProgressModal.offsetTop !== 0) closeModal(profileProgress)
-                if(window.innerWidth <= 1023) {
+                if (profileProgressModal.offsetTop !== 0) closeModal( profileProgress )
+                if (window.innerWidth <= 1023) {
                     if (profileProgressModal.children[2].scrollTop === 0) {
                         profileProgressModal.children[2].style.cssText = ''
                         profileProgressModal.style.backgroundColor = ''
-                        profileProgressModal.classList.remove('modal-arrow')
+                        profileProgressModal.classList.remove( 'modal-arrow' )
                     }
                 }
             }
@@ -58,8 +62,7 @@ if(window.innerWidth <= 1023) {
 }
 
 
-
-if(window.innerWidth <= 1023) {
+if (window.innerWidth <= 1023) {
 
 
     // let shortcutsMobile = document.querySelector( '#hostPartie .shortcuts' )
@@ -112,9 +115,8 @@ if(window.innerWidth <= 1023) {
     //
 
 
-
     let postMenus = document.querySelectorAll( '.post-menu.mobile' )
-    for(let postMenuMenu of postMenus) {
+    for (let postMenuMenu of postMenus) {
         if (postMenuMenu !== null) {
             postMenuMenu.children[0].addEventListener( 'touchstart', handleTouchStart, false );
             postMenuMenu.children[0].addEventListener( 'touchmove', handleTouchMove, false );
@@ -164,10 +166,8 @@ if(window.innerWidth <= 1023) {
     }
 
 
-
-
     let btnContainerWrapps = document.querySelectorAll( '.btn-container-wrapp' )
-    for(let el of btnContainerWrapps) {
+    for (let el of btnContainerWrapps) {
         if (el !== null) {
             el.children[0].addEventListener( 'touchstart', handleTouchStart, false );
             el.children[0].addEventListener( 'touchmove', handleTouchMove, false );
@@ -207,8 +207,8 @@ if(window.innerWidth <= 1023) {
                 } else {
                     /* down swipe */
                     el.style.top = ''
-                    el.children[0].classList.add('animate__fadeOutDownBig')
-                    el.children[0].classList.remove('animate__fadeInUp')
+                    el.children[0].classList.add( 'animate__fadeOutDownBig' )
+                    el.children[0].classList.remove( 'animate__fadeInUp' )
                 }
             }
             /* reset values */
@@ -216,9 +216,6 @@ if(window.innerWidth <= 1023) {
             yDown = null;
         }
     }
-
-
-
 
 
     let modals = document.querySelectorAll( '.modal' )
@@ -289,21 +286,17 @@ if(window.innerWidth <= 1023) {
 }
 
 
-// window.checkSwipe = true
 
-$(function() {
-    $("#hostPartie .shortcuts").swipe( {
-        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-            // if (window.checkSwipe) {
-            //     window.checkSwipe = false
+$( function () {
+    $( "#hostPartie .shortcuts" ).swipe( {
+        swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
 
-                if(direction === 'up') {
-                    shortcutsUp()
-                } else if (direction === 'down') {
-                        shortcutsDown()
-                }
-            // }
+            if (direction === 'up') {
+                shortcutsUp()
+            } else if (direction === 'down') {
+                shortcutsDown()
+            }
         }
-    });
+    } );
 
-});
+} );
