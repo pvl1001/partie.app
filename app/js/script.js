@@ -401,7 +401,6 @@ let img
 if (feedPostImg !== null) {
     feedPostImg.onclick = openImg
 
-
     function openImg() {
         img = this
         if (window.innerWidth >= 1024) { // pc
@@ -429,6 +428,12 @@ if (feedPostImg !== null) {
         bgBtn.style.display = 'block'
         bgBtnShare.style.display = 'block'
         bgBtn.onclick = function () {
+            img.style.cssText = ''
+            bg.style.zIndex = ''
+            bgBtn.style.cssText = ''
+            bgBtnShare.style.cssText = ''
+        }
+        bg.onclick = function () {
             img.style.cssText = ''
             bg.style.zIndex = ''
             bgBtn.style.cssText = ''
