@@ -400,7 +400,7 @@ function openBurger() {
             $( windowBurger ).swipe( {
                 swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
                     if (direction === 'down') {
-                        closePlace.click()
+                        windowBurger.style.cssText = ''
                     }
                 }
             } )
