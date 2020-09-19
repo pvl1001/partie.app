@@ -469,65 +469,6 @@ if (window.innerWidth <= 1023) {
 }
 
 
-// open reply comment
-// let reply = document.querySelectorAll('.reply')
-// let commentReply = document.querySelectorAll('.comments__reply')
-// for (let i = 0; i < reply.length; i++) {
-//     let el = reply[i]
-//     let el2 = commentReply[i]
-//
-//     el.addEventListener('click', function () {
-//         el2.style.display = 'flex'
-//     })
-// }
-
-// function reply(el) {
-//     let reply = el.parentNode.parentElement.parentElement.parentElement.children[4]
-//
-// reply.style.display = 'flex'
-
-// let name = el.parentNode.parentElement.children[1].outerText
-// reply.children[1].setAttribute('value', '@' + name + ' ')
-// }
-
-// Targets all textareas with class "txta"
-// let textareas = document.querySelectorAll('.txta'),
-//     hiddenDiv = document.createElement('div'),
-//     content = null;
-// for (let j of textareas) {
-//     j.classList.add('txtstuff');
-// }
-// hiddenDiv.classList.add('txta');
-// hiddenDiv.style.display = 'none';
-// hiddenDiv.style.whiteSpace = 'pre-wrap';
-// hiddenDiv.style.wordWrap = 'break-word';
-//
-// for(let i of textareas) {
-//     (function(i) {
-//         i.addEventListener('input', function() {
-//             i.parentNode.appendChild(hiddenDiv);
-//             i.style.resize = 'none';
-//             i.style.overflow = 'hidden';
-//             content = i.value;
-//             content = content.replace(/\n/g, '<br>');
-//             hiddenDiv.innerHTML = content + '<br style="line-height: 3px;">';
-//             hiddenDiv.style.visibility = 'hidden';
-//             hiddenDiv.style.display = 'block';
-//             i.style.height = hiddenDiv.offsetHeight + 'px';
-//             hiddenDiv.style.visibility = 'visible';
-//             hiddenDiv.style.display = 'none';
-//         });
-//     })(i);
-// }
-
-// let x = document.querySelector('.test23')
-// let y = document.querySelector('#test1')
-// x.addEventListener('click', function () {
-//     y.style.transform = 'translateX(100%)'
-//     setTimeout(function () {
-//         y.style.cssText = ''
-//     }, 1000)
-// })
 
 if (window.innerWidth <= 1023) {
     let modalWrapps = document.querySelectorAll( '.modal-wrapp' )

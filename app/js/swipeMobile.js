@@ -1,56 +1,55 @@
-
 if (window.innerWidth <= 1023) {
 
-    let btnContainerWrapps = document.querySelectorAll( '.btn-container-wrapp' )
-    for (let el of btnContainerWrapps) {
-        if (el !== null) {
-            el.children[0].addEventListener( 'touchstart', handleTouchStart, false );
-            el.children[0].addEventListener( 'touchmove', handleTouchMove, false );
-        }
-
-        var xDown = null;
-        var yDown = null;
-
-        function getTouches(evt) {
-            return evt.touches ||             // browser API
-                evt.originalEvent.touches; // jQuery
-        }
-
-        function handleTouchStart(evt) {
-            const firstTouch = getTouches( evt )[0];
-            xDown = firstTouch.clientX;
-            yDown = firstTouch.clientY;
-        }
-
-        function handleTouchMove(evt) {
-            if (!xDown || !yDown) {
-                return;
-            }
-            var xUp = evt.touches[0].clientX;
-            var yUp = evt.touches[0].clientY;
-            var xDiff = xDown - xUp;
-            var yDiff = yDown - yUp;
-
-            if (Math.abs( xDiff ) > Math.abs( yDiff )) {/*most significant*/
-                if (xDiff > 0) { /* left swipe */
-                } else {/* right swipe */
-                }
-            } else {
-                if (yDiff > 0) {
-                    /* up swipe */
-
-                } else {
-                    /* down swipe */
-                    el.style.top = ''
-                    el.children[0].classList.add( 'animate__fadeOutDownBig' )
-                    el.children[0].classList.remove( 'animate__fadeInUp' )
-                }
-            }
-            /* reset values */
-            xDown = null;
-            yDown = null;
-        }
-    }
+    // let btnContainerWrapps = document.querySelectorAll( '.btn-container-wrapp' )
+    // for (let el of btnContainerWrapps) {
+    //     if (el !== null) {
+    //         el.children[0].addEventListener( 'touchstart', handleTouchStart, false );
+    //         el.children[0].addEventListener( 'touchmove', handleTouchMove, false );
+    //     }
+    //
+    //     var xDown = null;
+    //     var yDown = null;
+    //
+    //     function getTouches(evt) {
+    //         return evt.touches ||             // browser API
+    //             evt.originalEvent.touches; // jQuery
+    //     }
+    //
+    //     function handleTouchStart(evt) {
+    //         const firstTouch = getTouches( evt )[0];
+    //         xDown = firstTouch.clientX;
+    //         yDown = firstTouch.clientY;
+    //     }
+    //
+    //     function handleTouchMove(evt) {
+    //         if (!xDown || !yDown) {
+    //             return;
+    //         }
+    //         var xUp = evt.touches[0].clientX;
+    //         var yUp = evt.touches[0].clientY;
+    //         var xDiff = xDown - xUp;
+    //         var yDiff = yDown - yUp;
+    //
+    //         if (Math.abs( xDiff ) > Math.abs( yDiff )) {/*most significant*/
+    //             if (xDiff > 0) { /* left swipe */
+    //             } else {/* right swipe */
+    //             }
+    //         } else {
+    //             if (yDiff > 0) {
+    //                 /* up swipe */
+    //
+    //             } else {
+    //                 /* down swipe */
+    //                 el.style.top = ''
+    //                 el.children[0].classList.add( 'animate__fadeOutDownBig' )
+    //                 el.children[0].classList.remove( 'animate__fadeInUp' )
+    //             }
+    //         }
+    //         /* reset values */
+    //         xDown = null;
+    //         yDown = null;
+    //     }
+    // }
 
 
     let modals = document.querySelectorAll( '.modal' )
@@ -120,20 +119,39 @@ if (window.innerWidth <= 1023) {
     }
 }
 
+
+let btnContainerWrapps = document.querySelectorAll( '.btn-container-wrapp' )
+for (let el of btnContainerWrapps) {
+    if (window.innerWidth <= 1023) {
+        $( function () {
+            $( el.children[0] ).swipe( {
+                swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+                    if (direction === 'down') {
+                        el.style.top = ''
+                        el.children[0].classList.add( 'animate__fadeOutDownBig' )
+                        el.children[0].classList.remove( 'animate__fadeInUp' )
+                    }
+                }
+            } )
+        } )
+    }
+}
+
+
 let postMenus = document.querySelectorAll( '.post-menu.mobile' )
 for (let postMenuMenu of postMenus)
-if (window.innerWidth <= 1023) {
-    $( function () {
-        $( postMenuMenu.children[0] ).swipe( {
-            swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-                 if (direction === 'down') {
-                     postMenuMenu.style.cssText = ''
-                     postMenuMenu.children[0].style.cssText = ''
+    if (window.innerWidth <= 1023) {
+        $( function () {
+            $( postMenuMenu.children[0] ).swipe( {
+                swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+                    if (direction === 'down') {
+                        postMenuMenu.style.cssText = ''
+                        postMenuMenu.children[0].style.cssText = ''
+                    }
                 }
-            }
-        } );
-    } );
-}
+            } )
+        } )
+    }
 
 
 if (window.innerWidth <= 1023) {
@@ -147,9 +165,8 @@ if (window.innerWidth <= 1023) {
                     shortcutsDown()
                 }
             }
-        } );
-
-    } );
+        } )
+    } )
 }
 
 
@@ -177,7 +194,6 @@ if (window.innerWidth <= 1023) {
                     }
                 }
             }
-        } );
-
-    } );
+        } )
+    } )
 }
