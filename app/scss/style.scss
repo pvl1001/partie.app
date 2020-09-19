@@ -552,6 +552,7 @@ input[type=date] {
     transition: .3s;
     opacity: 0;
     z-index: -1;
+    overflow: auto;
 
     &:after {
         content:'';
