@@ -394,12 +394,13 @@ function openBurger() {
 
 
 let feedPostImg = document.querySelector( '.post .feed__post_img img' )
+let bg = document.querySelector( '.img-bg' )
+let bgBtn = document.querySelector( '.img-bg__close' )
+let bgBtnShare = document.querySelector( '.img-bg__share' )
+let img
 if (feedPostImg !== null) {
     feedPostImg.onclick = openImg
-    let bg = document.querySelector( '.img-bg' )
-    let bgBtn = document.querySelector( '.img-bg__close' )
-    let bgBtnShare = document.querySelector( '.img-bg__share' )
-    let img
+
 
     function openImg() {
         img = this
