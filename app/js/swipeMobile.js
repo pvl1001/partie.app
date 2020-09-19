@@ -235,7 +235,6 @@
 // }
 
 
-
 $( function () {
     $( "#hostPartie .shortcuts" ).swipe( {
         swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
@@ -251,28 +250,23 @@ $( function () {
 } );
 
 
-
 let profileProgressModal = document.querySelector( '#profileProgress .modal' )
-$( function () {
-    $( "#profileProgress .modal" ).swipe( {
-        swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+if (window.innerWidth <= 1023) {
+    $( function () {
+        $( "#profileProgress .modal" ).swipe( {
+            swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
 
-            if (direction === 'up') {
+                if (direction === 'up') {
+                    if (profileProgressModal.offsetTop !== 0) {
+                        $( this ).swipe( {allowPageScroll: "auto"} );
+                        profileProgressModal.children[2].style.height = 'calc(100vh - 154px)'
+                        profileProgressModal.style.backgroundColor = '#17171a'
+                        profileProgressModal.classList.add( 'modal-arrow' )
+                        profileProgressModal.children[2].style.overflow = 'auto'
+                    }
 
-                if(profileProgressModal.offsetTop !== 0) {
-                    $(this).swipe( {allowPageScroll:"auto"} );
-                    profileProgressModal.children[2].style.height = 'calc(100vh - 154px)'
-                    profileProgressModal.style.backgroundColor = '#17171a'
-                    profileProgressModal.classList.add( 'modal-arrow' )
-                    profileProgressModal.children[2].style.overflow = 'auto'
-                    // setTimeout( function () {
-                    //     profileProgressModal.children[2].style.overflow = 'auto'
-                    // }, 500 )
-                }
-
-            } else if (direction === 'down') {
-                if (profileProgressModal.offsetTop !== 0) closeModal( profileProgress )
-                if (window.innerWidth <= 1023) {
+                } else if (direction === 'down') {
+                    if (profileProgressModal.offsetTop !== 0) closeModal( profileProgress )
                     if (profileProgressModal.children[2].scrollTop === 0) {
                         profileProgressModal.children[2].style.cssText = ''
                         profileProgressModal.style.backgroundColor = ''
@@ -280,7 +274,7 @@ $( function () {
                     }
                 }
             }
-        }
-    } );
+        } );
 
-} );
+    } );
+}
