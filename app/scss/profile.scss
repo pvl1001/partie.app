@@ -141,7 +141,7 @@
         .ps {
             height: 0;
             overflow: hidden;
-            background: #3069E8 url('../img/icon/ps.png') 26px 50% / 23px no-repeat;
+            background: #3069E8 url('../img/icon/ps.svg') 26px 50% / 23px no-repeat;
             transition: .3s;
         }
 
@@ -245,7 +245,7 @@
         }
 
         button.epic {
-            background: rgba(20, 19, 26, .8) url('../img/icon/epic.png') 29px 50% / 20px no-repeat;
+            background: rgba(20, 19, 26, .8) url('../img/icon/epic.svg') 29px 50% / 20px no-repeat;
 
             &:hover {
                 background-color: rgba(20, 19, 26, 1);
@@ -334,7 +334,7 @@
 
         input {
             padding-left: 50px;
-            background: #19181F url('../img/icon/search.png') 19px 50% / 16px no-repeat;
+            background: #19181F url('../img/icon/search.svg') 19px 50% / 16px no-repeat;
             margin-bottom: 28px;
         }
 
@@ -735,7 +735,7 @@
                             position: absolute;
                             right: 0;
                             bottom: 0;
-                            padding: 0 4px 2px;
+                            padding: 2px 4px;
                             background: #6E4AFF;
                             border-radius: 7px;
                             min-width: 22px;
@@ -991,7 +991,7 @@
         }
 
         button.epic {
-            background: rgba(20, 19, 26, .8) url('../img/icon/epic.png') 29px 50% / 20px no-repeat;
+            background: rgba(20, 19, 26, .8) url('../img/icon/epic.svg') 29px 50% / 20px no-repeat;
 
             &:hover {
                 background-color: rgba(20, 19, 26, 1);
@@ -1004,7 +1004,7 @@
 
         .ps-mobile {
             height: 64px;
-            background: #3069E8 url('../img/icon/ps.png') 26px 50% / 23px no-repeat;
+            background: #3069E8 url('../img/icon/ps.svg') 26px 50% / 23px no-repeat;
             transition: .3s;
         }
 
@@ -1045,7 +1045,7 @@
             width: 20px;
             height: 20px;
             min-width: 20px;
-            background: url('../img/icon/ps.png') center / contain no-repeat;
+            background: url('../img/icon/ps.svg') center / contain no-repeat;
         }
 
         button {
@@ -1241,16 +1241,16 @@
         }
 
         .gametrag button {
-            background: #3069e8 url('../img/icon/ps.png') 28.7px 50% / 22.5px no-repeat;
+            background: #3069e8 url('../img/icon/ps.svg') 28.7px 50% / 22.5px no-repeat;
             height: 64px;
         }
 
         button.host-ps {
-            background: rgba(20, 19, 26, .8) url('../img/icon/ps.png') 28.7px 50% / 22.5px no-repeat;
+            background: rgba(20, 19, 26, .8) url('../img/icon/ps.svg') 28.7px 50% / 22.5px no-repeat;
         }
 
         .communication button {
-            background: rgba(20, 19, 26, .8) url('../img/icon/mic.png') 33.8px 50% / 13px no-repeat;
+            background: rgba(20, 19, 26, .8) url('../img/icon/mic.svg') 33.8px 50% / 13px no-repeat;
             height: 64px;
         }
 
@@ -1357,16 +1357,16 @@
         }
 
         .gametrag button {
-            background: #3069e8 url('../img/icon/ps.png') 28.7px 50% / 22.5px no-repeat;
+            background: #3069e8 url('../img/icon/ps.svg') 28.7px 50% / 22.5px no-repeat;
             height: 64px;
         }
 
         button.host-ps {
-            background: rgba(20, 19, 26, .8) url('../img/icon/ps.png') 28.7px 50% / 22.5px no-repeat;
+            background: rgba(20, 19, 26, .8) url('../img/icon/ps.svg') 28.7px 50% / 22.5px no-repeat;
         }
 
         .communication button {
-            background: rgba(20, 19, 26, .8) url('../img/icon/mic.png') 33.8px 50% / 13px no-repeat;
+            background: rgba(20, 19, 26, .8) url('../img/icon/mic.svg') 33.8px 50% / 13px no-repeat;
             height: 64px;
         }
 

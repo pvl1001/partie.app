@@ -273,23 +273,23 @@
                 }
 
                 label[for=pc] {
-                    background: url('../img/icon/pc.png') center 49.7px / 58.2px no-repeat;
+                    background: url('../img/icon/pc.svg') center 49.7px / 58.2px no-repeat;
                 }
 
                 label[for=ps] {
-                    background: url('../img/icon/ps.png') center 48.7px / 63px no-repeat;
+                    background: url('../img/icon/ps.svg') center 48.7px / 63px no-repeat;
                 }
 
                 label[for=switch] {
-                    background: url('../img/icon/switch.png') center 49.5px / 49px no-repeat;
+                    background: url('../img/icon/switch.svg') center 49.5px / 49px no-repeat;
                 }
 
                 label[for=xbox] {
-                    background: url('../img/icon/xbox.png') center 48.5px / 49px no-repeat;
+                    background: url('../img/icon/xbox.svg') center 48.5px / 49px no-repeat;
                 }
 
                 label[for=mobile] {
-                    background: url('../img/icon/mobile.png') center 46px / 35px no-repeat;
+                    background: url('../img/icon/mobile.svg') center 46px / 35px no-repeat;
                 }
             }
 
@@ -528,7 +528,7 @@
                     .feed__search_search {
                         width: 100%;
                         height: 52px;
-                        background: #14131A url('../img/icon/search.png') 19px center / 17px no-repeat;
+                        background: #14131A url('../img/icon/search.svg') 19px center / 17px no-repeat;
                         border-radius: 16px;
                         border: 0;
                         padding-left: 50px;
@@ -583,7 +583,7 @@
                         width: 32px;
                         height: 32px;
                         border-radius: 50%;
-                        background: #6E4AFF url('../img/icon/ok-w.png') center / 15px no-repeat;
+                        background: #6E4AFF url('../img/icon/ok-w.svg') center / 15px no-repeat;
                         transition: .3s;
                         opacity: 0;
                     }
@@ -689,7 +689,7 @@
                 .feed__search_search {
                     width: 100%;
                     height: 52px;
-                    background: #14131A url('../img/icon/search.png') 19px center / 17px no-repeat;
+                    background: #14131A url('../img/icon/search.svg') 19px center / 17px no-repeat;
                     border-radius: 16px;
                     border: 0;
                     padding-left: 50px;
@@ -739,7 +739,7 @@
                     width: 32px;
                     height: 32px;
                     border-radius: 50%;
-                    background: #6E4AFF url('../img/icon/ok-w.png') center / 15px no-repeat;
+                    background: #6E4AFF url('../img/icon/ok-w.svg') center / 15px no-repeat;
                     transition: .3s;
                     opacity: 0;
                 }

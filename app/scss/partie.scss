@@ -118,15 +118,15 @@
             }
 
             .btn-epic {
-                background: rgba(116, 116, 128, .1) url('../img/icon/epic.png') center / 13px no-repeat;
+                background: rgba(116, 116, 128, .1) url('../img/icon/epic.svg') center / 13px no-repeat;
             }
 
             .btn-pc {
-                background: rgba(116, 116, 128, .1) url('../img/icon/pc.png') center / 18px no-repeat;
+                background: rgba(116, 116, 128, .1) url('../img/icon/pc.svg') center / 18px no-repeat;
             }
 
             .btn-mic {
-                background: rgba(116, 116, 128, .1) url('../img/icon/mic.png') center / 10px no-repeat;
+                background: rgba(116, 116, 128, .1) url('../img/icon/mic.svg') center / 10px no-repeat;
             }
 
             .btn-time {
@@ -658,7 +658,7 @@
             min-width: 32px;
             height: 32px;
             border-radius: 50%;
-            background: #6E4AFF url('../img/icon/ok-w.png') center / 15px no-repeat;
+            background: #6E4AFF url('../img/icon/ok-w.svg') center / 15px no-repeat;
         }
 
     }
@@ -711,7 +711,7 @@
     input[type=text] {
         border: 0;
         padding-left: 50px;
-        background: #19181F url('../img/icon/search.png') 19px 50% / 16px no-repeat;
+        background: #19181F url('../img/icon/search.svg') 19px 50% / 16px no-repeat;
         margin-bottom: 28px;
     }
 
@@ -792,7 +792,7 @@
         }
 
         input[type=checkbox]:checked + label + label {
-            background: #6E4AFF url('../img/icon/ok-w.png') center / 12.5px no-repeat;
+            background: #6E4AFF url('../img/icon/ok-w.svg') center / 12.5px no-repeat;
             opacity: 1;
             border: 0;
         }
@@ -1040,7 +1040,7 @@
             }
 
             .round-btn.xbox {
-                background: rgba(50, 47, 66, 0.4) url('../img/icon/xbox.png') center / 14px no-repeat;
+                background: rgba(50, 47, 66, 0.4) url('../img/icon/xbox.svg') center / 14px no-repeat;
             }
 
             .round-btn.mic {
@@ -1445,7 +1445,7 @@
         }
 
         button.ps {
-            background: #19181F url('../img/icon/ps.png') 27px 50% / 23px no-repeat;
+            background: #19181F url('../img/icon/ps.svg') 27px 50% / 23px no-repeat;
         }
 
         button.game {

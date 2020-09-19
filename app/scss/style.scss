@@ -245,7 +245,7 @@ input[type=date] {
     width: 20px;
     height: 20px;
     border-radius: 6px;
-    background: #6E4AFF url('../img/icon/Star.png') 50% calc(50% - 1px)/ 10px no-repeat;
+    background: #6E4AFF url('../img/icon/Star.svg') 50% calc(50% - 1px)/ 10px no-repeat;
 }
 
 .switch {
@@ -523,6 +523,15 @@ input[type=date] {
     position: fixed;
     z-index: 14;
     padding: 37px 40px;
+    
+    .header__logo_logo {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #6E4AFF;
+    }
 
     .header__logo-text {
         margin-left: 16px;
@@ -796,23 +805,23 @@ textarea {
 
 
 .host-xb {
-    background: rgba(20, 19, 26, .8) url('../img/icon/xbox.png') 31px 50% / 17.5px no-repeat !important;
+    background: rgba(20, 19, 26, .8) url('../img/icon/xbox.svg') 31px 50% / 17.5px no-repeat !important;
 }
 
 .host-ps {
-    background: rgba(20, 19, 26, .8) url('../img/icon/ps.png') 28.7px 50% / 22.5px no-repeat !important;
+    background: rgba(20, 19, 26, .8) url('../img/icon/ps.svg') 28.7px 50% / 22.5px no-repeat !important;
 }
 
 .host-pc {
-    background: rgba(20, 19, 26, .8) url('../img/icon/pc.png') 31.7px 50% / 20.8px no-repeat !important;
+    background: rgba(20, 19, 26, .8) url('../img/icon/pc.svg') 31.7px 50% / 20.8px no-repeat !important;
 }
 
 .host-sw {
-    background: rgba(20, 19, 26, .8) url('../img/icon/switch.png') 31.2px 50% / 17.5px no-repeat !important;
+    background: rgba(20, 19, 26, .8) url('../img/icon/switch.svg') 31.2px 50% / 17.5px no-repeat !important;
 }
 
 .host-mob {
-    background: rgba(20, 19, 26, .8) url('../img/icon/mobile.png') 33.7px 50% / 12.5px no-repeat !important;
+    background: rgba(20, 19, 26, .8) url('../img/icon/mobile.svg') 33.7px 50% / 12.5px no-repeat !important;
 }
 
 .host-origin {
@@ -820,7 +829,7 @@ textarea {
 }
 
 .host-EG {
-    background: rgba(20, 19, 26, .8) url('../img/icon/epic.png') 31px 50% / 18.8px no-repeat !important;
+    background: rgba(20, 19, 26, .8) url('../img/icon/epic.svg') 31px 50% / 18.8px no-repeat !important;
 }
 
 .host-steam {
@@ -853,15 +862,15 @@ textarea {
         }
 
         .btn-epic {
-            background: rgba(116, 116, 128, .1) url('../img/icon/epic.png') center / 13px no-repeat;
+            background: rgba(116, 116, 128, .1) url('../img/icon/epic.svg') center / 13px no-repeat;
         }
 
         .btn-pc {
-            background: rgba(116, 116, 128, .1) url('../img/icon/pc.png') center / 18px no-repeat;
+            background: rgba(116, 116, 128, .1) url('../img/icon/pc.svg') center / 18px no-repeat;
         }
 
         .btn-mic {
-            background: rgba(116, 116, 128, .1) url('../img/icon/mic.png') center / 10px no-repeat;
+            background: rgba(116, 116, 128, .1) url('../img/icon/mic.svg') center / 10px no-repeat;
         }
 
         .btn-time {
@@ -986,7 +995,7 @@ textarea {
         position: absolute;
         top: 0;
         right: -8px;
-        background: #6E4AFF url('../img/icon/Star.png') 50% calc(50% - 0.9px) / 10px no-repeat;
+        background: #6E4AFF url('../img/icon/Star.svg') 50% calc(50% - 0.9px) / 10px no-repeat;
     }
 }
 

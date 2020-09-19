@@ -143,7 +143,7 @@
             }
 
             input[type=radio]:checked + label + label {
-                background: #6E4AFF url('../img/icon/ok-w.png') center / 15px no-repeat;
+                background: #6E4AFF url('../img/icon/ok-w.svg') center / 15px no-repeat;
             }
 
             label {
@@ -310,7 +310,7 @@
             }
 
             button.ps {
-                background: #19181F url('../img/icon/ps.png') 27px 50% / 23px no-repeat;
+                background: #19181F url('../img/icon/ps.svg') 27px 50% / 23px no-repeat;
             }
 
             button.game {
@@ -723,7 +723,7 @@
     }
 
     input[type=radio]:checked + label {
-        background: #6E4AFF url('../img/icon/ok-w.png') center / 15px no-repeat;
+        background: #6E4AFF url('../img/icon/ok-w.svg') center / 15px no-repeat;
     }
 
     textarea {
@@ -818,7 +818,7 @@
         opacity: 1;
         + label {
             opacity: 1;
-            background: url('../img/icon/ok-w.png') center / 15px no-repeat !important;
+            background: url('../img/icon/ok-w.svg') center / 15px no-repeat !important;
         }
     }
 }
