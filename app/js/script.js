@@ -384,12 +384,28 @@ if (shortcuts !== null) {
 
 function openBurger() {
     let windowBurger = document.querySelector( '.burger__menu' )
+    let burgerBg = document.querySelector( '.burger-bg' )
     let closePlace = windowBurger.querySelector( '.close-place' )
     windowBurger.style.opacity = '1'
     windowBurger.style.visibility = 'visible'
     closePlace.addEventListener( 'click', function () {
         windowBurger.style.cssText = ''
     } )
+    burgerBg.addEventListener( 'click', function () {
+        windowBurger.style.cssText = ''
+    } )
+
+    if (window.innerWidth <= 1023) {
+        $( function () {
+            $( windowBurger ).swipe( {
+                swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+                    if (direction === 'down') {
+                        closePlace.click()
+                    }
+                }
+            } )
+        } )
+    }
 }
 
 
