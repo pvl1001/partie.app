@@ -1085,10 +1085,7 @@
 
         .modal__content {
             height: calc(50vh - 60px);
-            //margin: 0 -20px;
-            //padding: 0 20px;
-            overflow: hidden;
-            //overflow-y: auto;
+            overflow-y: auto;
             box-sizing: inherit;
             transition: .5s;
 

@@ -16,6 +16,7 @@ for (let modal of modals) {
         modal.parentElement !== newPost &&
         modal.parentElement !== preferencesModal &&
         modal.parentElement !== titleModal &&
+        modal.parentElement !== profileProgress &&
         modal.parentElement !== editShortcutMobile) {
         $( function () {
             $( modal ).swipe( {
@@ -81,18 +82,20 @@ if (window.innerWidth <= 1023) {
 
 
 let profileProgressModal = document.querySelector( '#profileProgress .modal' )
+let closeTap = document.querySelector( '#profileProgress .close-tap' )
 if (window.innerWidth <= 1023) {
     $( function () {
-        $( "#profileProgress .modal" ).swipe( {
+        $( "#profileProgress .close-tap" ).swipe( {
             swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+                $( profileProgressModal ).swipe( {allowPageScroll: "auto"} );
 
                 if (direction === 'up') {
                     if (profileProgressModal.offsetTop !== 0) {
-                        $( this ).swipe( {allowPageScroll: "auto"} );
+                        $( profileProgressModal ).swipe( {allowPageScroll: "auto"} );
                         profileProgressModal.children[2].style.height = 'calc(100vh - 154px)'
                         profileProgressModal.style.backgroundColor = '#17171a'
                         profileProgressModal.classList.add( 'modal-arrow' )
-                        profileProgressModal.children[2].style.overflow = 'auto'
+                        closeTap.style.opacity = '0'
                     }
 
                 } else if (direction === 'down') {
@@ -101,6 +104,7 @@ if (window.innerWidth <= 1023) {
                         profileProgressModal.children[2].style.cssText = ''
                         profileProgressModal.style.backgroundColor = ''
                         profileProgressModal.classList.remove( 'modal-arrow' )
+                        closeTap.style.opacity = ''
                     }
                 }
             }
