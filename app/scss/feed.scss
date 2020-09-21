@@ -555,7 +555,6 @@
 
             .feed__post_head {
                 display: flex;
-                //justify-content: space-between;
                 margin-bottom: 20px;
                 position: relative;
 
@@ -564,6 +563,10 @@
                     align-items: center;
                     position: relative;
                     z-index: 1;
+
+                    a {
+                        display: block;
+                    }
 
                     .avatar {
                         margin-right: 15px;
