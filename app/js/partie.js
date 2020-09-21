@@ -13,20 +13,36 @@ window.addEventListener('scroll', () => {
 
 let arrUser = document.querySelectorAll('.message__user_user-name')
 let arrWindow = document.querySelectorAll('.message .user-window')
+let avatars = document.querySelectorAll('.message__user > .avatar')
 let arrClosePlace = document.querySelectorAll('.user-window .close-place')
 
 for(let i = 0; i < arrUser.length; i++){
     let user = arrUser[i]
-    let window = arrWindow[i]
+    let win = arrWindow[i]
     let closePlace = arrClosePlace[i]
-    user.addEventListener('click', function () {
-        window.style.opacity = '1'
-        window.style.visibility = 'visible'
-    })
-    closePlace.addEventListener('click', function () {
-        window.style.opacity = ''
-        window.style.visibility = ''
-    })
+    let avatar = avatars[i]
+
+    if(window.innerWidth >=1024) { // PC
+        function showWin(e) {
+            win.style.opacity = '1'
+            win.style.visibility = 'visible'
+            win.style.position = 'fixed'
+            win.style.top = e.pageY -340 + 'px'
+            win.style.left = e.pageX + 'px'
+        }
+
+        user.addEventListener('click', function (e) {
+            showWin(e)
+        })
+        avatar.addEventListener('click', function (e) {
+            showWin(e)
+        })
+        closePlace.addEventListener('click', function () {
+            win.style.opacity = ''
+            win.style.visibility = ''
+        })
+    }
+
 }
 
 function openMorePartie() {

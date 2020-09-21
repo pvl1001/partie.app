@@ -170,485 +170,7 @@
         </div>
         <div onclick="closeModal(applyPartner)" class="modal__backdrop"></div>
     </div>
-    <div id="levelProgress" class="modal-wrapp">
-        <div class="level-progress modal center">
-            <div onclick="closeModal(levelProgress)" class="close-tap mobile"></div>
-            <div class="modal__head">
-                Level Progress
-                <div onclick="closeModal(levelProgress)" class="modal__close"></div>
-            </div>
-            <div class="modal__content">
-                <div class="modal__content_row">
-                    <div class="romb">64</div>
-                    <div class="progress">
-                        <div class="progress__text">
-                            <div class="progress__text_left">Progress</div>
-                            <div class="progress__text_right">1200/4000</div>
-                        </div>
-                        <div class="progress__progress-bar"></div>
-                    </div>
-                    <div class="romb -m">65</div>
-                </div>
-                <div class="counters">
-                    <div class="counter">
-                        <div class="counter__number">48h</div>
-                        <div class="counter__text">In parties</div>
-                    </div>
-                    <div class="counter">
-                        <div class="counter__number">331</div>
-                        <div class="counter__text">Parties</div>
-                    </div>
-                    <div class="counter">
-                        <div class="counter__number">699</div>
-                        <div class="counter__text">Badges</div>
-                    </div>
-                </div>
 
-                <div class="progressbar mobile"><div></div></div>
-                <div class="level-progress__tab">
-                    <!--tabs-->
-                    <div class="tab">
-                        <div class="tablinks active" id="defaultOpen2" onclick="openTabModal(event, 'Tokens')">
-                            <svg width="23" height="16" viewBox="0 0 23 16" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <rect x="15" y="15" width="14" height="14" rx="7" transform="rotate(-180 15 15)"
-                                      fill="#322F42" stroke="black" stroke-width="2"/>
-                                <rect x="22" y="15" width="14" height="14" rx="7" transform="rotate(-180 22 15)"
-                                      fill="#322F42" stroke="black" stroke-width="2"/>
-                            </svg>
-                            Tokens
-                        </div>
-                        <div class="tablinks" onclick="openTabModal(event, 'Achivements')">
-                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8.54384 1.01636C8.72053 0.622675 9.27947 0.622674 9.45616 1.01636L11.657 5.91989C11.7297 6.08189 11.8828 6.19317 12.0594 6.21226L17.403 6.79007C17.832 6.83646 18.0047 7.36804 17.6849 7.65774L13.7015 11.2661C13.5699 11.3853 13.5114 11.5654 13.5478 11.7392L14.6495 16.9998C14.7379 17.4221 14.2858 17.7507 13.9114 17.536L9.2487 14.8626C9.09466 14.7743 8.90534 14.7743 8.7513 14.8626L4.08859 17.536C3.71424 17.7507 3.26205 17.4221 3.35051 16.9998L4.45225 11.7392C4.48865 11.5654 4.43014 11.3853 4.29854 11.2661L0.315091 7.65774C-0.00472718 7.36804 0.167993 6.83646 0.597014 6.79007L5.94063 6.21226C6.11717 6.19317 6.27033 6.08189 6.34304 5.91989L8.54384 1.01636Z"
-                                      fill="#322F42"/>
-                            </svg>
-                            Achivements
-                        </div>
-                    </div>
-                    <!--tabs content-->
-                    <div id="Tokens" class="tabcontent">
-                        <div class="tokens">
-                            <div class="tokens-pc">
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="token__counter">39</div>
-                                    <div class="popover">
-                                        <div class="popover__name">Badge Name Tokens</div>
-                                        <div class="popover__description">Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="token__counter">23</div>
-                                    <div class="popover">
-                                        <div class="popover__name">Tokens</div>
-                                        <div class="popover__description">Bage Description Bage Description Bage
-                                            Description
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="token__counter">146</div>
-                                    <div class="popover">
-                                        <div class="popover__name">Tokens</div>
-                                        <div class="popover__description">Bage Description Bage Description Bage
-                                            Description
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="token token-disabled">
-                                    <img src="img/pic/taken1.png"/>
-                                </div>
-                                <div class="token token-disabled">
-                                    <img src="img/pic/taken1.png"/>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="token__counter">8</div>
-                                    <div class="popover">
-                                        <div class="popover__name">Tokens</div>
-                                        <div class="popover__description">Bage Description Bage Description Bage
-                                            Description
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="token__counter">8</div>
-                                    <div class="popover">
-                                        <div class="popover__name">Tokens</div>
-                                        <div class="popover__description">Bage Description Bage Description Bage
-                                            Description
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="token__counter">8</div>
-                                    <div class="popover">
-                                        <div class="popover__name">Tokens</div>
-                                        <div class="popover__description">Bage Description Bage Description Bage
-                                            Description
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="token__counter">8</div>
-                                    <div class="popover">
-                                        <div class="popover__name">Tokens</div>
-                                        <div class="popover__description">Bage Description Bage Description Bage
-                                            Description
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="token__counter">8</div>
-                                    <div class="popover">
-                                        <div class="popover__name">Tokens</div>
-                                        <div class="popover__description">Bage Description Bage Description Bage
-                                            Description
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tokens-mobile mobile">
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="token__counter">39</div>
-                                    <div class="popover">
-                                        <div class="popover__name">Badge Name Tokens</div>
-                                        <div class="popover__description">Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="token__counter">23</div>
-                                    <div class="popover">
-                                        <div class="popover__name">Tokens</div>
-                                        <div class="popover__description">Bage Description Bage Description Bage
-                                            Description
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="token__counter">146</div>
-                                    <div class="popover">
-                                        <div class="popover__name">Tokens</div>
-                                        <div class="popover__description">Bage Description Bage Description Bage
-                                            Description
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tokens-mobile mobile">
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="Achivements" class="tabcontent">
-                        <div class="tokens">
-                            <div class="tokens-pc">
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">1 Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">2 Bage Description Bage Description Bage
-                                            Description
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">3 Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token token-disabled">
-                                    <img src="img/pic/taken1.png"/>
-                                </div>
-                                <div class="token token-disabled">
-                                    <img src="img/pic/taken1.png"/>
-                                </div>
-                                <div class="token token-disabled">
-                                    <img src="img/pic/taken1.png"/>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">7 Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">8 Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">9 Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">10 Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">11 Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">12 Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">13 Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">14 Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">15 Bage Description</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tokens-mobile mobile">
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">1 Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">2 Bage Description Bage Description Bage
-                                            Description
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">3 Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token token-disabled">
-                                    <img src="img/pic/taken1.png"/>
-                                </div>
-                                <div class="token token-disabled">
-                                    <img src="img/pic/taken1.png"/>
-                                </div>
-                            </div>
-                            <div class="tokens-mobile mobile">
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">9 Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">10 Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">11 Bage Description</div>
-                                    </div>
-                                </div>
-                                <div class="token pop">
-                                    <img src="img/pic/taken1.png"/>
-                                    <div class="popover">
-                                        <div class="popover__name">Achivements</div>
-                                        <div class="popover__description">12 Bage Description</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div onclick="closeModal(levelProgress)" class="modal__backdrop"></div>
-    </div>
-    <div id="levelProgressToken" class="modal-wrapp">
-        <div class="modal center overflow-hidden">
-            <div class="levelProgressSlider__head-title">
-                <span>Tokens</span>
-            </div>
-            <div class="modal__content">
-                <div class="levelProgressSlider__box">
-                    <div class="levelProgressSlider__img"></div>
-                    <div class="levelProgressSlider__title">
-                        Great job!
-                    </div>
-                    <div class="levelProgressSlider__description">
-                        Congrats! You can now apply to become a Partner.
-                    </div>
-                </div>
-                <div class="levelProgressSlider__box">
-                    <div class="levelProgressSlider__img"></div>
-                    <div class="levelProgressSlider__title">
-                        Great job!
-                    </div>
-                    <div class="levelProgressSlider__description">
-                        Congrats! You can now apply to become a Partner.
-                    </div>
-                </div>
-                <div class="levelProgressSlider__box">
-                    <div class="levelProgressSlider__img"></div>
-                    <div class="levelProgressSlider__title">
-                        Great job!
-                    </div>
-                    <div class="levelProgressSlider__description">
-                        Congrats! You can now apply to become a Partner.
-                    </div>
-                </div>
-            </div>
-            <div onclick="closeModal(levelProgressToken)" class="modal__backdrop"></div>
-
-        </div>
-    </div>
-    <div id="levelProgressAchivements" class="modal-wrapp">
-        <div class="modal center">
-            <div class="levelProgressSlider__head-title">
-                <span>Achivements</span>
-            </div>
-            <div class="modal__content">
-                <div class="levelProgressSlider__box">
-                    <div class="levelProgressSlider__img"></div>
-                    <div class="levelProgressSlider__title">
-                        Great job!
-                    </div>
-                    <div class="levelProgressSlider__description">
-                        Congrats! You can now apply to become a Partner.
-                    </div>
-                </div>
-                <div class="levelProgressSlider__box">
-                    <div class="levelProgressSlider__img"></div>
-                    <div class="levelProgressSlider__title">
-                        Great job!
-                    </div>
-                    <div class="levelProgressSlider__description">
-                        Congrats! You can now apply to become a Partner.
-                    </div>
-                </div>
-                <div class="levelProgressSlider__box">
-                    <div class="levelProgressSlider__img"></div>
-                    <div class="levelProgressSlider__title">
-                        Great job!
-                    </div>
-                    <div class="levelProgressSlider__description">
-                        Congrats! You can now apply to become a Partner.
-                    </div>
-                </div>
-                <div class="levelProgressSlider__box">
-                    <div class="levelProgressSlider__img"></div>
-                    <div class="levelProgressSlider__title">
-                        Great job!
-                    </div>
-                    <div class="levelProgressSlider__description">
-                        Congrats! You can now apply to become a Partner.
-                    </div>
-                </div>
-                <div class="levelProgressSlider__box">
-                    <div class="levelProgressSlider__img"></div>
-                    <div class="levelProgressSlider__title">
-                        Great job!
-                    </div>
-                    <div class="levelProgressSlider__description">
-                        Congrats! You can now apply to become a Partner.
-                    </div>
-                </div>
-                <div class="levelProgressSlider__box">
-                    <div class="levelProgressSlider__img"></div>
-                    <div class="levelProgressSlider__title">
-                        Great job!
-                    </div>
-                    <div class="levelProgressSlider__description">
-                        Congrats! You can now apply to become a Partner.
-                    </div>
-                </div>
-                <div class="levelProgressSlider__box">
-                    <div class="levelProgressSlider__img"></div>
-                    <div class="levelProgressSlider__title">
-                        Great job!
-                    </div>
-                    <div class="levelProgressSlider__description">
-                        Congrats! You can now apply to become a Partner.
-                    </div>
-                </div>
-                <div class="levelProgressSlider__box">
-                    <div class="levelProgressSlider__img"></div>
-                    <div class="levelProgressSlider__title">
-                        Great job!
-                    </div>
-                    <div class="levelProgressSlider__description">
-                        Congrats! You can now apply to become a Partner.
-                    </div>
-                </div>
-                <div class="levelProgressSlider__box">
-                    <div class="levelProgressSlider__img"></div>
-                    <div class="levelProgressSlider__title">
-                        Great job!
-                    </div>
-                    <div class="levelProgressSlider__description">
-                        Congrats! You can now apply to become a Partner.
-                    </div>
-                </div>
-            </div>
-            <div onclick="closeModal(levelProgressAchivements)" class="modal__backdrop"></div>
-        </div>
-    </div>
     <div id="editProfile" class="modal-wrapp">
         <div class="modal center">
             <div class="modal__head">
@@ -1038,106 +560,6 @@
     </div>
 
 <!--Active partie-->
-    <div id="inviteFriends" class="inviteFriends modal-wrapp">
-        <div class="modal center">
-            <div class="modal__head">
-                <div onclick="closeModal(inviteFriends)" class="modal__close"></div>
-                Invite friends
-                <button class="bg-fiolet">Invite</button>
-            </div>
-
-            <div class="modal__content">
-                <input type="text" placeholder="Search">
-                <div class="users-check">
-                    <div class="user-check bg-fiolet">gboy6827</div>
-                    <div class="user-check bg-yellow">gboy6827</div>
-                </div>
-                <div class="suggested">
-                    <div class="suggested__titile">Suggested</div>
-                    <div class="suggested__box">
-                        <input id="user1" name="suggested" type="checkbox">
-                        <label for="user1">
-                            <div class="avatar"></div>
-                            <div class="user">
-                                <div class="user__name">gboy6827</div>
-                                <div class="user__level">54 level</div>
-                            </div>
-                        </label>
-                        <label for="user1"></label>
-                    </div>
-                    <div class="suggested__box">
-                        <input id="user2" name="suggested" type="checkbox">
-                        <label for="user2">
-                            <div class="avatar"></div>
-                            <div class="user">
-                                <div class="user__name">gboy6827</div>
-                                <div class="user__level">54 level</div>
-                            </div>
-                        </label>
-                        <label for="user2"></label>
-                    </div>
-                    <div class="suggested__box">
-                        <input id="user3" name="suggested" type="checkbox">
-                        <label for="user3">
-                            <div class="avatar"></div>
-                            <div class="user">
-                                <div class="user__name">gboy6827</div>
-                                <div class="user__level">54 level</div>
-                            </div>
-                        </label>
-                        <label for="user3"></label>
-                    </div>
-                    <div class="suggested__box">
-                        <input id="user4" name="suggested" type="checkbox">
-                        <label for="user4">
-                            <div class="avatar"></div>
-                            <div class="user">
-                                <div class="user__name">gboy6827</div>
-                                <div class="user__level">54 level</div>
-                            </div>
-                        </label>
-                        <label for="user4"></label>
-                    </div>
-                    <div class="suggested__box">
-                        <input id="user5" name="suggested" type="checkbox">
-                        <label for="user5">
-                            <div class="avatar"></div>
-                            <div class="user">
-                                <div class="user__name">gboy6827</div>
-                                <div class="user__level">54 level</div>
-                            </div>
-                        </label>
-                        <label for="user5"></label>
-                    </div>
-                    <div class="suggested__box">
-                        <input id="user6" name="suggested" type="checkbox">
-                        <label for="user6">
-                            <div class="avatar"></div>
-                            <div class="user">
-                                <div class="user__name">gboy6827</div>
-                                <div class="user__level">54 level</div>
-                            </div>
-                        </label>
-                        <label for="user6"></label>
-                    </div>
-                    <div class="suggested__box">
-                        <input id="user7" name="suggested" type="checkbox">
-                        <label for="user7">
-                            <div class="avatar"></div>
-                            <div class="user">
-                                <div class="user__name">gboy6827</div>
-                                <div class="user__level">54 level</div>
-                            </div>
-                        </label>
-                        <label for="user7"></label>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-        <div onclick="closeModal(inviteFriends)" class="modal__backdrop"></div>
-    </div>
     <div id="removeUser" class="removeUser modal-wrapp">
         <div class="modal center">
             <div onclick="closeModal(removeUser)" class="close-tap mobile"></div>
@@ -1186,7 +608,7 @@
                         <div onclick="openModal(share)" class="big-round-btn share"></div>
                         <div class="big-round-text">Share</div>
                     </div>
-                    <div class="btn-container">
+                    <div onclick="openModal(inviteFriends)" class="btn-container">
                         <div class="big-round-btn invite"></div>
                         <div class="big-round-text">Invite</div>
                     </div>
@@ -1225,18 +647,18 @@
                 </div>
                 <div class="titleModal__active">
                     <div class="user">
-                        <div class="avatar"></div>
+                        <a href="/profiles.html" class="avatar"></a>
                         <div>
-                            <div class="user__name">GameLiveShow</div>
+                            <a href="/profiles.html" class="user__name">GameLiveShow</a>
                             <div class="user__level">54 level</div>
                         </div>
                         <div class="user__creator">Creator</div>
                     </div>
                     <div class="user">
-                        <div class="avatar"></div>
+                        <a href="/profiles.html" class="avatar"></a>
                         <div>
-                            <div class="user__name">GameLiveShow</div>
-                            <div class="user__level">54 level</div>
+                            <a href="/profiles.html" class="user__name">GameLiveShow</a>
+                            <div onclick="openModal(levelProgress)" class="user__level">54 level</div>
                         </div>
                     </div>
                 </div>
@@ -1336,7 +758,7 @@
                         <div class="big-round-btn start"></div>
                         <div class="big-round-text">Start</div>
                     </div>
-                    <div class="btn-container">
+                    <div onclick="openModal(inviteFriends)" class="btn-container">
                         <div class="big-round-btn invite"></div>
                         <div class="big-round-text">Invite</div>
                     </div>
@@ -1369,18 +791,18 @@
                 <div class="titleModal__active">
                     <div class="titleModal__active_title">2 active</div>
                     <div class="user">
-                        <div class="avatar"></div>
+                        <a href="/profiles.html" class="avatar"></a>
                         <div>
-                            <div class="user__name">GameLiveShow</div>
-                            <div class="user__level">54 level</div>
+                            <a href="/profiles.html" class="user__name">GameLiveShow</a>
+                            <div onclick="openModal(levelProgress)" class="user__level pointer">54 level</div>
                         </div>
                         <div class="user__creator">Creator</div>
                     </div>
                     <div class="user">
-                        <div class="avatar"></div>
+                        <a href="/profiles.html" class="avatar"></a>
                         <div>
-                            <div class="user__name">GameLiveShow</div>
-                            <div class="user__level">54 level</div>
+                            <a href="/profiles.html" class="user__name">GameLiveShow</a>
+                            <div onclick="openModal(levelProgress)" class="user__level pointer">54 level</div>
                         </div>
                     </div>
                 </div>
@@ -1960,6 +1382,585 @@
         <div onclick="closeModal(settingsPlatforms)" class="modal__backdrop"></div>
     </div>
 
+    <div id="levelProgress" class="modal-wrapp">
+        <div class="level-progress modal center">
+            <div onclick="closeModal(levelProgress)" class="close-tap mobile"></div>
+            <div class="modal__head">
+                Level Progress
+                <div onclick="closeModal(levelProgress)" class="modal__close"></div>
+            </div>
+            <div class="modal__content">
+                <div class="modal__content_row">
+                    <div class="romb">64</div>
+                    <div class="progress">
+                        <div class="progress__text">
+                            <div class="progress__text_left">Progress</div>
+                            <div class="progress__text_right">1200/4000</div>
+                        </div>
+                        <div class="progress__progress-bar"></div>
+                    </div>
+                    <div class="romb -m">65</div>
+                </div>
+                <div class="counters">
+                    <div class="counter">
+                        <div class="counter__number">48h</div>
+                        <div class="counter__text">In parties</div>
+                    </div>
+                    <div class="counter">
+                        <div class="counter__number">331</div>
+                        <div class="counter__text">Parties</div>
+                    </div>
+                    <div class="counter">
+                        <div class="counter__number">699</div>
+                        <div class="counter__text">Badges</div>
+                    </div>
+                </div>
+
+                <div class="progressbar mobile"><div></div></div>
+                <div class="level-progress__tab">
+                    <!--tabs-->
+                    <div class="tab">
+                        <div class="tablinks active" id="defaultOpen2" onclick="openTabModal(event, 'Tokens')">
+                            <svg width="23" height="16" viewBox="0 0 23 16" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <rect x="15" y="15" width="14" height="14" rx="7" transform="rotate(-180 15 15)"
+                                      fill="#322F42" stroke="black" stroke-width="2"/>
+                                <rect x="22" y="15" width="14" height="14" rx="7" transform="rotate(-180 22 15)"
+                                      fill="#322F42" stroke="black" stroke-width="2"/>
+                            </svg>
+                            Tokens
+                        </div>
+                        <div class="tablinks" onclick="openTabModal(event, 'Achivements')">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.54384 1.01636C8.72053 0.622675 9.27947 0.622674 9.45616 1.01636L11.657 5.91989C11.7297 6.08189 11.8828 6.19317 12.0594 6.21226L17.403 6.79007C17.832 6.83646 18.0047 7.36804 17.6849 7.65774L13.7015 11.2661C13.5699 11.3853 13.5114 11.5654 13.5478 11.7392L14.6495 16.9998C14.7379 17.4221 14.2858 17.7507 13.9114 17.536L9.2487 14.8626C9.09466 14.7743 8.90534 14.7743 8.7513 14.8626L4.08859 17.536C3.71424 17.7507 3.26205 17.4221 3.35051 16.9998L4.45225 11.7392C4.48865 11.5654 4.43014 11.3853 4.29854 11.2661L0.315091 7.65774C-0.00472718 7.36804 0.167993 6.83646 0.597014 6.79007L5.94063 6.21226C6.11717 6.19317 6.27033 6.08189 6.34304 5.91989L8.54384 1.01636Z"
+                                      fill="#322F42"/>
+                            </svg>
+                            Achivements
+                        </div>
+                    </div>
+                    <!--tabs content-->
+                    <div id="Tokens" class="tabcontent">
+                        <div class="tokens">
+                            <div class="tokens-pc">
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="token__counter">39</div>
+                                    <div class="popover">
+                                        <div class="popover__name">Badge Name Tokens</div>
+                                        <div class="popover__description">Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="token__counter">23</div>
+                                    <div class="popover">
+                                        <div class="popover__name">Tokens</div>
+                                        <div class="popover__description">Bage Description Bage Description Bage
+                                            Description
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="token__counter">146</div>
+                                    <div class="popover">
+                                        <div class="popover__name">Tokens</div>
+                                        <div class="popover__description">Bage Description Bage Description Bage
+                                            Description
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="token token-disabled">
+                                    <img src="img/pic/taken1.png"/>
+                                </div>
+                                <div class="token token-disabled">
+                                    <img src="img/pic/taken1.png"/>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="token__counter">8</div>
+                                    <div class="popover">
+                                        <div class="popover__name">Tokens</div>
+                                        <div class="popover__description">Bage Description Bage Description Bage
+                                            Description
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="token__counter">8</div>
+                                    <div class="popover">
+                                        <div class="popover__name">Tokens</div>
+                                        <div class="popover__description">Bage Description Bage Description Bage
+                                            Description
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="token__counter">8</div>
+                                    <div class="popover">
+                                        <div class="popover__name">Tokens</div>
+                                        <div class="popover__description">Bage Description Bage Description Bage
+                                            Description
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="token__counter">8</div>
+                                    <div class="popover">
+                                        <div class="popover__name">Tokens</div>
+                                        <div class="popover__description">Bage Description Bage Description Bage
+                                            Description
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="token__counter">8</div>
+                                    <div class="popover">
+                                        <div class="popover__name">Tokens</div>
+                                        <div class="popover__description">Bage Description Bage Description Bage
+                                            Description
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tokens-mobile mobile">
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="token__counter">39</div>
+                                    <div class="popover">
+                                        <div class="popover__name">Badge Name Tokens</div>
+                                        <div class="popover__description">Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="token__counter">23</div>
+                                    <div class="popover">
+                                        <div class="popover__name">Tokens</div>
+                                        <div class="popover__description">Bage Description Bage Description Bage
+                                            Description
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="token__counter">146</div>
+                                    <div class="popover">
+                                        <div class="popover__name">Tokens</div>
+                                        <div class="popover__description">Bage Description Bage Description Bage
+                                            Description
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tokens-mobile mobile">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="Achivements" class="tabcontent">
+                        <div class="tokens">
+                            <div class="tokens-pc">
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">1 Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">2 Bage Description Bage Description Bage
+                                            Description
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">3 Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token token-disabled">
+                                    <img src="img/pic/taken1.png"/>
+                                </div>
+                                <div class="token token-disabled">
+                                    <img src="img/pic/taken1.png"/>
+                                </div>
+                                <div class="token token-disabled">
+                                    <img src="img/pic/taken1.png"/>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">7 Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">8 Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">9 Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">10 Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">11 Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">12 Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">13 Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">14 Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">15 Bage Description</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tokens-mobile mobile">
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">1 Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">2 Bage Description Bage Description Bage
+                                            Description
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">3 Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token token-disabled">
+                                    <img src="img/pic/taken1.png"/>
+                                </div>
+                                <div class="token token-disabled">
+                                    <img src="img/pic/taken1.png"/>
+                                </div>
+                            </div>
+                            <div class="tokens-mobile mobile">
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">9 Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">10 Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">11 Bage Description</div>
+                                    </div>
+                                </div>
+                                <div class="token pop">
+                                    <img src="img/pic/taken1.png"/>
+                                    <div class="popover">
+                                        <div class="popover__name">Achivements</div>
+                                        <div class="popover__description">12 Bage Description</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div onclick="closeModal(levelProgress)" class="modal__backdrop"></div>
+    </div>
+    <div id="levelProgressToken" class="modal-wrapp">
+        <div class="modal center overflow-hidden">
+            <div class="levelProgressSlider__head-title">
+                <span>Tokens</span>
+            </div>
+            <div class="modal__content">
+                <div class="levelProgressSlider__box">
+                    <div class="levelProgressSlider__img"></div>
+                    <div class="levelProgressSlider__title">
+                        Great job!
+                    </div>
+                    <div class="levelProgressSlider__description">
+                        Congrats! You can now apply to become a Partner.
+                    </div>
+                </div>
+                <div class="levelProgressSlider__box">
+                    <div class="levelProgressSlider__img"></div>
+                    <div class="levelProgressSlider__title">
+                        Great job!
+                    </div>
+                    <div class="levelProgressSlider__description">
+                        Congrats! You can now apply to become a Partner.
+                    </div>
+                </div>
+                <div class="levelProgressSlider__box">
+                    <div class="levelProgressSlider__img"></div>
+                    <div class="levelProgressSlider__title">
+                        Great job!
+                    </div>
+                    <div class="levelProgressSlider__description">
+                        Congrats! You can now apply to become a Partner.
+                    </div>
+                </div>
+            </div>
+            <div onclick="closeModal(levelProgressToken)" class="modal__backdrop"></div>
+
+        </div>
+    </div>
+    <div id="levelProgressAchivements" class="modal-wrapp">
+        <div class="modal center">
+            <div class="levelProgressSlider__head-title">
+                <span>Achivements</span>
+            </div>
+            <div class="modal__content">
+                <div class="levelProgressSlider__box">
+                    <div class="levelProgressSlider__img"></div>
+                    <div class="levelProgressSlider__title">
+                        Great job!
+                    </div>
+                    <div class="levelProgressSlider__description">
+                        Congrats! You can now apply to become a Partner.
+                    </div>
+                </div>
+                <div class="levelProgressSlider__box">
+                    <div class="levelProgressSlider__img"></div>
+                    <div class="levelProgressSlider__title">
+                        Great job!
+                    </div>
+                    <div class="levelProgressSlider__description">
+                        Congrats! You can now apply to become a Partner.
+                    </div>
+                </div>
+                <div class="levelProgressSlider__box">
+                    <div class="levelProgressSlider__img"></div>
+                    <div class="levelProgressSlider__title">
+                        Great job!
+                    </div>
+                    <div class="levelProgressSlider__description">
+                        Congrats! You can now apply to become a Partner.
+                    </div>
+                </div>
+                <div class="levelProgressSlider__box">
+                    <div class="levelProgressSlider__img"></div>
+                    <div class="levelProgressSlider__title">
+                        Great job!
+                    </div>
+                    <div class="levelProgressSlider__description">
+                        Congrats! You can now apply to become a Partner.
+                    </div>
+                </div>
+                <div class="levelProgressSlider__box">
+                    <div class="levelProgressSlider__img"></div>
+                    <div class="levelProgressSlider__title">
+                        Great job!
+                    </div>
+                    <div class="levelProgressSlider__description">
+                        Congrats! You can now apply to become a Partner.
+                    </div>
+                </div>
+                <div class="levelProgressSlider__box">
+                    <div class="levelProgressSlider__img"></div>
+                    <div class="levelProgressSlider__title">
+                        Great job!
+                    </div>
+                    <div class="levelProgressSlider__description">
+                        Congrats! You can now apply to become a Partner.
+                    </div>
+                </div>
+                <div class="levelProgressSlider__box">
+                    <div class="levelProgressSlider__img"></div>
+                    <div class="levelProgressSlider__title">
+                        Great job!
+                    </div>
+                    <div class="levelProgressSlider__description">
+                        Congrats! You can now apply to become a Partner.
+                    </div>
+                </div>
+                <div class="levelProgressSlider__box">
+                    <div class="levelProgressSlider__img"></div>
+                    <div class="levelProgressSlider__title">
+                        Great job!
+                    </div>
+                    <div class="levelProgressSlider__description">
+                        Congrats! You can now apply to become a Partner.
+                    </div>
+                </div>
+                <div class="levelProgressSlider__box">
+                    <div class="levelProgressSlider__img"></div>
+                    <div class="levelProgressSlider__title">
+                        Great job!
+                    </div>
+                    <div class="levelProgressSlider__description">
+                        Congrats! You can now apply to become a Partner.
+                    </div>
+                </div>
+            </div>
+            <div onclick="closeModal(levelProgressAchivements)" class="modal__backdrop"></div>
+        </div>
+    </div>
+    <div id="inviteFriends" class="inviteFriends modal-wrapp">
+        <div class="modal center">
+            <div class="modal__head">
+                <div onclick="closeModal(inviteFriends)" class="modal__close"></div>
+                Invite friends
+                <button class="bg-fiolet">Invite</button>
+            </div>
+
+            <div class="modal__content">
+                <input type="text" placeholder="Search">
+                <div class="users-check">
+                    <div class="user-check bg-fiolet">gboy6827</div>
+                    <div class="user-check bg-yellow">gboy6827</div>
+                </div>
+                <div class="suggested">
+                    <div class="suggested__titile">Suggested</div>
+                    <div class="suggested__box">
+                        <input id="user1" name="suggested" type="checkbox">
+                        <label for="user1">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="user1"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="user2" name="suggested" type="checkbox">
+                        <label for="user2">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="user2"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="user3" name="suggested" type="checkbox">
+                        <label for="user3">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="user3"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="user4" name="suggested" type="checkbox">
+                        <label for="user4">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="user4"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="user5" name="suggested" type="checkbox">
+                        <label for="user5">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="user5"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="user6" name="suggested" type="checkbox">
+                        <label for="user6">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="user6"></label>
+                    </div>
+                    <div class="suggested__box">
+                        <input id="user7" name="suggested" type="checkbox">
+                        <label for="user7">
+                            <div class="avatar"></div>
+                            <div class="user">
+                                <div class="user__name">gboy6827</div>
+                                <div class="user__level">54 level</div>
+                            </div>
+                        </label>
+                        <label for="user7"></label>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div onclick="closeModal(inviteFriends)" class="modal__backdrop"></div>
+    </div>
     <div id="share" class="modal-wrapp">
         <div class="modal center">
             <div onclick="closeModal(share)" class="close-tap mobile"></div>

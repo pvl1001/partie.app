@@ -77,6 +77,7 @@ function openTabSearch(evt, Tab) {
         document.getElementById(Tab).style.opacity = "1";
         document.getElementById(Tab).style.transform = "scale(1)";
         document.getElementById(Tab).style.position = "relative";
+        document.getElementById(Tab).style.overflow = "hidden";
     },300)
     evt.currentTarget.className += " active";
 

@@ -682,9 +682,13 @@ textarea {
     }
 }
 
-//.tabcontent {
-//    animation: fadeEffect .5s;
-//}
+.chat-group__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 248px;
+    white-space: nowrap;
+}
+
 
 .tabcontent {
     //height: 0;
