@@ -25,9 +25,9 @@
         transition: .2s;
         width: 77px;
         height: 32px;
-        line-height: 32px;
         text-align: center;
         padding: 0;
+        line-height: 2.6;
 
         &:active {
             background-color: rgba(110, 74, 255, .7);
@@ -192,6 +192,7 @@
                 width: 77px;
                 height: 32px;
                 margin-right: 8px;
+                line-height: 2.6;
             }
 
             .users-active {
