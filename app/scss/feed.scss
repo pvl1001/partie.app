@@ -550,11 +550,12 @@
                 background: url('../img/icon/dotted-post.png') center / 14px no-repeat;
                 position: relative;
                 z-index: 1;
+                margin-left: auto;
             }
 
             .feed__post_head {
                 display: flex;
-                justify-content: space-between;
+                //justify-content: space-between;
                 margin-bottom: 20px;
                 position: relative;
 
@@ -574,15 +575,21 @@
                     .user__name {
                         margin-bottom: 0;
 
-                        div:nth-child(1) {
+                        a {
+                            display: block;
+                        }
+
+                        a:nth-child(1) {
                             font-weight: bold;
                             margin-bottom: 6px;
                         }
 
-                        div:nth-child(2) {
+                        a.user__cd {
                             line-height: 16px;
                             color: #EBEBF5;
                             opacity: 0.3;
+                            position: relative;
+                            z-index: 1;
 
                             span {
                                 margin-left: 10px;

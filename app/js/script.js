@@ -352,7 +352,7 @@ for (let headerMenu of arrHeaderMenu) {
 
 let shortcuts = document.querySelector( '.shortcuts' )
 let heightShortcuts = 0
-let onShortcuts
+let onShortcuts = false
 let btnUp = document.querySelector( '.btn-up' )
 let bgClick = document.querySelector( '.bg-click' )
 if (shortcuts !== null) {
