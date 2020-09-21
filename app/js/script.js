@@ -352,10 +352,10 @@ for (let headerMenu of arrHeaderMenu) {
 
 let shortcuts = document.querySelector( '.shortcuts' )
 let heightShortcuts = 0
+let onShortcuts
+let btnUp = document.querySelector( '.btn-up' )
+let bgClick = document.querySelector( '.bg-click' )
 if (shortcuts !== null) {
-    let onShortcuts
-    let btnUp = document.querySelector( '.btn-up' )
-    let bgClick = document.querySelector( '.bg-click' )
     heightShortcuts = shortcuts.offsetHeight
     shortcuts.style.bottom = -heightShortcuts + 40 + 87 + 'px'
 
@@ -379,6 +379,8 @@ if (shortcuts !== null) {
     function shortcutsDown() {
         shortcuts.style.bottom = -heightShortcuts + 40 + 87 + 'px'
         hostPartie.children[0].style.overflow = ''
+        btnUp.style.transform = ''
+        bgClick.style.cssText = ''
     }
 }
 
