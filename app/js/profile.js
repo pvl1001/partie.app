@@ -383,9 +383,19 @@ for (let i = 0; i < achivementsMobiles.length; i++) {
 }
 
 
-function showProgress(el) {
-    el.style.display = 'none'
-    el.parentElement.children[2].style.display = 'block'
+let onMoney
+let showText = document.querySelector('.progress_text__show')
+let showMoney = document.querySelector('.progress_text__money')
+function showProgress() {
+    onMoney = !onMoney
+    if(onMoney) {
+        showText.style.display = 'none'
+        showMoney.parentElement.children[2].style.display = 'block'
+    } else {
+        showText.style.display = ''
+        showMoney.parentElement.children[2].style.display = ''
+    }
+
 }
 
 

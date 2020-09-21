@@ -64,6 +64,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
         $( ".add-credit-card__input-group .input-date" ).mask( "00/00" );
         $( ".add-credit-card__input-group .input-CVC" ).mask( "000" );
         $( ".logIn__code_code input" ).mask( "00000" );
+        $( ".date-of-birth" ).mask( "00/00/0000" );
     } );
 
     // $( '.slider' ).slick( {
