@@ -358,30 +358,30 @@ let bgClick = document.querySelector( '.bg-click' )
 if (shortcuts !== null) {
     heightShortcuts = shortcuts.offsetHeight
     shortcuts.style.bottom = -heightShortcuts + 40 + 87 + 'px'
+}
 
-    function shortcutsUp() {
-        if (window.innerWidth >= 1024) { // PC
-            onShortcuts = !onShortcuts
-            if (onShortcuts) {
-                shortcuts.style.bottom = '0'
-                btnUp.style.transform = 'rotateX(190deg)'
-                bgClick.style.zIndex = '1'
-                bgClick.style.opacity = '1'
-            } else {
-                shortcutsDown()
-            }
-        } else { // mobile
-            hostPartie.children[0].style.overflow = 'hidden'
+function shortcutsUp() {
+    if (window.innerWidth >= 1024) { // PC
+        onShortcuts = !onShortcuts
+        if (onShortcuts) {
             shortcuts.style.bottom = '0'
+            btnUp.style.transform = 'rotateX(190deg)'
+            bgClick.style.zIndex = '1'
+            bgClick.style.opacity = '1'
+        } else {
+            shortcutsDown()
         }
+    } else { // mobile
+        hostPartie.children[0].style.overflow = 'hidden'
+        shortcuts.style.bottom = '0'
     }
+}
 
-    function shortcutsDown() {
-        shortcuts.style.bottom = -heightShortcuts + 40 + 87 + 'px'
-        hostPartie.children[0].style.overflow = ''
-        btnUp.style.transform = ''
-        bgClick.style.cssText = ''
-    }
+function shortcutsDown() {
+    shortcuts.style.bottom = -heightShortcuts + 40 + 87 + 'px'
+    hostPartie.children[0].style.overflow = ''
+    btnUp.style.transform = ''
+    bgClick.style.cssText = ''
 }
 
 
