@@ -153,7 +153,7 @@ body {
     font-family: Mont, sans-serif;
     background-color: #000;
     color: #EBEBF5;
-    // transition: .5s;
+    transition: .5s;
 
     // scrollbar off
     &::-webkit-scrollbar { width: 0; }
@@ -181,7 +181,7 @@ button, a.btn {
     align-items: center;
     justify-content: center;
     font-size: 14px;
-    // transition: .3s;
+    transition: .3s;
 }
 
 input {
@@ -193,7 +193,7 @@ input {
     background-color: #000;
     font-size: 17px;
     color: #F8F6FF;
-    // transition: .5s easy;
+    transition: .5s easy;
     letter-spacing: normal;
 }
 
@@ -266,8 +266,8 @@ input[type=date] {
         right: 0;
         bottom: 0;
         background-color: #19181F;
-        //-webkit-// transition: .4s;
-        // transition: .4s;
+        //-webkit-transition: .4s;
+        transition: .4s;
     }
 
     span:before {
@@ -278,8 +278,8 @@ input[type=date] {
         left: 4px;
         bottom: 3px;
         background-color: #4B4A51;
-        //-webkit-// transition: .5s;
-        // transition: .5s;
+        //-webkit-transition: .5s;
+        transition: .5s;
     }
 
     input:checked + span {
@@ -331,7 +331,7 @@ input[type=date] {
 }
 
 .tool {
-    // transition: .3s;
+    transition: .3s;
 }
 
 .tooltip {
@@ -345,7 +345,7 @@ input[type=date] {
     left: -49px;
     text-align: center;
     width: 132px;
-    // transition: .3s;
+    transition: .3s;
 
     .popover__name {
         margin-bottom: 0;
@@ -385,7 +385,7 @@ input[type=date] {
     bottom: 0;
     width: 100%;
     height: 100%;
-    // transition: .5s ease;
+    transition: .5s ease;
     overflow: auto;
 
 }
@@ -455,7 +455,7 @@ input[type=date] {
 
 
 .btn-container-show {
-    // transition: 1s easy;
+    transition: 1s easy;
     //position: fixed;
     //bottom: 0;
     //left: 0;
@@ -549,7 +549,7 @@ input[type=date] {
 //    left: 0;
 //    background-color: rgba(0,0,0,.2);
 //    text-align: center;
-//    // transition: .3s;
+//    transition: .3s;
 //    opacity: 0;
 //    z-index: -1;
 //    overflow: auto;
@@ -619,7 +619,7 @@ textarea {
 }
 
 .tablinks, svg path, svg circle{
-    // transition: .3s;
+    transition: .3s;
 }
 
 .tablinks:hover:not(.active) {
@@ -693,7 +693,7 @@ textarea {
 .tabcontent {
     //height: 0;
     //overflow: hidden;
-    //// transition: height 0s;
+    //transition: height 0s;
     //transform-origin: -100% 50%;
     //-webkit-backface-visibility: hidden;
     //backface-visibility: hidden;
@@ -899,7 +899,7 @@ textarea {
             left: -49px;
             text-align: center;
             width: 132px;
-            // transition: .3s;
+            transition: .3s;
 
             .popover__name {
                 margin-bottom: 0;
@@ -1035,7 +1035,7 @@ textarea {
         }
 
         path {
-            // transition: .2s;
+            transition: .2s;
         }
     }
     input[type=checkbox]:checked + label path {
@@ -1059,7 +1059,7 @@ textarea {
     }
 
     path {
-        // transition: .2s;
+        transition: .2s;
     }
 
     svg {
@@ -1068,7 +1068,7 @@ textarea {
 
     .comment__counter {
         opacity: .5;
-        // transition: .2s;
+        transition: .2s;
     }
 
 }
@@ -1078,7 +1078,7 @@ textarea {
     line-height: 20px;
     opacity: 0.5;
     margin-right: 8px;
-    // transition: .2s;
+    transition: .2s;
     position: relative;
     z-index: 1;
 }
@@ -1093,7 +1093,7 @@ textarea {
     }
 
     path {
-        // transition: .2s;
+        transition: .2s;
     }
 }
 
@@ -1110,7 +1110,7 @@ textarea {
     width: 254px;
     opacity: 0;
     visibility: hidden;
-    // transition: .3s opacity;
+    transition: .3s opacity;
     &:before {
         content: '';
         width: 16px;
@@ -1157,26 +1157,26 @@ textarea {
         display: block;
     }
 
-    //.modal-wrapp {
-    //    position: fixed;
-    //    width: 100% !important;
-    //    height: 100% !important;
-    //    top: 0;
-    //    left: 0;
-    //    background-color: rgba(0,0,0,0);
-    //    text-align: center;
-    //    z-index: -1;
-    //    opacity: 0;
-    //
-    //    &:after {
-    //        content:'';
-    //        display: inline-block;
-    //        vertical-align: middle;
-    //        width: 1px;
-    //        height: 100%;
-    //        background: transparent;
-    //    }
-    //}
+    .modal-wrapp {
+        position: fixed;
+        width: 100% !important;
+        height: 100% !important;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0);
+        text-align: center;
+        z-index: -1;
+        opacity: 0;
+
+        &:after {
+            content:'';
+            display: inline-block;
+            vertical-align: middle;
+            width: 1px;
+            height: 100%;
+            background: transparent;
+        }
+    }
 
     //.modal {
     //    left: 0;
@@ -1189,7 +1189,7 @@ textarea {
     //    height: auto;
     //    top: auto;
     //    opacity: 0;
-    //    // transition: .3s ease-out;
+    //    transition: .3s ease-out;
     //}
 
     .sign-up__tab {
@@ -1222,7 +1222,7 @@ textarea {
         background: url('../img/icon/dott.png') center / cover no-repeat;
         cursor: pointer;
         border-radius: 8px;
-        // transition: .3s ease;
+        transition: .3s ease;
         position: absolute;
         right: 0;
     }
@@ -1237,7 +1237,7 @@ textarea {
         z-index: 12;
         opacity: 0;
         visibility: hidden;
-        // transition: opacity .3s ease;
+        transition: opacity .3s ease;
 
 
         ul {
@@ -1296,7 +1296,7 @@ textarea {
 
     .btn-join {
         background-color: #6E4AFF;
-        // transition: .2s;
+        transition: .2s;
 
         &:active {
             opacity: .7;
@@ -1307,7 +1307,7 @@ textarea {
 
 .followers__row button {
     font-size: 12px;
-    // transition: .2s opacity;
+    transition: .2s opacity;
 
     &:active {
         opacity: .7;
@@ -1324,7 +1324,7 @@ textarea {
 
 .feed__header_tabs {
     a {
-        // transition: .3s;
+        transition: .3s;
     }
 
     a:hover:not(.active-tab) {
@@ -1364,7 +1364,7 @@ textarea {
 //    }
 //
 //    .btn-container-show {
-//        // transition: 1s easy;
+//        transition: 1s easy;
 //        position: fixed;
 //        bottom: 0;
 //        left: 0;
@@ -1399,7 +1399,7 @@ textarea {
 //        cursor: pointer;
 //        border-radius: 8px;
 //        position: absolute;
-//        // transition: .3s ease;
+//        transition: .3s ease;
 //    }
 //
 //    .post-menu .header__menu_menu {
@@ -1414,7 +1414,7 @@ textarea {
 //        z-index: 12;
 //        opacity: 1;
 //        visibility: visible;
-//        // transition: .3s ease;
+//        transition: .3s ease;
 //
 //        &:before {
 //            content: '';
@@ -1460,11 +1460,11 @@ textarea {
 //        z-index: -1;
 //        opacity: 0;
 //        background-color: rgba(20,20,20,.6);
-//        // transition: .3s;
+//        transition: .3s;
 //
 //        .header__menu_menu {
 //            bottom: -100%;
-//            // transition: .5s;
+//            transition: .5s;
 //        }
 //
 //        input[type=file] {
