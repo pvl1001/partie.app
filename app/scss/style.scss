@@ -1178,19 +1178,19 @@ textarea {
         }
     }
 
-    //.modal {
-    //    left: 0;
-    //    width: 464px;
-    //    margin: auto;
-    //    border-radius: 20px;
-    //    display: inline-block;
-    //    position: relative !important;
-    //    vertical-align: middle;
-    //    height: auto;
-    //    top: auto;
-    //    opacity: 0;
-    //    transition: .3s ease-out;
-    //}
+    .modal {
+        left: 0;
+        width: 464px;
+        margin: auto;
+        border-radius: 20px;
+        display: inline-block;
+        position: relative !important;
+        vertical-align: middle;
+        height: auto;
+        top: auto;
+        opacity: 0;
+        transition: .3s ease-out;
+    }
 
     .sign-up__tab {
         display: flex;
