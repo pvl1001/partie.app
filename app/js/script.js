@@ -56,6 +56,7 @@ let levelProgressToken = document.querySelector( '#levelProgressToken' )
 let levelProgressAchivements = document.querySelector( '#levelProgressAchivements' )
 let settingsPlatforms = document.querySelector( '#settingsPlatforms' )
 let photoAvatar = document.querySelector( '#photoAvatar' )
+let chooseGameSettings = document.querySelector( '#chooseGameSettings' )
 
 document.addEventListener( 'DOMContentLoaded', function () {
 

@@ -543,7 +543,7 @@
                 <div class="btn-box">
                     <div class="btn-box__title">
                         <div class="btn-box__title_title">Favorite games</div>
-                        <div class="btn-box__title_change">Change</div>
+                        <div onclick="openModal(chooseGameSettings)" class="btn-box__title_change">Change</div>
                     </div>
                     <button class="game AL">
                         <div class="game__icon"></div>
@@ -1381,6 +1381,114 @@
         </div>
         <div onclick="closeModal(settingsPlatforms)" class="modal__backdrop"></div>
     </div>
+    <div id="chooseGameSettings" class="modal-wrapp">
+        <div class="choose-game modal center">
+            <div class="modal__head">
+                Choose a game
+                <div onclick="closeModal(chooseGameSettings)" class="choose-game__close">Confirm</div>
+            </div>
+            <div class="modal__content">
+                <input type="text" placeholder="Search">
+                <div class="choose-game__game game">
+                    <div class="cards">
+                        <input id="card-1" type="checkbox">
+                        <label for="card-1" class="card">
+                            <div class="card__img">
+                                <img src="img/pic/slide4.png"/>
+                            </div>
+                            <div class="card__name">Fortnite</div>
+                            <label for="card-1"></label>
+                        </label>
+
+                        <input id="card-2" type="checkbox">
+                        <label for="card-2" class="card">
+                            <div class="card__img">
+                                <img src="img/pic/slide1.png"/>
+                            </div>
+                            <div class="card__name">Fortnite</div>
+                            <label for="card-2"></label>
+                        </label>
+
+                        <input id="card-3" type="checkbox">
+                        <label for="card-3" class="card">
+                            <div class="card__img">
+                                <img src="img/pic/slide2.png"/>
+                            </div>
+                            <div class="card__name">Fortnite</div>
+                            <label for="card-3"></label>
+                        </label>
+
+
+                        <input id="card-4" type="checkbox">
+                        <label for="card-4" class="card">
+                            <div class="card__img">
+                                <img src="img/pic/slide3.png"/>
+                            </div>
+                            <div class="card__name">Fortnite</div>
+                            <label for="card-4"></label>
+                        </label>
+
+                        <input id="card-5" type="checkbox">
+                        <label for="card-5" class="card">
+                            <div class="card__img">
+                                <img src="img/pic/slide4.png"/>
+                            </div>
+                            <div class="card__name">Fortnite</div>
+                            <label for="card-5"></label>
+                        </label>
+
+                        <input id="card-6" type="checkbox">
+                        <label for="card-6" class="card">
+                            <div class="card__img">
+                                <img src="img/pic/slide1.png"/>
+                            </div>
+                            <div class="card__name">Fortnite</div>
+                            <label for="card-6"></label>
+                        </label>
+
+                        <input id="card-7" type="checkbox">
+                        <label for="card-7" class="card">
+                            <div class="card__img">
+                                <img src="img/pic/slide2.png"/>
+                            </div>
+                            <div class="card__name">Fortnite</div>
+                            <label for="card-7"></label>
+                        </label>
+
+                        <input id="card-8" type="checkbox">
+                        <label for="card-8" class="card">
+                            <div class="card__img">
+                                <img src="img/pic/slide3.png"/>
+                            </div>
+                            <div class="card__name">Fortnite</div>
+                            <label for="card-8"></label>
+                        </label>
+
+                        <input id="card-9" type="checkbox">
+                        <label for="card-9" class="card">
+                            <div class="card__img">
+                                <img src="img/pic/slide4.png"/>
+                            </div>
+                            <div class="card__name">Fortnite</div>
+                            <label for="card-9"></label>
+                        </label>
+
+                        <input id="card-10" type="checkbox">
+                        <label for="card-10" class="card">
+                            <div class="card__img">
+                                <img src="img/pic/slide1.png"/>
+                            </div>
+                            <div class="card__name">Fortnite</div>
+                            <label for="card-10"></label>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div onclick="closeModal(chooseGameSettings)" class="modal__backdrop"></div>
+    </div>
+
 
     <div id="levelProgress" class="modal-wrapp">
         <div class="level-progress modal center">

@@ -845,6 +845,73 @@
     }
 }
 
+#chooseGameSettings {
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -10px;
+        padding: 0 55px;
+
+        .card {
+            width: 50%;
+            padding: 0 10px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 20px;
+
+            &:hover .card__name{
+                color: rgba(235, 235, 245, 1);
+            }
+
+            img {
+                width: 100%;
+            }
+
+            .card__name {
+                color: rgba(235, 235, 245, 0.5);
+                margin-top: 20px;
+                transition: .3s;
+            }
+
+            .card__img {
+                position: relative;
+            }
+        }
+
+        input[type=checkbox] {
+            display: none;
+        }
+
+        label {
+            position: relative;
+            cursor: pointer;
+        }
+
+        label label {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #6E4AFF url('../img/icon/ok-w.svg') center / 15px no-repeat;
+            transition: .3s;
+            opacity: 0;
+        }
+
+        input[type=checkbox]:checked + label {
+
+            .card__name {
+                color: rgba(235, 235, 245, 1);
+            }
+
+            label {
+                opacity: 1;
+            }
+        }
+    }
+}
+
 @media (max-width: 1023px) { // mobile
 
     .settings {

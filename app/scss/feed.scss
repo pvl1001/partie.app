@@ -155,8 +155,9 @@
         }
     }
 
-    #chooseGame .choose-game.modal {
-        height: 720px;
+    #chooseGame .choose-game.modal,
+    #chooseGameSettings .choose-game.modal{
+        max-height: 720px;
         overflow: auto;
     }
 
