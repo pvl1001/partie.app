@@ -2,6 +2,7 @@
 #feed {
     min-height: 100%;
 }
+
 //
 //#feed .feed__col2,
 //#partie .feed__col2,
@@ -418,7 +419,7 @@
 
         .feed__what-new {
             width: 100%;
-            background: rgba(20,19,26,.8);
+            background: rgba(20, 19, 26, .8);
             border-radius: 20px;
             padding: 20px;
             margin-bottom: 20px;
@@ -428,7 +429,7 @@
             position: relative;
 
             &:hover {
-                background: rgba(20,19,26,1);
+                background: rgba(20, 19, 26, 1);
             }
 
             .feed__what-new_head {
@@ -488,7 +489,7 @@
                     background-color: #D2C867;
                     color: #000;
                 }
-                
+
                 button.public-post {
                     background-color: #6e4aff;
                 }
@@ -776,7 +777,7 @@
 
     .feed__comments {
 
-        a {
+        .comment-text a {
             color: #7452FF;
         }
 
@@ -917,6 +918,7 @@
                     font-size: 13px;
                     line-height: 16px;
                     margin-bottom: 10px;
+                    display: block;
 
                     span {
                         opacity: 0.3;
@@ -1121,7 +1123,7 @@
             background-size: cover;
 
             transition: .25s transform;
-    
+
             cursor: pointer;
 
             &:hover {
@@ -1165,7 +1167,7 @@
 
     &.-open {
         #{$this} {
-            &-full-screen { 
+            &-full-screen {
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -1277,9 +1279,6 @@
         }
     }
 }
-
-
-
 
 
 .mobile {
@@ -1503,7 +1502,7 @@
             height: 160px;
             overflow: auto;
             border-radius: 0;
-            border: 1px solid rgba(80,77,96,.4);
+            border: 1px solid rgba(80, 77, 96, .4);
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(85px);
         }
@@ -1576,12 +1575,12 @@
         position: absolute;
         top: 0;
         left: 67px;
-        color: rgba(248, 246, 255,.3);
+        color: rgba(248, 246, 255, .3);
         font-size: 11px;
         padding: 4px 0;
 
         span {
-            color: rgba(110,74,255,.9);
+            color: rgba(110, 74, 255, .9);
         }
     }
 

@@ -15,7 +15,6 @@ function openSetting(evt, cityName) {
 }
 
 
-
 let subscriptionManage = document.querySelector( '.settings .subscription__manage' )
 let mutedAccountsPage = document.querySelector( '.settings .muted-accounts-page' )
 let blockedAccountsPage = document.querySelector( '.settings .blocked-accounts-page' )
@@ -96,19 +95,34 @@ if (window.innerWidth <= 1023) {
 
 
 let btnPlatform = document.querySelector( '.settings .feed__col3 .btn-box button.ps' )
+let btnPlatformModal = document.querySelector( '#preferencesModal .modal-platform' )
 let platforms = document.getElementsByName( 'settingsPlatform' )
 
 for (let platform of platforms) {
     platform.onchange = function () {
-        btnPlatform.innerHTML = platform.value
-        btnPlatform.className = ''
-        if (platform.value === 'Xbox') btnPlatform.classList.add( 'host-xb' )
-        if (platform.value === 'Playstation') btnPlatform.classList.add( 'host-ps' )
-        if (platform.value === 'Playstation') btnPlatform.classList.add( 'host-ps' )
-        if (platform.value === 'Playstation') btnPlatform.classList.add( 'host-ps' )
-        if (platform.value === 'PC') btnPlatform.classList.add( 'host-pc' )
-        if (platform.value === 'Switch') btnPlatform.classList.add( 'host-sw' )
-        if (platform.value === 'Mobile') btnPlatform.classList.add( 'host-mob' )
+        if (btnPlatform) {
+            btnPlatform.innerHTML = platform.value
+            btnPlatform.className = ''
+            if (platform.value === 'Xbox') btnPlatform.classList.add( 'host-xb' )
+            if (platform.value === 'Playstation') btnPlatform.classList.add( 'host-ps' )
+            if (platform.value === 'Playstation') btnPlatform.classList.add( 'host-ps' )
+            if (platform.value === 'Playstation') btnPlatform.classList.add( 'host-ps' )
+            if (platform.value === 'PC') btnPlatform.classList.add( 'host-pc' )
+            if (platform.value === 'Switch') btnPlatform.classList.add( 'host-sw' )
+            if (platform.value === 'Mobile') btnPlatform.classList.add( 'host-mob' )
+        }
+
+        if (btnPlatformModal) {
+            btnPlatformModal.innerHTML = platform.value
+            btnPlatformModal.className = ''
+            if (platform.value === 'Xbox') btnPlatformModal.classList.add( 'host-xb' )
+            if (platform.value === 'Playstation') btnPlatformModal.classList.add( 'host-ps' )
+            if (platform.value === 'Playstation') btnPlatformModal.classList.add( 'host-ps' )
+            if (platform.value === 'Playstation') btnPlatformModal.classList.add( 'host-ps' )
+            if (platform.value === 'PC') btnPlatformModal.classList.add( 'host-pc' )
+            if (platform.value === 'Switch') btnPlatformModal.classList.add( 'host-sw' )
+            if (platform.value === 'Mobile') btnPlatformModal.classList.add( 'host-mob' )
+        }
     }
 }
 
