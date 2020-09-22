@@ -541,28 +541,28 @@ input[type=date] {
     }
 }
 
-//.modal-wrapp {
-//    position: fixed;
-//    width: 100% !important;
-//    height: 100% !important;
-//    top: 0;
-//    left: 0;
-//    background-color: rgba(0,0,0,.2);
-//    text-align: center;
-//    transition: .3s;
-//    opacity: 0;
-//    z-index: -1;
-//    overflow: auto;
-//
-//    &:after {
-//        content:'';
-//        display: inline-block;
-//        vertical-align: middle;
-//        width: 1px;
-//        height: 100%;
-//        background: transparent;
-//    }
-//}
+.modal-wrapp {
+    position: fixed;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.2);
+    text-align: center;
+    transition: .3s;
+    opacity: 0;
+    z-index: -1;
+    overflow: auto;
+
+    &:after {
+        content:'';
+        display: inline-block;
+        vertical-align: middle;
+        width: 1px;
+        height: 100%;
+        background: transparent;
+    }
+}
 //
 //.modal__backdrop {
 //    position: absolute;
