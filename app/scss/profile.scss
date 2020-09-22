@@ -1562,6 +1562,13 @@
 
         .users-check {
             margin-bottom: 18px;
+
+            .user-check {
+                line-height: normal;
+                display: flex;
+                align-items: center;
+            }
+
         }
 
 
