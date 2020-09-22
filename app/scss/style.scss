@@ -1421,6 +1421,7 @@ textarea {
         opacity: 1;
         visibility: visible;
         transition: .3s ease;
+        padding: 30px;
 
         &:before {
             content: '';
@@ -1435,7 +1436,7 @@ textarea {
 
 
         ul {
-            margin: 30px;
+            //margin: 30px;
         }
 
         li {
