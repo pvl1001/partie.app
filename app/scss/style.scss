@@ -541,8 +541,13 @@ input[type=date] {
     }
 }
 
+.show {
+    display: block !important;
+}
+
 .modal-wrapp {
-    display: none;
+    //display: none;
+    visibility: hidden;
     position: fixed;
     width: 100% !important;
     height: 100% !important;
@@ -1159,7 +1164,8 @@ textarea {
     }
 
     .modal-wrapp {
-        display: none;
+        //display: none;
+        visibility: hidden;
         position: fixed;
         width: 100% !important;
         height: 100% !important;

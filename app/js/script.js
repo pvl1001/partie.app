@@ -262,6 +262,7 @@ function back(close, open) {
 
 function openModal(modal) { // modal
     body.style.overflow = 'hidden'
+    modal.classList.add('show')
 
     if (window.innerWidth > 1023) { //pc
         modal.style.opacity = '1'
@@ -295,6 +296,7 @@ function closeModal(modal) {
         }
     }
 
+    modal.classList.remove('show')
     body.style.overflow = ''
     modal.style.cssText = ''
     modal.children[0].style.cssText = ''
