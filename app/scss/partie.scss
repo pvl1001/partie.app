@@ -139,34 +139,6 @@
                 cursor: pointer;
             }
 
-            .tooltip {
-                padding: 13px 20px;
-                border-radius: 20px;
-                height: auto;
-                position: absolute;
-                opacity: 0;
-                visibility: hidden;
-                bottom: calc(100% + 20px);
-                left: -49px;
-                text-align: center;
-                width: 132px;
-                transition: .3s;
-
-                .popover__name {
-                    margin-bottom: 0;
-                }
-
-                &:before {
-                    content: '';
-                    position: absolute;
-                    width: 16px;
-                    height: 16px;
-                    transform: rotate(45deg);
-                    bottom: -8px;
-                    left: calc(50% - 8px);
-                }
-            }
-
             .tool:hover .tooltip {
                 opacity: 1;
                 visibility: visible;
