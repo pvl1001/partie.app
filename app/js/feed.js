@@ -203,7 +203,6 @@ if (window.innerWidth <= 1023) {
                     closePlaceMobile.style.cssText = ''
                     closePlaceMobile.children[0].style.bottom = ''
                 }
-
             }
     }
 }
