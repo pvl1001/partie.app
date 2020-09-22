@@ -554,14 +554,14 @@ input[type=date] {
     z-index: -1;
     overflow: auto;
 
-    &:after {
-        content:'';
-        display: inline-block;
-        vertical-align: middle;
-        width: 1px;
-        height: 100%;
-        background: transparent;
-    }
+    //&:after {
+    //    content:'';
+    //    display: inline-block;
+    //    vertical-align: middle;
+    //    width: 1px;
+    //    height: 100%;
+    //    background: transparent;
+    //}
 }
 //
 //.modal__backdrop {
