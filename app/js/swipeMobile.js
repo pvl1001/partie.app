@@ -17,6 +17,8 @@ for (let modal of modals) {
         modal.parentElement !== preferencesModal &&
         modal.parentElement !== titleModal &&
         modal.parentElement !== profileProgress &&
+        modal.parentElement !== chooseGameSettings &&
+        modal.parentElement !== settingsPlatforms &&
         modal.parentElement !== editShortcutMobile) {
         $( function () {
             $( modal ).swipe( {

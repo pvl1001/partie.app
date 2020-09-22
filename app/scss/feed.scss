@@ -159,6 +159,10 @@
     #chooseGameSettings .choose-game.modal{
         max-height: 720px;
         overflow: auto;
+
+        @media (max-width: 1023px) {
+            max-height: none;
+        }
     }
 
     .choose-game.modal {
