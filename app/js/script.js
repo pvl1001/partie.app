@@ -350,6 +350,7 @@ for (let headerMenu of arrHeaderMenu) {
                 e.target === link) {
                 headerMenu.style.cssText = ''
                 headerMenu.parentNode.style.cssText = ''
+                body.style.overflow = ''
             }
         } )
 }

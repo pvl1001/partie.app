@@ -61,6 +61,7 @@ for (let postMenuMenu of postMenus)
                     if (direction === 'down') {
                         postMenuMenu.style.cssText = ''
                         postMenuMenu.children[0].style.cssText = ''
+                        body.style.overflow = ''
                     }
                 }
             } )

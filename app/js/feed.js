@@ -193,6 +193,7 @@ if (window.innerWidth <= 1023) {
 
     for (let feedHeaderMenu of arrFeedHeaderMenu) {
         feedHeaderMenu.onclick = function () {
+            body.style.overflow = 'hidden'
             closePlaceMobile.style.zIndex = '1'
             closePlaceMobile.style.opacity = '1'
             closePlaceMobile.children[0].style.bottom = '0'
@@ -202,6 +203,7 @@ if (window.innerWidth <= 1023) {
                 if (e.target === closePlaceMobile || e.target === closePlaceMobile.children[0].children[1]) {
                     closePlaceMobile.style.cssText = ''
                     closePlaceMobile.children[0].style.bottom = ''
+                    body.style.overflow = ''
                 }
             }
     }
