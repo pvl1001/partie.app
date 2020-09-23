@@ -339,13 +339,17 @@ if (window.innerWidth >= 1024) {
 }
 
 
-let arrHeaderMenu = document.querySelectorAll( '.header__menu_menu' )
+let arrHeaderMenu = document.querySelectorAll( '.post-menu .header__menu_menu' )
 
 for (let headerMenu of arrHeaderMenu) {
+    console.log(headerMenu.children[1])
     let links = headerMenu.querySelectorAll( 'a' )
     for (let link of links)
         window.addEventListener( 'click', function (e) {
-            if (e.target === headerMenu.children[0] || e.target === link) {
+            console.log(e.target)
+            if (e.target === headerMenu.children[1] ||
+                e.target === link ||
+                e.target === headerMenu.children[1].children[0]) {
                 headerMenu.style.cssText = ''
                 headerMenu.parentNode.style.cssText = ''
             }
