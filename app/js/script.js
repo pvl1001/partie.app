@@ -340,36 +340,41 @@ if (window.innerWidth >= 1024) {
 
 
 let headerMenuMobile = document.querySelector( '.post-menu .header__menu_menu' )
+let linksMobile = document.querySelectorAll( '.post-menu .header__menu_menu a' )
 
-let linksMobile = headerMenuMobile.querySelectorAll( 'a' )
-for (let link of linksMobile) {
-    if (window.innerWidth <= 1023) {
-        window.addEventListener( 'click', function (e) {
-            if (e.target === headerMenuMobile.children[1] ||
-                e.target === headerMenuMobile.children[1].children[0] ||
-                e.target === link) {
-                headerMenuMobile.style.cssText = ''
-                headerMenuMobile.parentElement.style.cssText = ''
-                body.style.overflow = ''
-            }
-        } )
+if (linksMobile !== null && headerMenuMobile !== null) {
+    for (let link of linksMobile) {
+        if (window.innerWidth <= 1023) {
+            window.addEventListener( 'click', function (e) {
+                if (e.target === headerMenuMobile.children[1] ||
+                    e.target === headerMenuMobile.children[1].children[0] ||
+                    e.target === link) {
+                    headerMenuMobile.style.cssText = ''
+                    headerMenuMobile.parentElement.style.cssText = ''
+                    body.style.overflow = ''
+                }
+            } )
+        }
     }
 }
+
 
 let postMenuMenu = document.querySelector( '#postMenu.header__menu_menu' )
+let links = document.querySelectorAll( '#postMenu.header__menu_menu a' )
 
-
-let links = postMenuMenu.querySelectorAll( 'a' )
-if (window.innerWidth >= 1024) {
-    for (let link of links) {
-        window.addEventListener( 'click', function (e) {
-            if (e.target === postMenuMenu.children[0] || e.target === link) {
-                postMenuMenu.style.cssText = ''
-                postMenuMenu.parentElement.style.cssText = ''
-            }
-        } )
+if (links !== null && postMenuMenu !== null) {
+    if (window.innerWidth >= 1024) {
+        for (let link of links) {
+            window.addEventListener( 'click', function (e) {
+                if (e.target === postMenuMenu.children[0] || e.target === link) {
+                    postMenuMenu.style.cssText = ''
+                    postMenuMenu.parentElement.style.cssText = ''
+                }
+            } )
+        }
     }
 }
+
 
 
 let shortcuts = document.querySelector( '.shortcuts' )
