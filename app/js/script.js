@@ -171,6 +171,7 @@ function next(open, close) {
         if (close === newPost) {
             openModal( open )
         } else if (open === addCreditCard || open === subscriptionModal) {
+            open.style.visibility = 'visible'
             open.style.zIndex = '1'
             open.style.opacity = '1'
             open.children[1].style.left = '0'
@@ -189,6 +190,7 @@ function next(open, close) {
     if (window.innerWidth > 1023) { // pc
         if (open === addCreditCard || open === subscriptionModal) {
             open.style.left = '0'
+            open.style.visibility = 'visible'
             close.style.cssText = ''
             setTimeout( function () {
                 bgYellowBlue.style.visibility = 'visible'
@@ -235,6 +237,7 @@ function back(close, open) {
     if (window.innerWidth > 1023) { // pc
         if (open === subscriptionModal) {
             open.style.left = '0'
+            open.style.visibility = 'visible'
             close.style.left = ''
         } else {
             closeModal( close )
@@ -242,7 +245,6 @@ function back(close, open) {
         }
         if (close === subscriptionModal) {
             bgYellowBlue.style.cssText = ''
-
         }
     }
     if (window.innerWidth <= 1023) { // mobile
@@ -254,8 +256,6 @@ function back(close, open) {
         } else {
             closeModal( close )
             openModal( open )
-            // close.style.cssText = ''
-            // close.children[0].style.left = ''
         }
     }
 }
