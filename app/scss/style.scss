@@ -1434,8 +1434,11 @@ textarea {
         //}
 
 
+        // mobile
         ul {
-            padding: 30px;
+            //padding: 30px;
+            padding-bottom: 60px;
+            transform: translate(30px, 30px);
         }
 
         li {
