@@ -359,18 +359,17 @@ for (let link of linksMobile) {
 let postMenuMenu = document.querySelector( '#postMenu.header__menu_menu' )
 
 
-    let links = postMenuMenu.querySelectorAll( 'a' )
-    if (window.innerWidth >= 1024) {
-        for (let link of links) {
-            window.addEventListener( 'click', function (e) {
-                if (e.target === postMenuMenu.children[0] || e.target === link) {
-                    postMenuMenu.style.cssText = ''
-                    postMenuMenu.parentElement.style.cssText = ''
-                }
-            } )
-        }
+let links = postMenuMenu.querySelectorAll( 'a' )
+if (window.innerWidth >= 1024) {
+    for (let link of links) {
+        window.addEventListener( 'click', function (e) {
+            if (e.target === postMenuMenu.children[0] || e.target === link) {
+                postMenuMenu.style.cssText = ''
+                postMenuMenu.parentElement.style.cssText = ''
+            }
+        } )
     }
-
+}
 
 
 let shortcuts = document.querySelector( '.shortcuts' )
@@ -545,6 +544,31 @@ function changeBtnPublic(el) {
         el.innerHTML = 'Public partie'
         el.style.cssText = ''
     }
+}
+
+
+
+function onFileSelected(event) {
+    var selectedFile = event.target.files[0];
+    var reader = new FileReader();
+
+    var imgtag = document.getElementById("myimage");
+    imgtag.title = selectedFile.name;
+
+    reader.onload = function(event) {
+        imgtag.src = event.target.result;
+    };
+
+    reader.readAsDataURL(selectedFile);
+    document.querySelector(".hostLiveShow__img").style.display = ''
+
+}
+
+
+function deleteImg() {
+    // document.getElementById("myimage").setAttribute('src', '');
+    // document.getElementById("myimage").setAttribute('title', '');
+    document.querySelector(".hostLiveShow__img").style.display = 'none'
 }
 
 

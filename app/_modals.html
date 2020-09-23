@@ -11,11 +11,16 @@
                     <div class="game__icon"></div>
                     Apex Legends
                 </button>
-
                 <textarea maxlength="500" placeholder="What’s new?"></textarea>
+
+                <div class="hostLiveShow__img">
+                    <img id="myimage" src="img/pic/Image (2).png"/>
+                    <div onclick="deleteImg()" class="delete-img"></div>
+                </div>
+
                 <div class="new-post__row">
                     <label for="photo2"></label>
-                    <input id="photo2" type="file" class="feed__what-new_photo">
+                    <input onchange="onFileSelected(event)" id="photo2" type="file" class="feed__what-new_photo">
                     <button class="public-post-popup bg-fiolet">Public post</button>
                     <button class="feed__what-new_post disabled">Post</button>
                 </div>
