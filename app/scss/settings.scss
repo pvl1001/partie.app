@@ -49,20 +49,20 @@
             }
 
             &:nth-child(1) a {
-                background: url('../img/icon/addFriend.png') 0 50% / 17px no-repeat;
+                background: url('../img/icon/addFriend.svg') 0 50% / 17px no-repeat;
 
             }
 
             &:nth-child(2) a {
-                background: url('../img/icon/setting.png') 0 50% / 16.9px no-repeat;
+                background: url('../img/icon/setting.svg') 0 50% / 16.9px no-repeat;
             }
 
             &:nth-child(3) a {
-                background: url('../img/icon/report-f.png') 0 50% / 16px no-repeat;
+                background: url('../img/icon/report-f.svg') 0 50% / 16px no-repeat;
             }
 
             &:nth-child(4) a {
-                background: url('../img/icon/partie-f.png') 0 50% / 14.3px no-repeat;
+                background: url('../img/icon/partie-f.svg') 0 50% / 14.3px no-repeat;
             }
         }
     }
@@ -1128,7 +1128,7 @@
     #Notifications,
     .email-notifications-page,
     #PrivacySafety {
-        //overflow-x: hidden;
+        overflow-x: hidden;
         overflow-y: auto;
     }
 
