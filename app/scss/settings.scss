@@ -48,6 +48,11 @@
                 }
             }
 
+            a {
+                display: block;
+                height: 19px;
+            }
+
             &:nth-child(1) a {
                 background: url('../img/icon/addFriend.svg') 0 50% / 17px no-repeat;
 
