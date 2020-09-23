@@ -566,9 +566,31 @@ function onFileSelected(event) {
 
 
 function deleteImg() {
-    // document.getElementById("myimage").setAttribute('src', '');
-    // document.getElementById("myimage").setAttribute('title', '');
     document.querySelector(".hostLiveShow__img").style.display = 'none'
+}
+
+
+
+function btnPost(el) {
+    let btn = document.querySelector('.feed__what-new_post')
+    if (el.value) {
+        btn.classList.add('btn-yellow')
+    } else {
+        btn.classList.remove('btn-yellow')
+    }
+}
+
+
+let editProfileBtn = document.querySelector('#editProfileBtn')
+let editProfileDescription = document.querySelector('#editProfileDescription')
+let editProfileWebsite = document.querySelector('#editProfileWebsite')
+
+function btnSave() {
+    if (editProfileDescription.value || editProfileWebsite.value) {
+            editProfileBtn.classList.add( 'show-btn' )
+    } else {
+        editProfileBtn.classList.remove('show-btn')
+    }
 }
 
 

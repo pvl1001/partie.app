@@ -11,7 +11,7 @@
                     <div class="game__icon"></div>
                     Apex Legends
                 </button>
-                <textarea maxlength="500" placeholder="What’s new?"></textarea>
+                <textarea oninput="btnPost(this)" maxlength="500" placeholder="What’s new?"></textarea>
 
                 <div class="hostLiveShow__img">
                     <img id="myimage" src="img/pic/Image (2).png"/>
@@ -191,17 +191,19 @@
                 </div>
                 <div class="editProfile__title">Description</div>
 
-                <textarea class="editProfile__description description"
+                <textarea id="editProfileDescription" oninput="btnSave()" class="editProfile__description description"
                           maxlength="500"
                           placeholder="Add description"></textarea>
                 <div class="editProfile__website">
                     <div class="editProfile__title">Website</div>
-                    <input type="text" placeholder="Add website">
+                    <input id="editProfileWebsite" oninput="btnSave()" type="text" placeholder="Add website">
                 </div>
                 <div class="editProfile__account">
-                    Account settings
+                    <a href="/settings.html">
+                        Account settings
+                    </a>
                 </div>
-                <button class="bg-fiolet">Save</button>
+                <button id="editProfileBtn" class="bg-fiolet">Save</button>
             </div>
         </div>
         <div onclick="closeModal(editProfile)" class="modal__backdrop"></div>

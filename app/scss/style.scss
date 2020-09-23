@@ -660,6 +660,26 @@ textarea {
     }
 }
 
+.btn-yellow {
+    background-color: #D2C867 !important;
+    color: #000 !important;
+}
+
+#editProfile button {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+.show-btn {
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: 52px !important;
+    margin-top: 40px !important;
+}
+
 .hostLiveShow__img {
     margin: 0 -20px 20px;
     position: relative;
