@@ -339,21 +339,38 @@ if (window.innerWidth >= 1024) {
 }
 
 
-let arrHeaderMenu = document.querySelectorAll( '.post-menu .header__menu_menu' )
+let headerMenuMobile = document.querySelector( '.post-menu .header__menu_menu' )
 
-for (let headerMenu of arrHeaderMenu) {
-    let links = headerMenu.querySelectorAll( 'a' )
-    for (let link of links)
+let linksMobile = headerMenuMobile.querySelectorAll( 'a' )
+for (let link of linksMobile) {
+    if (window.innerWidth <= 1023) {
         window.addEventListener( 'click', function (e) {
-            if (e.target === headerMenu.children[1] ||
-                e.target === headerMenu.children[1].children[0] ||
+            if (e.target === headerMenuMobile.children[1] ||
+                e.target === headerMenuMobile.children[1].children[0] ||
                 e.target === link) {
-                headerMenu.style.cssText = ''
-                headerMenu.parentNode.style.cssText = ''
+                headerMenuMobile.style.cssText = ''
+                headerMenuMobile.parentElement.style.cssText = ''
                 body.style.overflow = ''
             }
         } )
+    }
 }
+
+let postMenuMenu = document.querySelector( '#postMenu.header__menu_menu' )
+
+
+    let links = postMenuMenu.querySelectorAll( 'a' )
+    if (window.innerWidth >= 1024) {
+        for (let link of links) {
+            window.addEventListener( 'click', function (e) {
+                if (e.target === postMenuMenu.children[0] || e.target === link) {
+                    postMenuMenu.style.cssText = ''
+                    postMenuMenu.parentElement.style.cssText = ''
+                }
+            } )
+        }
+    }
+
 
 
 let shortcuts = document.querySelector( '.shortcuts' )
@@ -511,7 +528,6 @@ if (window.innerWidth <= 1023) {
 
 
 function enterCodeCenter(el) {
-    console.log( el.value.length )
     el.value.length ? el.style.textAlign = 'center' : el.style.textAlign = ''
 }
 

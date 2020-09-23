@@ -289,7 +289,6 @@ let tools = document.querySelectorAll('.round-btn.tool')
         el.addEventListener('mouseover', function () {
             let x = el.getBoundingClientRect().x
             let y = el.getBoundingClientRect().y
-            console.log(x, y)
         })
     }
 
