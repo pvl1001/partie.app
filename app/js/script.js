@@ -60,6 +60,10 @@ let chooseGameSettings = document.querySelector( '#chooseGameSettings' )
 
 document.addEventListener( 'DOMContentLoaded', function () {
 
+    if(window.innerWidth <= 1023) {
+        screen.orientation.lock();
+    }
+
     jQuery( function ($) {
         $( ".card-number" ).mask( "0000 0000 0000 0000" );
         $( ".add-credit-card__input-group .input-date" ).mask( "00/00" );
