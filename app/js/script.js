@@ -599,20 +599,18 @@ function btnSave() {
 }
 
 
-window.addEventListener('orientationchange', function () {
-    if (window.orientation == -90) {
-        alert()
-        // document.getElementById('orient').className = 'orientright';
+$(window).bind('orientationchange', function(e, onready){
+    if(onready){
+        $(document.body).addClass('portrait-onready');
     }
-    if (window.orientation == 90) {
-        alert()
-        // document.getElementById('orient').className = 'orientleft';
+    if (Math.abs(window.orientation) != 90){
+        $(document.body).addClass('portrait');
     }
-    if (window.orientation == 0) {
-        alert()
-        // document.getElementById('orient').className = '';
+    else {
+        $(document.body).removeClass('portrait').removeClass('portrait-onready');
     }
-}, true);
+});
+$(window).trigger('orientationchange', true);
 
 
 @@include( 'slick.min.js' )
