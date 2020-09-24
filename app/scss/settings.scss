@@ -51,6 +51,12 @@
                 display: inline-flex;
                 align-items: center;
                 height: 19px;
+
+                @media screen and (-webkit-max-device-pixel-ratio:1) and (min-color-index:0) {
+                    svg {
+                        margin-top: -4px;
+                    }
+                }
             }
 
             &:nth-child(1) a svg {
