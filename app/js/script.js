@@ -60,10 +60,6 @@ let chooseGameSettings = document.querySelector( '#chooseGameSettings' )
 
 document.addEventListener( 'DOMContentLoaded', function () {
 
-    if(window.innerWidth <= 1023) {
-        screen.orientation.lock();
-    }
-
     jQuery( function ($) {
         $( ".card-number" ).mask( "0000 0000 0000 0000" );
         $( ".add-credit-card__input-group .input-date" ).mask( "00/00" );
@@ -601,6 +597,22 @@ function btnSave() {
         editProfileBtn.classList.remove('show-btn')
     }
 }
+
+
+window.addEventListener('orientationchange', function () {
+    if (window.orientation == -90) {
+        alert()
+        // document.getElementById('orient').className = 'orientright';
+    }
+    if (window.orientation == 90) {
+        alert()
+        // document.getElementById('orient').className = 'orientleft';
+    }
+    if (window.orientation == 0) {
+        alert()
+        // document.getElementById('orient').className = '';
+    }
+}, true);
 
 
 @@include( 'slick.min.js' )
