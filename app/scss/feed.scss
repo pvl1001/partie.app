@@ -280,11 +280,14 @@
         padding-left: 40px;
 
         &::placeholder {
-            //line-height: 40px;
             line-height: normal;
 
             @supports (-webkit-touch-callout: none) {
                 line-height: normal;
+            }
+
+            @-moz-document url-prefix() {
+                line-height: 40px;
             }
         }
     }
