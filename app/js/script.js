@@ -599,18 +599,17 @@ function btnSave() {
 }
 
 
-$(window).bind('orientationchange', function(e, onready){
-    if(onready){
-        $(document.body).addClass('portrait-onready');
+window.addEventListener('orientationchange', function () {
+    if (window.orientation == -90) {
+        document.getElementById('orient').className = 'orientright';
     }
-    if (Math.abs(window.orientation) != 90){
-        $(document.body).addClass('portrait');
+    if (window.orientation == 90) {
+        document.getElementById('orient').className = 'orientleft';
     }
-    else {
-        $(document.body).removeClass('portrait').removeClass('portrait-onready');
+    if (window.orientation == 0) {
+        document.getElementById('orient').className = '';
     }
-});
-$(window).trigger('orientationchange', true);
+}, true);
 
 
 @@include( 'slick.min.js' )

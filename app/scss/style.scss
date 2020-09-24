@@ -1365,13 +1365,14 @@ textarea {
     }
 }
 
-.portrait {
-    -webkit-transform: rotate(90deg);
-    -webkit-transform-origin: 200px 190px;
+.orientleft #shell {
+    -webkit-transform: rotate(-90deg);
+    -webkit-transform-origin:160px 160px;
 }
-.portrait-onready {
+
+.orientright #shell {
     -webkit-transform: rotate(90deg);
-    -webkit-transform-origin: 165px 150px;
+    -webkit-transform-origin:230px 230px;
 }
 
 @media (max-width: 1023px) { // mobile
