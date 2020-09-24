@@ -599,24 +599,24 @@ function btnSave() {
 }
 
 
-function deviceOrientation() {
-    switch(window.orientation) {
-        case 90:
-            body.classList = '';
-            body.classList.add('rotation90');
-            break;
-        case -90:
-            body.classList = '';
-            body.classList.add('rotation-90');
-            break;
-        default:
-            body.classList = '';
-            body.classList.add('portrait');
-            break;
+/**
+ * we are locking mobile devices orientation to portrait mode only
+ */
+var devWidth, devHeight;
+window.addEventListener('load', function() {
+    devWidth  = screen.width;
+    devHeight = screen.height;
+});
+window.addEventListener('orientationchange', function () {
+    if (devWidth < 768 && (window.orientation === 90 || window.orientation == -90)) {
+        document.body.style.width = devWidth + 'px';
+        document.body.style.height = devHeight + 'px';
+        document.body.style.transform = 'rotate(90deg)';
+        document.body.style.transformOrigin = ''+(devHeight/2)+'px '+(devHeight/2)+'px';
+    } else {
+        document.body.removeAttribute('style');
     }
-}
-window.addEventListener('orientationchange', deviceOrientation);
-deviceOrientation();
+}, true);
 
 
 @@include( 'slick.min.js' )

@@ -1365,21 +1365,6 @@ textarea {
     }
 }
 
-@media screen and (orientation: landscape) {
-    body {
-        width: 100vh;
-        height: 100vw;
-        transform-origin: 0 0;
-    }
-}
-
-body.rotation-90 {
-    transform: rotate(90deg) translateY(-100%);
-}
-body.rotation90 {
-    transform: rotate(-90deg) translateX(-100%);
-}
-
 @media (max-width: 1023px) { // mobile
 
     .pc-only {
