@@ -280,16 +280,12 @@
         padding-left: 40px;
 
         &::placeholder {
-            line-height: 40px;
+            //line-height: 40px;
+            line-height: normal;
 
             @supports (-webkit-touch-callout: none) {
                 line-height: normal;
             }
-
-            /* Safari 10.1+ */
-            @media not all and (min-resolution:.001dpcm) { @media {
-                line-height: normal;
-            }}
         }
     }
 
