@@ -599,17 +599,24 @@ function btnSave() {
 }
 
 
-window.addEventListener('orientationchange', function () {
-    if (window.orientation == -90) {
-        body.className = 'orientright';
+function deviceOrientation() {
+    switch(window.orientation) {
+        case 90:
+            body.classList = '';
+            body.classList.add('rotation90');
+            break;
+        case -90:
+            body.classList = '';
+            body.classList.add('rotation-90');
+            break;
+        default:
+            body.classList = '';
+            body.classList.add('portrait');
+            break;
     }
-    if (window.orientation == 90) {
-        body.className = 'orientleft';
-    }
-    if (window.orientation == 0) {
-        body.className = '';
-    }
-}, true);
+}
+window.addEventListener('orientationchange', deviceOrientation);
+deviceOrientation();
 
 
 @@include( 'slick.min.js' )
