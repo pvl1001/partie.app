@@ -76,3 +76,9 @@ function showBtns(el) {
     })
 }
 
+function closeBtns(el) {
+    el.parentElement.classList.add('animate__fadeOutDownBig')
+    el.parentElement.classList.remove('animate__fadeInUp')
+    el.parentElement.parentElement.style.cssText = ''
+}
+
