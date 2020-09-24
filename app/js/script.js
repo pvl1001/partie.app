@@ -601,13 +601,13 @@ function btnSave() {
 
 window.addEventListener('orientationchange', function () {
     if (window.orientation == -90) {
-        document.getElementById('orient').className = 'orientright';
+        body.className = 'orientright';
     }
     if (window.orientation == 90) {
-        document.getElementById('orient').className = 'orientleft';
+        body.className = 'orientleft';
     }
     if (window.orientation == 0) {
-        document.getElementById('orient').className = '';
+        body.className = '';
     }
 }, true);
 
