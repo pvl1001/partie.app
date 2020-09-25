@@ -1543,6 +1543,14 @@ textarea {
         .burger__wrapp .burger__menu li a svg {
             margin-top: -3px;
         }
+
+        @media screen and (-webkit-min-device-pixel-ratio:0)
+        and (min-resolution:.001dpcm) {
+            .burger__wrapp .burger__menu li:nth-child(1) a svg,
+            .burger__wrapp .burger__menu li:nth-child(2) a svg {
+                margin-top: -4px;
+            }
+        }
     }
 }
 
