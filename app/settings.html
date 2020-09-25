@@ -189,12 +189,48 @@
                                 <div class="input-box__title">Date of Birth</div>
                                 <input type="text">
                             </div>
-                            <input type="submit" class="change-password" value="Change password">
+                            <div onclick="openSettings(changePasswordPage)" class="change-password">Change password</div>
                         </form>
                         <div class="delete-account__wrapp">
                             <span onclick="openModal(deleteAccount)" class="delete-account">Delet account</span>
                         </div>
                     </div>
+                    <div class="change-password-page">
+                        <div class="feed__col3_header">
+                            <svg id="back" onclick="backSettings(changePasswordPage)" class="btn-back" width="24"
+                                 height="24"
+                                 fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 4l-8 8 8 8" stroke="#F8F6FF" stroke-width="2"></path>
+                                <path d="M2 12h20.571" stroke="#EBEBF5" stroke-width="2"></path>
+                            </svg>
+                            Change Password
+                        </div>
+                        <form action="">
+                            <div class="sign-up__form">
+                                <div class="title">Old Password</div>
+                                <input placeholder="At least 6 characters" type="password">
+                                <div class="hint animate__animated animate__fadeInDown">
+                                    You’ll need to verify that you own email
+                                    account.
+                                </div>
+                            </div>
+                            <div class="sign-up__form">
+                                <div class="title">New Password</div>
+                                <input placeholder="At least 6 characters" type="password">
+                            </div>
+                            <div class="sign-up__form">
+                                <div class="title">Repeat New Password</div>
+                                <input class="valid-error" placeholder="At least 6 characters" type="password">
+                                <div class="hint error animate__animated animate__fadeInDown">
+                                    Password doesn’t match
+                                </div>
+                            </div>
+                            <button type="submit" class="bg-fiolet">Save</button>
+                        </form>
+
+
+                    </div>
+
                 </div>
 
                 <div id="Preferences" class="tabcontent-setting">
@@ -672,7 +708,7 @@
                                 </svg>
                                 Facebook
                             </label>
-                            <label for="LinkedFacebook" class="checkbox" ></label>
+                            <label for="LinkedFacebook" class="checkbox"></label>
                         </div>
                         <div class="input-row">
                             <input disabled id="LinkedGoogle" name="LinkedAccounts" type="checkbox">

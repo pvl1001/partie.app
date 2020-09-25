@@ -316,6 +316,14 @@ input[type=date] {
     align-items: center;
 }
 
+.valid-ok {
+    background: url('../img/icon/ok.png') calc(100% - 23px) center / 10px no-repeat;
+}
+
+.valid-error {
+    border-color: #F45365;
+}
+
 .pointer {
     cursor: pointer;
 }

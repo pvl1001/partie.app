@@ -270,7 +270,7 @@
 
         .change-password {
             font-weight: 700;
-            margin-top: 20px;
+            margin-top: 40px;
             border: 0;
             width: auto;
             padding: 0;
@@ -488,6 +488,36 @@
 
                 .paypal {
                     background: #17171A url('../img/icon/paypel.png') 20px 50% / 18.6px no-repeat;
+                }
+            }
+        }
+
+        #Account {
+            .change-password-page {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-color: #000;
+                top: 0;
+                //left: 0;
+                left: 100%;
+                padding: 0 20px;
+                transition: .5s;
+
+                form {
+                    .sign-up__form {
+                        margin-bottom: 20px;
+                    }
+
+                    .title {
+                        font-size: 13px;
+                        font-weight: 400;
+                        margin-bottom: 10px;
+                    }
+
+                    button {
+                        margin-top: 40px;
+                    }
                 }
             }
         }
