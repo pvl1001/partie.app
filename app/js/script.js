@@ -599,7 +599,7 @@ function btnSave() {
 }
 
 if(navigator.userAgent.indexOf('Mac') > 0)
-    document.querySelector('.burger__wrapp .burger__menu li a svg')[0].className += " mac-os";
+    document.querySelector('.burger__wrapp .burger__menu li a svg').className += " mac-os";
 
 
 @@include( 'slick.min.js' )
