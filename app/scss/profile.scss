@@ -538,10 +538,164 @@
 
 #applyPartner {
     //top: 0;
+
+    .bg-animate {
+        position: absolute;
+
+        @media (max-width: 1023px) {
+            z-index: 1;
+        }
+    }
+
+    .bg-animate.yellow-blue {
+
+        .line-1 {
+            background-color: #D2C867;
+        }
+        .line-2 {
+            background-color: #D2C867;
+        }
+        .line-3 {
+            background-color: #D2C867;
+        }
+        .line-4 {
+            background-color: #D2C867;
+        }
+        .line-5 {
+            background-color: #D2C867;
+        }
+        .line-6 {
+            background-color:  #184292;
+        }
+        .line-7 {
+            background-color: #184292;
+        }
+        .line-8 {
+            background-color:  #184292;
+        }
+        .line-9 {
+            background-color:  #184292;
+        }
+        .line-10 {
+            background-color: #D2C867;
+        }
+        .line-11 {
+            background-color: #D2C867;
+        }
+        .line-12 {
+            background-color:  #184292;
+        }
+        .line-13 {
+            background-color:  #184292;
+        }
+    }
+
+    .screen-1 {
+        animation-name: line2;
+        animation-duration: 100s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        height: inherit;
+
+
+        @keyframes line2 {
+            0% {
+                top: -150%;
+            }
+            100% {
+                top: 100%;
+            }
+        }
+
+        .line2 {
+            position: absolute;
+        }
+
+        .line-1 {
+            left: 3%;
+        }
+
+        .line-2 {
+            left: 4%;
+        }
+
+        .line-3 {
+            left: 12%;
+        }
+
+        .line-4 {
+            left: 18%;
+        }
+
+        .line-5 {
+            left: 25%;
+        }
+
+        .line-6 {
+            left: 47%;
+        }
+
+        .line-7 {
+            left: 66%;
+        }
+
+        .line-8 {
+            left: 60%;
+        }
+
+        .line-9 {
+            left: 78%;
+        }
+
+        .line-10 {
+            left: 72%;
+        }
+
+        .line-11 {
+            left: 63%;
+        }
+        .line-12 {
+            left: 24%;
+        }
+        .line-13 {
+            left: 69%;
+        }
+    }
+
+    .screen-2 {
+        animation-name: line3;
+        animation-duration: 100s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        height: inherit;
+        animation-delay: 50s;
+
+        @keyframes line3 {
+            0% {
+                top: -200%;
+            }
+            100% {
+                top: 100%;
+            }
+        }
+
+        .line2 {
+            position: absolute;
+        }
+    }
+
+
+
     .modal__content {
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        @media (max-width: 1023px) {
+            > *:not(.bg-animate) {
+                z-index: 2;
+            }
+        }
 
         img {
             margin-bottom: 20px;
