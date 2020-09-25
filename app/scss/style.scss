@@ -334,10 +334,6 @@ input[type=date] {
     cursor: auto !important;
 }
 
-.mac-os {
-    margin-top: -4px;
-}
-
 .token-opacity {
     opacity: .5;
 }
@@ -1537,6 +1533,14 @@ textarea {
         z-index: 1;
     }
 
+}
+
+
+.mac-os {  // style MAC OS
+
+    .burger__wrapp .burger__menu li a svg {
+        margin-top: -4px;
+    }
 }
 
 

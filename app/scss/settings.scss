@@ -53,11 +53,11 @@
                 height: 19px;
 
                 //@media not all and (min-resolution:.001dpcm){ @supports (-webkit-appearance:none) {
-                //@media screen and (-webkit-min-device-pixel-ratio:0) {
-                //    svg {
-                //        margin-top: -4px;
-                //    }
-                //}
+                @media screen and (-webkit-min-device-pixel-ratio:0) {
+                    svg {
+                        margin-top: -4px;
+                    }
+                }
             }
 
             &:nth-child(1) a svg {
