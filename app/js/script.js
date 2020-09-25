@@ -280,6 +280,7 @@ function openModal(modal) { // modal
         modal.style.zIndex = '2'
         modal.style.opacity = '1'
         modal.children[0].style.left = '0'
+        modal.children[0].style.bottom = '0'
 
         if (modal === share) modal.style.zIndex = '14'
     }
