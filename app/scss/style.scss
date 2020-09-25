@@ -1536,12 +1536,16 @@ textarea {
 }
 
 
-.mac-os {  // style MAC OS
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    /* this will target only Mac Safari and Chrome browsers */
 
-    .burger__wrapp .burger__menu li a svg {
-        margin-top: -3px;
+    .mac-os {
+        .burger__wrapp .burger__menu li a svg {
+            margin-top: -3px;
+        }
     }
 }
+
 
 
 
