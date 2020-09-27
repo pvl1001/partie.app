@@ -602,7 +602,6 @@ function btnSave() {
 if(navigator.userAgent.indexOf('Mac') > 0)
     body.className += " mac-os";
 
-
 @@include( 'slick.min.js' )
 @@include( '_loginButtons.js' )
 @@include( 'feed.js' )
