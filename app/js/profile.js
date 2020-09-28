@@ -265,9 +265,9 @@ function openTabFeed(evt, Tab) {
         tabcontent[i].style.opacity = "0";
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.position = "fixed";
-        if (window.innerWidth <= 1023) {
-            tabcontent[i].style.width = window.innerWidth + 'px'
-        }
+        // if (window.innerWidth <= 1023) {
+        //     tabcontent[i].style.width = window.innerWidth + 'px'
+        // }
     }
 
     // Get all elements with class="tablinks" and remove the class "active"
