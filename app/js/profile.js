@@ -9,7 +9,7 @@ function openTab(evt, Tab) {
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.height = "0";
         if (window.innerWidth <= 1023) {
-            tabcontent[i].style.width = window.innerWidth - 40 + 'px'
+            // tabcontent[i].style.width = window.innerWidth - 40 + 'px'
         }
     }
 
@@ -136,7 +136,7 @@ function openFoll(evt, Tab) {
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.position = "fixed";
         if (window.innerWidth <= 1023) {
-            tabcontent[i].style.width = window.innerWidth - 40 + 'px'
+            // tabcontent[i].style.width = window.innerWidth - 40 + 'px'
         }
     }
 
@@ -232,7 +232,7 @@ function openTabPatie(evt, Tab) {
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.position = "fixed";
         if (window.innerWidth <= 1023) {
-            tabcontent[i].style.width = window.innerWidth - 40 + 'px'
+            // tabcontent[i].style.width = window.innerWidth - 40 + 'px'
         }
     }
 

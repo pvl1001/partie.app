@@ -62,7 +62,7 @@ function openTabSearch(evt, Tab) {
         tabcontent[i].style.transform = "scale(.95)";
         tabcontent[i].style.position = "fixed";
         if(window.innerWidth <= 1023) {
-            tabcontent[i].style.width = window.innerWidth - 40 + 'px'
+            // tabcontent[i].style.width = window.innerWidth - 40 + 'px'
         }
     }
 
