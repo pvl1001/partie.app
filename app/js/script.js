@@ -327,8 +327,8 @@ let postMenu = document.querySelector( '#postMenu' )
 
 if (window.innerWidth >= 1024) {
     for (let el of arrHeedHeaderMenu) {
-
         el.onclick = function () {
+            $(this).addClass('opened');
             let x = el.getBoundingClientRect()
             postMenu.style.position = 'fixed'
             postMenu.style.left = x.left + 'px'
@@ -337,6 +337,14 @@ if (window.innerWidth >= 1024) {
             postMenu.style.opacity = '1'
         }
     }
+
+    $(window).on('scroll', function (e) {
+        let headerMenuOpened = $('.feed__header_menu.opened')
+
+        if (headerMenuOpened.length >= 1) {
+            postMenu.style.top = $('.feed__header_menu.opened').offset().top - window.scrollY + 42 + 'px'
+        }
+    });
 }
 
 
@@ -368,6 +376,7 @@ if (links !== null && postMenuMenu !== null) {
         for (let link of links) {
             window.addEventListener( 'click', function (e) {
                 if (e.target === postMenuMenu.children[0] || e.target === link) {
+                    $('.feed__header_menu').removeClass('opened')
                     postMenuMenu.style.cssText = ''
                     postMenuMenu.parentElement.style.cssText = ''
                 }
