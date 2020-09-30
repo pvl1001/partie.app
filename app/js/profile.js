@@ -168,15 +168,15 @@ let showPs = false
 function showBtnPs() {
     if (window.innerWidth >= 1024) { // pc
         showPs = !showPs
-        let btn = document.querySelector( '#ps' )
+        let btns = $('.hide-buttons')
         let show = document.querySelector( '.show-all' )
 
         if (showPs) {
-            btn.style.height = '64px'
+            btns.height(64)
             show.innerHTML = 'Hide'
             show.style.opacity = '.4'
         } else {
-            btn.style.height = ''
+            btns.height(0)
             show.innerHTML = 'Show all'
             show.style.opacity = ''
         }

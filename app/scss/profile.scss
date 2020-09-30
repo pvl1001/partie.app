@@ -145,6 +145,13 @@
             transition: .3s;
         }
 
+        .add {
+            height: 0;
+            overflow: hidden;
+            background: rgba(20,19,26,.8);
+            transition: .3s;
+        }
+
         .info_avatar__twich {
             padding: 20px;
             border-radius: 20px;

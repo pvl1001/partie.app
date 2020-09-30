@@ -17,7 +17,9 @@ let applyPartner = document.querySelector( '#applyPartner' )
 let editProfile = document.querySelector( '#editProfile' )
 let hostPartie = document.querySelector( '#hostPartie' )
 let hostPlatform = document.querySelector( '#hostPlatform' )
+let hostPlatformFromProfile = document.querySelector( '#hostPlatformFromProfile' )
 let gametrag = document.querySelector( '#gametrag' )
+let gamertagFromProfile = document.querySelector( '#gamertagFromProfile' )
 let gametragPlatform = document.querySelector( '#gametragPlatform' )
 let addGametrag = document.querySelector( '#addGametrag' )
 let hostLiveShow = document.querySelector( '#hostLiveShow' )
@@ -328,7 +330,6 @@ let postMenu = document.querySelector( '#postMenu' )
 if (window.innerWidth >= 1024) {
     for (let el of arrHeedHeaderMenu) {
         el.onclick = function () {
-            $(this).addClass('opened');
             let x = el.getBoundingClientRect()
             postMenu.style.position = 'fixed'
             postMenu.style.left = x.left + 'px'
@@ -339,11 +340,7 @@ if (window.innerWidth >= 1024) {
     }
 
     $(window).on('scroll', function (e) {
-        let headerMenuOpened = $('.feed__header_menu.opened')
-
-        if (headerMenuOpened.length >= 1) {
-            postMenu.style.top = $('.feed__header_menu.opened').offset().top - window.scrollY + 42 + 'px'
-        }
+        postMenu.style.cssText = ''
     });
 }
 
