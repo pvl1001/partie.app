@@ -42,7 +42,7 @@
             color: rgba(235, 235, 245, .4);
             margin-bottom: 20px;
             font-size: 17px;
-            line-height: 22px;
+            line-height: 2.6;
             font-weight: 400;
         }
 
@@ -100,7 +100,7 @@
 
             button.followers-only-btn {
                 padding-left: 30px;
-                background: rgba(20, 19, 26, .8) url('../img/icon/lock.svg') 12px 50% / 11px 12px no-repeat;
+                background: rgba(20, 19, 26, .8) url('../img/icon/lock.svg') 12px 47% / 11px 12px no-repeat;
                 width: auto;
                 height: 32px;
                 padding-right: 12px;
@@ -175,6 +175,7 @@
             cursor: pointer;
             font-size: 13px;
             line-height: 17px;
+            top: 2px;
         }
 
         input {
