@@ -1,9 +1,6 @@
 function openSetting(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName( "tabcontent-setting" );
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
+    var i, tablinks;
+    $('.tabcontent-setting').hide();
     tablinks = document.getElementsByClassName( "tablinks-setting" );
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace( " active", "" );
