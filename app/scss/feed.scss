@@ -1561,8 +1561,7 @@
     }
 
     #newPost .modal {
-        display: flex;
-        flex-direction: column;
+        display: block;
 
         .modal__content {
             flex-grow: 1;
