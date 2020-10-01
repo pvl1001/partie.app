@@ -16,6 +16,31 @@
         }
 
         .notifications__content {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            overflow-y: auto;
+            padding-top: 70px;
+
+            /* хром, сафари */
+            &::-webkit-scrollbar {
+                width: 0;
+            }
+
+            /* ie 10+ */
+            & {
+                -ms-overflow-style: none;
+            }
+
+            /* фф (свойство больше не работает, других способов тоже нет)*/
+            & {
+                overflow: -moz-scrollbars-none;
+            }
+
+            @media (max-width: 1023px) {
+                width: calc(100% - 40px);
+            }
 
             .requests {
                 margin-bottom: 20px;
@@ -104,12 +129,16 @@
 
         .notifications__content.follow-requests {
             position: absolute;
-            top: 0;
+            top: -70px;
             left: 100%;
             min-height: 100%;
             width: 100%;
             background: #000;
             transition: .5s;
+
+            @media (max-width: 1023px) {
+                top: 0;
+            }
 
             .btn-back {
                 top: auto;
