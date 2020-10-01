@@ -683,6 +683,21 @@
         top: 0;
         bottom: 0;
 
+        /* хром, сафари */
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+
+        /* ie 10+ */
+        & {
+            -ms-overflow-style: none;
+        }
+
+        /* фф (свойство больше не работает, других способов тоже нет)*/
+        & {
+            overflow: -moz-scrollbars-none;
+        }
+
         @media (max-width: 1023px) {
             overflow: initial;
         }
