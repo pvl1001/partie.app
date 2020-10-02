@@ -89,6 +89,8 @@ if (window.innerWidth <= 1023) {
 let profileProgressModal = document.querySelector( '#profileProgress .modal' )
 let closeTap = document.querySelector( '#profileProgress .close-tap' )
 if (window.innerWidth <= 1023) {
+    $('.tokens-mobile-wrap').swipe( {allowPageScroll: "auto"} );
+
     $( function () {
         $( "#profileProgress .close-tap-wrapp" ).swipe( {
             swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
