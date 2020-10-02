@@ -766,6 +766,11 @@
                 }
 
                 .feed__friend_name {
+                    a {
+                        word-wrap: break-word;
+                        word-break: break-all;
+                    }
+
                     .level {
                         margin-top: 6px;
                         line-height: 100%;
