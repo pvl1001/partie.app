@@ -883,6 +883,8 @@
                         margin-bottom: 20px;
                         cursor: pointer;
                         position: relative;
+                        min-width: 70px;
+                        min-height: 80px;
 
                         &:nth-child(5n) {
                             margin-right: 0;
@@ -1283,6 +1285,25 @@
         display: none !important;
     }
 
+    .tokens-mobile-wrap {
+        overflow-x: auto;
+        padding: 0 20px;
+        margin-left: -20px;
+
+        .tokens-mobile {
+            &:after {
+                content: '';
+                display: block;
+                min-width: 1px;
+                min-height: 80px;
+            }
+
+            .token {
+                margin-right: 20px !important;
+            }
+        }
+    }
+
     .tokens-mobile {
         display: flex;
     }
@@ -1321,10 +1342,6 @@
             left: 0;
             background-color: #fff;
         }
-    }
-
-    #levelProgress .modal__content .level-progress__tab .tabcontent .tokens .token:nth-child(5n) {
-        margin-right: 20px;
     }
 
     .editProfile__save {
