@@ -204,7 +204,7 @@ function next(open, close) {
             closeModal( close )
         }
         if (open === welcomeMobile) {
-            location.href = '/feed.html'
+            location.href = './feed.html'
         }
 
 
