@@ -156,6 +156,7 @@ gulp.task('deploy', function() {
        .pipe(ghPages());
 })
 
+
 let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts), fontsStyle)
 let watch = gulp.parallel(build, watchFile, browserSync)
 
