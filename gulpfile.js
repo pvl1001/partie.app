@@ -120,7 +120,7 @@ function fonts() { //конвертация шрифтов
 
 function fontsStyle() { //автоматическое подключение шрифтов
     let file_content = fs.readFileSync(source_folder + '/scss/fonts.scss');
-    if (file_content == '') {
+    if (file_content === '') {
         fs.writeFile(source_folder + '/scss/fonts.scss', '', cb);
         return fs.readdir(path.build.fonts, function (err, items) {
             if (items) {
@@ -128,7 +128,7 @@ function fontsStyle() { //автоматическое подключение ш
                 for (var i = 0; i < items.length; i++) {
                     let fontname = items[i].split('.');
                     fontname = fontname[0];
-                    if (c_fontname != fontname) {
+                    if (c_fontname !== fontname) {
                         fs.appendFile(source_folder + '/scss/fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
                     }
                     c_fontname = fontname;
@@ -157,7 +157,7 @@ gulp.task('deploy', function() {
 })
 
 
-let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts), fontsStyle)
+let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts))
 let watch = gulp.parallel(build, watchFile, browserSync)
 
 exports.fontsStyle = fontsStyle
